@@ -7,35 +7,127 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46131BD62088006B97F2 /* HelpViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */; };
+		BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */; };
+		BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */; };
+		BA512E5F1BA597DD008AE31B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA512E5E1BA597DD008AE31B /* SettingViewController.swift */; };
+		BA512E621BA59D6F008AE31B /* UtilityClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E611BA59D6F008AE31B /* UtilityClass.m */; };
+		BA512E661BA59E13008AE31B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E651BA59E13008AE31B /* MBProgressHUD.m */; };
+		BA512E7F1BA59E43008AE31B /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E691BA59E43008AE31B /* IQBarButtonItem.m */; };
+		BA512E801BA59E43008AE31B /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA512E6A1BA59E43008AE31B /* IQKeyboardManager.bundle */; };
+		BA512E811BA59E43008AE31B /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E6C1BA59E43008AE31B /* IQKeyboardManager.m */; };
+		BA512E821BA59E43008AE31B /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E701BA59E43008AE31B /* IQNSArray+Sort.m */; };
+		BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E721BA59E43008AE31B /* IQSegmentedNextPrevious.m */; };
+		BA512E841BA59E43008AE31B /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E741BA59E43008AE31B /* IQTextView.m */; };
+		BA512E851BA59E43008AE31B /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E761BA59E43008AE31B /* IQTitleBarButtonItem.m */; };
+		BA512E861BA59E43008AE31B /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E781BA59E43008AE31B /* IQToolbar.m */; };
+		BA512E871BA59E43008AE31B /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E7A1BA59E43008AE31B /* IQUIView+Hierarchy.m */; };
+		BA512E881BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E7C1BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m */; };
+		BA512E891BA59E43008AE31B /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA512E7E1BA59E43008AE31B /* IQUIWindow+Hierarchy.m */; };
+		BA512E8B1BA5C054008AE31B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA512E8A1BA5C054008AE31B /* Default-568h@2x.png */; };
+		BA512E911BA5EA23008AE31B /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA512E8F1BA5EA23008AE31B /* Main_ipad.storyboard */; };
 		BAB91BA41BA271DB0033DCA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB91BA31BA271DB0033DCA6 /* AppDelegate.swift */; };
-		BAB91BA61BA271DB0033DCA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB91BA51BA271DB0033DCA6 /* ViewController.swift */; };
 		BAB91BA91BA271DB0033DCA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB91BA71BA271DB0033DCA6 /* Main.storyboard */; };
 		BAB91BAB1BA271DB0033DCA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB91BAA1BA271DB0033DCA6 /* Images.xcassets */; };
-		BAB91BAE1BA271DB0033DCA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB91BAC1BA271DB0033DCA6 /* LaunchScreen.xib */; };
-		BAB91BBA1BA271DB0033DCA6 /* SalesGame_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB91BB91BA271DB0033DCA6 /* SalesGame_swiftTests.swift */; };
+		BAB91BD81BA273010033DCA6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BD61BA273010033DCA6 /* Bolts.framework */; };
+		BAB91BD91BA273010033DCA6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BD71BA273010033DCA6 /* Parse.framework */; };
+		BAB91BDB1BA2730C0033DCA6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BDA1BA2730C0033DCA6 /* UIKit.framework */; };
+		BAB91BDD1BA273200033DCA6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BDC1BA273200033DCA6 /* SystemConfiguration.framework */; };
+		BAB91BDF1BA2732B0033DCA6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BDE1BA2732B0033DCA6 /* StoreKit.framework */; };
+		BAB91BE11BA273330033DCA6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BE01BA273330033DCA6 /* Security.framework */; };
+		BAB91BE31BA273390033DCA6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BE21BA273390033DCA6 /* QuartzCore.framework */; };
+		BAB91BE51BA273480033DCA6 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BE41BA273480033DCA6 /* libstdc++.6.dylib */; };
+		BAB91BE71BA273520033DCA6 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BE61BA273520033DCA6 /* libz.1.1.3.dylib */; };
+		BAB91BE91BA2735E0033DCA6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BE81BA2735E0033DCA6 /* libsqlite3.dylib */; };
+		BAB91BEB1BA273660033DCA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BEA1BA273660033DCA6 /* Foundation.framework */; };
+		BAB91BED1BA2736F0033DCA6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BEC1BA2736F0033DCA6 /* CoreLocation.framework */; };
+		BAB91BEF1BA273760033DCA6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BEE1BA273760033DCA6 /* CoreGraphics.framework */; };
+		BAB91BF11BA2737F0033DCA6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BF01BA2737F0033DCA6 /* CFNetwork.framework */; };
+		BAB91BF31BA273850033DCA6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BF21BA273850033DCA6 /* AudioToolbox.framework */; };
+		BAB91BF51BA2738F0033DCA6 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BF41BA2738F0033DCA6 /* Accounts.framework */; };
+		BAB91BF71BA273970033DCA6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BF61BA273970033DCA6 /* Social.framework */; };
+		BAB91BF91BA2739E0033DCA6 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BF81BA2739E0033DCA6 /* AdSupport.framework */; };
+		BAEA6E441BA3419800558565 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA6E431BA3419800558565 /* LoginViewController.swift */; };
+		BAEA6E461BA3425400558565 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA6E451BA3425400558565 /* SignUpViewController.swift */; };
+		BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA6E471BA347EB00558565 /* HomeViewController.swift */; };
+		BAEA6E4A1BA34B8000558565 /* AllCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA6E491BA34B8000558565 /* AllCategoryViewController.swift */; };
+		BAEA6E4C1BA3523B00558565 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA6E4B1BA3523B00558565 /* QuestionViewController.swift */; };
+		BAEA6E4E1BA3532300558565 /* GeneralClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA6E4D1BA3532300558565 /* GeneralClass.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BAB91BB41BA271DB0033DCA6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BAB91B961BA271DB0033DCA6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BAB91B9D1BA271DB0033DCA6;
-			remoteInfo = SalesGame_swift;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
+		96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		96DD46131BD62088006B97F2 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnScoreViewController.swift; sourceTree = "<group>"; };
+		BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
+		BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
+		BA512E5E1BA597DD008AE31B /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		BA512E601BA59D6F008AE31B /* UtilityClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityClass.h; sourceTree = "<group>"; };
+		BA512E611BA59D6F008AE31B /* UtilityClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityClass.m; sourceTree = "<group>"; };
+		BA512E641BA59E13008AE31B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		BA512E651BA59E13008AE31B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		BA512E681BA59E43008AE31B /* IQBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQBarButtonItem.h; sourceTree = "<group>"; };
+		BA512E691BA59E43008AE31B /* IQBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQBarButtonItem.m; sourceTree = "<group>"; };
+		BA512E6A1BA59E43008AE31B /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		BA512E6B1BA59E43008AE31B /* IQKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManager.h; sourceTree = "<group>"; };
+		BA512E6C1BA59E43008AE31B /* IQKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardManager.m; sourceTree = "<group>"; };
+		BA512E6D1BA59E43008AE31B /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
+		BA512E6E1BA59E43008AE31B /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
+		BA512E6F1BA59E43008AE31B /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
+		BA512E701BA59E43008AE31B /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
+		BA512E711BA59E43008AE31B /* IQSegmentedNextPrevious.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSegmentedNextPrevious.h; sourceTree = "<group>"; };
+		BA512E721BA59E43008AE31B /* IQSegmentedNextPrevious.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSegmentedNextPrevious.m; sourceTree = "<group>"; };
+		BA512E731BA59E43008AE31B /* IQTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTextView.h; sourceTree = "<group>"; };
+		BA512E741BA59E43008AE31B /* IQTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTextView.m; sourceTree = "<group>"; };
+		BA512E751BA59E43008AE31B /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTitleBarButtonItem.h; sourceTree = "<group>"; };
+		BA512E761BA59E43008AE31B /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTitleBarButtonItem.m; sourceTree = "<group>"; };
+		BA512E771BA59E43008AE31B /* IQToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQToolbar.h; sourceTree = "<group>"; };
+		BA512E781BA59E43008AE31B /* IQToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQToolbar.m; sourceTree = "<group>"; };
+		BA512E791BA59E43008AE31B /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
+		BA512E7A1BA59E43008AE31B /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
+		BA512E7B1BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
+		BA512E7C1BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
+		BA512E7D1BA59E43008AE31B /* IQUIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIWindow+Hierarchy.h"; sourceTree = "<group>"; };
+		BA512E7E1BA59E43008AE31B /* IQUIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIWindow+Hierarchy.m"; sourceTree = "<group>"; };
+		BA512E8A1BA5C054008AE31B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BA512E901BA5EA23008AE31B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
+		BA512E921BA5EBEE008AE31B /* checkDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = checkDevice.h; sourceTree = "<group>"; };
 		BAB91B9E1BA271DB0033DCA6 /* SalesGame_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalesGame_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB91BA21BA271DB0033DCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAB91BA31BA271DB0033DCA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BAB91BA51BA271DB0033DCA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BAB91BA81BA271DB0033DCA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAB91BAA1BA271DB0033DCA6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BAB91BAD1BA271DB0033DCA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		BAB91BB31BA271DB0033DCA6 /* SalesGame_swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalesGame_swiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB91BB81BA271DB0033DCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAB91BB91BA271DB0033DCA6 /* SalesGame_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesGame_swiftTests.swift; sourceTree = "<group>"; };
+		BAB91BD61BA273010033DCA6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		BAB91BD71BA273010033DCA6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		BAB91BDA1BA2730C0033DCA6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BAB91BDC1BA273200033DCA6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BAB91BDE1BA2732B0033DCA6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		BAB91BE01BA273330033DCA6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BAB91BE21BA273390033DCA6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BAB91BE41BA273480033DCA6 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		BAB91BE61BA273520033DCA6 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		BAB91BE81BA2735E0033DCA6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		BAB91BEA1BA273660033DCA6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BAB91BEC1BA2736F0033DCA6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BAB91BEE1BA273760033DCA6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BAB91BF01BA2737F0033DCA6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BAB91BF21BA273850033DCA6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BAB91BF41BA2738F0033DCA6 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		BAB91BF61BA273970033DCA6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		BAB91BF81BA2739E0033DCA6 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		BAB91BFA1BA273B20033DCA6 /* SalesGame_swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SalesGame_swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		BAEA6E431BA3419800558565 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BAEA6E451BA3425400558565 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BAEA6E471BA347EB00558565 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BAEA6E491BA34B8000558565 /* AllCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCategoryViewController.swift; sourceTree = "<group>"; };
+		BAEA6E4B1BA3523B00558565 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		BAEA6E4D1BA3532300558565 /* GeneralClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,25 +135,121 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BAB91BB01BA271DB0033DCA6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				BAB91BF91BA2739E0033DCA6 /* AdSupport.framework in Frameworks */,
+				BAB91BF71BA273970033DCA6 /* Social.framework in Frameworks */,
+				BAB91BF51BA2738F0033DCA6 /* Accounts.framework in Frameworks */,
+				BAB91BF31BA273850033DCA6 /* AudioToolbox.framework in Frameworks */,
+				BAB91BF11BA2737F0033DCA6 /* CFNetwork.framework in Frameworks */,
+				BAB91BEF1BA273760033DCA6 /* CoreGraphics.framework in Frameworks */,
+				BAB91BED1BA2736F0033DCA6 /* CoreLocation.framework in Frameworks */,
+				BAB91BEB1BA273660033DCA6 /* Foundation.framework in Frameworks */,
+				BAB91BE91BA2735E0033DCA6 /* libsqlite3.dylib in Frameworks */,
+				BAB91BE71BA273520033DCA6 /* libz.1.1.3.dylib in Frameworks */,
+				BAB91BE51BA273480033DCA6 /* libstdc++.6.dylib in Frameworks */,
+				BAB91BE31BA273390033DCA6 /* QuartzCore.framework in Frameworks */,
+				BAB91BE11BA273330033DCA6 /* Security.framework in Frameworks */,
+				BAB91BDF1BA2732B0033DCA6 /* StoreKit.framework in Frameworks */,
+				BAB91BDD1BA273200033DCA6 /* SystemConfiguration.framework in Frameworks */,
+				BAB91BDB1BA2730C0033DCA6 /* UIKit.framework in Frameworks */,
+				BAB91BD91BA273010033DCA6 /* Parse.framework in Frameworks */,
+				BAB91BD81BA273010033DCA6 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96212CEF1BD5D2C60034EA4B /* SubCategoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */,
+			);
+			name = SubCategoryVC;
+			sourceTree = "<group>";
+		};
+		96DD460F1BD60EE8006B97F2 /* ResetPasswordVC */ = {
+			isa = PBXGroup;
+			children = (
+				96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */,
+			);
+			name = ResetPasswordVC;
+			sourceTree = "<group>";
+		};
+		96DD46121BD62078006B97F2 /* HelpVC */ = {
+			isa = PBXGroup;
+			children = (
+				96DD46131BD62088006B97F2 /* HelpViewController.swift */,
+			);
+			name = HelpVC;
+			sourceTree = "<group>";
+		};
+		BA1DA1E61BA5335B00AF7A62 /* OwnScoreVC */ = {
+			isa = PBXGroup;
+			children = (
+				BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */,
+			);
+			name = OwnScoreVC;
+			path = ../OwnScoreVC;
+			sourceTree = "<group>";
+		};
+		BA1DA1E91BA5343200AF7A62 /* HighScoreVC */ = {
+			isa = PBXGroup;
+			children = (
+				BA1DA1E61BA5335B00AF7A62 /* OwnScoreVC */,
+				BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */,
+				BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */,
+			);
+			path = HighScoreVC;
+			sourceTree = "<group>";
+		};
+		BA512E631BA59E13008AE31B /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				BA512E641BA59E13008AE31B /* MBProgressHUD.h */,
+				BA512E651BA59E13008AE31B /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		BA512E671BA59E43008AE31B /* IQKeyBoardManager */ = {
+			isa = PBXGroup;
+			children = (
+				BA512E681BA59E43008AE31B /* IQBarButtonItem.h */,
+				BA512E691BA59E43008AE31B /* IQBarButtonItem.m */,
+				BA512E6A1BA59E43008AE31B /* IQKeyboardManager.bundle */,
+				BA512E6B1BA59E43008AE31B /* IQKeyboardManager.h */,
+				BA512E6C1BA59E43008AE31B /* IQKeyboardManager.m */,
+				BA512E6D1BA59E43008AE31B /* IQKeyboardManagerConstants.h */,
+				BA512E6E1BA59E43008AE31B /* IQKeyboardManagerConstantsInternal.h */,
+				BA512E6F1BA59E43008AE31B /* IQNSArray+Sort.h */,
+				BA512E701BA59E43008AE31B /* IQNSArray+Sort.m */,
+				BA512E711BA59E43008AE31B /* IQSegmentedNextPrevious.h */,
+				BA512E721BA59E43008AE31B /* IQSegmentedNextPrevious.m */,
+				BA512E731BA59E43008AE31B /* IQTextView.h */,
+				BA512E741BA59E43008AE31B /* IQTextView.m */,
+				BA512E751BA59E43008AE31B /* IQTitleBarButtonItem.h */,
+				BA512E761BA59E43008AE31B /* IQTitleBarButtonItem.m */,
+				BA512E771BA59E43008AE31B /* IQToolbar.h */,
+				BA512E781BA59E43008AE31B /* IQToolbar.m */,
+				BA512E791BA59E43008AE31B /* IQUIView+Hierarchy.h */,
+				BA512E7A1BA59E43008AE31B /* IQUIView+Hierarchy.m */,
+				BA512E7B1BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.h */,
+				BA512E7C1BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m */,
+				BA512E7D1BA59E43008AE31B /* IQUIWindow+Hierarchy.h */,
+				BA512E7E1BA59E43008AE31B /* IQUIWindow+Hierarchy.m */,
+			);
+			path = IQKeyBoardManager;
+			sourceTree = "<group>";
+		};
 		BAB91B951BA271DB0033DCA6 = {
 			isa = PBXGroup;
 			children = (
+				BA512E8A1BA5C054008AE31B /* Default-568h@2x.png */,
+				BAB91BD51BA273010033DCA6 /* Frameworks */,
 				BAB91BA01BA271DB0033DCA6 /* SalesGame_swift */,
 				BAB91BB61BA271DB0033DCA6 /* SalesGame_swiftTests */,
 				BAB91B9F1BA271DB0033DCA6 /* Products */,
+				BAB91BFA1BA273B20033DCA6 /* SalesGame_swift-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				BAB91B9E1BA271DB0033DCA6 /* SalesGame_swift.app */,
-				BAB91BB31BA271DB0033DCA6 /* SalesGame_swiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,11 +264,16 @@
 		BAB91BA01BA271DB0033DCA6 /* SalesGame_swift */ = {
 			isa = PBXGroup;
 			children = (
+				BAEA6E381BA3417700558565 /* Category */,
+				BAEA6E391BA3417700558565 /* Library */,
+				BAEA6E3A1BA3417700558565 /* Recources */,
+				BAEA6E3B1BA3417700558565 /* UtilityClass */,
+				BAEA6E4D1BA3532300558565 /* GeneralClass.swift */,
+				BAEA6E3C1BA3417700558565 /* ViewControllers */,
 				BAB91BA31BA271DB0033DCA6 /* AppDelegate.swift */,
-				BAB91BA51BA271DB0033DCA6 /* ViewController.swift */,
 				BAB91BA71BA271DB0033DCA6 /* Main.storyboard */,
+				BA512E8F1BA5EA23008AE31B /* Main_ipad.storyboard */,
 				BAB91BAA1BA271DB0033DCA6 /* Images.xcassets */,
-				BAB91BAC1BA271DB0033DCA6 /* LaunchScreen.xib */,
 				BAB91BA11BA271DB0033DCA6 /* Supporting Files */,
 			);
 			path = SalesGame_swift;
@@ -112,6 +304,130 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BAB91BD51BA273010033DCA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAB91BF81BA2739E0033DCA6 /* AdSupport.framework */,
+				BAB91BF61BA273970033DCA6 /* Social.framework */,
+				BAB91BF41BA2738F0033DCA6 /* Accounts.framework */,
+				BAB91BF21BA273850033DCA6 /* AudioToolbox.framework */,
+				BAB91BF01BA2737F0033DCA6 /* CFNetwork.framework */,
+				BAB91BEE1BA273760033DCA6 /* CoreGraphics.framework */,
+				BAB91BEC1BA2736F0033DCA6 /* CoreLocation.framework */,
+				BAB91BEA1BA273660033DCA6 /* Foundation.framework */,
+				BAB91BE81BA2735E0033DCA6 /* libsqlite3.dylib */,
+				BAB91BE61BA273520033DCA6 /* libz.1.1.3.dylib */,
+				BAB91BE41BA273480033DCA6 /* libstdc++.6.dylib */,
+				BAB91BE21BA273390033DCA6 /* QuartzCore.framework */,
+				BAB91BE01BA273330033DCA6 /* Security.framework */,
+				BAB91BDE1BA2732B0033DCA6 /* StoreKit.framework */,
+				BAB91BDC1BA273200033DCA6 /* SystemConfiguration.framework */,
+				BAB91BDA1BA2730C0033DCA6 /* UIKit.framework */,
+				BAB91BD61BA273010033DCA6 /* Bolts.framework */,
+				BAB91BD71BA273010033DCA6 /* Parse.framework */,
+			);
+			name = Frameworks;
+			path = ../SalerGame/Frameworks;
+			sourceTree = "<group>";
+		};
+		BAEA6E381BA3417700558565 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		BAEA6E391BA3417700558565 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				BA512E671BA59E43008AE31B /* IQKeyBoardManager */,
+				BA512E631BA59E13008AE31B /* MBProgressHUD */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		BAEA6E3A1BA3417700558565 /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		BAEA6E3B1BA3417700558565 /* UtilityClass */ = {
+			isa = PBXGroup;
+			children = (
+				BA512E921BA5EBEE008AE31B /* checkDevice.h */,
+				BA512E601BA59D6F008AE31B /* UtilityClass.h */,
+				BA512E611BA59D6F008AE31B /* UtilityClass.m */,
+			);
+			path = UtilityClass;
+			sourceTree = "<group>";
+		};
+		BAEA6E3C1BA3417700558565 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				96DD46121BD62078006B97F2 /* HelpVC */,
+				96DD460F1BD60EE8006B97F2 /* ResetPasswordVC */,
+				96212CEF1BD5D2C60034EA4B /* SubCategoryVC */,
+				BA1DA1E91BA5343200AF7A62 /* HighScoreVC */,
+				BAEA6E3D1BA3417700558565 /* AllCategoryVC */,
+				BAEA6E3E1BA3417700558565 /* HomeVC */,
+				BAEA6E3F1BA3417700558565 /* LoginVC */,
+				BAEA6E401BA3417700558565 /* QuestionVC */,
+				BAEA6E411BA3417700558565 /* SettingVC */,
+				BAEA6E421BA3417700558565 /* SignUpVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BAEA6E3D1BA3417700558565 /* AllCategoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				BAEA6E491BA34B8000558565 /* AllCategoryViewController.swift */,
+			);
+			path = AllCategoryVC;
+			sourceTree = "<group>";
+		};
+		BAEA6E3E1BA3417700558565 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				BAEA6E471BA347EB00558565 /* HomeViewController.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		BAEA6E3F1BA3417700558565 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				BAEA6E431BA3419800558565 /* LoginViewController.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		BAEA6E401BA3417700558565 /* QuestionVC */ = {
+			isa = PBXGroup;
+			children = (
+				BAEA6E4B1BA3523B00558565 /* QuestionViewController.swift */,
+			);
+			path = QuestionVC;
+			sourceTree = "<group>";
+		};
+		BAEA6E411BA3417700558565 /* SettingVC */ = {
+			isa = PBXGroup;
+			children = (
+				BA512E5E1BA597DD008AE31B /* SettingViewController.swift */,
+			);
+			path = SettingVC;
+			sourceTree = "<group>";
+		};
+		BAEA6E421BA3417700558565 /* SignUpVC */ = {
+			isa = PBXGroup;
+			children = (
+				BAEA6E451BA3425400558565 /* SignUpViewController.swift */,
+			);
+			path = SignUpVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,39 +448,20 @@
 			productReference = BAB91B9E1BA271DB0033DCA6 /* SalesGame_swift.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BAB91BB21BA271DB0033DCA6 /* SalesGame_swiftTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BAB91BC01BA271DB0033DCA6 /* Build configuration list for PBXNativeTarget "SalesGame_swiftTests" */;
-			buildPhases = (
-				BAB91BAF1BA271DB0033DCA6 /* Sources */,
-				BAB91BB01BA271DB0033DCA6 /* Frameworks */,
-				BAB91BB11BA271DB0033DCA6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BAB91BB51BA271DB0033DCA6 /* PBXTargetDependency */,
-			);
-			name = SalesGame_swiftTests;
-			productName = SalesGame_swiftTests;
-			productReference = BAB91BB31BA271DB0033DCA6 /* SalesGame_swiftTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		BAB91B961BA271DB0033DCA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Akshay;
 				TargetAttributes = {
 					BAB91B9D1BA271DB0033DCA6 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					BAB91BB21BA271DB0033DCA6 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = BAB91B9D1BA271DB0033DCA6;
+						DevelopmentTeam = B3PH294EL8;
 					};
 				};
 			};
@@ -182,7 +479,6 @@
 			projectRoot = "";
 			targets = (
 				BAB91B9D1BA271DB0033DCA6 /* SalesGame_swift */,
-				BAB91BB21BA271DB0033DCA6 /* SalesGame_swiftTests */,
 			);
 		};
 /* End PBXProject section */
@@ -192,16 +488,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA512E911BA5EA23008AE31B /* Main_ipad.storyboard in Resources */,
 				BAB91BA91BA271DB0033DCA6 /* Main.storyboard in Resources */,
-				BAB91BAE1BA271DB0033DCA6 /* LaunchScreen.xib in Resources */,
+				BA512E8B1BA5C054008AE31B /* Default-568h@2x.png in Resources */,
+				BA512E801BA59E43008AE31B /* IQKeyboardManager.bundle in Resources */,
 				BAB91BAB1BA271DB0033DCA6 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BAB91BB11BA271DB0033DCA6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,44 +503,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB91BA61BA271DB0033DCA6 /* ViewController.swift in Sources */,
+				BA512E811BA59E43008AE31B /* IQKeyboardManager.m in Sources */,
+				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
+				BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */,
+				96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */,
+				BA512E851BA59E43008AE31B /* IQTitleBarButtonItem.m in Sources */,
+				BA512E881BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				BAEA6E4A1BA34B8000558565 /* AllCategoryViewController.swift in Sources */,
+				BA512E5F1BA597DD008AE31B /* SettingViewController.swift in Sources */,
+				96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */,
+				BAEA6E4E1BA3532300558565 /* GeneralClass.swift in Sources */,
+				BAEA6E461BA3425400558565 /* SignUpViewController.swift in Sources */,
+				BAEA6E4C1BA3523B00558565 /* QuestionViewController.swift in Sources */,
+				BA512E841BA59E43008AE31B /* IQTextView.m in Sources */,
+				BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */,
+				BAEA6E441BA3419800558565 /* LoginViewController.swift in Sources */,
+				BA512E821BA59E43008AE31B /* IQNSArray+Sort.m in Sources */,
+				BA512E621BA59D6F008AE31B /* UtilityClass.m in Sources */,
+				BA512E871BA59E43008AE31B /* IQUIView+Hierarchy.m in Sources */,
+				BA512E7F1BA59E43008AE31B /* IQBarButtonItem.m in Sources */,
 				BAB91BA41BA271DB0033DCA6 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BAB91BAF1BA271DB0033DCA6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BAB91BBA1BA271DB0033DCA6 /* SalesGame_swiftTests.swift in Sources */,
+				BA512E891BA59E43008AE31B /* IQUIWindow+Hierarchy.m in Sources */,
+				BA512E861BA59E43008AE31B /* IQToolbar.m in Sources */,
+				BA512E661BA59E13008AE31B /* MBProgressHUD.m in Sources */,
+				BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */,
+				BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */,
+				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		BAB91BB51BA271DB0033DCA6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BAB91B9D1BA271DB0033DCA6 /* SalesGame_swift */;
-			targetProxy = BAB91BB41BA271DB0033DCA6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		BA512E8F1BA5EA23008AE31B /* Main_ipad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA512E901BA5EA23008AE31B /* Base */,
+			);
+			name = Main_ipad.storyboard;
+			sourceTree = "<group>";
+		};
 		BAB91BA71BA271DB0033DCA6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BAB91BA81BA271DB0033DCA6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BAB91BAC1BA271DB0033DCA6 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BAB91BAD1BA271DB0033DCA6 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -272,10 +571,12 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -294,6 +595,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "c629fdc0-dd4d-42e9-bc74-6108f5918451";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -317,7 +619,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -332,6 +635,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "c629fdc0-dd4d-42e9-bc74-6108f5918451";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -342,9 +646,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framewroks",
+					/Users/akshay/Documents/SalerGame/Frameworks,
+				);
 				INFOPLIST_FILE = SalesGame_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Akumadeveloper.Quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c629fdc0-dd4d-42e9-bc74-6108f5918451";
+				SWIFT_OBJC_BRIDGING_HEADER = "SalesGame_swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -352,43 +668,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framewroks",
+					/Users/akshay/Documents/SalerGame/Frameworks,
+				);
 				INFOPLIST_FILE = SalesGame_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Akumadeveloper.Quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		BAB91BC11BA271DB0033DCA6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SalesGame_swiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SalesGame_swift.app/SalesGame_swift";
-			};
-			name = Debug;
-		};
-		BAB91BC21BA271DB0033DCA6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SalesGame_swiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SalesGame_swift.app/SalesGame_swift";
+				PROVISIONING_PROFILE = "c629fdc0-dd4d-42e9-bc74-6108f5918451";
+				SWIFT_OBJC_BRIDGING_HEADER = "SalesGame_swift-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -411,14 +704,7 @@
 				BAB91BBF1BA271DB0033DCA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		BAB91BC01BA271DB0033DCA6 /* Build configuration list for PBXNativeTarget "SalesGame_swiftTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BAB91BC11BA271DB0033DCA6 /* Debug */,
-				BAB91BC21BA271DB0033DCA6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

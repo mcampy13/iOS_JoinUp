@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  SalesGame_swift
 //
-//  Created by Akshay on 9/11/15.
-//  Copyright (c) 2015 Akshay. All rights reserved.
+//  Created by Akuma on 9/11/15.
+//  Copyright (c) 2015 Akuma. All rights reserved.
 //
 
 import UIKit
@@ -12,9 +12,53 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navigation : UINavigationController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Parse.setApplicationId("mg1qP8MFKOVjykmN3Aha6Q47L6XtuNQLIyVKFutU", clientKey:"mgY2o0pSQNhL5u7PWIj84ZzzPMXXRRsqeeuhnlma")
+        var storyboard : UIStoryboard!
+        if IS_iPad {
+            storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)
+        } else {
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
+        }
+
+        navigation = storyboard.instantiateViewControllerWithIdentifier("MainNavigation") as! UINavigationController
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.makeKeyAndVisible()
+        navigation.view.frame = window!.bounds
+        self.window!.rootViewController = navigation
+        
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kTimer) == nil)
+        {
+            NSUserDefaults.standardUserDefaults().setValue("YES" , forKey: kTimer)
+        }
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kSound) == nil)
+        {
+            NSUserDefaults.standardUserDefaults().setValue("YES" , forKey: kSound)
+        }
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kVibrate) == nil)
+        {
+            NSUserDefaults.standardUserDefaults().setValue("YES" , forKey: kVibrate)
+        }
+        
+        
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kFiftyFiftyCount) == nil)
+        {
+            NSUserDefaults.standardUserDefaults().setValue("5" as String, forKey: kFiftyFiftyCount)
+        }
+        
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kSkipCount) == nil)
+        {
+            NSUserDefaults.standardUserDefaults().setValue("5" as String, forKey: kSkipCount)
+        }
+        
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kTimerCount) == nil)
+        {
+            NSUserDefaults.standardUserDefaults().setValue("5" as String, forKey: kTimerCount)
+        }
+
+
         // Override point for customization after application launch.
         return true
     }
