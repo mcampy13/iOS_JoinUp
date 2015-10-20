@@ -28,10 +28,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UtilityClass .setBorderAndPlaceHolder(txtUserName)
-        UtilityClass .setBorderAndPlaceHolder(txtPassWord)
-//        UtilityClass .setMyViewBorder(btnLogin, withBorder: 2, radius: 15)
-//        UtilityClass .setMyViewBorder(btnSignUp, withBorder: 2, radius: 15)
         
         currentUser = PFUser.currentUser()
         if((currentUser) != nil) {

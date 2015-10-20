@@ -14,7 +14,7 @@ class OwnScoreViewController: UIViewController {
     var playerScore:Int?
     var strName : String?
     @IBOutlet var btnHome : UIButton!
-    @IBOutlet var btnScore : UIButton!
+    @IBOutlet var btnLeaderBoard : UIButton!
     @IBOutlet var btnWrongAns : UIButton!
     @IBOutlet var btnOtherAns : UIButton!
     
@@ -29,12 +29,6 @@ class OwnScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UtilityClass .setMyViewBorder(btnHome, withBorder: 2, radius: 25)
-        UtilityClass .setMyViewBorder(btnScore, withBorder: 2, radius: 25)
-        UtilityClass .setMyViewBorder(btnWrongAns, withBorder: 2, radius: 25)
-        UtilityClass .setMyViewBorder(btnOtherAns, withBorder: 2, radius: 25)
-        UtilityClass .setMyViewBorder(lblScore, withBorder: 2, radius: 5)
-        
         lblScore?.text = String(format: "%d", playerScore!)
     }
     
@@ -68,7 +62,6 @@ class OwnScoreViewController: UIViewController {
         let score = playerScore
         testObject["UserScore"] = score
         testObject["Name"] = NSUserDefaults .standardUserDefaults().objectForKey(kLoggedInUserName)
-       // testObject.saveInBackground()
         testObject.saveInBackgroundWithBlock { (success, error) -> Void in
             if success {
                 let highscoreViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as! HighScoreViewController
@@ -82,31 +75,24 @@ class OwnScoreViewController: UIViewController {
 // MARK: IBAction for Wrong answer
 
 //==========================================================================================================================
-    @IBAction func btnWrongAns(sender: UIButton)
-    {
+    @IBAction func btnWrongAns(sender: UIButton) {
         kTimeForWrongTime = kTimeForWrongTime + 1
-        if(kTimeForWrongTime <= 2)
-        {
-            if(arrWrongQuestion.count > 0)
-            {
+        if kTimeForWrongTime <= 2 {
+            if arrWrongQuestion.count > 0 {
                 let questionVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionViewController") as? QuestionViewController
                 questionVC?.questionArray = arrWrongQuestion
                 questionVC?.flagForWrongAnswerpush = true
                 questionVC!.oldScore = playerScore
                 self.navigationController!.pushViewController(questionVC!, animated:true)
-            }
-            else
-            {
+            } else {
                 let alertController = UIAlertController(title: "Alert", message:
                     "No Wrong answered question available!", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                 
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
-  
         }
-        else
-        {
+        else {
             let alertController = UIAlertController(title: "Alert", message:
                 "Game Over!", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))

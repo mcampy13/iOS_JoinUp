@@ -32,11 +32,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 //        UtilityClass .setMyViewBorder(btnSignUp, withBorder: 2, radius: 15)
 //        UtilityClass .setMyViewBorder(btnCancel, withBorder: 2, radius: 15)
-        UtilityClass .setBorderAndPlaceHolder(txtEmail)
-        UtilityClass .setBorderAndPlaceHolder(txtPassword)
-        UtilityClass .setBorderAndPlaceHolder(txtUsreName)
 
-        // Do any additional setup after loading the view.
     }
 //==========================================================================================================================
 
