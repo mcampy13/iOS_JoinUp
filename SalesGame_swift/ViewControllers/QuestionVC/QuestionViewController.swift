@@ -186,15 +186,10 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             btnOption3?.frame = originalPosArray[2]
             btnOption4?.frame = originalPosArray[3]
             
-//            btnOption1?.backgroundColor = UIColor.clearColor()
-//            btnOption2?.backgroundColor = UIColor.clearColor()
-//            btnOption3?.backgroundColor = UIColor.clearColor()
-//            btnOption4?.backgroundColor = UIColor.clearColor()
-//            
-//            btnOption1?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
-//            btnOption2?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
-//            btnOption3?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
-//            btnOption4?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
+            btnOption1?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
+            btnOption2?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
+            btnOption3?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
+            btnOption4?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
             
             btnOption1?.tag = 0
             btnOption2?.tag = 0
