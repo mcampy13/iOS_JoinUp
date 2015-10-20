@@ -40,6 +40,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     var alertTextbox:UITextField?
     //Object for Admob
     
+    var questionImg: PFFile!
     var questionArray:NSArray!
     var timer:NSTimer!
     var questionTimer:Int = kQuestionTime
@@ -64,14 +65,14 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UtilityClass .setMyViewBorder(txtQuestionView, withBorder: 2, radius: 5)
-        UtilityClass .setMyViewBorder(btnOption1, withBorder: 2, radius: 15)
-        UtilityClass .setMyViewBorder(btnOption2, withBorder: 2, radius: 15)
-        UtilityClass .setMyViewBorder(btnOption3, withBorder: 2, radius: 15)
-        UtilityClass .setMyViewBorder(btnOption4, withBorder: 2, radius: 15)
-        UtilityClass .setMyViewBorder(btnFiftyFifty, withBorder: 2, radius: 15)
-        UtilityClass .setMyViewBorder(btnSkip, withBorder: 2, radius: 15)
-        UtilityClass .setMyViewBorder(btnTimer, withBorder: 2, radius: 15)
+//        UtilityClass .setMyViewBorder(txtQuestionView, withBorder: 2, radius: 5)
+//        UtilityClass .setMyViewBorder(btnOption1, withBorder: 2, radius: 15)
+//        UtilityClass .setMyViewBorder(btnOption2, withBorder: 2, radius: 15)
+//        UtilityClass .setMyViewBorder(btnOption3, withBorder: 2, radius: 15)
+//        UtilityClass .setMyViewBorder(btnOption4, withBorder: 2, radius: 15)
+//        UtilityClass .setMyViewBorder(btnFiftyFifty, withBorder: 2, radius: 15)
+//        UtilityClass .setMyViewBorder(btnSkip, withBorder: 2, radius: 15)
+//        UtilityClass .setMyViewBorder(btnTimer, withBorder: 2, radius: 15)
         
         self.originalPosArray.insert(self.btnOption1!.frame, atIndex: 0)
         self.originalPosArray.insert(self.btnOption2!.frame, atIndex: 1)
@@ -94,9 +95,23 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             queryQuestion.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
                 if error == nil {
                     self.questionArray = objArray;
-                   // var img = self.questionArray[3]
                     print("question Array \(self.questionArray)")
-                    //print("img \(img))")
+//                    if let objArray = objArray as! [PFObject]? {
+//                        for object in objArray {
+//                            print(object.objectForKey("questionFile"))
+//                            self.questionImg = object.objectForKey("questionFile") as! PFFile
+//                            let questionImageFile = object.objectForKey("questionFile") as? PFFile
+//                            questionImageFile!.getDataInBackgroundWithBlock {
+//                                (imageData, error) -> Void in
+//                                if error == nil {
+//                                    if let imageData = imageData {
+//                                        let image = UIImage(data:imageData)
+//                                        print("image \(image)")
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
                     self.nextQuestion(self.currQuestionCount)
                 } else {
                     print("Error \(error)")
@@ -171,15 +186,15 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             btnOption3?.frame = originalPosArray[2]
             btnOption4?.frame = originalPosArray[3]
             
-            btnOption1?.backgroundColor = UIColor.clearColor()
-            btnOption2?.backgroundColor = UIColor.clearColor()
-            btnOption3?.backgroundColor = UIColor.clearColor()
-            btnOption4?.backgroundColor = UIColor.clearColor()
-            
-            btnOption1?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
-            btnOption2?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
-            btnOption3?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
-            btnOption4?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
+//            btnOption1?.backgroundColor = UIColor.clearColor()
+//            btnOption2?.backgroundColor = UIColor.clearColor()
+//            btnOption3?.backgroundColor = UIColor.clearColor()
+//            btnOption4?.backgroundColor = UIColor.clearColor()
+//            
+//            btnOption1?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
+//            btnOption2?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
+//            btnOption3?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
+//            btnOption4?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
             
             btnOption1?.tag = 0
             btnOption2?.tag = 0
@@ -307,7 +322,6 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         ffInt?--
         let ffString = String(format: "%d", ffInt!)
         NSUserDefaults.standardUserDefaults().setValue(ffString, forKey: kFiftyFiftyCount)
-        //btnFiftyFifty?.setTitle(String(format: "50-50",NSUserDefaults.standardUserDefaults().valueForKey(kFiftyFiftyCount) as! String), forState: UIControlState.Normal)
         btnFiftyFifty!.setTitle("50-50", forState: UIControlState.Normal)
         
         //if ffInt >= 0
@@ -347,8 +361,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         btnSkip!.setTitle("SKIP", forState: UIControlState.Normal)
         //if ffSkipInt >= 0
         //{
-        if (timer != nil)
-        {
+        if timer != nil {
             timer.invalidate()
         }
         self.currQuestionCount++
@@ -356,7 +369,6 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         //}
         
         btnSkip?.hidden = true
-        
     }
     
     @IBAction func btnTimerTap(sender: UIButton) {
@@ -369,17 +381,13 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         btnTimer!.setTitle("TIMER", forState: UIControlState.Normal)
         //if ffTimeInt >= 0
         //{
-        if (timer != nil)
-        {
+        if timer != nil {
             timer.invalidate()
         }
-        
         //self.startTimer()
         //}
         
-        
         btnTimer?.hidden = true
-        
     }
     
 //==========================================================================================================================

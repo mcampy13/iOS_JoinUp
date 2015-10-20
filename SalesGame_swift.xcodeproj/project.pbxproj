@@ -10,6 +10,7 @@
 		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46131BD62088006B97F2 /* HelpViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		96DD46171BD63B16006B97F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD46151BD63B16006B97F2 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */; };
 		BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */; };
 		BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */; };
@@ -30,7 +31,6 @@
 		BA512E8B1BA5C054008AE31B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA512E8A1BA5C054008AE31B /* Default-568h@2x.png */; };
 		BA512E911BA5EA23008AE31B /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA512E8F1BA5EA23008AE31B /* Main_ipad.storyboard */; };
 		BAB91BA41BA271DB0033DCA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB91BA31BA271DB0033DCA6 /* AppDelegate.swift */; };
-		BAB91BA91BA271DB0033DCA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB91BA71BA271DB0033DCA6 /* Main.storyboard */; };
 		BAB91BAB1BA271DB0033DCA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB91BAA1BA271DB0033DCA6 /* Images.xcassets */; };
 		BAB91BD81BA273010033DCA6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BD61BA273010033DCA6 /* Bolts.framework */; };
 		BAB91BD91BA273010033DCA6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB91BD71BA273010033DCA6 /* Parse.framework */; };
@@ -62,6 +62,7 @@
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		96DD46131BD62088006B97F2 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		96DD46161BD63B16006B97F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnScoreViewController.swift; sourceTree = "<group>"; };
 		BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		BAB91B9E1BA271DB0033DCA6 /* SalesGame_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalesGame_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB91BA21BA271DB0033DCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAB91BA31BA271DB0033DCA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BAB91BA81BA271DB0033DCA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAB91BAA1BA271DB0033DCA6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BAB91BB81BA271DB0033DCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAB91BB91BA271DB0033DCA6 /* SalesGame_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesGame_swiftTests.swift; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 				BAEA6E4D1BA3532300558565 /* GeneralClass.swift */,
 				BAEA6E3C1BA3417700558565 /* ViewControllers */,
 				BAB91BA31BA271DB0033DCA6 /* AppDelegate.swift */,
-				BAB91BA71BA271DB0033DCA6 /* Main.storyboard */,
+				96DD46151BD63B16006B97F2 /* Main.storyboard */,
 				BA512E8F1BA5EA23008AE31B /* Main_ipad.storyboard */,
 				BAB91BAA1BA271DB0033DCA6 /* Images.xcassets */,
 				BAB91BA11BA271DB0033DCA6 /* Supporting Files */,
@@ -489,7 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA512E911BA5EA23008AE31B /* Main_ipad.storyboard in Resources */,
-				BAB91BA91BA271DB0033DCA6 /* Main.storyboard in Resources */,
+				96DD46171BD63B16006B97F2 /* Main.storyboard in Resources */,
 				BA512E8B1BA5C054008AE31B /* Default-568h@2x.png in Resources */,
 				BA512E801BA59E43008AE31B /* IQKeyboardManager.bundle in Resources */,
 				BAB91BAB1BA271DB0033DCA6 /* Images.xcassets in Resources */,
@@ -535,20 +535,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		96DD46151BD63B16006B97F2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96DD46161BD63B16006B97F2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		BA512E8F1BA5EA23008AE31B /* Main_ipad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BA512E901BA5EA23008AE31B /* Base */,
 			);
 			name = Main_ipad.storyboard;
-			sourceTree = "<group>";
-		};
-		BAB91BA71BA271DB0033DCA6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BAB91BA81BA271DB0033DCA6 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
