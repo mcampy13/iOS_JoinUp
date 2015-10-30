@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46131BD62088006B97F2 /* HelpViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		96DD46171BD63B16006B97F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD46151BD63B16006B97F2 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; };
+		9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC861BD760250068C72B /* ChallengeViewController.swift */; };
+		9659FC8D1BD763AE0068C72B /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC8C1BD763AE0068C72B /* ChallengeTableViewCell.swift */; };
+		96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3F81BE341F80021E32C /* SummaryViewController.swift */; };
+		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; };
+		96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46131BD62088006B97F2 /* HelpViewController.swift */; };
+		96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46191BD658C0006B97F2 /* ProfileViewController.swift */; };
+		96DD461E1BD6650A006B97F2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD461D1BD6650A006B97F2 /* ProfileTableViewCell.swift */; };
+		96DD46211BD6D4AD006B97F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD461F1BD6D4AD006B97F2 /* Main.storyboard */; };
+		96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46221BD71402006B97F2 /* EditProfileViewController.swift */; };
 		BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */; };
 		BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */; };
 		BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */; };
@@ -60,9 +66,15 @@
 
 /* Begin PBXFileReference section */
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
+		9659FC861BD760250068C72B /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		9659FC8C1BD763AE0068C72B /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
+		96A2A3F81BE341F80021E32C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		96DD46131BD62088006B97F2 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		96DD46161BD63B16006B97F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		96DD46191BD658C0006B97F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		96DD461D1BD6650A006B97F2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		96DD46201BD6D4AD006B97F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		96DD46221BD71402006B97F2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnScoreViewController.swift; sourceTree = "<group>"; };
 		BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +179,23 @@
 			name = SubCategoryVC;
 			sourceTree = "<group>";
 		};
+		9659FC851BD7600E0068C72B /* ChallengeVC */ = {
+			isa = PBXGroup;
+			children = (
+				9659FC861BD760250068C72B /* ChallengeViewController.swift */,
+				9659FC8C1BD763AE0068C72B /* ChallengeTableViewCell.swift */,
+			);
+			name = ChallengeVC;
+			sourceTree = "<group>";
+		};
+		96A2A3F71BE341D70021E32C /* SummaryVC */ = {
+			isa = PBXGroup;
+			children = (
+				96A2A3F81BE341F80021E32C /* SummaryViewController.swift */,
+			);
+			name = SummaryVC;
+			sourceTree = "<group>";
+		};
 		96DD460F1BD60EE8006B97F2 /* ResetPasswordVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +210,16 @@
 				96DD46131BD62088006B97F2 /* HelpViewController.swift */,
 			);
 			name = HelpVC;
+			sourceTree = "<group>";
+		};
+		96DD46181BD658AB006B97F2 /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				96DD46191BD658C0006B97F2 /* ProfileViewController.swift */,
+				96DD461D1BD6650A006B97F2 /* ProfileTableViewCell.swift */,
+				96DD46221BD71402006B97F2 /* EditProfileViewController.swift */,
+			);
+			name = ProfileVC;
 			sourceTree = "<group>";
 		};
 		BA1DA1E61BA5335B00AF7A62 /* OwnScoreVC */ = {
@@ -271,7 +310,7 @@
 				BAEA6E4D1BA3532300558565 /* GeneralClass.swift */,
 				BAEA6E3C1BA3417700558565 /* ViewControllers */,
 				BAB91BA31BA271DB0033DCA6 /* AppDelegate.swift */,
-				96DD46151BD63B16006B97F2 /* Main.storyboard */,
+				96DD461F1BD6D4AD006B97F2 /* Main.storyboard */,
 				BA512E8F1BA5EA23008AE31B /* Main_ipad.storyboard */,
 				BAB91BAA1BA271DB0033DCA6 /* Images.xcassets */,
 				BAB91BA11BA271DB0033DCA6 /* Supporting Files */,
@@ -366,6 +405,9 @@
 		BAEA6E3C1BA3417700558565 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96A2A3F71BE341D70021E32C /* SummaryVC */,
+				9659FC851BD7600E0068C72B /* ChallengeVC */,
+				96DD46181BD658AB006B97F2 /* ProfileVC */,
 				96DD46121BD62078006B97F2 /* HelpVC */,
 				96DD460F1BD60EE8006B97F2 /* ResetPasswordVC */,
 				96212CEF1BD5D2C60034EA4B /* SubCategoryVC */,
@@ -489,7 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA512E911BA5EA23008AE31B /* Main_ipad.storyboard in Resources */,
-				96DD46171BD63B16006B97F2 /* Main.storyboard in Resources */,
+				96DD46211BD6D4AD006B97F2 /* Main.storyboard in Resources */,
 				BA512E8B1BA5C054008AE31B /* Default-568h@2x.png in Resources */,
 				BA512E801BA59E43008AE31B /* IQKeyboardManager.bundle in Resources */,
 				BAB91BAB1BA271DB0033DCA6 /* Images.xcassets in Resources */,
@@ -503,12 +545,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */,
 				BA512E811BA59E43008AE31B /* IQKeyboardManager.m in Sources */,
+				96DD461E1BD6650A006B97F2 /* ProfileTableViewCell.swift in Sources */,
+				96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */,
 				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
 				BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */,
 				96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */,
 				BA512E851BA59E43008AE31B /* IQTitleBarButtonItem.m in Sources */,
 				BA512E881BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */,
 				BAEA6E4A1BA34B8000558565 /* AllCategoryViewController.swift in Sources */,
 				BA512E5F1BA597DD008AE31B /* SettingViewController.swift in Sources */,
 				96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */,
@@ -516,6 +562,7 @@
 				BAEA6E461BA3425400558565 /* SignUpViewController.swift in Sources */,
 				BAEA6E4C1BA3523B00558565 /* QuestionViewController.swift in Sources */,
 				BA512E841BA59E43008AE31B /* IQTextView.m in Sources */,
+				9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */,
 				BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */,
 				BAEA6E441BA3419800558565 /* LoginViewController.swift in Sources */,
 				BA512E821BA59E43008AE31B /* IQNSArray+Sort.m in Sources */,
@@ -528,6 +575,7 @@
 				BA512E661BA59E13008AE31B /* MBProgressHUD.m in Sources */,
 				BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */,
 				BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */,
+				9659FC8D1BD763AE0068C72B /* ChallengeTableViewCell.swift in Sources */,
 				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,10 +583,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		96DD46151BD63B16006B97F2 /* Main.storyboard */ = {
+		96DD461F1BD6D4AD006B97F2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				96DD46161BD63B16006B97F2 /* Base */,
+				96DD46201BD6D4AD006B97F2 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

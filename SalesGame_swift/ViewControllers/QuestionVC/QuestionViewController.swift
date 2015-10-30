@@ -65,14 +65,14 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        UtilityClass .setMyViewBorder(txtQuestionView, withBorder: 2, radius: 5)
-//        UtilityClass .setMyViewBorder(btnOption1, withBorder: 2, radius: 15)
-//        UtilityClass .setMyViewBorder(btnOption2, withBorder: 2, radius: 15)
-//        UtilityClass .setMyViewBorder(btnOption3, withBorder: 2, radius: 15)
-//        UtilityClass .setMyViewBorder(btnOption4, withBorder: 2, radius: 15)
-//        UtilityClass .setMyViewBorder(btnFiftyFifty, withBorder: 2, radius: 15)
-//        UtilityClass .setMyViewBorder(btnSkip, withBorder: 2, radius: 15)
-//        UtilityClass .setMyViewBorder(btnTimer, withBorder: 2, radius: 15)
+        UtilityClass .setMyViewBorder(txtQuestionView, withBorder: 0, radius: 5)
+        UtilityClass .setMyViewBorder(btnOption1, withBorder: 0, radius: 15)
+        UtilityClass .setMyViewBorder(btnOption2, withBorder: 0, radius: 15)
+        UtilityClass .setMyViewBorder(btnOption3, withBorder: 0, radius: 15)
+        UtilityClass .setMyViewBorder(btnOption4, withBorder: 0, radius: 15)
+        UtilityClass .setMyViewBorder(btnFiftyFifty, withBorder: 0, radius: 15)
+        UtilityClass .setMyViewBorder(btnSkip, withBorder: 0, radius: 15)
+        UtilityClass .setMyViewBorder(btnTimer, withBorder: 0, radius: 15)
         
         self.originalPosArray.insert(self.btnOption1!.frame, atIndex: 0)
         self.originalPosArray.insert(self.btnOption2!.frame, atIndex: 1)
@@ -88,14 +88,15 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         self.btnSkip?.setTitle("SKIP",forState: UIControlState.Normal)
         self.btnTimer?.setTitle("TIMER", forState: UIControlState.Normal)
 
-        if(flagForWrongAnswerpush == false) {
+        if flagForWrongAnswerpush == false {
             let queryQuestion = PFQuery(className: "Question")
             queryQuestion.limit = 10;
             queryQuestion.whereKey("parentSubCategory", equalTo: MainCategory)
             queryQuestion.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
                 if error == nil {
                     self.questionArray = objArray;
-                    print("question Array \(self.questionArray)")
+                    //print("question Array \(self.questionArray)")
+                    
 //                    if let objArray = objArray as! [PFObject]? {
 //                        for object in objArray {
 //                            print(object.objectForKey("questionFile"))
@@ -135,10 +136,13 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     //This method is used for run next question.
     func nextQuestion(questionNo:Int) {
         currentScore?.text = String(playerScore)
-        NSLog("%d %d",currQuestionCount,questionArray.count)
-        if currQuestionCount > questionArray.count {
+        print("In nextQuestion, currentScore \(currentScore)")
+        //NSLog("%d %d",currQuestionCount,questionArray.count)
+        if currQuestionCount > questionArray.count  {
             let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
-                ownScoreVC.playerScore = self.playerScore
+            
+                ownScoreVC.playerScore = self.playerScore   // value sent to OwnScoreViewController
+            
                 ownScoreVC.strName = self.playerName
                 ownScoreVC.arrWrongQuestion = self.arrWrongAns
                 ownScoreVC.arrOtherAns = self.arrHalfWrongAns
@@ -150,8 +154,8 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         }
         else {
             obj = nil;
-            obj = (self.questionArray as! Array)[currQuestionCount-1];
-            NSLog("%@", obj)
+            obj = (self.questionArray as! Array)[currQuestionCount - 1];
+            //NSLog("%@", obj)
             if obj.objectForKey("questionFile") != nil {
                 let userImageFile = obj["questionFile"] as! PFFile
                 userImageFile.getDataInBackgroundWithBlock {
@@ -289,7 +293,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             }
         }
         else {
-            lblTimer?.text = String(format: "Timer :%d",questionTimer)
+            lblTimer?.text = String(format: "%d",questionTimer)
         }
     }
 
@@ -373,7 +377,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         let ffSkipString = String(format: "%d", ffTimeInt!)
         NSUserDefaults.standardUserDefaults().setValue(ffSkipString, forKey: kTimerCount)
         //btnTimer?.setTitle(String(format: "TIMER : %@",NSUserDefaults.standardUserDefaults().valueForKey(kTimerCount) as! String), forState: UIControlState.Normal)
-        btnTimer!.setTitle("TIMER", forState: UIControlState.Normal)
+        btnTimer!.setTitle(" ", forState: UIControlState.Normal)
         //if ffTimeInt >= 0
         //{
         if timer != nil {
@@ -581,12 +585,12 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         if(NSUserDefaults.standardUserDefaults().valueForKey(kTimer) as! String  == "YES") {
             if isSound {
                 if yn {
-                    myUtterance = AVSpeechUtterance(string: "Right answer")
+                    myUtterance = AVSpeechUtterance(string: "Correct Answer")
                     myUtterance.rate = 0.1
                     synth.speakUtterance(myUtterance)
                 } else {
                     NSLog("%@", arrWrongAns)
-                    myUtterance = AVSpeechUtterance(string: "Wrong answer")
+                    myUtterance = AVSpeechUtterance(string: "Wrong Answer")
                     myUtterance.rate = 0.1
                     synth.speakUtterance(myUtterance)
                 }

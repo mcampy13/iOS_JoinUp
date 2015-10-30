@@ -8,18 +8,20 @@
 
 import UIKit
 
-class OwnScoreViewController: UIViewController {
+class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var lblScore: UILabel?
     var playerScore:Int?
     var strName : String?
-    @IBOutlet var btnHome : UIButton!
-    @IBOutlet var btnLeaderBoard : UIButton!
-    @IBOutlet var btnWrongAns : UIButton!
-    @IBOutlet var btnOtherAns : UIButton!
+    @IBOutlet weak var leaderBoardButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var summaryButton: UIButton!
+    @IBOutlet weak var achievementsPickerView: UIPickerView!
     
     var arrWrongQuestion : NSMutableArray = []
     var arrOtherAns : NSMutableArray = []
+    var achievements = Array(1...10).map( { Double($0) * 1 } )
+    var achievement : Double?
    
 //==========================================================================================================================
 
@@ -29,7 +31,42 @@ class OwnScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        var queryScore = PFQuery(className: "score")
+//        queryScore.whereKey("UserObjectID", equalTo: (PFUser.currentUser()?.objectId)!)
+//        queryScore.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+//            if error == nil {
+//                print("queryScore \(success)")
+//            } else {
+//                print("Error \(error)")
+//            }
+//        }
         lblScore?.text = String(format: "%d", playerScore!)
+        
+    }
+    
+    
+//==========================================================================================================================
+
+// MARK: UIPickerView required methods
+
+//==========================================================================================================================
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return achievements.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        //return String(format: "%1.1f", achievements[row])
+        return "achievement"
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let a : Double? = self.achievements[row]
+        self.achievement = a
     }
     
 //==========================================================================================================================
@@ -38,31 +75,26 @@ class OwnScoreViewController: UIViewController {
 
 //==========================================================================================================================
     
-    @IBAction func btnHomeTap(sender: UIButton) {
-        kTimeForWrongTime = 0
-        let testObject = PFObject(className: "score")
-        testObject["UserObjectID"] = NSUserDefaults .standardUserDefaults().valueForKey(kLoggedInUserId)
-        let score = playerScore
-        testObject["UserScore"] = score
-        testObject["Name"] = NSUserDefaults .standardUserDefaults().objectForKey(kLoggedInUserName)
-        // testObject.saveInBackground()
-        testObject.saveInBackgroundWithBlock { (success, error) -> Void in
-            if success {
-                let arr : NSArray = self.navigationController!.viewControllers
-                
-                self.navigationController!.popToViewController(arr.objectAtIndex(1) as! UIViewController, animated: true)
-            }
-        }
+    @IBAction func summaryButton(sender: AnyObject) {
+        //UtilityClass.showAlert("Summary")
+        let summaryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SummaryViewController") as! SummaryViewController
+        summaryVC.playerScore = self.playerScore
+        summaryVC.arrWrongQuestion = self.arrWrongQuestion
+        summaryVC.arrOtherAns = self.arrOtherAns
+        self.navigationController?.pushViewController(summaryVC, animated: true)
     }
-
-    @IBAction func btnScoreboardTap(sender: UIButton) {
+    
+    
+    @IBAction func leaderBoardButton(sender: AnyObject) {
         kTimeForWrongTime = 0
-        let testObject = PFObject(className: "score")
-        testObject["UserObjectID"] = NSUserDefaults .standardUserDefaults().valueForKey(kLoggedInUserId)
         let score = playerScore
-        testObject["UserScore"] = score
-        testObject["Name"] = NSUserDefaults .standardUserDefaults().objectForKey(kLoggedInUserName)
-        testObject.saveInBackgroundWithBlock { (success, error) -> Void in
+        let scoreObject = PFObject(className: "Score")
+        
+        scoreObject["user"] = PFUser.currentUser()?.objectId
+        scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")
+        scoreObject["score"] = score
+        
+        scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
             if success {
                 let highscoreViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as! HighScoreViewController
                 self.navigationController?.pushViewController(highscoreViewController, animated: true)
@@ -70,67 +102,24 @@ class OwnScoreViewController: UIViewController {
         }
     }
     
-//==========================================================================================================================
-
-// MARK: IBAction for Wrong answer
-
-//==========================================================================================================================
-    @IBAction func btnWrongAns(sender: UIButton) {
-        kTimeForWrongTime = kTimeForWrongTime + 1
-        if kTimeForWrongTime <= 2 {
-            if arrWrongQuestion.count > 0 {
-                let questionVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionViewController") as? QuestionViewController
-                questionVC?.questionArray = arrWrongQuestion
-                questionVC?.flagForWrongAnswerpush = true
-                questionVC!.oldScore = playerScore
-                self.navigationController!.pushViewController(questionVC!, animated:true)
-            } else {
-                let alertController = UIAlertController(title: "Alert", message:
-                    "No Wrong answered question available!", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+    
+    @IBAction func saveButton(sender: AnyObject) {
+        kTimeForWrongTime = 0
+        let score = playerScore
+        let scoreObject = PFObject(className: "Score")
+        
+        scoreObject["user"] = PFUser.currentUser()
+        scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")
+        scoreObject["score"] = score
+        
+        scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
+            if success {
+                let arr : NSArray = self.navigationController!.viewControllers
                 
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.navigationController!.popToViewController(arr.objectAtIndex(1) as! UIViewController, animated: true)
             }
-        }
-        else {
-            let alertController = UIAlertController(title: "Alert", message:
-                "Game Over!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
-
-//==========================================================================================================================
-
-// MARK: IBAction for other Answer clicked
-
-//==========================================================================================================================
-    @IBAction func btnOtherAns(sender: UIButton) {
-        kTimeForWrongTime = kTimeForWrongTime + 1
-        if kTimeForWrongTime <= 2 {
-            
-            if arrOtherAns.count > 0 {
-                let questionVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionViewController") as? QuestionViewController
-                questionVC?.questionArray = arrOtherAns
-                questionVC?.flagForWrongAnswerpush = true
-                questionVC!.oldScore = playerScore
-                self.navigationController!.pushViewController(questionVC!, animated:true)
-            }
-            else {
-                let alertController = UIAlertController(title: "Alert", message:
-                    "No Wrong answered question available!", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-            }
-        }
-        else {
-            let alertController = UIAlertController(title: "Alert", message:
-                "Game Over!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-        }
-    }
+    
+    
 }

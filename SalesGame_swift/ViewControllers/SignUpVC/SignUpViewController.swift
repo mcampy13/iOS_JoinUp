@@ -79,8 +79,22 @@ class SignUpViewController: UIViewController {
                             newUser["sex"] = sex
                             newUser["phone"] = phone
                             
+                            /* newUser emailedVerified does not need setting.  It is automatically false.
+                             *   Verification link is sent to user's email, after successful completion,
+                             *   the value is changed automatically to true.
+                             */
+                            
+//                            let teamMemberACL = PFACL()
+//                            teamMemberACL.setPublicReadAccess(true)
+//                            teamMemberACL.setWriteAccess(true, forRoleWithName: "Admin")
+//                            teamMemberACL.setReadAccess(true, forRoleWithName: "Admin")
+//                            
+//                            let teamMember = PFRole(name: "TeamMember", acl: teamMemberACL)
+//                            teamMember.saveInBackground()
+                            
                             if newUser.signUp() {
                                 hideHud(self.view)
+                                
                                 UtilityClass .showAlert("Welcome \(newUser.username)")
                                 self.navigationController!.popViewControllerAnimated(true)
                             } else {

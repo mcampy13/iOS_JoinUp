@@ -33,21 +33,21 @@ class SubCategoryViewController: UIViewController {
         queryParent.whereKey("objectId", equalTo: strMainCategory)
         queryParent.findObjectsInBackgroundWithBlock {  (parentObjs, error) -> Void in
             if error == nil {
-                NSLog("parent = %@", parentObjs!)
+                //NSLog("parent = %@", parentObjs!)
                 self.parent = parentObjs
                 let obj:PFObject = (self.parent as! Array)[0];
-                NSLog("%@", obj.description);
+                //NSLog("%@", obj.description);
                 
                 query.whereKey("parentCategory", equalTo: obj)
                 query.limit = 1000;
                 
                 query.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
                     if error == nil {
-                        NSLog("object = %@", objArray!);
+                        //NSLog("object = %@", objArray!);
                         self.subCategories = objArray;
                         
                         let subObj:PFObject = (self.subCategories as! Array)[0];
-                        NSLog("%@", subObj.description);
+                        //NSLog("%@", subObj.description);
                         self.subCategoryTableView.reloadData()
                         hideHud(self.view)
                     } else {
@@ -97,9 +97,10 @@ class SubCategoryViewController: UIViewController {
     
     //==========================================================================================================================
     
-    @IBAction func btnBack(sender: UIButton) {
+    @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
     
     //==========================================================================================================================
     

@@ -32,11 +32,11 @@ class AllCategoryViewController: UIViewController {
         
         query.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
             if error == nil {
-                NSLog("object = %@", objArray!);
+                //NSLog("object = %@", objArray!);
                 self.arrayCategory = objArray;
                 
                 let obj:PFObject = (self.arrayCategory as! Array)[0];
-                NSLog("%@", obj.description);
+                //NSLog("%@", obj.description);
                 self.tblObj .reloadData()
                 hideHud(self.view)
             } else {
@@ -81,7 +81,7 @@ class AllCategoryViewController: UIViewController {
 
 //==========================================================================================================================
     
-    @IBAction func btnBack(sender: UIButton) {
+    @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     

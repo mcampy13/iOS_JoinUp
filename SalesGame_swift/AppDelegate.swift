@@ -29,32 +29,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigation.view.frame = window!.bounds
         self.window!.rootViewController = navigation
         
-        if (NSUserDefaults.standardUserDefaults().valueForKey(kTimer) == nil)
-        {
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kTimer) == nil) {
             NSUserDefaults.standardUserDefaults().setValue("YES" , forKey: kTimer)
         }
-        if (NSUserDefaults.standardUserDefaults().valueForKey(kSound) == nil)
-        {
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kSound) == nil) {
             NSUserDefaults.standardUserDefaults().setValue("YES" , forKey: kSound)
         }
-        if (NSUserDefaults.standardUserDefaults().valueForKey(kVibrate) == nil)
-        {
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kVibrate) == nil) {
             NSUserDefaults.standardUserDefaults().setValue("YES" , forKey: kVibrate)
         }
         
         
-        if (NSUserDefaults.standardUserDefaults().valueForKey(kFiftyFiftyCount) == nil)
-        {
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kFiftyFiftyCount) == nil) {
             NSUserDefaults.standardUserDefaults().setValue("5" as String, forKey: kFiftyFiftyCount)
         }
         
-        if (NSUserDefaults.standardUserDefaults().valueForKey(kSkipCount) == nil)
-        {
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kSkipCount) == nil) {
             NSUserDefaults.standardUserDefaults().setValue("5" as String, forKey: kSkipCount)
         }
         
-        if (NSUserDefaults.standardUserDefaults().valueForKey(kTimerCount) == nil)
-        {
+        if (NSUserDefaults.standardUserDefaults().valueForKey(kTimerCount) == nil) {
             NSUserDefaults.standardUserDefaults().setValue("5" as String, forKey: kTimerCount)
         }
 

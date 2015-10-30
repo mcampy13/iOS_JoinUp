@@ -10,7 +10,8 @@ import UIKit
 
 class HelpViewController: UIViewController {
 
-    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var composeButton: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -26,8 +27,11 @@ class HelpViewController: UIViewController {
 
     // MARK: Actions
     
-    @IBAction func backBtn(sender: UIButton) {
+    @IBAction func cancelButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBAction func composeButton(sender: AnyObject) {
+        UtilityClass.showAlert("Ask for Help!")
+    }
 }
