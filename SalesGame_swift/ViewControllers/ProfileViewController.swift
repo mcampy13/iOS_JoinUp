@@ -11,6 +11,10 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var departmentLabel: UILabel!
+    
+    
     @IBOutlet weak var homeButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var friendButton: UIBarButtonItem!
@@ -18,17 +22,17 @@ class ProfileViewController: UIViewController {
     
     var pic:AnyObject?
     
-    //@IBOutlet weak var friendTableView: UITableView!
-    //var friend: AnyObject?
-    //var finalFriends: NSMutableArray = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
         UtilityClass.setMyViewBorder(img, withBorder: 0, radius: 50)
         self.displayUserImg()
-        //queryFriends()
+        
+        let currentUser = PFUser.currentUser()?.objectForKey("username")
+        let currentDepartment = PFUser.currentUser()?.objectForKey("department")
+        self.usernameLabel.text = currentUser as? String
+        self.departmentLabel.text = currentDepartment as? String
     }
     
     /*
@@ -69,52 +73,7 @@ class ProfileViewController: UIViewController {
     } // END of displayUserImg()
     
     
-//    func queryFriends(){
-//        let user = PFUser.currentUser()
-//        let queryFriend = PFQuery(className: "Friend")
-//        queryFriend.whereKey("from", equalTo: user!)
-//        queryFriend.limit = 10
-//        queryFriend.findObjectsInBackgroundWithBlock {
-//            (friendObject, error) -> Void in
-//            if error == nil {
-//                print("friends = \(friendObject)")
-//                self.friend = friendObject
-//                // query user to match with friend query
-//                for var i = 0;  i < friendObject!.count; i++ {
-//                    let obj:PFObject = (self.friend as! Array)[i];
-//                    self.finalFriends .addObject(obj)
-//                }
-//                
-//                print("finalFriends",self.finalFriends as NSMutableArray)
-//                self.friendTableView!.reloadData()
-//                hideHud(self.view)
-//            } else {
-//                print("Error \(error)")
-//            }
-//        }
-//    } // END of queryFriends()
 
-
-    //==========================================================================================================================
-    
-    // MARK: Table datasource and delegate methods
-    
-    //==========================================================================================================================
-    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if self.finalFriends.count == 0 {
-//            return 0
-//        } else {
-//            return self.finalFriends.count
-//        }
-//    }
-//    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell:ProfileTableViewCell = friendTableView!.dequeueReusableCellWithIdentifier("cell") as! ProfileTableViewCell
-//        cell.Friend?.text = self.finalFriends.objectAtIndex(indexPath.row).valueForKey("to") as? String
-//        return cell
-//    }
-    
     //==========================================================================================================================
     
     // MARK: Actions
@@ -131,9 +90,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func friendButton(sender: AnyObject) {
-        UtilityClass.showAlert("Would go to Friend page")
-//        let friendVC = self.storyboard?.instantiateViewControllerWithIdentifier("FriendViewController") as? FriendViewController
-//        self.navigationController?.pushViewController(friendVC!, animated: true)
+        let friendVC = self.storyboard?.instantiateViewControllerWithIdentifier("FriendViewController") as? FriendViewController
+        self.navigationController?.pushViewController(friendVC!, animated: true)
     }
     
     @IBAction func logOutButton(sender: AnyObject) {
@@ -147,6 +105,7 @@ class ProfileViewController: UIViewController {
     // MARK: Progress hud display methods
     
     //==========================================================================================================================
+    
     func showhud() {
         showHud(self.view)
     }

@@ -1,17 +1,16 @@
 //
-//  ChallengeTableViewCell.swift
+//  FriendTableViewCell.swift
 //  SalesGame_swift
 //
-//  Created by Robert Rock on 10/21/15.
+//  Created by Robert Rock on 10/30/15.
 //  Copyright © 2015 Akshay. All rights reserved.
 //
 
 import UIKit
 
-class ChallengeTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var buttonLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
+class FriendTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var nameLabel: UILabel!    
     
     override func awakeFromNib() {
         super.awakeFromNib()

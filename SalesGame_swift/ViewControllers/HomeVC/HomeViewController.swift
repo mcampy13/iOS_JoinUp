@@ -30,11 +30,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //UtilityClass .setMyViewBorder(btnPlay, withBorder: 2, radius: 25)
-        //UtilityClass .setMyViewBorder(btnSetting, withBorder: 2, radius: 25)
-        //UtilityClass .setMyViewBorder(btnScore, withBorder: 2, radius: 25)
-        //UtilityClass .setMyViewBorder(btnLogout, withBorder: 2, radius: 25)
-        
         UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 50)
         displayUserImg()
     }

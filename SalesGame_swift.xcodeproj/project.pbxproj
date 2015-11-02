@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; };
 		9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC861BD760250068C72B /* ChallengeViewController.swift */; };
-		9659FC8D1BD763AE0068C72B /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC8C1BD763AE0068C72B /* ChallengeTableViewCell.swift */; };
 		96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3F81BE341F80021E32C /* SummaryViewController.swift */; };
+		96A2A3FC1BE4004C0021E32C /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3FB1BE4004C0021E32C /* FriendViewController.swift */; };
+		96A2A3FE1BE403A60021E32C /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3FD1BE403A60021E32C /* FriendTableViewCell.swift */; };
+		96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */; };
+		96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */; };
+		96AE17D81BE710AE00D3E068 /* SearchCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */; };
 		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; };
 		96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46131BD62088006B97F2 /* HelpViewController.swift */; };
 		96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46191BD658C0006B97F2 /* ProfileViewController.swift */; };
-		96DD461E1BD6650A006B97F2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD461D1BD6650A006B97F2 /* ProfileTableViewCell.swift */; };
 		96DD46211BD6D4AD006B97F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD461F1BD6D4AD006B97F2 /* Main.storyboard */; };
 		96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46221BD71402006B97F2 /* EditProfileViewController.swift */; };
 		BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */; };
@@ -67,12 +70,15 @@
 /* Begin PBXFileReference section */
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		9659FC861BD760250068C72B /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
-		9659FC8C1BD763AE0068C72B /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		96A2A3F81BE341F80021E32C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		96A2A3FB1BE4004C0021E32C /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		96A2A3FD1BE403A60021E32C /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewController.swift; sourceTree = "<group>"; };
 		96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		96DD46131BD62088006B97F2 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		96DD46191BD658C0006B97F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		96DD461D1BD6650A006B97F2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		96DD46201BD6D4AD006B97F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96DD46221BD71402006B97F2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnScoreViewController.swift; sourceTree = "<group>"; };
@@ -183,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				9659FC861BD760250068C72B /* ChallengeViewController.swift */,
-				9659FC8C1BD763AE0068C72B /* ChallengeTableViewCell.swift */,
 			);
 			name = ChallengeVC;
 			sourceTree = "<group>";
@@ -194,6 +199,25 @@
 				96A2A3F81BE341F80021E32C /* SummaryViewController.swift */,
 			);
 			name = SummaryVC;
+			sourceTree = "<group>";
+		};
+		96A2A3FA1BE400300021E32C /* FriendVC */ = {
+			isa = PBXGroup;
+			children = (
+				96A2A3FB1BE4004C0021E32C /* FriendViewController.swift */,
+				96A2A3FD1BE403A60021E32C /* FriendTableViewCell.swift */,
+			);
+			name = FriendVC;
+			sourceTree = "<group>";
+		};
+		96AE17C81BE6B52800D3E068 /* CategoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */,
+				96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */,
+				96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */,
+			);
+			name = CategoryVC;
 			sourceTree = "<group>";
 		};
 		96DD460F1BD60EE8006B97F2 /* ResetPasswordVC */ = {
@@ -216,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				96DD46191BD658C0006B97F2 /* ProfileViewController.swift */,
-				96DD461D1BD6650A006B97F2 /* ProfileTableViewCell.swift */,
 				96DD46221BD71402006B97F2 /* EditProfileViewController.swift */,
 			);
 			name = ProfileVC;
@@ -405,6 +428,8 @@
 		BAEA6E3C1BA3417700558565 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96AE17C81BE6B52800D3E068 /* CategoryVC */,
+				96A2A3FA1BE400300021E32C /* FriendVC */,
 				96A2A3F71BE341D70021E32C /* SummaryVC */,
 				9659FC851BD7600E0068C72B /* ChallengeVC */,
 				96DD46181BD658AB006B97F2 /* ProfileVC */,
@@ -545,9 +570,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96AE17D81BE710AE00D3E068 /* SearchCategoryViewController.swift in Sources */,
 				96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */,
 				BA512E811BA59E43008AE31B /* IQKeyboardManager.m in Sources */,
-				96DD461E1BD6650A006B97F2 /* ProfileTableViewCell.swift in Sources */,
 				96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */,
 				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
 				BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */,
@@ -558,8 +583,10 @@
 				BAEA6E4A1BA34B8000558565 /* AllCategoryViewController.swift in Sources */,
 				BA512E5F1BA597DD008AE31B /* SettingViewController.swift in Sources */,
 				96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */,
+				96A2A3FC1BE4004C0021E32C /* FriendViewController.swift in Sources */,
 				BAEA6E4E1BA3532300558565 /* GeneralClass.swift in Sources */,
 				BAEA6E461BA3425400558565 /* SignUpViewController.swift in Sources */,
+				96A2A3FE1BE403A60021E32C /* FriendTableViewCell.swift in Sources */,
 				BAEA6E4C1BA3523B00558565 /* QuestionViewController.swift in Sources */,
 				BA512E841BA59E43008AE31B /* IQTextView.m in Sources */,
 				9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */,
@@ -575,8 +602,9 @@
 				BA512E661BA59E13008AE31B /* MBProgressHUD.m in Sources */,
 				BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */,
 				BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */,
-				9659FC8D1BD763AE0068C72B /* ChallengeTableViewCell.swift in Sources */,
+				96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */,
 				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
+				96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

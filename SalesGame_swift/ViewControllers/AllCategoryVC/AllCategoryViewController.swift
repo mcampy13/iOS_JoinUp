@@ -11,7 +11,9 @@ import UIKit
 class AllCategoryViewController: UIViewController {
 
     @IBOutlet var tblObj : UITableView!
+    
     var arrayCategory:AnyObject?
+    var array: NSMutableArray! = []
 
 //==========================================================================================================================
 
@@ -32,11 +34,10 @@ class AllCategoryViewController: UIViewController {
         
         query.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
             if error == nil {
-                //NSLog("object = %@", objArray!);
                 self.arrayCategory = objArray;
                 
                 let obj:PFObject = (self.arrayCategory as! Array)[0];
-                //NSLog("%@", obj.description);
+                self.array.addObject(obj)
                 self.tblObj .reloadData()
                 hideHud(self.view)
             } else {
@@ -44,6 +45,9 @@ class AllCategoryViewController: UIViewController {
             }
         }
     } //END of queryForTable()
+    
+    
+    
     
 //==========================================================================================================================
 
@@ -63,8 +67,8 @@ class AllCategoryViewController: UIViewController {
         let cell = tblObj.dequeueReusableCellWithIdentifier("cell")
         let obj:PFObject = (self.arrayCategory as! Array)[indexPath.row];
         cell!.textLabel?.text = obj.objectForKey("categoryName") as? String
-        cell!.backgroundColor = UIColor .clearColor()
-        cell!.textLabel?.textColor = UIColor .whiteColor()
+        //cell!.backgroundColor = UIColor .clearColor()
+        //cell!.textLabel?.textColor = UIColor .whiteColor()
         return cell!
     }
 
@@ -75,6 +79,8 @@ class AllCategoryViewController: UIViewController {
         self.navigationController!.pushViewController(subCategoryVC!, animated:true)
     }
     
+    
+    
 //==========================================================================================================================
 
 // MARK: Buttons IBAction
@@ -84,6 +90,12 @@ class AllCategoryViewController: UIViewController {
     @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    @IBAction func searchButton(sender: AnyObject) {
+        let searchCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SearchCategoryViewController") as? SearchCategoryViewController
+        self.navigationController!.pushViewController(searchCategoryVC!, animated: true)
+    }
+    
     
 //==========================================================================================================================
 

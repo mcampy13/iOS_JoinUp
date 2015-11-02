@@ -10,7 +10,6 @@ import UIKit
 
 class ChallengeViewController: UIViewController{
 
-    @IBOutlet weak var challengeTableView: UITableView?
     @IBOutlet weak var titleLabel: UILabel!
     
     var friendArray:AnyObject?
@@ -23,6 +22,7 @@ class ChallengeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
+        
         queryFriend()
         
     }
@@ -43,7 +43,6 @@ class ChallengeViewController: UIViewController{
                 }
                 print("finalArray",self.finalArray as NSMutableArray)
                 
-                self.challengeTableView!.reloadData()
                 hideHud(self.view)
             } else {
                 print("Error \(error)")
@@ -72,28 +71,6 @@ class ChallengeViewController: UIViewController{
 
     }
 
-    //==========================================================================================================================
-    
-    // MARK: Table datasource and delegate methods
-    
-    //==========================================================================================================================
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.finalArray.count == 0 {
-            return 0
-        } else {
-            return self.finalArray.count
-        }
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:ChallengeTableViewCell = challengeTableView!.dequeueReusableCellWithIdentifier("cell") as! ChallengeTableViewCell
-//        let score = self.finalTo .objectAtIndex(indexPath.row).valueForKey("objectId") as? String!
-//        cell.buttonLabel?.text = String(stringInterpolationSegment: score!)
-        cell.usernameLabel?.text = self.finalTo.objectAtIndex(indexPath.row).valueForKey("username") as? String
-        return cell
-    }
-    
     //==========================================================================================================================
     
     // MARK: Actions

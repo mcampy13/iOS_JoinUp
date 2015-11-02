@@ -14,6 +14,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var imgUpload: UIImageView!
     @IBOutlet weak var imgUploadText: UIButton!
     
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var editDepartmentLabel: UILabel!
+    
+    
     var pic: AnyObject?
     
     override func viewDidLoad() {
@@ -22,6 +26,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
         UtilityClass.setMyViewBorder(imgUpload, withBorder: 0, radius: 50)
         //self.displayUserImg()
+        let currentUser = PFUser.currentUser()
+        self.usernameLabel.text = currentUser?.objectForKey("username") as? String
+        
+        self.editDepartmentLabel.text = currentUser?.objectForKey("department") as? String
+        
     }
     
     /*
