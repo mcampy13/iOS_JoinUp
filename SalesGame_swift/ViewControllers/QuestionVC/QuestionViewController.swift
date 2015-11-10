@@ -23,7 +23,9 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var btnFiftyFifty:UIButton?
     @IBOutlet weak var btnSkip:UIButton?
     @IBOutlet weak var btnTimer:UIButton?
+    
     @IBOutlet weak var questionImage:UIImageView?
+    
     @IBOutlet weak var currentScore : UILabel?
     //@IBOutlet weak var adBannerView:GADBannerView?
     let synth = AVSpeechSynthesizer()
@@ -55,6 +57,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     var flagForWrongAnswerpush : Bool!
     var wrongAns: String!
     var oldScore : Int!
+    var time: String?
 
 //==========================================================================================================================
 
@@ -94,7 +97,11 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             queryQuestion.whereKey("parentSubCategory", equalTo: MainCategory)
             queryQuestion.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
                 if error == nil {
+                    for var i=0; i < objArray!.count; i++ {
+                        print("objArray: \(objArray![i].objectForKey("timer"))")
+                    }
                     self.questionArray = objArray;
+            
                     //print("question Array \(self.questionArray)")
                     
 //                    if let objArray = objArray as! [PFObject]? {
@@ -137,6 +144,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     func nextQuestion(questionNo:Int) {
         currentScore?.text = String(playerScore)
         print("In nextQuestion, currentScore \(currentScore)")
+        print("self.questionImage -> \(self.questionImage)")
         //NSLog("%d %d",currQuestionCount,questionArray.count)
         if currQuestionCount > questionArray.count  {
             let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
@@ -157,13 +165,14 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             obj = (self.questionArray as! Array)[currQuestionCount - 1];
             //NSLog("%@", obj)
             if obj.objectForKey("questionFile") != nil {
-                let userImageFile = obj["questionFile"] as! PFFile
-                userImageFile.getDataInBackgroundWithBlock {
-                    (imageData: NSData?, error: NSError?) -> Void in
+                let userImageFile = obj["questionFile"] as? PFFile
+                userImageFile!.getDataInBackgroundWithBlock {
+                    (imageData, error) -> Void in
                     if error == nil {
                         if let imageData = imageData {
                             let image = UIImage(data:imageData)
                             self.questionImage?.image = image
+                            print("image -> \(self.questionImage?.image)")
                         }
                     }
                 }

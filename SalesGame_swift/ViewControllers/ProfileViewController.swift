@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
         self.displayUserImg()
         
         let currentUser = PFUser.currentUser()?.objectForKey("username")
-        let currentDepartment = PFUser.currentUser()?.objectForKey("department")
+        var currentDepartment = PFUser.currentUser()?.objectForKey("department")
         self.usernameLabel.text = currentUser as? String
         self.departmentLabel.text = currentDepartment as? String
     }

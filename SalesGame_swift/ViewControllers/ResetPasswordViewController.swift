@@ -13,7 +13,6 @@ class ResetPasswordViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var sendRequestBtn: UIButton!
-    @IBOutlet weak var cancelBtn: UIButton!
     
     var emailObj: AnyObject?
     
@@ -45,9 +44,10 @@ class ResetPasswordViewController: UIViewController {
         }
     }
     
-    @IBAction func cancelBtn(sender: AnyObject) {
+    @IBAction func doneButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
     
     
 }
