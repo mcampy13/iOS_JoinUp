@@ -17,6 +17,10 @@
 		96AE17D81BE710AE00D3E068 /* SearchCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */; };
 		96C4F3C11BF2C422009E73CD /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */; };
 		96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */; };
+		96C4F3C51BF33796009E73CD /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C41BF33796009E73CD /* ChallengeTableViewCell.swift */; };
+		96C4F3C81BF33DFF009E73CD /* ChallengeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C71BF33DFF009E73CD /* ChallengeCategoryViewController.swift */; };
+		96C4F3CD1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3CC1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift */; };
+		96C4F3D01BF34897009E73CD /* ChallengeFaceOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3CF1BF34897009E73CD /* ChallengeFaceOffViewController.swift */; };
 		96DC25FC1BF1C67500D3F0CC /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC25FB1BF1C67500D3F0CC /* BadgeViewController.swift */; };
 		96DC25FE1BF1C8C200D3F0CC /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC25FD1BF1C8C200D3F0CC /* BadgeTableViewCell.swift */; };
 		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; };
@@ -82,6 +86,10 @@
 		96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewController.swift; sourceTree = "<group>"; };
 		96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSubCategoryViewController.swift; sourceTree = "<group>"; };
+		96C4F3C41BF33796009E73CD /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
+		96C4F3C71BF33DFF009E73CD /* ChallengeCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCategoryViewController.swift; sourceTree = "<group>"; };
+		96C4F3CC1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeSubCategoryViewController.swift; sourceTree = "<group>"; };
+		96C4F3CF1BF34897009E73CD /* ChallengeFaceOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeFaceOffViewController.swift; sourceTree = "<group>"; };
 		96DC25FB1BF1C67500D3F0CC /* BadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
 		96DC25FD1BF1C8C200D3F0CC /* BadgeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeTableViewCell.swift; sourceTree = "<group>"; };
 		96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				9659FC861BD760250068C72B /* ChallengeViewController.swift */,
+				96C4F3C41BF33796009E73CD /* ChallengeTableViewCell.swift */,
 			);
 			name = ChallengeVC;
 			sourceTree = "<group>";
@@ -228,6 +237,30 @@
 				96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */,
 			);
 			name = CategoryVC;
+			sourceTree = "<group>";
+		};
+		96C4F3C61BF33DC3009E73CD /* ChallengeCategoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				96C4F3C71BF33DFF009E73CD /* ChallengeCategoryViewController.swift */,
+			);
+			name = ChallengeCategoryVC;
+			sourceTree = "<group>";
+		};
+		96C4F3CB1BF34068009E73CD /* ChallengeSubCategoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				96C4F3CC1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift */,
+			);
+			name = ChallengeSubCategoryVC;
+			sourceTree = "<group>";
+		};
+		96C4F3CE1BF34878009E73CD /* ChallengeFaceOffVC */ = {
+			isa = PBXGroup;
+			children = (
+				96C4F3CF1BF34897009E73CD /* ChallengeFaceOffViewController.swift */,
+			);
+			name = ChallengeFaceOffVC;
 			sourceTree = "<group>";
 		};
 		96DC25FA1BF1C65D00D3F0CC /* BadgeVC */ = {
@@ -448,6 +481,9 @@
 		BAEA6E3C1BA3417700558565 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96C4F3CE1BF34878009E73CD /* ChallengeFaceOffVC */,
+				96C4F3CB1BF34068009E73CD /* ChallengeSubCategoryVC */,
+				96C4F3C61BF33DC3009E73CD /* ChallengeCategoryVC */,
 				96DC25FA1BF1C65D00D3F0CC /* BadgeVC */,
 				96AE17C81BE6B52800D3E068 /* CategoryVC */,
 				96A2A3FA1BE400300021E32C /* FriendVC */,
@@ -617,16 +653,19 @@
 				BAEA6E4C1BA3523B00558565 /* QuestionViewController.swift in Sources */,
 				BA512E841BA59E43008AE31B /* IQTextView.m in Sources */,
 				9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */,
+				96C4F3CD1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift in Sources */,
 				BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */,
 				BAEA6E441BA3419800558565 /* LoginViewController.swift in Sources */,
 				BA512E821BA59E43008AE31B /* IQNSArray+Sort.m in Sources */,
 				BA512E621BA59D6F008AE31B /* UtilityClass.m in Sources */,
 				BA512E871BA59E43008AE31B /* IQUIView+Hierarchy.m in Sources */,
 				BA512E7F1BA59E43008AE31B /* IQBarButtonItem.m in Sources */,
+				96C4F3C51BF33796009E73CD /* ChallengeTableViewCell.swift in Sources */,
 				96DC25FC1BF1C67500D3F0CC /* BadgeViewController.swift in Sources */,
 				BAB91BA41BA271DB0033DCA6 /* AppDelegate.swift in Sources */,
 				BA512E891BA59E43008AE31B /* IQUIWindow+Hierarchy.m in Sources */,
 				BA512E861BA59E43008AE31B /* IQToolbar.m in Sources */,
+				96C4F3C81BF33DFF009E73CD /* ChallengeCategoryViewController.swift in Sources */,
 				BA512E661BA59E13008AE31B /* MBProgressHUD.m in Sources */,
 				BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */,
 				BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */,
@@ -634,6 +673,7 @@
 				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
 				96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */,
 				96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */,
+				96C4F3D01BF34897009E73CD /* ChallengeFaceOffViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

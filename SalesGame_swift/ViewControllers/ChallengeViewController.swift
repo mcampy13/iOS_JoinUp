@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ChallengeViewController: UIViewController{
+class ChallengeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var challengeTable: UITableView!
     
     var friendArray:AnyObject?
     var finalArray : NSMutableArray = []
@@ -23,7 +25,21 @@ class ChallengeViewController: UIViewController{
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
-        queryFriend()
+//        queryFriend()
+        let query = PFUser.query()
+        query?.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+            if error == nil {
+                self.friendArray = success
+                for var i=0; i < success!.count; i++ {
+                    let userPFObj: PFObject = (self.friendArray as! Array)[i]
+                    self.finalArray.addObject(userPFObj)
+                }
+                self.challengeTable.reloadData()
+                hideHud(self.view)
+            } else {
+                print("Error in querying for Users \(error)")
+            }
+        }
         
     }
     
@@ -70,17 +86,48 @@ class ChallengeViewController: UIViewController{
         }
 
     }
+    
+    
+    //==========================================================================================================================
+    
+    // MARK: Table datasource and delegate methods
+    
+    //==========================================================================================================================
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(self.friendArray == nil) {
+            return 0
+        } else {
+            return self.friendArray!.count
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = challengeTable.dequeueReusableCellWithIdentifier("cell") as? ChallengeTableViewCell
+        let obj:PFObject = (self.friendArray as! Array)[indexPath.row];
+        cell!.labelUsername!.text = obj.valueForKey("username") as? String
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let challengeCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("ChallengeCategoryViewController") as? ChallengeCategoryViewController
+        let obj:PFObject = (self.friendArray as! Array)[indexPath.row];
+        challengeCategoryVC!.challengeUser = obj.valueForKey("username") as? String
+        challengeCategoryVC!.challengeUserId = obj.objectId
+        print("Selected: \(obj.valueForKey("username"))")
+        self.navigationController!.pushViewController(challengeCategoryVC!, animated:true)
+    }
 
+    
     //==========================================================================================================================
     
     // MARK: Actions
     
     //==========================================================================================================================
     
-    @IBAction func btnBack(sender: AnyObject) {
+    @IBAction func doneButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
     
     
     //==========================================================================================================================
