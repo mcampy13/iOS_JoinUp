@@ -68,14 +68,14 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UtilityClass .setMyViewBorder(txtQuestionView, withBorder: 0, radius: 5)
-        UtilityClass .setMyViewBorder(btnOption1, withBorder: 0, radius: 15)
-        UtilityClass .setMyViewBorder(btnOption2, withBorder: 0, radius: 15)
-        UtilityClass .setMyViewBorder(btnOption3, withBorder: 0, radius: 15)
-        UtilityClass .setMyViewBorder(btnOption4, withBorder: 0, radius: 15)
-        UtilityClass .setMyViewBorder(btnFiftyFifty, withBorder: 0, radius: 15)
-        UtilityClass .setMyViewBorder(btnSkip, withBorder: 0, radius: 15)
-        UtilityClass .setMyViewBorder(btnTimer, withBorder: 0, radius: 15)
+        UtilityClass.setMyViewBorder(txtQuestionView, withBorder: 0, radius: 5)
+        UtilityClass.setMyViewBorder(btnOption1, withBorder: 0, radius: 10)
+        UtilityClass.setMyViewBorder(btnOption2, withBorder: 0, radius: 10)
+        UtilityClass.setMyViewBorder(btnOption3, withBorder: 0, radius: 10)
+        UtilityClass.setMyViewBorder(btnOption4, withBorder: 0, radius: 10)
+        UtilityClass.setMyViewBorder(btnFiftyFifty, withBorder: 0, radius: 15)
+        UtilityClass.setMyViewBorder(btnSkip, withBorder: 0, radius: 15)
+        UtilityClass.setMyViewBorder(btnTimer, withBorder: 0, radius: 15)
         
         self.originalPosArray.insert(self.btnOption1!.frame, atIndex: 0)
         self.originalPosArray.insert(self.btnOption2!.frame, atIndex: 1)
@@ -93,15 +93,18 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
 
         if flagForWrongAnswerpush == false {
             let queryQuestion = PFQuery(className: "Question")
+            var files = []
             queryQuestion.limit = 10;
             queryQuestion.whereKey("parentSubCategory", equalTo: MainCategory)
             queryQuestion.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
                 if error == nil {
                     for var i=0; i < objArray!.count; i++ {
-                        print("objArray: \(objArray![i].objectForKey("timer"))")
+                        print("objArray questionFile: \(objArray![i].objectForKey("questionFile"))")
+                        files = objArray!
+                        self.questionImage?.image = files[i].objectForKey("questionFile") as? UIImage
                     }
                     self.questionArray = objArray;
-            
+                    
                     //print("question Array \(self.questionArray)")
                     
 //                    if let objArray = objArray as! [PFObject]? {
@@ -149,6 +152,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         if currQuestionCount > questionArray.count  {
             let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
             
+                ownScoreVC.questionArrayScore = self.questionArray
                 ownScoreVC.playerScore = self.playerScore   // value sent to OwnScoreViewController
             
                 ownScoreVC.strName = self.playerName
@@ -199,6 +203,8 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             btnOption3?.frame = originalPosArray[2]
             btnOption4?.frame = originalPosArray[3]
             
+            
+            // Originally the 'gray' was 'normal', effecting the buttons background color
             btnOption1?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
             btnOption2?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)
             btnOption3?.setBackgroundImage(UIImage(named: "normal"), forState: UIControlState.Normal)

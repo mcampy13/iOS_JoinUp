@@ -92,7 +92,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
      *     Kinda odd so there must be a reason it can only be that specific one.  Newest thought, it looks like even with
      * no images loaded it will still literally ONLY load ONE image of a specific waterfall. Why?
      */
-    @IBAction func btnSaveChanges(sender: AnyObject) {
+   
+    @IBAction func cancelButton(sender: AnyObject) {
+        self.navigationController!.popViewControllerAnimated(true)
+    }
+    
+    
+    @IBAction func saveButton(sender: AnyObject) {
         if self.imgUpload.image == nil {
             UtilityClass.showAlert("Error, image not saved.")
             print("Error: img not saved")
@@ -121,15 +127,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 }
             }
         }
-    } // END of btnSaveChanges()
+    } // END of saveButton()
     
-    @IBAction func btnCancel(sender: AnyObject) {
-        self.navigationController!.popViewControllerAnimated(true)
-    }
     
     func showhud() {
         showHud(self.view)
     }
+    
     
     
     

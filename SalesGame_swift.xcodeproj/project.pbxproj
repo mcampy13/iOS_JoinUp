@@ -15,6 +15,10 @@
 		96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */; };
 		96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */; };
 		96AE17D81BE710AE00D3E068 /* SearchCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */; };
+		96C4F3C11BF2C422009E73CD /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */; };
+		96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */; };
+		96DC25FC1BF1C67500D3F0CC /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC25FB1BF1C67500D3F0CC /* BadgeViewController.swift */; };
+		96DC25FE1BF1C8C200D3F0CC /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC25FD1BF1C8C200D3F0CC /* BadgeTableViewCell.swift */; };
 		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; };
 		96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46131BD62088006B97F2 /* HelpViewController.swift */; };
 		96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46191BD658C0006B97F2 /* ProfileViewController.swift */; };
@@ -76,6 +80,10 @@
 		96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewController.swift; sourceTree = "<group>"; };
+		96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSubCategoryViewController.swift; sourceTree = "<group>"; };
+		96DC25FB1BF1C67500D3F0CC /* BadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
+		96DC25FD1BF1C8C200D3F0CC /* BadgeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeTableViewCell.swift; sourceTree = "<group>"; };
 		96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		96DD46131BD62088006B97F2 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		96DD46191BD658C0006B97F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C4F3C11BF2C422009E73CD /* LocalAuthentication.framework in Frameworks */,
 				BAB91BF91BA2739E0033DCA6 /* AdSupport.framework in Frameworks */,
 				BAB91BF71BA273970033DCA6 /* Social.framework in Frameworks */,
 				BAB91BF51BA2738F0033DCA6 /* Accounts.framework in Frameworks */,
@@ -181,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */,
+				96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */,
 			);
 			name = SubCategoryVC;
 			sourceTree = "<group>";
@@ -218,6 +228,15 @@
 				96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */,
 			);
 			name = CategoryVC;
+			sourceTree = "<group>";
+		};
+		96DC25FA1BF1C65D00D3F0CC /* BadgeVC */ = {
+			isa = PBXGroup;
+			children = (
+				96DC25FB1BF1C67500D3F0CC /* BadgeViewController.swift */,
+				96DC25FD1BF1C8C200D3F0CC /* BadgeTableViewCell.swift */,
+			);
+			name = BadgeVC;
 			sourceTree = "<group>";
 		};
 		96DD460F1BD60EE8006B97F2 /* ResetPasswordVC */ = {
@@ -369,6 +388,7 @@
 		BAB91BD51BA273010033DCA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */,
 				BAB91BF81BA2739E0033DCA6 /* AdSupport.framework */,
 				BAB91BF61BA273970033DCA6 /* Social.framework */,
 				BAB91BF41BA2738F0033DCA6 /* Accounts.framework */,
@@ -428,6 +448,7 @@
 		BAEA6E3C1BA3417700558565 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96DC25FA1BF1C65D00D3F0CC /* BadgeVC */,
 				96AE17C81BE6B52800D3E068 /* CategoryVC */,
 				96A2A3FA1BE400300021E32C /* FriendVC */,
 				96A2A3F71BE341D70021E32C /* SummaryVC */,
@@ -529,6 +550,11 @@
 					BAB91B9D1BA271DB0033DCA6 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = B3PH294EL8;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -573,6 +599,7 @@
 				96AE17D81BE710AE00D3E068 /* SearchCategoryViewController.swift in Sources */,
 				96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */,
 				BA512E811BA59E43008AE31B /* IQKeyboardManager.m in Sources */,
+				96DC25FE1BF1C8C200D3F0CC /* BadgeTableViewCell.swift in Sources */,
 				96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */,
 				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
 				BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */,
@@ -596,6 +623,7 @@
 				BA512E621BA59D6F008AE31B /* UtilityClass.m in Sources */,
 				BA512E871BA59E43008AE31B /* IQUIView+Hierarchy.m in Sources */,
 				BA512E7F1BA59E43008AE31B /* IQBarButtonItem.m in Sources */,
+				96DC25FC1BF1C67500D3F0CC /* BadgeViewController.swift in Sources */,
 				BAB91BA41BA271DB0033DCA6 /* AppDelegate.swift in Sources */,
 				BA512E891BA59E43008AE31B /* IQUIWindow+Hierarchy.m in Sources */,
 				BA512E861BA59E43008AE31B /* IQToolbar.m in Sources */,
@@ -605,6 +633,7 @@
 				96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */,
 				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
 				96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */,
+				96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,20 +752,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framewroks",
-					/Users/akshay/Documents/SalerGame/Frameworks,
+					/Users/akshay/Documents/SalesGame/Frameworks,
 				);
 				INFOPLIST_FILE = SalesGame_swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Akumadeveloper.Quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c629fdc0-dd4d-42e9-bc74-6108f5918451";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SalesGame_swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -745,19 +777,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Akuma Ukpo (AS932CM3YX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framewroks",
-					/Users/akshay/Documents/SalerGame/Frameworks,
+					/Users/akshay/Documents/SalesGame/Frameworks,
 				);
 				INFOPLIST_FILE = SalesGame_swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Akumadeveloper.Quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c629fdc0-dd4d-42e9-bc74-6108f5918451";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SalesGame_swift-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

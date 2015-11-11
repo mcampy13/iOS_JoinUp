@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 50)
+        UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 90)
         displayUserImg()
     }
     

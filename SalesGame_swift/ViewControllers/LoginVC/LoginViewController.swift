@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class LoginViewController: UIViewController {
 
@@ -16,6 +17,9 @@ class LoginViewController: UIViewController {
     @IBOutlet var btnSignUp : UIButton!
     @IBOutlet var btnLogin : UIButton!
     @IBOutlet weak var btnResetPassword: UIButton!
+    
+    @IBOutlet weak var lblAuthResult: UILabel!
+    
     
     var currentUser: PFUser!
     
@@ -40,6 +44,24 @@ class LoginViewController: UIViewController {
             homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
             self.navigationController!.pushViewController(homeVC!, animated: true)
         }
+        
+        
+        
+    }
+    
+    func writeOutAuthResult(authError:NSError?) {
+        dispatch_async(dispatch_get_main_queue(), {() in
+            if let possibleError = authError
+            {
+                self.lblAuthResult.textColor = UIColor.redColor()
+                self.lblAuthResult.text = possibleError.localizedDescription
+            }
+            else
+            {
+                self.lblAuthResult.textColor = UIColor.greenColor()
+                self.lblAuthResult.text = "Authentication successful."
+            }
+        })
     }
 
  //==========================================================================================================================
@@ -47,7 +69,30 @@ class LoginViewController: UIViewController {
  // MARK: buttons IBAction methods
  
  //==========================================================================================================================
-    
+    @IBAction func beginTouchIDAuthCheck(sender: AnyObject) {
+        let authContext:LAContext = LAContext()
+        var error:NSError?
+        
+        //Is Touch ID hardware available & configured?
+        if(authContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error:&error)) {
+            //Perform Touch ID auth
+            authContext.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: "Testing Touch ID", reply: {(wasSuccessful:Bool, error:NSError?) in
+                
+                if(wasSuccessful) {
+                    //User authenticated
+                    self.writeOutAuthResult(error)
+                } else {
+                    //There are a few reasons why it can fail, we'll write them out to the user in the label
+                    self.writeOutAuthResult(error)
+                }
+            })
+        } else {
+            //Missing the hardware or Touch ID isn't configured
+            self.writeOutAuthResult(error)
+        }
+    }
+
+
     @IBAction func btnSignUp(sender: UIButton) {
         let signUpVC = self.storyboard?.instantiateViewControllerWithIdentifier("SignUpViewController") as! SignUpViewController
         self.navigationController!.pushViewController(signUpVC, animated: true)

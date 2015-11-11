@@ -67,8 +67,6 @@ class AllCategoryViewController: UIViewController {
         let cell = tblObj.dequeueReusableCellWithIdentifier("cell")
         let obj:PFObject = (self.arrayCategory as! Array)[indexPath.row];
         cell!.textLabel?.text = obj.objectForKey("categoryName") as? String
-        //cell!.backgroundColor = UIColor .clearColor()
-        //cell!.textLabel?.textColor = UIColor .whiteColor()
         return cell!
     }
 

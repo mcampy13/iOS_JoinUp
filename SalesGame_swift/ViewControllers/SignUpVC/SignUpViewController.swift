@@ -64,6 +64,8 @@ class SignUpViewController: UIViewController {
                         if username!.utf16.count < 3 || password!.utf16.count < 3 {
                             let alert = UIAlertView(title: "Invalid", message: "username must be greater than 4 characters and password must be greater than 4 characters", delegate: self, cancelButtonTitle: "OK")
                             alert.show()
+//                            let alert: UIAlertController = UIAlertController()
+//                            alert.title = "Error"
                             
                         } else if email!.utf16.count < 8 {
                             let alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
