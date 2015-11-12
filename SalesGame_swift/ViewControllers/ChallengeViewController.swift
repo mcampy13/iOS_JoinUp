@@ -87,6 +87,12 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
 
     }
     
+    func displayAlert(title: String, error: String){
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     //==========================================================================================================================
     
@@ -115,6 +121,7 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
         challengeCategoryVC!.challengeUser = obj.valueForKey("username") as? String
         challengeCategoryVC!.challengeUserId = obj.objectId
         print("Selected: \(obj.valueForKey("username"))")
+        //displayAlert("Opponent Set!", error: "Your opponent is \(obj.valueForKey("username")!)")
         self.navigationController!.pushViewController(challengeCategoryVC!, animated:true)
     }
 

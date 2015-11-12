@@ -46,6 +46,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     var questionArray:NSArray!
     var timer:NSTimer!
     var questionTimer:Int = kQuestionTime
+    var stringQuestionTimer: String?
     var currQuestionCount:Int = 1
     var totalQuestionCount:Int!
    
@@ -102,6 +103,15 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                         print("objArray questionFile: \(objArray![i].objectForKey("questionFile"))")
                         files = objArray!
                         self.questionImage?.image = files[i].objectForKey("questionFile") as? UIImage
+                        
+                        print("Default questionTimer \(self.questionTimer)")
+                        //print("query for timer: \(files[i].objectForKey("timer"))")
+                        
+                        self.stringQuestionTimer = files[i].objectForKey("timer") as? String
+                        if self.stringQuestionTimer != nil {
+                            print("stringQuestionTimer: \(self.stringQuestionTimer)")
+                            self.lblTimer?.text = self.stringQuestionTimer
+                        }
                     }
                     self.questionArray = objArray;
                     
@@ -147,7 +157,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     func nextQuestion(questionNo:Int) {
         currentScore?.text = String(playerScore)
         print("In nextQuestion, currentScore \(currentScore)")
-        print("self.questionImage -> \(self.questionImage)")
+        //print("self.questionImage -> \(self.questionImage)")
         //NSLog("%d %d",currQuestionCount,questionArray.count)
         if currQuestionCount > questionArray.count  {
             let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
@@ -274,7 +284,6 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         } else {
             lblTimer?.hidden = true
             btnTimer?.hidden = true
-            //btnTimer?.hidden = true
         }
     
     }

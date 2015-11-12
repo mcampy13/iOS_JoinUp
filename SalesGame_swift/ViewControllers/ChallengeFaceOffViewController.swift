@@ -72,7 +72,7 @@ class ChallengeFaceOffViewController: UIViewController {
     
     func displayUserImg2(){
         let queryUserPhoto = PFQuery(className: "UserPhotos")
-        let userObj = PFQuery.getUserObjectWithId("Ee1iMt5s9e")
+        let userObj = PFQuery.getUserObjectWithId(challengeUserId)
         queryUserPhoto.whereKey("user", equalTo: userObj!)
         queryUserPhoto.addDescendingOrder("createdAt")
         queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
@@ -102,6 +102,41 @@ class ChallengeFaceOffViewController: UIViewController {
                 UtilityClass.showAlert("Error: \(error)")
             }
         }
+        
+//        var query = PFUser.query()
+//        var userObj = PFQuery.getUserObjectWithId(challengeUserId)
+//        
+//        query!.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+//            if error == nil {
+//                self.pic = success
+//                print("pic \(self.pic?.valueForKey("profilePic"))")
+//
+//                for var i=0; i<self.pic!.count; i++ {
+//                    let picObject:PFObject = (self.pic as! Array)[1]
+//                    print("Most Recent picObject \(picObject)")
+//
+//                    let file: PFFile = picObject["profilePic"] as! PFFile
+//                    print("file \(file)")
+//                    
+//                    file.getDataInBackgroundWithBlock({
+//                        (imageData, error) -> Void in
+//                        if error == nil {
+//                            let Image: UIImage = UIImage(data: imageData!)!
+//                            print("Image \(Image)")
+//                            self.imgUsername2.image = Image
+//                            hideHud(self.view)
+//                        } else {
+//                            print("Error \(error)")
+//                        }
+//                    })
+//                }
+//            
+//                
+//            } else {
+//                print("Error: \(error)")
+//            }
+//        
+//        }
         
     } // END of displayUserImg2()
 

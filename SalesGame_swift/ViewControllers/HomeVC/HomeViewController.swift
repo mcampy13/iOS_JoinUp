@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var helpBtn: UIButton!
     @IBOutlet weak var btnChallenge: UIButton!
     
-    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var profilePic: UIImageView?
     
     var pic: AnyObject?
 //==========================================================================================================================
@@ -49,15 +49,14 @@ class HomeViewController: UIViewController {
                 let picObject:PFObject = (self.pic as! Array)[0];
                 //print("Most Recent picObject \(picObject)")
                 
-                let file: PFFile = picObject["userImg"] as! PFFile
-                //print("file \(file)")
-                
+                let file: PFFile = (picObject["userImg"] as? PFFile)!
                 file.getDataInBackgroundWithBlock({
                     (imageData, error) -> Void in
+                    
                     if error == nil {
                         let Image: UIImage = UIImage(data: imageData!)!
                         //print("Image \(Image)")
-                        self.profilePic.image = Image
+                        self.profilePic!.image = Image
                         hideHud(self.view)
                     } else {
                         print("Error \(error)")

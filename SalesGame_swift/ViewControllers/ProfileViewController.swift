@@ -81,7 +81,8 @@ class ProfileViewController: UIViewController {
     //==========================================================================================================================
     
     @IBAction func homeButton(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+        self.navigationController?.pushViewController(homeVC!, animated: true)
     }
     
     @IBAction func editButton(sender: AnyObject) {

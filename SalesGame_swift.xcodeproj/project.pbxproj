@@ -21,6 +21,9 @@
 		96C4F3C81BF33DFF009E73CD /* ChallengeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C71BF33DFF009E73CD /* ChallengeCategoryViewController.swift */; };
 		96C4F3CD1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3CC1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift */; };
 		96C4F3D01BF34897009E73CD /* ChallengeFaceOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3CF1BF34897009E73CD /* ChallengeFaceOffViewController.swift */; };
+		96C4F3D21BF43BFC009E73CD /* NewUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3D11BF43BFC009E73CD /* NewUserProfileViewController.swift */; };
+		96C4F3D51BF45459009E73CD /* TotalBadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3D41BF45459009E73CD /* TotalBadgesViewController.swift */; };
+		96C4F3D71BF45541009E73CD /* TotalBadgesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3D61BF45541009E73CD /* TotalBadgesTableViewCell.swift */; };
 		96DC25FC1BF1C67500D3F0CC /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC25FB1BF1C67500D3F0CC /* BadgeViewController.swift */; };
 		96DC25FE1BF1C8C200D3F0CC /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC25FD1BF1C8C200D3F0CC /* BadgeTableViewCell.swift */; };
 		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; };
@@ -90,6 +93,9 @@
 		96C4F3C71BF33DFF009E73CD /* ChallengeCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCategoryViewController.swift; sourceTree = "<group>"; };
 		96C4F3CC1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeSubCategoryViewController.swift; sourceTree = "<group>"; };
 		96C4F3CF1BF34897009E73CD /* ChallengeFaceOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeFaceOffViewController.swift; sourceTree = "<group>"; };
+		96C4F3D11BF43BFC009E73CD /* NewUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserProfileViewController.swift; sourceTree = "<group>"; };
+		96C4F3D41BF45459009E73CD /* TotalBadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalBadgesViewController.swift; sourceTree = "<group>"; };
+		96C4F3D61BF45541009E73CD /* TotalBadgesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalBadgesTableViewCell.swift; sourceTree = "<group>"; };
 		96DC25FB1BF1C67500D3F0CC /* BadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
 		96DC25FD1BF1C8C200D3F0CC /* BadgeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeTableViewCell.swift; sourceTree = "<group>"; };
 		96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +269,15 @@
 			name = ChallengeFaceOffVC;
 			sourceTree = "<group>";
 		};
+		96C4F3D31BF45439009E73CD /* TotalBadgesVC */ = {
+			isa = PBXGroup;
+			children = (
+				96C4F3D41BF45459009E73CD /* TotalBadgesViewController.swift */,
+				96C4F3D61BF45541009E73CD /* TotalBadgesTableViewCell.swift */,
+			);
+			name = TotalBadgesVC;
+			sourceTree = "<group>";
+		};
 		96DC25FA1BF1C65D00D3F0CC /* BadgeVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +308,7 @@
 			children = (
 				96DD46191BD658C0006B97F2 /* ProfileViewController.swift */,
 				96DD46221BD71402006B97F2 /* EditProfileViewController.swift */,
+				96C4F3D11BF43BFC009E73CD /* NewUserProfileViewController.swift */,
 			);
 			name = ProfileVC;
 			sourceTree = "<group>";
@@ -481,6 +497,7 @@
 		BAEA6E3C1BA3417700558565 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96C4F3D31BF45439009E73CD /* TotalBadgesVC */,
 				96C4F3CE1BF34878009E73CD /* ChallengeFaceOffVC */,
 				96C4F3CB1BF34068009E73CD /* ChallengeSubCategoryVC */,
 				96C4F3C61BF33DC3009E73CD /* ChallengeCategoryVC */,
@@ -668,12 +685,15 @@
 				96C4F3C81BF33DFF009E73CD /* ChallengeCategoryViewController.swift in Sources */,
 				BA512E661BA59E13008AE31B /* MBProgressHUD.m in Sources */,
 				BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */,
+				96C4F3D71BF45541009E73CD /* TotalBadgesTableViewCell.swift in Sources */,
 				BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */,
+				96C4F3D21BF43BFC009E73CD /* NewUserProfileViewController.swift in Sources */,
 				96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */,
 				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
 				96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */,
 				96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */,
 				96C4F3D01BF34897009E73CD /* ChallengeFaceOffViewController.swift in Sources */,
+				96C4F3D51BF45459009E73CD /* TotalBadgesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

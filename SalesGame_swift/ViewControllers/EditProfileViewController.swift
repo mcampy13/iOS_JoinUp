@@ -16,8 +16,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var editDepartmentLabel: UILabel!
+    @IBOutlet weak var departmentTextField: UITextField!
     
-    
+    let imagePicker = UIImagePickerController()
+
     var pic: AnyObject?
     
     override func viewDidLoad() {
@@ -30,7 +32,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.usernameLabel.text = currentUser?.objectForKey("username") as? String
         
         self.editDepartmentLabel.text = currentUser?.objectForKey("department") as? String
-        
+        imagePicker.delegate = self
+
     }
     
     /*
@@ -70,38 +73,71 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 //    } // END of displayUserImg()
 //    
     
+    
+    func displayAlert(title: String, error: String){
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     //=======================================================================================================
+    
     // MARK: Actions
     
+    //=======================================================================================================
 
+    /*
+     *  Bug:  ONLY load ONE image of a specific waterfall. Why?
+     */
     @IBAction func imgUploadFromSource(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
+    
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            imgUpload.contentMode = .ScaleAspectFill
+//            imgUpload.image = pickedImage
+//        }
+//        dismissViewControllerAnimated(true, completion: nil)
+//    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        //imgUpload.image = image
+//        imgUpload.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
         self.imgUpload.image = image
     }
     
-    /*
-     *  Bug: It will only save the image that it already currently is or maybe the one that is displayed on profileVC. 
-     *     Kinda odd so there must be a reason it can only be that specific one.  Newest thought, it looks like even with
-     * no images loaded it will still literally ONLY load ONE image of a specific waterfall. Why?
-     */
-   
     @IBAction func cancelButton(sender: AnyObject) {
         self.navigationController!.popViewControllerAnimated(true)
     }
     
     
     @IBAction func saveButton(sender: AnyObject) {
-        if self.imgUpload.image == nil {
-            UtilityClass.showAlert("Error, image not saved.")
-            print("Error: img not saved")
+        if self.departmentTextField != nil {
+            var dept = self.departmentTextField.text
+            var user = PFUser.currentUser()
+            user!["department"] = dept
+            user?.saveInBackgroundWithBlock { (successObject, error) -> Void in
+                if error == nil {
+                    print("Department changed to \(dept)")
+                    let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
+                    self.navigationController?.pushViewController(profileVC!, animated: true)
+                } else{
+                    print("Error saving department: \(error)")
+                }
+            
+            }
+        }
+        if self.imgUpload!.image == nil {
+            //UtilityClass.showAlert("Error, image not saved.")
+            print("No img chosen")
         } else {
             let userPhotos = PFObject(className: "UserPhotos")
             userPhotos["user"] = PFUser.currentUser()
@@ -112,10 +148,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                     userPhotos["userImg"] = parseImg
                     userPhotos.saveInBackgroundWithBlock { (success, error) -> Void in
                         if error == nil {
-                            hideHud(self.view)
                             print("Image successfully saved")
                             UtilityClass.showAlert("Image successfully saved!")
-                            self.navigationController!.popViewControllerAnimated(true)
+                            
+                            //hideHud(self.view)
+                            //self.navigationController!.popViewControllerAnimated(true)
                         } else {
                             UtilityClass.showAlert("Error: \(error)")
                             print("Error \(error)")

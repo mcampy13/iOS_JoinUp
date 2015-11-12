@@ -18,6 +18,7 @@ class ChallengeCategoryViewController: UIViewController, UITableViewDataSource, 
     
     var challengeUser: String?
     var challengeUserId: String?
+    var index: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,7 @@ class ChallengeCategoryViewController: UIViewController, UITableViewDataSource, 
         challengeSubCategoryVC?.strMainCategory = obj.objectForKey("categoryName") as! String
         challengeSubCategoryVC?.challengeUserId = self.challengeUserId
         challengeSubCategoryVC?.challengeUser = self.challengeUser
+
         self.navigationController!.pushViewController(challengeSubCategoryVC!, animated:true)
     }
 

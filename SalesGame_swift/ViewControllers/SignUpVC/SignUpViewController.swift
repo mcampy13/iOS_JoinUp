@@ -97,8 +97,8 @@ class SignUpViewController: UIViewController {
                             if newUser.signUp() {
                                 hideHud(self.view)
                                 
-                                UtilityClass .showAlert("Welcome \(newUser.username)")
-                                self.navigationController!.popViewControllerAnimated(true)
+                                let newUserProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewUserProfileViewController") as? NewUserProfileViewController
+                                self.navigationController!.pushViewController(newUserProfileVC!, animated:true)
                             } else {
                                 UtilityClass .showAlert("Please try again.")
                             }

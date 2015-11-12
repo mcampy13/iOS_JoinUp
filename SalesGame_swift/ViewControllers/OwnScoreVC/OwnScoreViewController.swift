@@ -29,6 +29,8 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     var badges = [String]()
    
+    
+    
 //==========================================================================================================================
 
 // MARK: Life Cycle methods
@@ -172,9 +174,10 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
             if success {
-                let arr : NSArray = self.navigationController!.viewControllers
+                //let arr : NSArray = self.navigationController!.viewControllers
                 
-                self.navigationController!.popToViewController(arr.objectAtIndex(1) as! UIViewController, animated: true)
+                let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+                self.navigationController?.pushViewController(homeVC!, animated: true)
             }
         }
     }

@@ -109,6 +109,11 @@ class SubCategoryViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBAction func homeButton(sender: AnyObject) {
+        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+        self.navigationController?.pushViewController(homeVC!, animated: true)
+    }
+    
     
     //==========================================================================================================================
     

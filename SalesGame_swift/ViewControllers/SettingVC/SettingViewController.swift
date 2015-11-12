@@ -18,6 +18,16 @@ class SettingViewController: UIViewController {
 
     var emailObj: AnyObject?
     
+    
+    
+    
+    func displayAlert(title: String, error: String){
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
 //==========================================================================================================================
 
 // MARK: Life Cycle methods
@@ -98,7 +108,7 @@ class SettingViewController: UIViewController {
     //==========================================================================================================================
 
     @IBAction func resetButton(sender: AnyObject) {
-        if emailText != nil {
+        if emailText.text != nil {
             let queryEmails = PFUser.query()
             queryEmails?.whereKey("email", equalTo: emailText.text!)
             queryEmails?.findObjectsInBackgroundWithBlock{
@@ -108,13 +118,13 @@ class SettingViewController: UIViewController {
                     let obj:PFObject = (self.emailObj as! Array)[0];
                     
                     PFUser.requestPasswordResetForEmailInBackground(obj.objectForKey("email") as! String)
+                    let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+                    self.navigationController!.pushViewController(homeVC!, animated:true)
                 }
             }
-            let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
-            self.navigationController!.pushViewController(homeVC!, animated:true)
         }
         else {
-            UtilityClass.showAlert("Enter a valid email address.")
+            displayAlert("Invalid Email", error: "Please try again.")
         }
     }
     

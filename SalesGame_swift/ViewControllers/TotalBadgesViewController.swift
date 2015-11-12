@@ -1,17 +1,17 @@
 //
-//  BadgeViewController.swift
+//  TotalBadgesViewController.swift
 //  SalesGame_swift
 //
-//  Created by Robert Rock on 11/10/15.
+//  Created by Robert Rock on 11/12/15.
 //  Copyright © 2015 Akshay. All rights reserved.
 //
 
 import UIKit
 
-class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
-    @IBOutlet weak var badgeTableView: UITableView!
+    @IBOutlet weak var tblBadges: UITableView!
     
     var dataArray:AnyObject?
     var finalArray : NSMutableArray = []
@@ -23,24 +23,26 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
-        let query = PFQuery(className: "UserBadges")
-        query.addDescendingOrder("createdAt")
-        query.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
+        var query = PFQuery(className: "Badges")
+        query.addAscendingOrder("createdAt")
+        query.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
-                print("badge objArray = \(objArray!)")
-                self.dataArray = objArray;
-                for var i = 0;  i < objArray!.count; i++ {
-                    let obj:PFObject = (self.dataArray as! Array)[i];
-                    self.finalArray .addObject(obj)
+                print("Badge Array \(success!)")
+                self.dataArray = success
+                for var l=0; l<success!.count; l++ {
+                    let PFO: PFObject = (self.dataArray as! Array)[l]
+                    self.finalArray.addObject(PFO)
                 }
-                print("finalArray",self.finalArray as NSMutableArray)
-                self.badgeTableView!.reloadData()
+                print("Final Array \(self.finalArray as NSMutableArray)")
+                self.tblBadges!.reloadData()
                 hideHud(self.view)
+                
             } else {
-                print("Error \(error)")
+                print("Error querying Badges \(error)")
             }
+        
         }
-
+        
     }
     
     
@@ -67,20 +69,21 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:BadgeTableViewCell = badgeTableView!.dequeueReusableCellWithIdentifier("cell") as! BadgeTableViewCell
-    
+        let cell: TotalBadgesTableViewCell = tblBadges!.dequeueReusableCellWithIdentifier("Cell") as! TotalBadgesTableViewCell
+        
         let badgeId = self.finalArray.objectAtIndex(indexPath.row).valueForKey("badge")?.valueForKey("objectId") as? String
         
-        let query = PFQuery(className: "Badges")
-        query.whereKey("objectId", equalTo: badgeId!)
-        query.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
+        var queryFinal = PFQuery(className: "Badges")
+        queryFinal.addAscendingOrder("createdAt")
+        queryFinal.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
-                self.badgeDataArray = success;
-                for var i = 0;  i < success!.count; i++ {
-                    let obj:PFObject = (self.badgeDataArray as! Array)[i];
+                print("Badge Array \(success!)")
+                self.badgeDataArray = success
+                for var k=0; k<success!.count; k++ {
+                    let obj: PFObject = (self.badgeDataArray as! Array)[k]
                     self.badgeFinalArray.addObject(obj)
                 }
-                print("badgeFinalArray",self.badgeFinalArray as NSMutableArray)
+                print("Final Array \(self.badgeFinalArray as NSMutableArray)")
                 
                 let name = self.badgeFinalArray.objectAtIndex(indexPath.row).valueForKey("badgeName") as? String
                 cell.labelTitle?.text = name
@@ -92,7 +95,7 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
                 badgePFFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
                     if error == nil{
                         if let imageData = imageData {
-                            cell.badgeImgView.image = UIImage(data: imageData)
+                            cell.badgeImage.image = UIImage(data: imageData)
                             //self.badgeTableView!.reloadData()
                             hideHud(self.view)
                         }
@@ -100,33 +103,33 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
                         print("Error in getDataInBackgroundWithBlock \(error)")
                     }
                 }
-            } else{
-                print("Error in querying Bades \(error)")
+
+                
+            } else {
+                print("Error querying Badges \(error)")
             }
+            
         }
         
         cell.backgroundColor = UIColor .clearColor()
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        displayAlert("\(self.badgeFinalArray.objectAtIndex(indexPath.row).valueForKey("badgeName")!)", error: "\(self.badgeFinalArray.objectAtIndex(indexPath.row).valueForKey("badgeDescription")!)")
+    
+    
+    //==========================================================================================================================
+    
+    // MARK: Actions
+    
+    //==========================================================================================================================
+    
+    @IBAction func homeButton(sender: AnyObject) {
+        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+        self.navigationController?.pushViewController(homeVC!, animated: true)
     }
-    
-    
-    //==========================================================================================================================
-    
-    // MARK: IBAction Button methods
-    
-    //==========================================================================================================================
     
     @IBAction func doneButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    @IBAction func searchButton(sender: AnyObject) {
-        let totalBadgesVC = self.storyboard?.instantiateViewControllerWithIdentifier("TotalBadgesViewController") as? TotalBadgesViewController
-        self.navigationController!.pushViewController(totalBadgesVC!, animated: true)
     }
     
     
@@ -141,5 +144,5 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     
-
+    
 }
