@@ -71,12 +71,17 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.searchTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) 
         
+        let obj: PFObject!
+        
         if self.resultSearchController.active {
-            UtilityClass.showAlert("active")
-            cell.textLabel?.text = self.filteredCategories[indexPath.row].valueForKey("categoryName") as? String
+            obj = self.filteredCategories[indexPath.row] as! PFObject
+//            cell.textLabel?.text = self.filteredCategories[indexPath.row].valueForKey("categoryName") as? String
+            cell.textLabel?.text = obj.objectForKey("categoryName") as? String
             return cell
         } else {
-            cell.textLabel?.text = self.allCategories[indexPath.row].valueForKey("categoryName") as? String
+            obj = self.allCategories[indexPath.row] as! PFObject
+            //cell.textLabel?.text = self.allCategories[indexPath.row].valueForKey("categoryName") as? String
+            cell.textLabel?.text = obj.objectForKey("categoryName") as? String
             return cell
         }
         
@@ -94,7 +99,11 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: Search
     //==========================================================================================================================
     
-    
+    func filterContentForSearchText(searchText: String, scope: String = "Title"){
+        self.filteredCategories = self.allCategories.filter({ ( obj: PFObject ) -> Bool in
+        
+        })
+    }
     
     
     //==========================================================================================================================

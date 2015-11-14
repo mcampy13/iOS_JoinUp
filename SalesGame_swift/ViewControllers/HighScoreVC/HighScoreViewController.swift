@@ -42,30 +42,67 @@ class HighScoreViewController: UIViewController {
 
         let query = PFQuery(className: "Score")
         query.addDescendingOrder("score")
-        query.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
-           if error == nil {
-            //print("object = \(objArray!)")
-            self.dataArray = objArray;
-            for var i = 0;  i < objArray!.count; i++ {
-                let obj:PFObject = (self.dataArray as! Array)[i];
-                self.finalArray.addObject(obj)
-                self.labelFirstPlace?.text = self.finalArray[0].objectForKey("name") as? String
-                //print("labelFirstPlaceId \(self.finalArray[0].objectId)")
+        query.selectKeys(["name","score"])
+        query.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+            if error == nil {
+                self.dataArray = success
+                for var i=0; i < success!.count; i++ {
+                    print("succes[i]: \(success![i])")
+                    
+                    let PFobj: PFObject = (success as! Array)[i]
+                    self.finalArray.addObject(PFobj)
+                    
+                    self.labelFirstPlace!.text = success![0].objectForKey("name") as! String
+                    self.labelSecondPlace!.text = success![1].objectForKey("name") as! String
+                    self.labelThirdPlace!.text = success![2].objectForKey("name") as! String
+                    
+                }
+                print("final Array", self.finalArray as NSMutableArray)
+                self.tblobj!.reloadData()
+                hideHud(self.view)
                 
-                self.labelSecondPlace?.text = objArray![1].objectForKey("name") as? String
-                //print("labelSecondPlaceId \(self.dataArray![1].objectId)")
-                
-                self.labelThirdPlace?.text = objArray![2].objectForKey("name") as? String
-                //print("labelThirdPlaceId \(self.dataArray![2].objectId)")
+            } else {
+                print("Error for Score: \(error)")
             }
-            //print("finalArray",self.finalArray as NSMutableArray)
-            self.tblobj!.reloadData()
-            hideHud(self.view)
-           } else {
-                print("Error \(error)")
-            }
+            
         }
         
+        //let queryUser = PFUser.query()
+    
+//        queryUser?.limit = 3
+//        for var j=0; j < self.finalArray.count; j++ {
+//            queryUser?.whereKey("username", equalTo: self.finalArray[j].objectForKey("name")!)
+//            queryUser?.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+//                if error == nil {
+//                    let file: PFFile = queryUser?.valueForKey("profilePic") as! PFFile
+//                    print("file \(file)")
+//                    file.getDataInBackgroundWithBlock({
+//                    (imageData, error) -> Void in
+//                        if error == nil {
+//                            let Image: UIImage = UIImage(data: imageData!)!
+//                            print("Image \(Image)")
+//                            if j == 1 {
+//                                self.firstPlaceImg.image = Image
+//                            } else if j == 2 {
+//                                self.secondPlaceImg.image = Image
+//                            } else if j == 3 {
+//                                self.thirdPlaceImg.image = Image
+//                            } else {
+//                                hideHud(self.view)
+//                            }
+////                            hideHud(self.view)
+//                        } else {
+//                            print("Error \(error)")
+//                        }
+//                    })
+//
+//                } else{
+//                    print("Error: \(error)")
+//                }
+//                
+//            }
+//        }
+
         displayFirstImg()
         displaySecondImg()
         displayThirdImg()
@@ -104,6 +141,7 @@ class HighScoreViewController: UIViewController {
                 UtilityClass.showAlert("Error: \(error)")
             }
         }
+        
         
     } // END of displayFirstImg()
     
@@ -199,6 +237,9 @@ class HighScoreViewController: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:HighScoreTableViewCell = tblobj!.dequeueReusableCellWithIdentifier("cell") as! HighScoreTableViewCell
+//        
+//        let level = self.finalArray.objectAtIndex(indexPath.row).valueForKey("level") as? Int!
+//        cell.lblLevel?.text = String(stringInterpolationSegment: level!)
         
         let score = self.finalArray .objectAtIndex(indexPath.row).valueForKey("score") as? Int!
         cell.lblScore?.text = String(stringInterpolationSegment: score!)

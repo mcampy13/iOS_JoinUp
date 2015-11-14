@@ -13,10 +13,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
     
-    
+    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var homeButton: UIBarButtonItem!
-    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var gamesButton: UIBarButtonItem!
+    @IBOutlet weak var badgesButton: UIBarButtonItem!
     @IBOutlet weak var friendButton: UIBarButtonItem!
     @IBOutlet weak var logOutButton: UIBarButtonItem!
     
@@ -26,50 +28,37 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
-        UtilityClass.setMyViewBorder(img, withBorder: 0, radius: 50)
+        UtilityClass.setMyViewBorder(img, withBorder: 0, radius: 75)
         self.displayUserImg()
         
         let currentUser = PFUser.currentUser()?.objectForKey("username")
         var currentDepartment = PFUser.currentUser()?.objectForKey("department")
+        let level = PFUser.currentUser()?.objectForKey("level") as? String
         self.usernameLabel.text = currentUser as? String
         self.departmentLabel.text = currentDepartment as? String
+        self.levelLabel.text = level
     }
     
     /*
      * Retrieve user's profile pic and display it.  Allows user to change img
      */
     func displayUserImg(){
-        let queryUserPhoto = PFQuery(className: "UserPhotos")
-        queryUserPhoto.whereKey("user", equalTo: PFUser.currentUser()!)
-        queryUserPhoto.addDescendingOrder("createdAt")
-        queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
-            if error == nil {
-                self.pic = imgObjectArray
-                print("pic \(self.pic)")
-                
-                let picObject:PFObject = (self.pic as! Array)[0]
-                print("Most Recent picObject \(picObject)")
-                
-                let file: PFFile = picObject["userImg"] as! PFFile
-                print("file \(file)")
-                
-                file.getDataInBackgroundWithBlock({
-                    (imageData, error) -> Void in
-                    if error == nil {
-                        let Image: UIImage = UIImage(data: imageData!)!
-                        print("Image \(Image)")
-                        self.img.image = Image
-                        hideHud(self.view)
-                    } else {
-                        print("Error \(error)")
-                    }
-                })
-            } else {
-                print("Error: \(error)")
-                UtilityClass.showAlert("Error: \(error)")
-            }
-        }
+        let query = PFQuery.getUserObjectWithId(PFUser.currentUser()!.objectId!)
         
+        let file: PFFile = query?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
+            if error == nil {
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.img.image = Image
+                hideHud(self.view)
+            } else {
+                print("Error \(error)")
+            }
+        })
+
     } // END of displayUserImg()
     
     
@@ -85,7 +74,16 @@ class ProfileViewController: UIViewController {
         self.navigationController?.pushViewController(homeVC!, animated: true)
     }
     
-    @IBAction func editButton(sender: AnyObject) {
+    @IBAction func gamesButton(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func badgesButton(sender: AnyObject) {
+        let myBadgesVC = self.storyboard?.instantiateViewControllerWithIdentifier("BadgeViewController") as! BadgeViewController
+        self.navigationController?.pushViewController(myBadgesVC, animated: true)
+    }
+    
+    @IBAction func settingsButton(sender: AnyObject) {
         let editProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as? EditProfileViewController
         self.navigationController?.pushViewController(editProfileVC!, animated: true)
     }

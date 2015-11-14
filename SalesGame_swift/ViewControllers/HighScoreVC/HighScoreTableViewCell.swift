@@ -11,7 +11,7 @@ import UIKit
 class HighScoreTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var lblSrNumber: UILabel!
+    @IBOutlet weak var lblLevel: UILabel!
     
     @IBOutlet weak var lblScore: UILabel!
     

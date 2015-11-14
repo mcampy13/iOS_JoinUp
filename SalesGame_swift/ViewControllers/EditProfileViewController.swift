@@ -26,52 +26,38 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
 
-        UtilityClass.setMyViewBorder(imgUpload, withBorder: 0, radius: 50)
-        //self.displayUserImg()
+        UtilityClass.setMyViewBorder(imgUpload, withBorder: 0, radius: 75)
         let currentUser = PFUser.currentUser()
         self.usernameLabel.text = currentUser?.objectForKey("username") as? String
         
         self.editDepartmentLabel.text = currentUser?.objectForKey("department") as? String
         imagePicker.delegate = self
 
+        displayUserImg()
     }
     
     /*
     * Retrieve user's profile pic and display it.  Allows user to change img
     */
-//    func displayUserImg(){
-//        let queryUserPhoto = PFQuery(className: "UserPhotos")
-//        queryUserPhoto.whereKey("user", equalTo: PFUser.currentUser()!)
-//        queryUserPhoto.addDescendingOrder("createdAt")
-//        queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
-//            if error == nil {
-//                self.pic = imgObjectArray
-//                print("pic \(self.pic)")
-//                
-//                let picObject:PFObject = (self.pic as! Array)[0];
-//                print("Most Recent picObject \(picObject)")
-//                
-//                let file: PFFile = picObject["userImg"] as! PFFile
-//                print("file \(file)")
-//                file.getDataInBackgroundWithBlock({
-//                    (imageData, error) -> Void in
-//                    if error == nil {
-//                        let Image: UIImage = UIImage(data: imageData!)!
-//                        print("Image \(Image)")
-//                        self.imgUpload.image = Image
-//                        hideHud(self.view)
-//                    } else {
-//                        print("Error \(error)")
-//                    }
-//                })
-//            } else {
-//                print("Error: \(error)")
-//                UtilityClass.showAlert("Error: \(error)")
-//            }
-//        }
-//        
-//    } // END of displayUserImg()
-//    
+    func displayUserImg(){
+        var query = PFQuery.getUserObjectWithId(PFUser.currentUser()!.objectId!)
+        
+        let file: PFFile = query?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
+            if error == nil {
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.imgUpload.image = Image
+                hideHud(self.view)
+            } else {
+                print("Error \(error)")
+            }
+        })
+
+    } // END of displayUserImg()
+    
     
     
     func displayAlert(title: String, error: String){
@@ -126,6 +112,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             user!["department"] = dept
             user?.saveInBackgroundWithBlock { (successObject, error) -> Void in
                 if error == nil {
+                    user!["department"] = dept
                     print("Department changed to \(dept)")
                     let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
                     self.navigationController?.pushViewController(profileVC!, animated: true)
@@ -139,29 +126,46 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             //UtilityClass.showAlert("Error, image not saved.")
             print("No img chosen")
         } else {
-            let userPhotos = PFObject(className: "UserPhotos")
-            userPhotos["user"] = PFUser.currentUser()
-            userPhotos.saveInBackgroundWithBlock { (success, error) -> Void in
+//            let userPhotos = PFObject(className: "UserPhotos")
+//            userPhotos["user"] = PFUser.currentUser()
+//            userPhotos.saveInBackgroundWithBlock { (success, error) -> Void in
+//                if error == nil {
+//                    let imgData = UIImagePNGRepresentation(self.imgUpload.image!)
+//                    let parseImg = PFFile(name: "userImg.png", data: imgData!)
+//                    userPhotos["userImg"] = parseImg
+//                    userPhotos.saveInBackgroundWithBlock { (success, error) -> Void in
+//                        if error == nil {
+//                            print("Image successfully saved")
+//                            UtilityClass.showAlert("Image successfully saved!")
+//                            
+//                            //hideHud(self.view)
+//                            //self.navigationController!.popViewControllerAnimated(true)
+//                        } else {
+//                            UtilityClass.showAlert("Error: \(error)")
+//                            print("Error \(error)")
+//                        }
+//                    }
+//                } else {
+//                    UtilityClass.showAlert("Error \(error)")
+//                    print("Error \(error)")
+//                }
+//            }
+            
+            let user = PFUser.currentUser()
+            let imgData = UIImagePNGRepresentation(self.imgUpload.image!)
+            let parseImg = PFFile(name: "profilePNG.png", data: imgData!)
+            user!["profilePic"] = parseImg
+            user?.saveInBackgroundWithBlock { (success, error) -> Void in
                 if error == nil {
-                    let imgData = UIImagePNGRepresentation(self.imgUpload.image!)
-                    let parseImg = PFFile(name: "userImg.png", data: imgData!)
-                    userPhotos["userImg"] = parseImg
-                    userPhotos.saveInBackgroundWithBlock { (success, error) -> Void in
-                        if error == nil {
-                            print("Image successfully saved")
-                            UtilityClass.showAlert("Image successfully saved!")
-                            
-                            //hideHud(self.view)
-                            //self.navigationController!.popViewControllerAnimated(true)
-                        } else {
-                            UtilityClass.showAlert("Error: \(error)")
-                            print("Error \(error)")
-                        }
-                    }
+                    print("Profile pic successfully saved")
+                    hideHud(self.view)
+                    let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
+                    self.navigationController?.pushViewController(profileVC!, animated: true)
                 } else {
-                    UtilityClass.showAlert("Error \(error)")
-                    print("Error \(error)")
+                    print("Error saving profilePic: \(error)")
+                    self.displayAlert("Error Uploading", error: "Image was not saved")
                 }
+            
             }
         }
     } // END of saveButton()

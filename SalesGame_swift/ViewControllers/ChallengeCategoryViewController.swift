@@ -85,6 +85,11 @@ class ChallengeCategoryViewController: UIViewController, UITableViewDataSource, 
     
     //==========================================================================================================================
     
+    @IBAction func homeButton(sender: AnyObject) {
+        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+        self.navigationController?.pushViewController(homeVC!, animated: true)
+    }
+    
     @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }

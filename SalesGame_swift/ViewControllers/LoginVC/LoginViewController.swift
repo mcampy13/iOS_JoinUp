@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         currentUser = PFUser.currentUser()
         if((currentUser) != nil) {
             
-           let str =  currentUser?.objectId
+            let str =  currentUser?.objectId
             NSUserDefaults .standardUserDefaults().setObject(str, forKey: kLoggedInUserId)
             let strUsername = currentUser?.username
             NSUserDefaults.standardUserDefaults().setObject(strUsername, forKey: kLoggedInUserName)
@@ -51,17 +51,25 @@ class LoginViewController: UIViewController {
     
     func writeOutAuthResult(authError:NSError?) {
         dispatch_async(dispatch_get_main_queue(), {() in
-            if let possibleError = authError
-            {
+            if let possibleError = authError {
                 self.lblAuthResult.textColor = UIColor.redColor()
                 self.lblAuthResult.text = possibleError.localizedDescription
             }
-            else
-            {
+            else {
                 self.lblAuthResult.textColor = UIColor.greenColor()
                 self.lblAuthResult.text = "Authentication successful."
             }
         })
+    }
+    
+    func loadData(){
+        print("data is loading")
+//        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+//        self.navigationController!.pushViewController(homeVC!, animated: true)
+    }
+    
+    func showPasswordAlert(){
+        
     }
 
  //==========================================================================================================================
@@ -73,16 +81,18 @@ class LoginViewController: UIViewController {
         let authContext:LAContext = LAContext()
         var error:NSError?
         
-        //Is Touch ID hardware available & configured?
+        // Is Touch ID hardware available & configured?
         if(authContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error:&error)) {
             //Perform Touch ID auth
-            authContext.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: "Testing Touch ID", reply: {(wasSuccessful:Bool, error:NSError?) in
+            authContext.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: "Login with Touch ID", reply: {(successful:Bool, error:NSError?) in
                 
-                if(wasSuccessful) {
-                    //User authenticated
-                    self.writeOutAuthResult(error)
+                if(successful) {
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        self.loadData()
+                    })
                 } else {
                     //There are a few reasons why it can fail, we'll write them out to the user in the label
+                    
                     self.writeOutAuthResult(error)
                 }
             })

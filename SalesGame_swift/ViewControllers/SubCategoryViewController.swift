@@ -83,13 +83,7 @@ class SubCategoryViewController: UIViewController {
         return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let questionVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionViewController") as? QuestionViewController
-//        let obj:PFObject = (self.subCategories as! Array)[indexPath.row];
-//        questionVC?.MainCategory = obj
-//        questionVC?.flagForWrongAnswerpush = false
-//        self.navigationController!.pushViewController(questionVC!, animated:true)
-        
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
         let selectSubCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SelectSubCategoryViewController") as? SelectSubCategoryViewController
         let obj:PFObject = (self.parent as! Array)[indexPath.row];
         let subObj: PFObject = (self.subCategories as! Array)[indexPath.row]

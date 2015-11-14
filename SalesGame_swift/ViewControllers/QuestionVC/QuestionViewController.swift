@@ -23,6 +23,8 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var btnFiftyFifty:UIButton?
     @IBOutlet weak var btnSkip:UIButton?
     @IBOutlet weak var btnTimer:UIButton?
+    @IBOutlet weak var getHelpButton: UIButton!
+    
     
     @IBOutlet weak var questionImage:UIImageView?
     
@@ -51,6 +53,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     var totalQuestionCount:Int!
    
     var MainCategory: PFObject!
+    var PFsubCategory: PFObject?
     
     var obj:PFObject!
     var arrWrongAns : NSMutableArray = []
@@ -164,7 +167,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             
                 ownScoreVC.questionArrayScore = self.questionArray
                 ownScoreVC.playerScore = self.playerScore   // value sent to OwnScoreViewController
-            
+                ownScoreVC.category = self.MainCategory
                 ownScoreVC.strName = self.playerName
                 ownScoreVC.arrWrongQuestion = self.arrWrongAns
                 ownScoreVC.arrOtherAns = self.arrHalfWrongAns
@@ -295,7 +298,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     
             NSLog("%d %d",currQuestionCount,questionArray.count)
             if currQuestionCount >= questionArray.count {
-                NSLog("Game Over")
+                //print("Game Over")
                 let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
                     ownScoreVC.playerScore = self.playerScore
                     ownScoreVC.strName = self.playerName
@@ -330,10 +333,10 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func btnSoundTap(sender: UIButton) {
         if(isSound) {
-            btnSound!.setTitle("SoundOn", forState: .Normal)
+            btnSound!.setTitle("Sound On", forState: .Normal)
         }
         else {
-            btnSound!.setTitle("SoundOff", forState: .Normal)
+            btnSound!.setTitle("Sound Off", forState: .Normal)
         }
         isSound = !isSound
         btnSound?.selected = !isSound
@@ -413,6 +416,11 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         btnTimer?.hidden = true
     }
     
+    @IBAction func getHelpButtonTap(sender: AnyObject) {
+        
+    }
+    
+    
 //==========================================================================================================================
 
 // MARK: Buttons for options
@@ -441,7 +449,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                 sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
                 
                 if flagForWrongAnswerpush == false {
-                    playerScore--
+                    playerScore = playerScore - 5
                 } else {
                     playerScore = playerScore - 2
                 }
@@ -483,7 +491,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                 self.speechAction(false)
                 sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
                 if flagForWrongAnswerpush == false {
-                    playerScore--
+                    playerScore = playerScore - 5
                 } else {
                     playerScore = playerScore - 2
                 }
@@ -525,7 +533,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                 self.speechAction(false)
                 sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
                 if flagForWrongAnswerpush == false {
-                    playerScore--
+                    playerScore = playerScore - 5
                 } else {
                     playerScore = playerScore - 2
                 }
@@ -566,7 +574,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                 self.speechAction(false)
                 sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
                 if flagForWrongAnswerpush == false {
-                    playerScore--
+                    playerScore = playerScore - 5
                 } else {
                     playerScore = playerScore - 2
                 }
@@ -610,12 +618,12 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             if isSound {
                 if yn {
                     myUtterance = AVSpeechUtterance(string: "Correct Answer")
-                    myUtterance.rate = 0.1
+                    myUtterance.rate = 0.3
                     synth.speakUtterance(myUtterance)
                 } else {
                     NSLog("%@", arrWrongAns)
                     myUtterance = AVSpeechUtterance(string: "Wrong Answer")
-                    myUtterance.rate = 0.1
+                    myUtterance.rate = 0.3
                     synth.speakUtterance(myUtterance)
                 }
             }

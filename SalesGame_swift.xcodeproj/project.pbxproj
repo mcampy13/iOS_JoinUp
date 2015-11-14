@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9614CB341BF5724C003BB669 /* BadgeOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB331BF5724C003BB669 /* BadgeOverviewViewController.swift */; };
+		9614CB361BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB351BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift */; };
+		9614CB381BF5B5A8003BB669 /* FaceOffQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */; };
 		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; };
 		9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC861BD760250068C72B /* ChallengeViewController.swift */; };
 		96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3F81BE341F80021E32C /* SummaryViewController.swift */; };
@@ -79,6 +82,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9614CB331BF5724C003BB669 /* BadgeOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeOverviewViewController.swift; sourceTree = "<group>"; };
+		9614CB351BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceOffQuestionViewController.swift; sourceTree = "<group>"; };
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		9659FC861BD760250068C72B /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		96A2A3F81BE341F80021E32C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				96C4F3CF1BF34897009E73CD /* ChallengeFaceOffViewController.swift */,
+				9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */,
 			);
 			name = ChallengeFaceOffVC;
 			sourceTree = "<group>";
@@ -274,6 +281,8 @@
 			children = (
 				96C4F3D41BF45459009E73CD /* TotalBadgesViewController.swift */,
 				96C4F3D61BF45541009E73CD /* TotalBadgesTableViewCell.swift */,
+				9614CB331BF5724C003BB669 /* BadgeOverviewViewController.swift */,
+				9614CB351BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift */,
 			);
 			name = TotalBadgesVC;
 			sourceTree = "<group>";
@@ -654,6 +663,7 @@
 				BA512E811BA59E43008AE31B /* IQKeyboardManager.m in Sources */,
 				96DC25FE1BF1C8C200D3F0CC /* BadgeTableViewCell.swift in Sources */,
 				96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */,
+				9614CB341BF5724C003BB669 /* BadgeOverviewViewController.swift in Sources */,
 				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
 				BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */,
 				96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */,
@@ -686,6 +696,8 @@
 				BA512E661BA59E13008AE31B /* MBProgressHUD.m in Sources */,
 				BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */,
 				96C4F3D71BF45541009E73CD /* TotalBadgesTableViewCell.swift in Sources */,
+				9614CB361BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift in Sources */,
+				9614CB381BF5B5A8003BB669 /* FaceOffQuestionViewController.swift in Sources */,
 				BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */,
 				96C4F3D21BF43BFC009E73CD /* NewUserProfileViewController.swift in Sources */,
 				96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */,
@@ -815,6 +827,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framewroks",
@@ -839,6 +852,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framewroks",

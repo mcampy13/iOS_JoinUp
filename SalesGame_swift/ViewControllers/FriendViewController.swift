@@ -18,6 +18,9 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     var dataArray: AnyObject?
     var toUser: AnyObject?
     
+    var friendUser: AnyObject?
+    var friendUserName: String?
+    
     var friendUserArray: AnyObject?
     var finalTo: NSMutableArray = []
     
@@ -100,6 +103,13 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
 //        }
 //    }
 
+    
+    func displayAlert(title: String, error: String){
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
     //==========================================================================================================================
     
@@ -117,6 +127,22 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:FriendTableViewCell = friendTableView!.dequeueReusableCellWithIdentifier("cell") as! FriendTableViewCell
+        
+        let userId = self.finalFriends.objectAtIndex(indexPath.row).valueForKey("to")?.valueForKey("objectId") as? String
+        //print("userId: \(userId)")
+        let query = PFUser.query()?.whereKey("objectId", equalTo: userId!)
+        query?.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
+            if error == nil {
+                self.friendUser = success
+                print("friendUser: \(self.friendUser?.valueForKey("username"))")
+                
+                //let name = self.friendUser?.valueForKey("username")
+                //cell.nameLabel!.text = name as? String
+
+            } else {
+                print("Error matching friend to user: \(error)")
+            }
+        }
         
         cell.nameLabel?.text = self.finalFriends.objectAtIndex(indexPath.row).valueForKey("to")?.valueForKey("objectId") as? String
         return cell

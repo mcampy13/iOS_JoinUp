@@ -28,7 +28,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var achievement : Double?
     
     var badges = [String]()
-   
+    var category: AnyObject?
     
     
 //==========================================================================================================================
@@ -39,18 +39,23 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var queryScore = PFQuery(className: "score")
-//        queryScore.whereKey("UserObjectID", equalTo: (PFUser.currentUser()?.objectId)!)
-//        queryScore.findObjectsInBackgroundWithBlock { (success, error) -> Void in
-//            if error == nil {
-//                print("queryScore \(success)")
-//            } else {
-//                print("Error \(error)")
-//            }
-//        }
+        let score = self.playerScore
+        let scoreObject = PFObject(className: "Score")
+        
+        scoreObject["user"] = PFUser.currentUser()?.objectId
+        scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")
+        scoreObject["score"] = score
+        
+        scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
+            if error == nil {
+                print("Saved")
+            } else {
+                print("Error: \(error)")
+            }
+        }
+        
         lblScore?.text = String(format: "%d", playerScore!)
         UtilityClass.setMyViewBorder(lblScore, withBorder: 0, radius: 50)
-
         
         checkHonorableMention()
         if badges.count > 0 {
@@ -60,6 +65,10 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         
         
+        let game = PFObject(className: "Game")
+        game["player"] = PFUser.currentUser()?.objectId
+        game["score"] = self.playerScore
+        game["category"] = self.category
         
     }
     
@@ -129,6 +138,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     
+    
 //==========================================================================================================================
 
 // MARK: IBAction for Buttons
@@ -136,7 +146,6 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //==========================================================================================================================
     
     @IBAction func summaryButton(sender: AnyObject) {
-        //UtilityClass.showAlert("Summary")
         let summaryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SummaryViewController") as! SummaryViewController
         summaryVC.playerScore = self.playerScore
         summaryVC.arrWrongQuestion = self.arrWrongQuestion
@@ -147,19 +156,8 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func leaderBoardButton(sender: AnyObject) {
         kTimeForWrongTime = 0
-        let score = playerScore
-        let scoreObject = PFObject(className: "Score")
-        
-        scoreObject["user"] = PFUser.currentUser()?.objectId
-        scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")
-        scoreObject["score"] = score
-        
-        scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
-            if success {
-                let highscoreViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as! HighScoreViewController
-                self.navigationController?.pushViewController(highscoreViewController, animated: true)
-            }
-        }
+        let highscoreViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as! HighScoreViewController
+        self.navigationController?.pushViewController(highscoreViewController, animated: true)
     }
     
     
@@ -173,11 +171,11 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         scoreObject["score"] = score
         
         scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
-            if success {
-                //let arr : NSArray = self.navigationController!.viewControllers
-                
+            if error == nil {
                 let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
                 self.navigationController?.pushViewController(homeVC!, animated: true)
+            } else{
+                print("Error: \(error)")
             }
         }
     }

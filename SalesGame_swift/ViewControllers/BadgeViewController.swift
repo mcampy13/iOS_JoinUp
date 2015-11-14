@@ -127,6 +127,8 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func searchButton(sender: AnyObject) {
         let totalBadgesVC = self.storyboard?.instantiateViewControllerWithIdentifier("TotalBadgesViewController") as? TotalBadgesViewController
         self.navigationController!.pushViewController(totalBadgesVC!, animated: true)
+//        let badgeOverVC = self.storyboard?.instantiateViewControllerWithIdentifier("BadgeOverviewViewController") as? BadgeOverviewViewController
+//        self.navigationController!.pushViewController(badgeOverVC!, animated: true)
     }
     
     

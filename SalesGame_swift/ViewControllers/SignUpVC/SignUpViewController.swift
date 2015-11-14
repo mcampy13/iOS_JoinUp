@@ -11,11 +11,12 @@ import UIKit
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var txtUsreName: UITextField!
+    @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var txtConfirm: UITextField!
+    @IBOutlet weak var labelConfirm: UILabel!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
-    @IBOutlet weak var sex: UITextField!
     @IBOutlet weak var phone: UITextField!
     
     @IBOutlet var btnSignUp : UIButton!
@@ -30,10 +31,19 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        UtilityClass .setMyViewBorder(btnSignUp, withBorder: 2, radius: 15)
-//        UtilityClass .setMyViewBorder(btnCancel, withBorder: 2, radius: 15)
-
+        self.labelConfirm.hidden = true
+        
     }
+    
+    
+    func displayAlert(title: String, error: String){
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
 //==========================================================================================================================
 
 // MARK: buttons IBAction methods
@@ -41,66 +51,71 @@ class SignUpViewController: UIViewController {
 //==========================================================================================================================
     
     @IBAction func btnCancel(sender: UIButton) {
-            self.navigationController!  .popViewControllerAnimated(true)
+            self.navigationController!.popViewControllerAnimated(true)
     }
 
     @IBAction func btnSignUp(sender: UIButton) {
         if !txtEmail.text!.isEmpty {
             if UtilityClass .Emailvalidate(txtEmail.text) == true {
-                if !txtUsreName.text!.isEmpty {
+                if !txtUserName.text!.isEmpty {
                     if !txtPassword.text!.isEmpty {
-                        NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
-                        var email = txtEmail.text
-                        let password = txtPassword.text
-                        let username = txtUsreName.text
-                        let fname = self.firstName.text
-                        let lname = self.lastName.text
-                        let sex = self.sex.text
-                        let phone = self.phone.text
-                        
-                        // Ensure username is lowercase
-                        email = email!.lowercaseString
-                        
-                        if username!.utf16.count < 3 || password!.utf16.count < 3 {
-                            let alert = UIAlertView(title: "Invalid", message: "username must be greater than 4 characters and password must be greater than 4 characters", delegate: self, cancelButtonTitle: "OK")
-                            alert.show()
-//                            let alert: UIAlertController = UIAlertController()
-//                            alert.title = "Error"
+                        if !txtConfirm.text!.isEmpty {
+                            NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
+                            var email = txtEmail.text
+                            let password = txtPassword.text
+                            let confirm = txtConfirm.text
+                            let username = txtUserName.text
+                            let fname = self.firstName.text
+                            let lname = self.lastName.text
+                            let phone = self.phone.text
                             
-                        } else if email!.utf16.count < 8 {
-                            let alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
-                            alert.show()
+                            // Ensure username is lowercase
+                            email = email!.lowercaseString
                             
-                        } else {
-                            let newUser = PFUser()
-                            newUser.username = username
-                            newUser.password = password
-                            newUser.email = email
-                            newUser["firstName"] = fname
-                            newUser["lastName"] = lname
-                            newUser["sex"] = sex
-                            newUser["phone"] = phone
-                            
-                            /* newUser emailedVerified does not need setting.  It is automatically false.
-                             *   Verification link is sent to user's email, after successful completion,
-                             *   the value is changed automatically to true.
-                             */
-                            
-//                            let teamMemberACL = PFACL()
-//                            teamMemberACL.setPublicReadAccess(true)
-//                            teamMemberACL.setWriteAccess(true, forRoleWithName: "Admin")
-//                            teamMemberACL.setReadAccess(true, forRoleWithName: "Admin")
-//                            
-//                            let teamMember = PFRole(name: "TeamMember", acl: teamMemberACL)
-//                            teamMember.saveInBackground()
-                            
-                            if newUser.signUp() {
-                                hideHud(self.view)
+                            if username!.utf16.count < 3 || password!.utf16.count < 3 {
                                 
-                                let newUserProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewUserProfileViewController") as? NewUserProfileViewController
-                                self.navigationController!.pushViewController(newUserProfileVC!, animated:true)
-                            } else {
-                                UtilityClass .showAlert("Please try again.")
+                                displayAlert("Invalid", error: "username and / or password must be greater than 4 characters")
+                                
+                            } else if email!.utf16.count < 8 {
+
+                                displayAlert("Invalid", error: "Please enter a valid email address")
+                            }
+                            else if password!.utf16.count != confirm!.utf16.count {
+                                //displayAlert("Verify Password", error: "passwords are not the same size")
+                                self.labelConfirm.text = "passwords are not the same size"
+                                self.labelConfirm.hidden = false
+                            }
+                            else {
+                                let newUser = PFUser()
+                                newUser.username = username
+                                newUser.password = password
+                                newUser.email = email
+                                newUser["firstName"] = fname
+                                newUser["lastName"] = lname
+                                newUser["phone"] = phone
+                                newUser["level"] = 1
+                                
+                                /* newUser emailedVerified does not need setting.  It is automatically false.
+                                *   Verification link is sent to user's email, after successful completion,
+                                *   the value is changed automatically to true.
+                                */
+                                
+                                //let teamMemberACL = PFACL()
+                                //teamMemberACL.setPublicReadAccess(true)
+                                //teamMemberACL.setWriteAccess(true, forRoleWithName: "Admin")
+                                //teamMemberACL.setReadAccess(true, forRoleWithName: "Admin")
+                                //
+                                //let teamMember = PFRole(name: "TeamMember", acl: teamMemberACL)
+                                //teamMember.saveInBackground()
+                                
+                                if newUser.signUp() {
+                                    hideHud(self.view)
+                                    
+                                    let newUserProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewUserProfileViewController") as? NewUserProfileViewController
+                                    self.navigationController!.pushViewController(newUserProfileVC!, animated:true)
+                                } else {
+                                    UtilityClass .showAlert("Please try again.")
+                                }
                             }
                         }
                     }

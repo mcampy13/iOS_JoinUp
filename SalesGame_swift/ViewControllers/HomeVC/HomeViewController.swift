@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController {
 
     
@@ -22,51 +23,36 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var profilePic: UIImageView?
     
     var pic: AnyObject?
-//==========================================================================================================================
-
-// MARK: Life Cycle methods
-
-//==========================================================================================================================
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 90)
+        UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 75)
         displayUserImg()
+   
     }
+    
     
     /*
     * Retrieve user's profile pic and display it.  Allows user to change img
     */
     func displayUserImg(){
-        let queryUserPhoto = PFQuery(className: "UserPhotos")
-        queryUserPhoto.whereKey("user", equalTo: PFUser.currentUser()!)
-        queryUserPhoto.addDescendingOrder("createdAt")
-        queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
+        var query = PFQuery.getUserObjectWithId(PFUser.currentUser()!.objectId!)
+        
+        let file: PFFile = query?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
             if error == nil {
-                self.pic = imgObjectArray
-                //print("pic \(self.pic)")
-                
-                let picObject:PFObject = (self.pic as! Array)[0];
-                //print("Most Recent picObject \(picObject)")
-                
-                let file: PFFile = (picObject["userImg"] as? PFFile)!
-                file.getDataInBackgroundWithBlock({
-                    (imageData, error) -> Void in
-                    
-                    if error == nil {
-                        let Image: UIImage = UIImage(data: imageData!)!
-                        //print("Image \(Image)")
-                        self.profilePic!.image = Image
-                        hideHud(self.view)
-                    } else {
-                        print("Error \(error)")
-                    }
-                })
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.profilePic!.image = Image
+                hideHud(self.view)
             } else {
-                print("Error: \(error)")
-                UtilityClass.showAlert("Error: \(error)")
+                print("Error \(error)")
             }
-        }
+        })
+
         
     } // END of displayUserImg()
     

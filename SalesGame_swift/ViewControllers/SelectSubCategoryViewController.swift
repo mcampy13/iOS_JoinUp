@@ -21,6 +21,7 @@ class SelectSubCategoryViewController: UIViewController {
     
     var strMainCategory : String!
     var strSubCategory: String!
+    var PFcategory: PFObject?
     var PFSubCategory: PFObject?
     
     override func viewDidLoad() {
@@ -31,6 +32,7 @@ class SelectSubCategoryViewController: UIViewController {
         querySubCategory()
         //questionCount()
     }
+    
     
     func queryCategory() {
         let queryCategory = PFQuery(className: "Category")
@@ -72,6 +74,7 @@ class SelectSubCategoryViewController: UIViewController {
         queryQuestion.countObjectsInBackgroundWithBlock { (count: Int32, error) -> Void in
             if error == nil {
                 self.labelQuestionCount.text = String(count)
+                print("count \(count)")
                 hideHud(self.view)
             } else {
                 print("Error in queryQuestionCount \(error)")
@@ -79,7 +82,12 @@ class SelectSubCategoryViewController: UIViewController {
         }
     }
     
-    
+    func displayAlert(title: String, error: String){
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     //==========================================================================================================================
     
@@ -90,8 +98,18 @@ class SelectSubCategoryViewController: UIViewController {
         let questionVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionViewController") as? QuestionViewController
         let obj:PFObject = (self.subCategory as! Array)[0];
         questionVC?.MainCategory = obj
+        questionVC?.PFsubCategory = self.PFSubCategory
         questionVC?.flagForWrongAnswerpush = false
         self.navigationController!.pushViewController(questionVC!, animated:true)
+        
+    }
+    
+    @IBAction func opponentButton(sender: AnyObject) {
+        displayAlert("Challenge", error: "You must win!")
+    }
+    
+    @IBAction func leaderboardButton(sender: AnyObject) {
+        
     }
     
     

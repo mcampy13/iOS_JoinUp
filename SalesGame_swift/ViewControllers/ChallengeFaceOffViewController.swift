@@ -19,8 +19,13 @@ class ChallengeFaceOffViewController: UIViewController {
     
     var pic:AnyObject?
     
+    var MainCategory: PFObject!
+    
+    var suc: AnyObject?
+    
     var challengeUser: String!
     var challengeUserId: String!
+    var challengeUserLevel: Int!
     var strMainCategory: String!
     
     override func viewDidLoad() {
@@ -31,9 +36,19 @@ class ChallengeFaceOffViewController: UIViewController {
 
         self.labelUsername1?.text = PFUser.currentUser()?.objectForKey("username") as! String
         self.labelUsername2?.text = self.challengeUser
-        
+    
         displayUserImg()
         displayUserImg2()
+        
+        var queryLvl = PFUser.query()?.whereKey("objectId", equalTo: challengeUserId)
+        queryLvl?.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+            if error == nil {
+                self.suc = success
+                self.challengeUserLevel = self.suc?.objectForKey("level") as! Int
+            } else{
+                print("Error getting level: \(error)")
+            }
+        }
     }
 
     func displayUserImg(){
@@ -148,10 +163,26 @@ class ChallengeFaceOffViewController: UIViewController {
     
     //==========================================================================================================================
     
+    @IBAction func homeButton(sender: AnyObject) {
+        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+        self.navigationController?.pushViewController(homeVC!, animated: true)
+    }
+    
     @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBAction func playButton(sender: AnyObject) {
+        let faceOffQuestionVC = self.storyboard?.instantiateViewControllerWithIdentifier("FaceOffQuestionViewController") as? FaceOffQuestionViewController
+        let obj:PFObject = self.MainCategory
+        faceOffQuestionVC?.challengeUser = self.challengeUser
+        let levelStr = String(self.challengeUserLevel)
+        faceOffQuestionVC?.challengeUserLevel = levelStr
+        faceOffQuestionVC?.MainCategory = obj
+        faceOffQuestionVC?.flagForWrongAnswerpush = false
+        self.navigationController!.pushViewController(faceOffQuestionVC!, animated:true)
+
+    }
     
     //==========================================================================================================================
     

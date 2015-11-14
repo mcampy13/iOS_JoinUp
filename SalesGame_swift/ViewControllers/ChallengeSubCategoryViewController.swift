@@ -18,9 +18,12 @@ class ChallengeSubCategoryViewController: UIViewController {
     var challengeUser: String!
     var challengeUserId: String!
     var strMainCategory: String!
+    var parent: AnyObject?
     
     var arraySubCategory:AnyObject?
     var array: NSMutableArray! = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,21 +32,35 @@ class ChallengeSubCategoryViewController: UIViewController {
         querySubCategories()
     }
     
+    
     func querySubCategories() {
         let query = PFQuery(className: "SubCategory")
-        query.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
+        
+        let queryParent = PFQuery(className: "Category")
+        queryParent.whereKey("categoryName", equalTo: strMainCategory)
+        queryParent.findObjectsInBackgroundWithBlock {  (parentObjs, error) -> Void in
             if error == nil {
-                self.arraySubCategory = objArray;
-                
-                let obj:PFObject = (self.arraySubCategory as! Array)[0];
-                self.array.addObject(obj)
-                self.labelChallengeCategory?.text = self.strMainCategory
-                self.challengeSubCategoryTable.reloadData()
-                hideHud(self.view)
-            } else {
-                print("Error querying for challenge sub-categories: \(error)")
+                self.parent = parentObjs
+                let obj:PFObject = (self.parent as! Array)[0];
+                query.whereKey("parentCategory", equalTo: obj)
+                query.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
+                    if error == nil {
+                        self.arraySubCategory = objArray;
+                        
+                        let subObj:PFObject = (self.arraySubCategory as! Array)[0];
+                        self.labelChallengeCategory?.text = self.strMainCategory
+                        self.challengeSubCategoryTable.reloadData()
+                        hideHud(self.view)
+                    } else {
+                        print("Error \(error)")
+                    }
+                }
+            }
+            else {
+                print("Error \(error)")
             }
         }
+
     } //END of querySubCategories()
 
 
@@ -73,6 +90,7 @@ class ChallengeSubCategoryViewController: UIViewController {
         let obj:PFObject = (self.arraySubCategory as! Array)[indexPath.row];
         challengeFaceOffVC?.challengeUser = self.challengeUser
         challengeFaceOffVC?.challengeUserId = self.challengeUserId
+        challengeFaceOffVC?.MainCategory = obj
         print("Selected Challenge sub-category: \(obj)")
         self.navigationController!.pushViewController(challengeFaceOffVC!, animated:true)
     }
@@ -83,6 +101,11 @@ class ChallengeSubCategoryViewController: UIViewController {
     // MARK: Actions
     
     //==========================================================================================================================
+    
+    @IBAction func homeButton(sender: AnyObject) {
+        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+        self.navigationController?.pushViewController(homeVC!, animated: true)
+    }
     
     @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
