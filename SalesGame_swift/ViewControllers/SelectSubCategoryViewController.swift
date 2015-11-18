@@ -60,9 +60,17 @@ class SelectSubCategoryViewController: UIViewController {
                 self.subCategory = success
                 let obj: PFObject = (self.subCategory as! Array)[0]
                 self.labelSubCategoryTitle?.text = obj.valueForKey("subCategoryName") as? String
-                self.subCategoryImageView?.image = obj.objectForKey("subCategoryFile") as? UIImage
-                print("subCategoryImageView \(self.subCategoryImageView?.image)")
-                
+                let subCategoryFile = obj.objectForKey("subCategoryFile") as? PFFile
+                subCategoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
+                    if error == nil{
+                        if let imageData = imageData {
+                            self.subCategoryImageView!.image = UIImage(data: imageData)
+                            hideHud(self.view)
+                        }
+                    } else{
+                        print("Error in getDataInBackgroundWithBlock \(error)")
+                    }
+                }
                 hideHud(self.view)
             } else {
                 print("Error in querySubCategory: \(error)")
