@@ -1,5 +1,5 @@
 //
-//  FriendViewController.swift
+//  SearchCategoryViewController.swift
 //  SalesGame_swift
 //
 //  Created by Robert Rock on 11/16/15.
@@ -8,47 +8,48 @@
 
 import UIKit
 
-class FriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+class SearchCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
 
     
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var toolBarView: UIToolbar!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
-    var friends: NSMutableArray = []
-    var holder: AnyObject?
-    var filteredFriends = [String]()
+    var filteredCategories = [String]()
     var resultSearchController = UISearchController()
-
+    
+    var categories: NSMutableArray = []
+    var holder: AnyObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        queryFriends()
         
+        queryCategories()
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
         self.resultSearchController.dimsBackgroundDuringPresentation = false
+        self.definesPresentationContext = true
         self.resultSearchController.searchBar.sizeToFit()
         
         self.tblView.tableHeaderView = self.resultSearchController.searchBar
-        self.tblView.reloadData()
-    
+        
+        self.tblView.reloadData() // adds searchBar to tblView
+        
     }
     
-    func queryFriends(){
-        let query = PFQuery(className: "Friend")
-        query.whereKey("from", equalTo: PFUser.currentUser()!)
-        query.includeKey("to")
+    func queryCategories(){
+        let query = PFQuery(className: "Category")
         query.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
             if error == nil {
                 self.holder = success
-                print("holder: \(self.holder)")
                 for var i=0; i < self.holder!.count; i++ {
                     let obj: PFObject = (self.holder as! Array)[i]
-                    self.friends.addObject(obj.valueForKey("to")!.valueForKey("username")!)
+                    self.categories.addObject(obj.valueForKey("categoryName")!)
                 }
-                print("friends: \(self.friends)")
+                
+                print("categories: \(self.categories)")
             } else{
-                print("Error in query: \(error)")
+                print("Error \(error)")
             }
         }
     }
@@ -62,7 +63,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
 
     //==========================================================================================================================
     
-    // MARK: Table DataSource & Delegate
+    // MARK: Table datasource and delegate methods
     
     //==========================================================================================================================
     
@@ -72,33 +73,40 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.resultSearchController.active {
-            return self.filteredFriends.count
-        } else{
-            return self.friends.count
+            return self.filteredCategories.count
+        } else {
+            return self.categories.count
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tblView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? UITableViewCell
+        let cell = tblView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
         
         if self.resultSearchController.active {
-            cell!.textLabel?.text = self.filteredFriends[indexPath.row]
-        } else{
-            cell!.textLabel?.text = self.friends[indexPath.row] as! String
+            cell!.textLabel?.text = self.filteredCategories[indexPath.row]
+        } else {
+            cell!.textLabel?.text = self.categories[indexPath.row] as? String
         }
         
         return cell!
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        self.filteredFriends.removeAll(keepCapacity: false)
+        // removes all items from filteredCategories array
+        self.filteredCategories.removeAll(keepCapacity: false)
         
         let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+        let array = (self.categories as NSArray).filteredArrayUsingPredicate(searchPredicate)
         
-        let array = (self.friends as NSArray).filteredArrayUsingPredicate(searchPredicate)
-        self.filteredFriends = array as! [String]
+        // casts array back into array of Strings b/c above we cast to NSArray, placing the value in the filteredCategories array
+        self.filteredCategories = array as! [String]
         
         self.tblView.reloadData()
+    
+    }
+    
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
     }
     
     
@@ -107,10 +115,11 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: Actions
     
     //==========================================================================================================================
-    
+
     @IBAction func backButtonTap(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
     
     
     //==========================================================================================================================
@@ -124,5 +133,5 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     
-
+    
 }

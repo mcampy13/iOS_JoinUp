@@ -13,13 +13,13 @@ class NewUserProfileViewController: UIViewController {
     
     @IBOutlet weak var labelWelcome: UILabel!
     
-    
+    var pageIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
-        self.labelWelcome.text = "Welcome \(PFUser.currentUser()?.username) !"
+        self.labelWelcome.text = "Welcome \(PFUser.currentUser()!.username) !"
         
         
     }
@@ -28,7 +28,7 @@ class NewUserProfileViewController: UIViewController {
     
     
     func displayAlert(title: String, error: String){
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
         }))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -43,14 +43,14 @@ class NewUserProfileViewController: UIViewController {
     
     @IBAction func skipButton(sender: AnyObject) {
         displayAlert("Later it is!", error: "We can always add that stuff later.")
-        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
-        self.navigationController?.pushViewController(homeVC!, animated: true)
+        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+        self.navigationController?.pushViewController(homeVC, animated: true)
     }
     
     
     @IBAction func nextButton(sender: AnyObject) {
-        let editProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as? EditProfileViewController
-        self.navigationController?.pushViewController(editProfileVC!, animated: true)
+        let editProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
+        self.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     

@@ -13,11 +13,11 @@
 		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; };
 		9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC861BD760250068C72B /* ChallengeViewController.swift */; };
 		96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3F81BE341F80021E32C /* SummaryViewController.swift */; };
-		96A2A3FC1BE4004C0021E32C /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3FB1BE4004C0021E32C /* FriendViewController.swift */; };
-		96A2A3FE1BE403A60021E32C /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3FD1BE403A60021E32C /* FriendTableViewCell.swift */; };
 		96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */; };
 		96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */; };
-		96AE17D81BE710AE00D3E068 /* SearchCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */; };
+		96B0FA091BFABC5100371660 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA081BFABC5100371660 /* FriendViewController.swift */; };
+		96B0FA0C1BFC78E300371660 /* GameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA0B1BFC78E300371660 /* GameHistoryViewController.swift */; };
+		96B0FA0E1BFC79AC00371660 /* GameHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */; };
 		96C4F3C11BF2C422009E73CD /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */; };
 		96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */; };
 		96C4F3C51BF33796009E73CD /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C41BF33796009E73CD /* ChallengeTableViewCell.swift */; };
@@ -27,6 +27,9 @@
 		96C4F3D21BF43BFC009E73CD /* NewUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3D11BF43BFC009E73CD /* NewUserProfileViewController.swift */; };
 		96C4F3D51BF45459009E73CD /* TotalBadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3D41BF45459009E73CD /* TotalBadgesViewController.swift */; };
 		96C4F3D71BF45541009E73CD /* TotalBadgesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3D61BF45541009E73CD /* TotalBadgesTableViewCell.swift */; };
+		96D71D471BFA559100675A15 /* SearchCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D71D461BFA559100675A15 /* SearchCategoryViewController.swift */; };
+		96D71D4A1BFA775900675A15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D71D491BFA775900675A15 /* ViewController.swift */; };
+		96D71D4C1BFAAF3800675A15 /* SearchSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D71D4B1BFAAF3800675A15 /* SearchSubCategoryViewController.swift */; };
 		96DC25FC1BF1C67500D3F0CC /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC25FB1BF1C67500D3F0CC /* BadgeViewController.swift */; };
 		96DC25FE1BF1C8C200D3F0CC /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC25FD1BF1C8C200D3F0CC /* BadgeTableViewCell.swift */; };
 		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; };
@@ -88,11 +91,11 @@
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		9659FC861BD760250068C72B /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		96A2A3F81BE341F80021E32C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
-		96A2A3FB1BE4004C0021E32C /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
-		96A2A3FD1BE403A60021E32C /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewController.swift; sourceTree = "<group>"; };
+		96B0FA081BFABC5100371660 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		96B0FA0B1BFC78E300371660 /* GameHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryViewController.swift; sourceTree = "<group>"; };
+		96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSubCategoryViewController.swift; sourceTree = "<group>"; };
 		96C4F3C41BF33796009E73CD /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,6 +105,9 @@
 		96C4F3D11BF43BFC009E73CD /* NewUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserProfileViewController.swift; sourceTree = "<group>"; };
 		96C4F3D41BF45459009E73CD /* TotalBadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalBadgesViewController.swift; sourceTree = "<group>"; };
 		96C4F3D61BF45541009E73CD /* TotalBadgesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalBadgesTableViewCell.swift; sourceTree = "<group>"; };
+		96D71D461BFA559100675A15 /* SearchCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewController.swift; sourceTree = "<group>"; };
+		96D71D491BFA775900675A15 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		96D71D4B1BFAAF3800675A15 /* SearchSubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSubCategoryViewController.swift; sourceTree = "<group>"; };
 		96DC25FB1BF1C67500D3F0CC /* BadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
 		96DC25FD1BF1C8C200D3F0CC /* BadgeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeTableViewCell.swift; sourceTree = "<group>"; };
 		96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +217,7 @@
 			children = (
 				96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */,
 				96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */,
+				96D71D4B1BFAAF3800675A15 /* SearchSubCategoryViewController.swift */,
 			);
 			name = SubCategoryVC;
 			sourceTree = "<group>";
@@ -235,8 +242,7 @@
 		96A2A3FA1BE400300021E32C /* FriendVC */ = {
 			isa = PBXGroup;
 			children = (
-				96A2A3FB1BE4004C0021E32C /* FriendViewController.swift */,
-				96A2A3FD1BE403A60021E32C /* FriendTableViewCell.swift */,
+				96B0FA081BFABC5100371660 /* FriendViewController.swift */,
 			);
 			name = FriendVC;
 			sourceTree = "<group>";
@@ -246,9 +252,17 @@
 			children = (
 				96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */,
 				96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */,
-				96AE17D71BE710AE00D3E068 /* SearchCategoryViewController.swift */,
 			);
 			name = CategoryVC;
+			sourceTree = "<group>";
+		};
+		96B0FA0A1BFC78CE00371660 /* GameHistoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				96B0FA0B1BFC78E300371660 /* GameHistoryViewController.swift */,
+				96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */,
+			);
+			name = GameHistoryVC;
 			sourceTree = "<group>";
 		};
 		96C4F3C61BF33DC3009E73CD /* ChallengeCategoryVC */ = {
@@ -287,6 +301,15 @@
 			name = TotalBadgesVC;
 			sourceTree = "<group>";
 		};
+		96D71D481BFA772400675A15 /* TutorialVC */ = {
+			isa = PBXGroup;
+			children = (
+				96C4F3D11BF43BFC009E73CD /* NewUserProfileViewController.swift */,
+				96D71D491BFA775900675A15 /* ViewController.swift */,
+			);
+			name = TutorialVC;
+			sourceTree = "<group>";
+		};
 		96DC25FA1BF1C65D00D3F0CC /* BadgeVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,7 +340,6 @@
 			children = (
 				96DD46191BD658C0006B97F2 /* ProfileViewController.swift */,
 				96DD46221BD71402006B97F2 /* EditProfileViewController.swift */,
-				96C4F3D11BF43BFC009E73CD /* NewUserProfileViewController.swift */,
 			);
 			name = ProfileVC;
 			sourceTree = "<group>";
@@ -506,6 +528,8 @@
 		BAEA6E3C1BA3417700558565 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96B0FA0A1BFC78CE00371660 /* GameHistoryVC */,
+				96D71D481BFA772400675A15 /* TutorialVC */,
 				96C4F3D31BF45439009E73CD /* TotalBadgesVC */,
 				96C4F3CE1BF34878009E73CD /* ChallengeFaceOffVC */,
 				96C4F3CB1BF34068009E73CD /* ChallengeSubCategoryVC */,
@@ -534,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				BAEA6E491BA34B8000558565 /* AllCategoryViewController.swift */,
+				96D71D461BFA559100675A15 /* SearchCategoryViewController.swift */,
 			);
 			path = AllCategoryVC;
 			sourceTree = "<group>";
@@ -658,10 +683,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96AE17D81BE710AE00D3E068 /* SearchCategoryViewController.swift in Sources */,
+				96D71D471BFA559100675A15 /* SearchCategoryViewController.swift in Sources */,
 				96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */,
 				BA512E811BA59E43008AE31B /* IQKeyboardManager.m in Sources */,
 				96DC25FE1BF1C8C200D3F0CC /* BadgeTableViewCell.swift in Sources */,
+				96D71D4A1BFA775900675A15 /* ViewController.swift in Sources */,
 				96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */,
 				9614CB341BF5724C003BB669 /* BadgeOverviewViewController.swift in Sources */,
 				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
@@ -672,11 +698,10 @@
 				96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */,
 				BAEA6E4A1BA34B8000558565 /* AllCategoryViewController.swift in Sources */,
 				BA512E5F1BA597DD008AE31B /* SettingViewController.swift in Sources */,
+				96B0FA0E1BFC79AC00371660 /* GameHistoryTableViewCell.swift in Sources */,
 				96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */,
-				96A2A3FC1BE4004C0021E32C /* FriendViewController.swift in Sources */,
 				BAEA6E4E1BA3532300558565 /* GeneralClass.swift in Sources */,
 				BAEA6E461BA3425400558565 /* SignUpViewController.swift in Sources */,
-				96A2A3FE1BE403A60021E32C /* FriendTableViewCell.swift in Sources */,
 				BAEA6E4C1BA3523B00558565 /* QuestionViewController.swift in Sources */,
 				BA512E841BA59E43008AE31B /* IQTextView.m in Sources */,
 				9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */,
@@ -694,15 +719,18 @@
 				BA512E861BA59E43008AE31B /* IQToolbar.m in Sources */,
 				96C4F3C81BF33DFF009E73CD /* ChallengeCategoryViewController.swift in Sources */,
 				BA512E661BA59E13008AE31B /* MBProgressHUD.m in Sources */,
+				96D71D4C1BFAAF3800675A15 /* SearchSubCategoryViewController.swift in Sources */,
 				BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */,
 				96C4F3D71BF45541009E73CD /* TotalBadgesTableViewCell.swift in Sources */,
 				9614CB361BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift in Sources */,
 				9614CB381BF5B5A8003BB669 /* FaceOffQuestionViewController.swift in Sources */,
 				BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */,
+				96B0FA0C1BFC78E300371660 /* GameHistoryViewController.swift in Sources */,
 				96C4F3D21BF43BFC009E73CD /* NewUserProfileViewController.swift in Sources */,
 				96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */,
 				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
 				96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */,
+				96B0FA091BFABC5100371660 /* FriendViewController.swift in Sources */,
 				96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */,
 				96C4F3D01BF34897009E73CD /* ChallengeFaceOffViewController.swift in Sources */,
 				96C4F3D51BF45459009E73CD /* TotalBadgesViewController.swift in Sources */,

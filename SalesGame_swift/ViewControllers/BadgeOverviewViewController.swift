@@ -21,7 +21,7 @@ class BadgeOverviewViewController: UIViewController, UICollectionViewDataSource,
         super.viewDidLoad()
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
-        var query = PFQuery(className: "Badges")
+        let query = PFQuery(className: "Badges")
         query.addAscendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
@@ -44,7 +44,7 @@ class BadgeOverviewViewController: UIViewController, UICollectionViewDataSource,
     }
     
     func displayAlert(title: String, error: String){
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
         }))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -71,7 +71,7 @@ class BadgeOverviewViewController: UIViewController, UICollectionViewDataSource,
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let Cell: BadgeOverviewCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! BadgeOverviewCollectionViewCell
         
-        var queryBadges = PFQuery(className: "Badges")
+        let queryBadges = PFQuery(className: "Badges")
         queryBadges.addAscendingOrder("createdAt")
         queryBadges.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {

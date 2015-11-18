@@ -30,7 +30,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let currentUser = PFUser.currentUser()
         self.usernameLabel.text = currentUser?.objectForKey("username") as? String
         
-        self.editDepartmentLabel.text = currentUser?.objectForKey("department") as? String
+        let currentDepartment = PFUser.currentUser()!.objectForKey("department")
+        self.editDepartmentLabel.text = currentDepartment as? String
         imagePicker.delegate = self
 
         displayUserImg()
@@ -40,7 +41,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     * Retrieve user's profile pic and display it.  Allows user to change img
     */
     func displayUserImg(){
-        var query = PFQuery.getUserObjectWithId(PFUser.currentUser()!.objectId!)
+        let query = PFQuery.getUserObjectWithId(PFUser.currentUser()!.objectId!)
         
         let file: PFFile = query?.valueForKey("profilePic") as! PFFile
         print("file \(file)")
@@ -61,7 +62,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     func displayAlert(title: String, error: String){
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
         }))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -107,8 +108,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func saveButton(sender: AnyObject) {
         if self.departmentTextField != nil {
-            var dept = self.departmentTextField.text
-            var user = PFUser.currentUser()
+            let dept = self.departmentTextField.text
+            let user = PFUser.currentUser()
             user!["department"] = dept
             user?.saveInBackgroundWithBlock { (successObject, error) -> Void in
                 if error == nil {

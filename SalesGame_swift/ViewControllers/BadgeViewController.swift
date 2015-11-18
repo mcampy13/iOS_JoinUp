@@ -45,7 +45,7 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     func displayAlert(title: String, error: String){
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
         }))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -69,10 +69,10 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:BadgeTableViewCell = badgeTableView!.dequeueReusableCellWithIdentifier("cell") as! BadgeTableViewCell
     
-        let badgeId = self.finalArray.objectAtIndex(indexPath.row).valueForKey("badge")?.valueForKey("objectId") as? String
+        let badgeId = self.finalArray.objectAtIndex(indexPath.row).valueForKey("badge")?.valueForKey("objectId") as! String
         
         let query = PFQuery(className: "Badges")
-        query.whereKey("objectId", equalTo: badgeId!)
+        query.whereKey("objectId", equalTo: badgeId)
         query.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
             if error == nil {
                 self.badgeDataArray = success;

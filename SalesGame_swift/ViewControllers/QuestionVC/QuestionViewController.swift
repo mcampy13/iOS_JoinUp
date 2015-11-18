@@ -55,6 +55,8 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     var MainCategory: PFObject!
     var PFsubCategory: PFObject?
     
+    var game: PFObject!
+    
     var obj:PFObject!
     var arrWrongAns : NSMutableArray = []
     var arrHalfWrongAns : NSMutableArray = []
@@ -171,6 +173,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                 ownScoreVC.strName = self.playerName
                 ownScoreVC.arrWrongQuestion = self.arrWrongAns
                 ownScoreVC.arrOtherAns = self.arrHalfWrongAns
+                ownScoreVC.game = self.game
                 self.navigationController?.pushViewController(ownScoreVC, animated: true)
             
             if timer != nil {
@@ -304,6 +307,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                     ownScoreVC.strName = self.playerName
                     ownScoreVC.arrWrongQuestion = self.arrWrongAns
                     ownScoreVC.arrOtherAns = self.arrHalfWrongAns
+                    ownScoreVC.game = self.game
                     self.navigationController?.pushViewController(ownScoreVC, animated: true)
                 
                 if timer != nil {
@@ -343,7 +347,9 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func btnFiftyFiftyTap(sender: UIButton) {
-        let ff = NSUserDefaults.standardUserDefaults().valueForKey(kFiftyFiftyCount) as! String
+        let fiftyFiftyLifeLine = "50-50"
+        self.game.addUniqueObject(fiftyFiftyLifeLine, forKey: "lifeLinesUsed")
+         let ff = NSUserDefaults.standardUserDefaults().valueForKey(kFiftyFiftyCount) as! String
         var ffInt = Int(ff)
         ffInt?--
         let ffString = String(format: "%d", ffInt!)
@@ -378,6 +384,9 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func btnSkipTap(sender: UIButton) {
+        let skipLifeLine = "skip"
+        self.game.addUniqueObject(skipLifeLine, forKey: "lifeLinesUsed")
+
         let skip = NSUserDefaults.standardUserDefaults().valueForKey(kSkipCount) as! String
         var ffSkipInt = Int(skip)
         ffSkipInt?--
@@ -398,6 +407,9 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func btnTimerTap(sender: UIButton) {
+        let pauseLifeLine = "Pause"
+        self.game.addUniqueObject(pauseLifeLine, forKey: "lifeLinesUsed")
+
         let time = NSUserDefaults.standardUserDefaults().valueForKey(kTimerCount) as! String
         var ffTimeInt = Int(time)
         ffTimeInt?--
@@ -438,13 +450,15 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             sender.setBackgroundImage(UIImage(named: "green"), forState: UIControlState.Normal)
             if flagForWrongAnswerpush == false {
                playerScore = playerScore + 10
+                self.game.addUniqueObject(obj, forKey: "correctAnswers")
             } else {
                 playerScore = playerScore + 8
             }
         }
         else {
             if sender.titleLabel?.text == wrongAns {
-                arrWrongAns .addObject(obj)
+                arrWrongAns.addObject(obj)
+                self.game.addUniqueObject(obj, forKey: "wrongAnswers")
                 self.speechAction(false)
                 sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
                 
@@ -481,6 +495,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             sender.setBackgroundImage(UIImage(named: "green"), forState: UIControlState.Normal)
             if flagForWrongAnswerpush == false {
                 playerScore = playerScore + 10
+                self.game.addUniqueObject(obj, forKey: "correctAnswers")
             } else {
                 playerScore = playerScore + 8
             }
@@ -488,6 +503,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         else {
             if sender.titleLabel?.text == wrongAns {
                 arrWrongAns .addObject(obj)
+                self.game.addUniqueObject(obj, forKey: "wrongAnswers")
                 self.speechAction(false)
                 sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
                 if flagForWrongAnswerpush == false {
@@ -523,6 +539,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             sender.setBackgroundImage(UIImage(named: "green"), forState: UIControlState.Normal)
             if flagForWrongAnswerpush == false {
                 playerScore = playerScore + 10
+                self.game.addUniqueObject(obj, forKey: "correctAnswers")
             } else {
                 playerScore = playerScore + 8
             }
@@ -530,6 +547,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         else {
             if sender.titleLabel?.text == wrongAns {
                 arrWrongAns .addObject(obj)
+                self.game.addUniqueObject(obj, forKey: "wrongAnswers")
                 self.speechAction(false)
                 sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
                 if flagForWrongAnswerpush == false {
@@ -564,6 +582,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             sender.setBackgroundImage(UIImage(named: "green"), forState: UIControlState.Normal)
             if flagForWrongAnswerpush == false {
                 playerScore = playerScore + 10
+                self.game.addUniqueObject(obj, forKey: "correctAnswers")
             } else {
                 playerScore = playerScore + 8
             }
@@ -571,6 +590,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         else {
             if sender.titleLabel?.text == wrongAns {
                 arrWrongAns .addObject(obj)
+                self.game.addUniqueObject(obj, forKey: "wrongAnswers")
                 self.speechAction(false)
                 sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
                 if flagForWrongAnswerpush == false {
@@ -664,6 +684,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                 ownScoreVC.strName = self.playerName
                 ownScoreVC.arrWrongQuestion = self.arrWrongAns
                 ownScoreVC.arrOtherAns = self.arrHalfWrongAns
+                ownScoreVC.game = self.game
                 self.navigationController?.pushViewController(ownScoreVC, animated: true)
                 
             }
@@ -678,6 +699,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                 ownScoreVC.strName = self.playerName
                 ownScoreVC.arrWrongQuestion = self.arrWrongAns
                 ownScoreVC.arrOtherAns = self.arrHalfWrongAns
+                ownScoreVC.game = self.game
                 self.navigationController?.pushViewController(ownScoreVC, animated: true)
                 
             }

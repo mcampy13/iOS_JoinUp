@@ -17,6 +17,8 @@ class ChallengeSubCategoryViewController: UIViewController {
 
     var challengeUser: String!
     var challengeUserId: String!
+    var challengeUserLevel: String!
+    
     var strMainCategory: String!
     var parent: AnyObject?
     
@@ -90,6 +92,8 @@ class ChallengeSubCategoryViewController: UIViewController {
         let obj:PFObject = (self.arraySubCategory as! Array)[indexPath.row];
         challengeFaceOffVC?.challengeUser = self.challengeUser
         challengeFaceOffVC?.challengeUserId = self.challengeUserId
+        let levelStr = String(self.challengeUserLevel)
+        challengeFaceOffVC?.challengeUserLevel = levelStr
         challengeFaceOffVC?.MainCategory = obj
         print("Selected Challenge sub-category: \(obj)")
         self.navigationController!.pushViewController(challengeFaceOffVC!, animated:true)

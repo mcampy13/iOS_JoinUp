@@ -16,6 +16,9 @@ class ChallengeFaceOffViewController: UIViewController {
     @IBOutlet weak var labelUsername2: UILabel!
     @IBOutlet weak var imgUsername1: UIImageView!
     @IBOutlet weak var imgUsername2: UIImageView!
+    @IBOutlet weak var labelMyLevel: UILabel!
+    @IBOutlet weak var labelOpponentLevel: UILabel!
+    
     
     var pic:AnyObject?
     
@@ -25,135 +28,77 @@ class ChallengeFaceOffViewController: UIViewController {
     
     var challengeUser: String!
     var challengeUserId: String!
-    var challengeUserLevel: Int!
+    var challengeUserLevel: String!
     var strMainCategory: String!
+    var intLevel: NSMutableArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
-        UtilityClass.setMyViewBorder(imgUsername1, withBorder: 2, radius: 50)
-        UtilityClass.setMyViewBorder(imgUsername2, withBorder: 2, radius: 50)
+        UtilityClass.setMyViewBorder(imgUsername1, withBorder: 1, radius: 50)
+        UtilityClass.setMyViewBorder(imgUsername2, withBorder: 1, radius: 50)
 
-        self.labelUsername1?.text = PFUser.currentUser()?.objectForKey("username") as! String
-        self.labelUsername2?.text = self.challengeUser
-    
-        displayUserImg()
-        displayUserImg2()
+        self.labelUsername1?.text = PFUser.currentUser()?.objectForKey("username") as? String
+        self.labelMyLevel?.text = PFUser.currentUser()?.objectForKey("level") as? String
         
-        var queryLvl = PFUser.query()?.whereKey("objectId", equalTo: challengeUserId)
-        queryLvl?.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+        self.labelUsername2?.text = self.challengeUser
+       // self.labelOpponentLevel?.text = self.challengeUserLevel as! String
+    
+        displayMe()
+        displayOpponent()
+        
+        let queryLvl = PFUser.query()!.whereKey("objectId", equalTo: challengeUserId)
+        queryLvl.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
                 self.suc = success
-                self.challengeUserLevel = self.suc?.objectForKey("level") as! Int
+                print("success: \(self.suc)")
+                let intChallengeUserLevel = self.suc![0].objectForKey("level")
+                self.challengeUserLevel = String(intChallengeUserLevel)
+                self.labelOpponentLevel?.text = self.challengeUserLevel as! String
+                print("challengeUserLevel: \(self.challengeUserLevel)")
             } else{
                 print("Error getting level: \(error)")
             }
         }
     }
 
-    func displayUserImg(){
-        let queryUserPhoto = PFQuery(className: "UserPhotos")
-        queryUserPhoto.whereKey("user", equalTo: PFUser.currentUser()!)
-        queryUserPhoto.addDescendingOrder("createdAt")
-        queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
-            if error == nil {
-                self.pic = imgObjectArray
-                print("pic \(self.pic)")
-                
-                let picObject:PFObject = (self.pic as! Array)[0]
-                print("Most Recent picObject \(picObject)")
-                
-                let file: PFFile = picObject["userImg"] as! PFFile
-                print("file \(file)")
-                
-                file.getDataInBackgroundWithBlock({
-                    (imageData, error) -> Void in
-                    if error == nil {
-                        let Image: UIImage = UIImage(data: imageData!)!
-                        print("Image \(Image)")
-                        self.imgUsername1.image = Image
-                        hideHud(self.view)
-                    } else {
-                        print("Error \(error)")
-                    }
-                })
-            } else {
-                print("Error: \(error)")
-                UtilityClass.showAlert("Error: \(error)")
-            }
-        }
+    func displayMe(){
+        let userObj = PFQuery.getUserObjectWithId((PFUser.currentUser()?.objectId)!)
         
-    } // END of displayUserImg()
+        let file: PFFile = userObj?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
+            if error == nil {
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.imgUsername1.image = Image
+                
+                hideHud(self.view)
+            } else {
+                print("Error \(error)")
+            }
+        })
+    } // END of displayMe()
     
-    func displayUserImg2(){
-        let queryUserPhoto = PFQuery(className: "UserPhotos")
+    func displayOpponent(){
         let userObj = PFQuery.getUserObjectWithId(challengeUserId)
-        queryUserPhoto.whereKey("user", equalTo: userObj!)
-        queryUserPhoto.addDescendingOrder("createdAt")
-        queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
+        
+        let file: PFFile = userObj?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
             if error == nil {
-                self.pic = imgObjectArray
-                print("pic \(self.pic)")
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.imgUsername2.image = Image
                 
-                let picObject:PFObject = (self.pic as! Array)[0]
-                print("Most Recent picObject \(picObject)")
-                
-                let file: PFFile = picObject["userImg"] as! PFFile
-                print("file \(file)")
-                
-                file.getDataInBackgroundWithBlock({
-                    (imageData, error) -> Void in
-                    if error == nil {
-                        let Image: UIImage = UIImage(data: imageData!)!
-                        print("Image \(Image)")
-                        self.imgUsername2.image = Image
-                        hideHud(self.view)
-                    } else {
-                        print("Error \(error)")
-                    }
-                })
+                hideHud(self.view)
             } else {
-                print("Error: \(error)")
-                UtilityClass.showAlert("Error: \(error)")
+                print("Error \(error)")
             }
-        }
-        
-//        var query = PFUser.query()
-//        var userObj = PFQuery.getUserObjectWithId(challengeUserId)
-//        
-//        query!.findObjectsInBackgroundWithBlock { (success, error) -> Void in
-//            if error == nil {
-//                self.pic = success
-//                print("pic \(self.pic?.valueForKey("profilePic"))")
-//
-//                for var i=0; i<self.pic!.count; i++ {
-//                    let picObject:PFObject = (self.pic as! Array)[1]
-//                    print("Most Recent picObject \(picObject)")
-//
-//                    let file: PFFile = picObject["profilePic"] as! PFFile
-//                    print("file \(file)")
-//                    
-//                    file.getDataInBackgroundWithBlock({
-//                        (imageData, error) -> Void in
-//                        if error == nil {
-//                            let Image: UIImage = UIImage(data: imageData!)!
-//                            print("Image \(Image)")
-//                            self.imgUsername2.image = Image
-//                            hideHud(self.view)
-//                        } else {
-//                            print("Error \(error)")
-//                        }
-//                    })
-//                }
-//            
-//                
-//            } else {
-//                print("Error: \(error)")
-//            }
-//        
-//        }
-        
-    } // END of displayUserImg2()
+        })
+    } // END of displayOpponent()
 
     
     
@@ -178,6 +123,7 @@ class ChallengeFaceOffViewController: UIViewController {
         faceOffQuestionVC?.challengeUser = self.challengeUser
         let levelStr = String(self.challengeUserLevel)
         faceOffQuestionVC?.challengeUserLevel = levelStr
+        faceOffQuestionVC?.challengeUserId = self.challengeUserId
         faceOffQuestionVC?.MainCategory = obj
         faceOffQuestionVC?.flagForWrongAnswerpush = false
         self.navigationController!.pushViewController(faceOffQuestionVC!, animated:true)

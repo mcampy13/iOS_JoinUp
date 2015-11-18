@@ -42,7 +42,7 @@ class HighScoreViewController: UIViewController {
 
         let query = PFQuery(className: "Score")
         query.addDescendingOrder("score")
-        query.selectKeys(["name","score"])
+//        query.selectKeys(["user","name","score"])
         query.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
                 self.dataArray = success
@@ -58,6 +58,9 @@ class HighScoreViewController: UIViewController {
                     
                 }
                 print("final Array", self.finalArray as NSMutableArray)
+                self.displayFirstImg()
+                self.displaySecondImg()
+                self.displayThirdImg()
                 self.tblobj!.reloadData()
                 hideHud(self.view)
                 
@@ -67,155 +70,71 @@ class HighScoreViewController: UIViewController {
             
         }
         
-        //let queryUser = PFUser.query()
-    
-//        queryUser?.limit = 3
-//        for var j=0; j < self.finalArray.count; j++ {
-//            queryUser?.whereKey("username", equalTo: self.finalArray[j].objectForKey("name")!)
-//            queryUser?.findObjectsInBackgroundWithBlock { (success, error) -> Void in
-//                if error == nil {
-//                    let file: PFFile = queryUser?.valueForKey("profilePic") as! PFFile
-//                    print("file \(file)")
-//                    file.getDataInBackgroundWithBlock({
-//                    (imageData, error) -> Void in
-//                        if error == nil {
-//                            let Image: UIImage = UIImage(data: imageData!)!
-//                            print("Image \(Image)")
-//                            if j == 1 {
-//                                self.firstPlaceImg.image = Image
-//                            } else if j == 2 {
-//                                self.secondPlaceImg.image = Image
-//                            } else if j == 3 {
-//                                self.thirdPlaceImg.image = Image
-//                            } else {
-//                                hideHud(self.view)
-//                            }
-////                            hideHud(self.view)
-//                        } else {
-//                            print("Error \(error)")
-//                        }
-//                    })
-//
-//                } else{
-//                    print("Error: \(error)")
-//                }
-//                
-//            }
-//        }
-
-        displayFirstImg()
-        displaySecondImg()
-        displayThirdImg()
-        
     }
     
     func displayFirstImg(){
-        let queryUserPhoto = PFQuery(className: "UserPhotos")
-        let userObj = PFQuery.getUserObjectWithId("OaCnKgyHhA")
-        queryUserPhoto.whereKey("user", equalTo: userObj!)
-        queryUserPhoto.addDescendingOrder("createdAt")
-        queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
-            if error == nil {
-                self.pic = imgObjectArray
-                print("pic \(self.pic)")
-                
-                let picObject:PFObject = (self.pic as! Array)[0]
-                print("Most Recent picObject for \(userObj) was \(picObject)")
-                
-                let file: PFFile = picObject["userImg"] as! PFFile
-                print("file \(file)")
-                
-                file.getDataInBackgroundWithBlock({
-                    (imageData, error) -> Void in
-                    if error == nil {
-                        let Image: UIImage = UIImage(data: imageData!)!
-                        print("Image \(Image)")
-                        self.firstPlaceImg.image = Image
-                        hideHud(self.view)
-                    } else {
-                        print("Error \(error)")
-                    }
-                })
-            } else {
-                print("Error: \(error)")
-                UtilityClass.showAlert("Error: \(error)")
-            }
-        }
+        let user = self.finalArray[0].valueForKey("user")
+        let userObj = PFQuery.getUserObjectWithId((user?.objectId)!)
+        print("First place user: \(user)")
         
+        let file: PFFile = userObj?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
+            if error == nil {
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.firstPlaceImg.image = Image
+                
+                hideHud(self.view)
+            } else {
+                print("Error \(error)")
+            }
+        })
         
     } // END of displayFirstImg()
     
     
     func displaySecondImg(){
-        let queryUserPhoto = PFQuery(className: "UserPhotos")
-        let userObj = PFQuery.getUserObjectWithId("Ee1iMt5s9e")
-        queryUserPhoto.whereKey("user", equalTo: userObj!)
-        queryUserPhoto.addDescendingOrder("createdAt")
-        queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
+        let user = self.finalArray[1].valueForKey("user")
+        let userObj = PFQuery.getUserObjectWithId((user?.objectId)!)
+        print("Second place user: \(user)")
+        
+        let file: PFFile = userObj?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
             if error == nil {
-                self.pic = imgObjectArray
-                print("pic \(self.pic)")
-                
-                let picObject:PFObject = (self.pic as! Array)[0]
-                print("Most Recent picObject for \(userObj) was \(picObject)")
-                
-                let file: PFFile = picObject["userImg"] as! PFFile
-                print("file \(file)")
-                
-                file.getDataInBackgroundWithBlock({
-                    (imageData, error) -> Void in
-                    if error == nil {
-                        let Image: UIImage = UIImage(data: imageData!)!
-                        print("Image \(Image)")
-                        self.secondPlaceImg.image = Image
-                        hideHud(self.view)
-                    } else {
-                        print("Error \(error)")
-                    }
-                })
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.secondPlaceImg.image = Image
+                hideHud(self.view)
             } else {
-                print("Error: \(error)")
-                UtilityClass.showAlert("Error: \(error)")
+                print("Error \(error)")
             }
-        }
+        })
         
     } // END of displaySecondImg()
     
     
     func displayThirdImg(){
-        let queryUserPhoto = PFQuery(className: "UserPhotos")
-        queryUserPhoto.whereKey("user", equalTo: PFUser.currentUser()!)
-        queryUserPhoto.addDescendingOrder("createdAt")
-        queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
+        let user = self.finalArray[2].valueForKey("user")
+        let userObj = PFQuery.getUserObjectWithId((user?.objectId)!)
+        print("Third place user: \(user)")
+        
+        let file: PFFile = userObj?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
             if error == nil {
-                self.pic = imgObjectArray
-                print("pic \(self.pic)")
-                
-                let picObject:PFObject = (self.pic as! Array)[0]
-                print("Most Recent picObject for \(PFUser.currentUser()) was \(picObject)")
-                
-                let file: PFFile = picObject["userImg"] as! PFFile
-                print("file \(file)")
-                
-                file.getDataInBackgroundWithBlock({
-                    (imageData, error) -> Void in
-                    if error == nil {
-                        let Image: UIImage = UIImage(data: imageData!)!
-                        print("Image \(Image)")
-                        self.thirdPlaceImg?.image = Image
-                        //                        if self.firstPlaceImg?.image == nil {
-                        //                            self.firstPlaceImg.image = Image
-                        //                        }
-                        hideHud(self.view)
-                    } else {
-                        print("Error \(error)")
-                    }
-                })
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.thirdPlaceImg.image = Image
+                hideHud(self.view)
             } else {
-                print("Error: \(error)")
-                UtilityClass.showAlert("Error: \(error)")
+                print("Error \(error)")
             }
-        }
+        })
         
     } // END of displayThirdImg()
     

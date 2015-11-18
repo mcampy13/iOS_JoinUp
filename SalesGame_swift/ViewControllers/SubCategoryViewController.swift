@@ -15,6 +15,8 @@ class SubCategoryViewController: UIViewController {
     var parent: AnyObject?
     
     var strMainCategory : String!
+    
+    var game: PFObject!
 
     
     override func viewDidLoad() {
@@ -89,6 +91,8 @@ class SubCategoryViewController: UIViewController {
         let subObj: PFObject = (self.subCategories as! Array)[indexPath.row]
         selectSubCategoryVC?.strMainCategory = obj.objectId
         selectSubCategoryVC?.strSubCategory = subObj.objectId
+        game["subCategory"] = subObj
+        selectSubCategoryVC?.game = self.game
         //selectSubCategoryVC?.PFSubCategory = subObj
         self.navigationController!.pushViewController(selectSubCategoryVC!, animated:true)
     }
@@ -103,11 +107,11 @@ class SubCategoryViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    @IBAction func homeButton(sender: AnyObject) {
-        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
-        self.navigationController?.pushViewController(homeVC!, animated: true)
+    @IBAction func searchButtonTap(sender: AnyObject) {
+        let searchSubCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SearchSubCategoryViewController") as! SearchSubCategoryViewController
+        searchSubCategoryVC.strMainCategory = self.parent![0].objectId
+        self.navigationController?.pushViewController(searchSubCategoryVC, animated: true)
     }
-    
     
     //==========================================================================================================================
     

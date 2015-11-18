@@ -24,6 +24,8 @@ class SelectSubCategoryViewController: UIViewController {
     var PFcategory: PFObject?
     var PFSubCategory: PFObject?
     
+    var game: PFObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
@@ -83,7 +85,7 @@ class SelectSubCategoryViewController: UIViewController {
     }
     
     func displayAlert(title: String, error: String){
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
         }))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -100,6 +102,7 @@ class SelectSubCategoryViewController: UIViewController {
         questionVC?.MainCategory = obj
         questionVC?.PFsubCategory = self.PFSubCategory
         questionVC?.flagForWrongAnswerpush = false
+        questionVC?.game = self.game
         self.navigationController!.pushViewController(questionVC!, animated:true)
         
     }

@@ -74,6 +74,11 @@ class AllCategoryViewController: UIViewController {
         let subCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SubCategoryViewController") as? SubCategoryViewController
         let obj:PFObject = (self.arrayCategory as! Array)[indexPath.row];
         subCategoryVC?.strMainCategory = obj.objectId
+        let game = PFObject(className: "Game")
+        game["player"] = PFUser.currentUser()!
+        game["category"] = obj
+        subCategoryVC?.game = game
+
         self.navigationController!.pushViewController(subCategoryVC!, animated:true)
     }
     
@@ -90,8 +95,8 @@ class AllCategoryViewController: UIViewController {
     }
     
     @IBAction func searchButton(sender: AnyObject) {
-        let searchCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SearchCategoryViewController") as? SearchCategoryViewController
-        self.navigationController!.pushViewController(searchCategoryVC!, animated: true)
+        let searchCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SearchCategoryViewController") as! SearchCategoryViewController
+        self.navigationController?.pushViewController(searchCategoryVC, animated: true)
     }
     
     

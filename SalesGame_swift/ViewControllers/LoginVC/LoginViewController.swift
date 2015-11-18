@@ -128,7 +128,9 @@ class LoginViewController: UIViewController {
                     self.navigationController!.pushViewController(homeVC!, animated: true)
                 }
                 else {
-                    NSLog("Incorrect username or password, please try again.")
+                    //NSLog("Incorrect username or password, please try again.")
+                    let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+                    self.navigationController?.pushViewController(loginVC, animated: true)
                 }
             }
             else {

@@ -27,6 +27,8 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var achievements = Array(1...10).map( { Double($0) * 1 } )
     var achievement : Double?
     
+    var game: PFObject!
+    
     var badges = [String]()
     var category: AnyObject?
     
@@ -49,6 +51,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
                 print("Saved")
+                print("success for scoreObject saveInBackground \(success)")
             } else {
                 print("Error: \(error)")
             }
@@ -64,11 +67,8 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             self.badgePickerViewLabel.text = "Sorry, no new badges for you"
         }
         
+        checkLongHoursGuy()
         
-        let game = PFObject(className: "Game")
-        game["player"] = PFUser.currentUser()?.objectId
-        game["score"] = self.playerScore
-        game["category"] = self.category
         
     }
     
@@ -98,11 +98,12 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.achievement = a
     }
     
-    func checkHonorableMention(){
+    func checkLongHoursGuy(){
         let totalPossible = self.questionArrayScore.count * 10
         if self.playerScore == totalPossible {
-            print("You won Honorable Mention !")
-            self.badgeName = "Honorable Mention"
+            print("You won: Long Hours Guy!")
+            self.badgeName = "Long Hours Guy"
+            self.game.addUniqueObject(self.badgeName, forKey: "badgesWonInGame")
             self.addBadge(self.badgeName)
             self.badges.append(self.badgeName)
         } else {
@@ -110,18 +111,30 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     
-    func addBadge(badgeName: String){
+    func checkHonorableMention(){
+        let totalPossible = self.questionArrayScore.count * 10
+        if self.playerScore < totalPossible && self.playerScore > 0 {
+            print("You won Honorable Mention !")
+            self.badgeName = "Honorable Mention"
+            self.game.addUniqueObject(self.badgeName, forKey: "badgesWonInGame")
+            self.addBadge(self.badgeName)
+            self.badges.append(self.badgeName)
+        } else {
+            print("error")
+        }
+    }
+    
+    func addBadge(addBadgeName: String){
         
         let UserBadge = PFObject(className: "UserBadges")
         let query = PFQuery(className: "Badges")
-        query.whereKey(badgeName, equalTo: "HonorableMention")
+        query.whereKey(badgeName, equalTo: "Honorable Mention")
         query.findObjectsInBackgroundWithBlock{ (badgeObjArray, error) -> Void in
             if error == nil{
-                //UserBadge["badge"] = badgeObjArray![0]
                 print("badge found")
-                UserBadge["badgeName"] = badgeName
+                UserBadge["badgeName"] = addBadgeName
                 UserBadge["createdBy"] = PFUser.currentUser()
-//                UserBadge["badge"] = badgeObjArray![0])
+                UserBadge["badge"] = badgeObjArray![0]
                 UserBadge.saveInBackgroundWithBlock{ (success, error) -> Void in
                     if error == nil {
                         print("Badge successfully saved!")
@@ -150,6 +163,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         summaryVC.playerScore = self.playerScore
         summaryVC.arrWrongQuestion = self.arrWrongQuestion
         summaryVC.arrOtherAns = self.arrOtherAns
+        summaryVC.game = self.game
         self.navigationController?.pushViewController(summaryVC, animated: true)
     }
     
@@ -172,8 +186,16 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
-                let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
-                self.navigationController?.pushViewController(homeVC!, animated: true)
+                self.game.saveInBackgroundWithBlock { (gameSuccess, error) -> Void in
+                    if error == nil {
+                        print("Game Saved")
+                        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+                        self.navigationController?.pushViewController(homeVC!, animated: true)
+
+                    } else {
+                        print("Error saving game: \(error)")
+                    }
+                }
             } else{
                 print("Error: \(error)")
             }

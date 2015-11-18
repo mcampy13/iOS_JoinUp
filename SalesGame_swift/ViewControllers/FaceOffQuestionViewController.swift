@@ -68,13 +68,17 @@ class FaceOffQuestionViewController: UIViewController {
         super.viewDidLoad()
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
-        self.labelUsername1.text = PFUser.currentUser()?.valueForKey("username") as! String
+        self.labelUsername1.text = PFUser.currentUser()?.valueForKey("username") as? String
         self.lvlUsername1.text = PFUser.currentUser()?.valueForKey("level") as? String
         
-        self.labelUsername2.text = self.challengeUser as? String
+        self.labelUsername2.text = self.challengeUser
         self.lvlUsername2.text = self.challengeUserLevel
         
+        UtilityClass.setMyViewBorder(ImgUser1, withBorder: 1, radius: 37)
+        UtilityClass.setMyViewBorder(ImgUser2, withBorder: 1, radius: 37)
+        
         UtilityClass.setMyViewBorder(questionView, withBorder: 0, radius: 5)
+        
         
         self.originalPosArray.insert(self.optionAbutton!.frame, atIndex: 0)
         self.originalPosArray.insert(self.optionBbutton!.frame, atIndex: 1)
@@ -86,7 +90,8 @@ class FaceOffQuestionViewController: UIViewController {
         self.posArray.insert(self.originalPosArray[2], atIndex: 2)
         self.posArray.insert(self.originalPosArray[3], atIndex: 3)
         
-        displayImgUser1()
+        displayMe()
+        displayOpponent()
 
         if flagForWrongAnswerpush == false {
             let queryQuestion = PFQuery(className: "Question")
@@ -123,45 +128,49 @@ class FaceOffQuestionViewController: UIViewController {
     }
     
     func displayAlert(title: String, error: String){
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
-    func displayImgUser1(){
-        let queryUserPhoto = PFQuery(className: "UserPhotos")
-        queryUserPhoto.whereKey("user", equalTo: PFUser.currentUser()!)
-        queryUserPhoto.addDescendingOrder("createdAt")
-        queryUserPhoto.findObjectsInBackgroundWithBlock { (imgObjectArray, error) -> Void in
-            if error == nil {
-                self.pic = imgObjectArray
-                print("pic \(self.pic)")
-                
-                let picObject:PFObject = (self.pic as! Array)[0]
-                print("Most Recent picObject \(picObject)")
-                
-                let file: PFFile = picObject["userImg"] as! PFFile
-                print("file \(file)")
-                
-                file.getDataInBackgroundWithBlock({
-                    (imageData, error) -> Void in
-                    if error == nil {
-                        let Image: UIImage = UIImage(data: imageData!)!
-                        print("Image \(Image)")
-                        self.ImgUser1.image = Image
-                        hideHud(self.view)
-                    } else {
-                        print("Error \(error)")
-                    }
-                })
-            } else {
-                print("Error: \(error)")
-                UtilityClass.showAlert("Error: \(error)")
-            }
-        }
+    func displayMe(){
+        let userObj = PFQuery.getUserObjectWithId((PFUser.currentUser()?.objectId)!)
         
-    } // END of displayImgUser1()
+        let file: PFFile = userObj?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
+            if error == nil {
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.ImgUser1.image = Image
+                
+                hideHud(self.view)
+            } else {
+                print("Error \(error)")
+            }
+        })
+    } // END of displayMe()
+    
+    func displayOpponent(){
+        let userObj = PFQuery.getUserObjectWithId(self.challengeUserId)
+        
+        let file: PFFile = userObj?.valueForKey("profilePic") as! PFFile
+        print("file \(file)")
+        file.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
+            if error == nil {
+                let Image: UIImage = UIImage(data: imageData!)!
+                print("Image \(Image)")
+                self.ImgUser2.image = Image
+                
+                hideHud(self.view)
+            } else {
+                print("Error \(error)")
+            }
+        })
+    } // END of displayOpponent()
 
     
     //==========================================================================================================================
@@ -194,7 +203,7 @@ class FaceOffQuestionViewController: UIViewController {
             obj = (self.questionArray as! Array)[currQuestionCount - 1];
             
             wrongAns = obj.valueForKey("options")?.objectAtIndex(1) as! String
-            questionView?.text = obj .valueForKey("questionText") as! String
+            questionView?.text = obj .valueForKey("questionText") as? String
             var ans:String = obj .valueForKey("answer") as! String
             if ans == obj.valueForKey("options")?.objectAtIndex(0) as! String {
                 ans = "optionA"

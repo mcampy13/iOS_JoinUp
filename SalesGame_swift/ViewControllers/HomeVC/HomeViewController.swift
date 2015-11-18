@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 75)
         displayUserImg()
-   
+        navigationItem.title = "Home"
     }
     
     
@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
     * Retrieve user's profile pic and display it.  Allows user to change img
     */
     func displayUserImg(){
-        var query = PFQuery.getUserObjectWithId(PFUser.currentUser()!.objectId!)
+        let query = PFQuery.getUserObjectWithId(PFUser.currentUser()!.objectId!)
         
         let file: PFFile = query?.valueForKey("profilePic") as! PFFile
         print("file \(file)")
@@ -57,6 +57,12 @@ class HomeViewController: UIViewController {
     } // END of displayUserImg()
     
 
+    func displayAlert(title: String, error: String){
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
 //==========================================================================================================================
 
@@ -85,15 +91,20 @@ class HomeViewController: UIViewController {
         self.navigationController!.pushViewController(settingVC!, animated: true)
     }
     
+    @IBAction func messagesButtonTap(sender: AnyObject) {
+        displayAlert("Messages", error: "Coming Soon!")
+    }
+    
+    
     @IBAction func btnLeader(sender: UIButton) {
        let highScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as? HighScoreViewController
         self.navigationController!.pushViewController(highScoreVC!, animated: true)
     }
     
-    @IBAction func helpBtn(sender: UIButton) {
-        let helpVC = self.storyboard?.instantiateViewControllerWithIdentifier("HelpViewController") as? HelpViewController
-        self.navigationController!.pushViewController(helpVC!, animated: true)
-    }
+//    @IBAction func helpBtn(sender: UIButton) {
+//        let helpVC = self.storyboard?.instantiateViewControllerWithIdentifier("HelpViewController") as? HelpViewController
+//        self.navigationController!.pushViewController(helpVC!, animated: true)
+//    }
     
     @IBAction func btnLogout(sender: UIButton) {
         PFUser .logOutInBackground()

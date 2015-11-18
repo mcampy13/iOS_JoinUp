@@ -23,7 +23,7 @@ class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
-        var query = PFQuery(className: "Badges")
+        let query = PFQuery(className: "Badges")
         query.addAscendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
@@ -47,7 +47,7 @@ class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func displayAlert(title: String, error: String){
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
         }))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -71,9 +71,9 @@ class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: TotalBadgesTableViewCell = tblBadges!.dequeueReusableCellWithIdentifier("Cell") as! TotalBadgesTableViewCell
         
-        let badgeId = self.finalArray.objectAtIndex(indexPath.row).valueForKey("badge")?.valueForKey("objectId") as? String
+        //let badgeId = self.finalArray.objectAtIndex(indexPath.row).valueForKey("badge")?.valueForKey("objectId") as? String
         
-        var queryFinal = PFQuery(className: "Badges")
+        let queryFinal = PFQuery(className: "Badges")
         queryFinal.addAscendingOrder("createdAt")
         queryFinal.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {

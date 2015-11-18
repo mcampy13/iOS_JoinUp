@@ -15,12 +15,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var departmentLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     
-    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var labelTotalGamesAmount: UILabel!
+    
     @IBOutlet weak var homeButton: UIBarButtonItem!
     @IBOutlet weak var gamesButton: UIBarButtonItem!
     @IBOutlet weak var badgesButton: UIBarButtonItem!
     @IBOutlet weak var friendButton: UIBarButtonItem!
     @IBOutlet weak var logOutButton: UIBarButtonItem!
+    
     
     var pic:AnyObject?
     
@@ -31,12 +33,14 @@ class ProfileViewController: UIViewController {
         UtilityClass.setMyViewBorder(img, withBorder: 0, radius: 75)
         self.displayUserImg()
         
-        let currentUser = PFUser.currentUser()?.objectForKey("username")
-        var currentDepartment = PFUser.currentUser()?.objectForKey("department")
-        let level = PFUser.currentUser()?.objectForKey("level") as? String
+        let currentUser = PFUser.currentUser()!.objectForKey("username")
+        let currentDepartment = PFUser.currentUser()!.objectForKey("department")
+        let level = PFUser.currentUser()!.objectForKey("level")
         self.usernameLabel.text = currentUser as? String
         self.departmentLabel.text = currentDepartment as? String
-        self.levelLabel.text = level
+        self.levelLabel.text = String(level)
+        
+        getTotalGamesPlayed()
     }
     
     /*
@@ -61,6 +65,17 @@ class ProfileViewController: UIViewController {
 
     } // END of displayUserImg()
     
+    func getTotalGamesPlayed(){
+        let queryGame = PFQuery(className: "Game")
+        queryGame.whereKey("player", equalTo: PFUser.currentUser()!)
+        queryGame.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+            if error == nil {
+                self.labelTotalGamesAmount?.text = String(success!.count)
+            } else{
+                print("Error in getTotalGamesPlayed: \(error)")
+            }
+        }
+    }
     
 
     //==========================================================================================================================
@@ -75,7 +90,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func gamesButton(sender: AnyObject) {
-        
+        let gameHistoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("GameHistoryViewController") as? GameHistoryViewController
+        self.navigationController?.pushViewController(gameHistoryVC!, animated: true)
     }
     
     @IBAction func badgesButton(sender: AnyObject) {
