@@ -25,10 +25,11 @@ class ChallengeFaceOffViewController: UIViewController {
     var MainCategory: PFObject!
     
     var suc: AnyObject?
+    var playerLevel: Int?
     
     var challengeUser: String!
     var challengeUserId: String!
-    var challengeUserLevel: String!
+    var challengeUserLevel: Int?
     var strMainCategory: String!
     var intLevel: NSMutableArray = []
     
@@ -39,7 +40,9 @@ class ChallengeFaceOffViewController: UIViewController {
         UtilityClass.setMyViewBorder(imgUsername2, withBorder: 1, radius: 50)
 
         self.labelUsername1?.text = PFUser.currentUser()?.objectForKey("username") as? String
-        self.labelMyLevel?.text = PFUser.currentUser()?.objectForKey("level") as? String
+        let level = PFUser.currentUser()!.objectForKey("level")
+        self.playerLevel = level as? Int
+        self.labelMyLevel?.text = String(format: "%d", self.playerLevel!)
         
         self.labelUsername2?.text = self.challengeUser
        // self.labelOpponentLevel?.text = self.challengeUserLevel as! String
@@ -51,11 +54,12 @@ class ChallengeFaceOffViewController: UIViewController {
         queryLvl.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
                 self.suc = success
-                print("success: \(self.suc)")
+                //print("success: \(self.suc)")
                 let intChallengeUserLevel = self.suc![0].objectForKey("level")
-                self.challengeUserLevel = String(intChallengeUserLevel)
-                self.labelOpponentLevel?.text = self.challengeUserLevel as! String
-                print("challengeUserLevel: \(self.challengeUserLevel)")
+                self.challengeUserLevel = intChallengeUserLevel as? Int
+                self.labelOpponentLevel?.text = String(format: "%d", self.challengeUserLevel!)
+                //print("challengeUserLevel: \(self.challengeUserLevel)")
+
             } else{
                 print("Error getting level: \(error)")
             }
@@ -121,8 +125,8 @@ class ChallengeFaceOffViewController: UIViewController {
         let faceOffQuestionVC = self.storyboard?.instantiateViewControllerWithIdentifier("FaceOffQuestionViewController") as? FaceOffQuestionViewController
         let obj:PFObject = self.MainCategory
         faceOffQuestionVC?.challengeUser = self.challengeUser
-        let levelStr = String(self.challengeUserLevel)
-        faceOffQuestionVC?.challengeUserLevel = levelStr
+        let level = self.challengeUserLevel
+        faceOffQuestionVC?.challengeUserLevel = level
         faceOffQuestionVC?.challengeUserId = self.challengeUserId
         faceOffQuestionVC?.MainCategory = obj
         faceOffQuestionVC?.flagForWrongAnswerpush = false

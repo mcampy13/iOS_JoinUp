@@ -38,11 +38,12 @@ class FaceOffQuestionViewController: UIViewController {
     var originalPosArray:[CGRect] = []
     
     var playerScore:Int = 0
+    var playerLevel: Int?
     var playerName:String?
     
     var challengeUser: String!
     var challengeUserId: String!
-    var challengeUserLevel: String!
+    var challengeUserLevel: Int?
     
     var questionImg: PFFile!
     var questionArray:NSArray!
@@ -69,10 +70,12 @@ class FaceOffQuestionViewController: UIViewController {
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
         self.labelUsername1.text = PFUser.currentUser()?.valueForKey("username") as? String
-        self.lvlUsername1.text = PFUser.currentUser()?.valueForKey("level") as? String
+        let level = PFUser.currentUser()!.objectForKey("level")
+        self.playerLevel = level as? Int
+        self.lvlUsername1?.text = String(format: "%d", self.playerLevel!)
         
         self.labelUsername2.text = self.challengeUser
-        self.lvlUsername2.text = self.challengeUserLevel
+        self.lvlUsername2?.text = String(format: "%d", self.challengeUserLevel!)
         
         UtilityClass.setMyViewBorder(ImgUser1, withBorder: 1, radius: 37)
         UtilityClass.setMyViewBorder(ImgUser2, withBorder: 1, radius: 37)

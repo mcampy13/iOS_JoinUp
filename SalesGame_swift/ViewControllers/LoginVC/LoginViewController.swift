@@ -40,6 +40,9 @@ class LoginViewController: UIViewController {
             NSUserDefaults .standardUserDefaults().setObject(str, forKey: kLoggedInUserId)
             let strUsername = currentUser?.username
             NSUserDefaults.standardUserDefaults().setObject(strUsername, forKey: kLoggedInUserName)
+            
+            self.isAdmin()
+            
             var homeVC : HomeViewController?
             homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
             self.navigationController!.pushViewController(homeVC!, animated: true)
@@ -47,6 +50,24 @@ class LoginViewController: UIViewController {
         
         
         
+    }
+    
+    func isAdmin() {
+        let roleACL = PFACL()
+        roleACL.setPublicReadAccess(true)
+        roleACL.setPublicWriteAccess(false)
+        
+        let role = PFRole(name: "Admin", acl: roleACL)
+        
+        let user = PFQuery.getUserObjectWithId("AU98WHZZBa")
+        role.users.addObject(user!)
+        role.saveInBackgroundWithBlock{ (success, error) -> Void in
+            if error == nil {
+                print("Admin is \(user) with role title :\(role)")
+            } else{
+                print("Error saving role: \(error)")
+            }
+        }
     }
     
     func writeOutAuthResult(authError:NSError?) {
@@ -68,9 +89,9 @@ class LoginViewController: UIViewController {
 //        self.navigationController!.pushViewController(homeVC!, animated: true)
     }
     
-    func showPasswordAlert(){
-        
-    }
+//    func showPasswordAlert(){
+//        
+//    }
 
  //==========================================================================================================================
  
@@ -128,7 +149,6 @@ class LoginViewController: UIViewController {
                     self.navigationController!.pushViewController(homeVC!, animated: true)
                 }
                 else {
-                    //NSLog("Incorrect username or password, please try again.")
                     let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
                     self.navigationController?.pushViewController(loginVC, animated: true)
                 }

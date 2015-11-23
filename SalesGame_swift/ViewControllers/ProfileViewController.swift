@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var friendButton: UIBarButtonItem!
     @IBOutlet weak var logOutButton: UIBarButtonItem!
     
+    var userLevel: Int?
     
     var pic:AnyObject?
     
@@ -36,9 +37,10 @@ class ProfileViewController: UIViewController {
         let currentUser = PFUser.currentUser()!.objectForKey("username")
         let currentDepartment = PFUser.currentUser()!.objectForKey("department")
         let level = PFUser.currentUser()!.objectForKey("level")
+        self.userLevel = level as? Int
         self.usernameLabel.text = currentUser as? String
         self.departmentLabel.text = currentDepartment as? String
-        self.levelLabel.text = String(level)
+        levelLabel?.text = String(format: "%d", self.userLevel!)
         
         getTotalGamesPlayed()
     }

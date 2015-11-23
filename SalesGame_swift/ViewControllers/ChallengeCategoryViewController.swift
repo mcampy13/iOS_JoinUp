@@ -18,7 +18,7 @@ class ChallengeCategoryViewController: UIViewController, UITableViewDataSource, 
     
     var challengeUser: String?
     var challengeUserId: String?
-    var challengeUserLevel: String?
+    var challengeUserLevel: Int?
     var index: Int!
     
     override func viewDidLoad() {

@@ -40,6 +40,26 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
                 print("Error in querying for Users \(error)")
             }
         }
+
+//        let query = PFQuery(className: "Friend")
+//        query.whereKey("from", equalTo: PFUser.currentUser()!)
+//        query.includeKey("to")
+//        query.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
+//            if error == nil {
+//                self.friendArray = success
+//                print("friendArray: \(self.friendArray)")
+//                for var i=0; i < self.friendArray!.count; i++ {
+//                    let obj: PFObject = (self.friendArray as! Array)[i]
+//                    self.finalArray.addObject(obj.valueForKey("to")!.valueForKey("username")!)
+//                }
+//                print("finalArray: \(self.finalArray)")
+//                self.challengeTable.reloadData()
+//                hideHud(self.view)
+//
+//            } else{
+//                print("Error in query: \(error)")
+//            }
+//        }
         
     }
     
@@ -101,7 +121,7 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
     //==========================================================================================================================
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(self.friendArray == nil) {
+        if self.friendArray == nil {
             return 0
         } else {
             return self.friendArray!.count
@@ -120,7 +140,7 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
         let obj:PFObject = (self.friendArray as! Array)[indexPath.row];
         challengeCategoryVC!.challengeUser = obj.valueForKey("username") as? String
         challengeCategoryVC!.challengeUserId = obj.objectId
-        challengeCategoryVC!.challengeUserLevel = obj.valueForKey("level") as? String
+        challengeCategoryVC!.challengeUserLevel = obj.valueForKey("level") as? Int
         print("Selected: \(obj.valueForKey("username"))")
         //displayAlert("Opponent Set!", error: "Your opponent is \(obj.valueForKey("username")!)")
         self.navigationController!.pushViewController(challengeCategoryVC!, animated:true)

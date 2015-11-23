@@ -12,6 +12,7 @@
 		9614CB381BF5B5A8003BB669 /* FaceOffQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */; };
 		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; };
 		9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC861BD760250068C72B /* ChallengeViewController.swift */; };
+		969A74521C01075300FCBD26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 969A74501C01075300FCBD26 /* Main.storyboard */; };
 		96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3F81BE341F80021E32C /* SummaryViewController.swift */; };
 		96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */; };
 		96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */; };
@@ -35,7 +36,6 @@
 		96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */; };
 		96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46131BD62088006B97F2 /* HelpViewController.swift */; };
 		96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46191BD658C0006B97F2 /* ProfileViewController.swift */; };
-		96DD46211BD6D4AD006B97F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD461F1BD6D4AD006B97F2 /* Main.storyboard */; };
 		96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46221BD71402006B97F2 /* EditProfileViewController.swift */; };
 		BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */; };
 		BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */; };
@@ -90,6 +90,7 @@
 		9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceOffQuestionViewController.swift; sourceTree = "<group>"; };
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		9659FC861BD760250068C72B /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		969A74511C01075300FCBD26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96A2A3F81BE341F80021E32C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		96DD46101BD60F01006B97F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		96DD46131BD62088006B97F2 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		96DD46191BD658C0006B97F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		96DD46201BD6D4AD006B97F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96DD46221BD71402006B97F2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnScoreViewController.swift; sourceTree = "<group>"; };
 		BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
@@ -432,7 +432,7 @@
 				BAEA6E4D1BA3532300558565 /* GeneralClass.swift */,
 				BAEA6E3C1BA3417700558565 /* ViewControllers */,
 				BAB91BA31BA271DB0033DCA6 /* AppDelegate.swift */,
-				96DD461F1BD6D4AD006B97F2 /* Main.storyboard */,
+				969A74501C01075300FCBD26 /* Main.storyboard */,
 				BA512E8F1BA5EA23008AE31B /* Main_ipad.storyboard */,
 				BAB91BAA1BA271DB0033DCA6 /* Images.xcassets */,
 				BAB91BA11BA271DB0033DCA6 /* Supporting Files */,
@@ -669,7 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA512E911BA5EA23008AE31B /* Main_ipad.storyboard in Resources */,
-				96DD46211BD6D4AD006B97F2 /* Main.storyboard in Resources */,
+				969A74521C01075300FCBD26 /* Main.storyboard in Resources */,
 				BA512E8B1BA5C054008AE31B /* Default-568h@2x.png in Resources */,
 				BA512E801BA59E43008AE31B /* IQKeyboardManager.bundle in Resources */,
 				BAB91BAB1BA271DB0033DCA6 /* Images.xcassets in Resources */,
@@ -740,10 +740,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		96DD461F1BD6D4AD006B97F2 /* Main.storyboard */ = {
+		969A74501C01075300FCBD26 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				96DD46201BD6D4AD006B97F2 /* Base */,
+				969A74511C01075300FCBD26 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

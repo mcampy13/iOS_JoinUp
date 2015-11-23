@@ -25,6 +25,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         
         queryCategories()
+        
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
         self.resultSearchController.dimsBackgroundDuringPresentation = false

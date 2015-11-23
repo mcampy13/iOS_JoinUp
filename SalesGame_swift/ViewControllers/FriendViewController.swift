@@ -79,15 +79,15 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tblView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? UITableViewCell
+        let cell = tblView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
         if self.resultSearchController.active {
-            cell!.textLabel?.text = self.filteredFriends[indexPath.row]
+            cell.textLabel?.text = self.filteredFriends[indexPath.row]
         } else{
-            cell!.textLabel?.text = self.friends[indexPath.row] as! String
+            cell.textLabel?.text = self.friends[indexPath.row] as? String
         }
         
-        return cell!
+        return cell
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {

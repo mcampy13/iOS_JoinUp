@@ -72,7 +72,7 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
         let cell: GameHistoryTableViewCell = tblView!.dequeueReusableCellWithIdentifier("cell") as! GameHistoryTableViewCell
         
         let query = PFQuery(className: "Game")
-        query.addDescendingOrder("createdAt")
+        query.addAscendingOrder("createdAt")
         query.includeKey("category")
         query.includeKey("subCategory")
         query.findObjectsInBackgroundWithBlock { (success, error) -> Void in
@@ -171,6 +171,7 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
         let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(homeVC, animated: true)
     }
+    
     
     
     //==========================================================================================================================
