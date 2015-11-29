@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     
     @IBOutlet weak var imgUpload: UIImageView!
@@ -18,6 +18,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var editDepartmentLabel: UILabel!
     @IBOutlet weak var departmentTextField: UITextField!
     
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var newDept: String?
+    var newProfilePFImage: PFFile?
+    
     let imagePicker = UIImagePickerController()
 
     var pic: AnyObject?
@@ -25,6 +31,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
+        
+        // Handle user input in text field through delegates
+        departmentTextField.delegate = self
+        
+        // Enable save button IFF (if & only if) text field has valid department name
+        checkValidDepartmentName()
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
         UtilityClass.setMyViewBorder(imgUpload, withBorder: 0, radius: 75)
         let currentUser = PFUser.currentUser()
@@ -68,15 +83,62 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    
+    //=======================================================================================================
+    
+    // MARK: Navigation
+    
+    //=======================================================================================================
+    
+    
+    // Configure View before it's presented
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if saveButton === sender {
+            
+            // set global department variable for use in unwindToProfile in ProfileVC
+            let newDepartment = self.departmentTextField.text ?? ""
+            self.newDept = newDepartment
+            
+            let newImgData = UIImagePNGRepresentation(self.imgUpload.image!)
+            let parseImg = PFFile(name: "profilePNG.png", data: newImgData!)
+            
+            self.newProfilePFImage = parseImg
+            
+        }
+    }
+    
+    @IBAction func cancelButton(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    //==========================================================================================================================
+    
+    // MARK: UITextFieldDelegate
+    
+    //==========================================================================================================================
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        saveButton.enabled = false
+    }
+    
+    func checkValidDepartmentName() {
+        let text = departmentTextField.text ?? ""
+        saveButton.enabled = !text.isEmpty
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkValidDepartmentName()
+        
+    }
+    
     //=======================================================================================================
     
     // MARK: Actions
     
     //=======================================================================================================
 
-    /*
-     *  Bug:  ONLY load ONE image of a specific waterfall. Why?
-     */
     @IBAction func imgUploadFromSource(sender: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
@@ -96,87 +158,61 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-//        imgUpload.image = image
+    
         self.dismissViewControllerAnimated(true, completion: nil)
         self.imgUpload.image = image
     }
     
-    @IBAction func cancelButton(sender: AnyObject) {
-        self.navigationController!.popViewControllerAnimated(true)
-    }
-    
-    
-    @IBAction func saveButton(sender: AnyObject) {
-        if self.departmentTextField != nil {
-            let dept = self.departmentTextField.text
-            let user = PFUser.currentUser()
-            user!["department"] = dept
-            user?.saveInBackgroundWithBlock { (successObject, error) -> Void in
-                if error == nil {
-                    user!["department"] = dept
-                    print("Department changed to \(dept)")
-                    let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
-                    self.navigationController?.pushViewController(profileVC!, animated: true)
-                } else{
-                    print("Error saving department: \(error)")
-                }
-            
-            }
-        }
-        if self.imgUpload!.image == nil {
-            //UtilityClass.showAlert("Error, image not saved.")
-            print("No img chosen")
-        } else {
-//            let userPhotos = PFObject(className: "UserPhotos")
-//            userPhotos["user"] = PFUser.currentUser()
-//            userPhotos.saveInBackgroundWithBlock { (success, error) -> Void in
+//    @IBAction func saveButton(sender: AnyObject) {
+//        if self.departmentTextField != nil {
+//            let dept = self.departmentTextField.text
+//            let user = PFUser.currentUser()
+//            user!["department"] = dept
+//            user?.saveInBackgroundWithBlock { (successObject, error) -> Void in
 //                if error == nil {
-//                    let imgData = UIImagePNGRepresentation(self.imgUpload.image!)
-//                    let parseImg = PFFile(name: "userImg.png", data: imgData!)
-//                    userPhotos["userImg"] = parseImg
-//                    userPhotos.saveInBackgroundWithBlock { (success, error) -> Void in
-//                        if error == nil {
-//                            print("Image successfully saved")
-//                            UtilityClass.showAlert("Image successfully saved!")
-//                            
-//                            //hideHud(self.view)
-//                            //self.navigationController!.popViewControllerAnimated(true)
-//                        } else {
-//                            UtilityClass.showAlert("Error: \(error)")
-//                            print("Error \(error)")
-//                        }
-//                    }
+//                    user!["department"] = dept
+//                    print("Department changed to \(dept)")
+//                    let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
+//                    self.navigationController?.pushViewController(profileVC!, animated: true)
+//                } else{
+//                    print("Error saving department: \(error)")
+//                }
+//            
+//            }
+//        }
+//        if self.imgUpload!.image == nil {
+//            //UtilityClass.showAlert("Error, image not saved.")
+//            print("No img chosen")
+//        } else {
+//
+//            let user = PFUser.currentUser()
+//            let imgData = UIImagePNGRepresentation(self.imgUpload.image!)
+//            let parseImg = PFFile(name: "profilePNG.png", data: imgData!)
+//            user!["profilePic"] = parseImg
+//            user?.saveInBackgroundWithBlock { (success, error) -> Void in
+//                if error == nil {
+//                    print("Profile pic successfully saved")
+//                    hideHud(self.view)
+//                    let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
+//                    self.navigationController?.pushViewController(profileVC!, animated: true)
 //                } else {
-//                    UtilityClass.showAlert("Error \(error)")
-//                    print("Error \(error)")
+//                    print("Error saving profilePic: \(error)")
+//                    self.displayAlert("Error Uploading", error: "Image was not saved")
 //                }
 //            }
-            
-            let user = PFUser.currentUser()
-            let imgData = UIImagePNGRepresentation(self.imgUpload.image!)
-            let parseImg = PFFile(name: "profilePNG.png", data: imgData!)
-            user!["profilePic"] = parseImg
-            user?.saveInBackgroundWithBlock { (success, error) -> Void in
-                if error == nil {
-                    print("Profile pic successfully saved")
-                    hideHud(self.view)
-                    let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
-                    self.navigationController?.pushViewController(profileVC!, animated: true)
-                } else {
-                    print("Error saving profilePic: \(error)")
-                    self.displayAlert("Error Uploading", error: "Image was not saved")
-                }
-            
-            }
-        }
-    } // END of saveButton()
+//        }
+//    } // END of saveButton()
     
+    
+    //==========================================================================================================================
+    
+    // MARK: Progress hud display methods
+    
+    //==========================================================================================================================
     
     func showhud() {
         showHud(self.view)
     }
-    
-    
     
     
 }

@@ -25,6 +25,8 @@ class AllCategoryViewController: UIViewController {
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         self.queryCategories()
+        
+        self.navigationItem.backBarButtonItem = nil
     }
     
     //method for getting all category

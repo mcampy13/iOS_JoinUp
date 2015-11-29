@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UINavigationControllerDelegate {
 
+    
+    
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!
@@ -17,6 +19,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var labelTotalGamesAmount: UILabel!
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var homeButton: UIBarButtonItem!
     @IBOutlet weak var gamesButton: UIBarButtonItem!
     @IBOutlet weak var badgesButton: UIBarButtonItem!
@@ -30,6 +33,10 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
+        
+        menuButton.target = self.revealViewController()
+        menuButton.action = Selector("revealToggle:")
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         UtilityClass.setMyViewBorder(img, withBorder: 0, radius: 75)
         self.displayUserImg()
@@ -79,6 +86,15 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    
+    //==========================================================================================================================
+    
+    // MARK: UITextFieldDelegate
+    
+    //==========================================================================================================================
+    
+    
+
 
     //==========================================================================================================================
     
@@ -101,20 +117,34 @@ class ProfileViewController: UIViewController {
         self.navigationController?.pushViewController(myBadgesVC, animated: true)
     }
     
-    @IBAction func settingsButton(sender: AnyObject) {
-        let editProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as? EditProfileViewController
-        self.navigationController?.pushViewController(editProfileVC!, animated: true)
-    }
-    
-    @IBAction func friendButton(sender: AnyObject) {
-        let friendVC = self.storyboard?.instantiateViewControllerWithIdentifier("FriendViewController") as? FriendViewController
-        self.navigationController?.pushViewController(friendVC!, animated: true)
-    }
-    
     @IBAction func logOutButton(sender: AnyObject) {
         PFUser.logOutInBackground()
         self.navigationController!.popToRootViewControllerAnimated(true)
     }
+    
+    
+    @IBAction func unwindToProfile(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EditProfileViewController, department = sourceViewController.newDept, profilePic = sourceViewController.newProfilePFImage {
+            
+            let user = PFUser.currentUser()
+            
+            // If department is NOT empty, user input text & wants to save new department
+            user!["department"] = department
+            user!["profilePic"] = profilePic
+            
+            user?.saveInBackgroundWithBlock { (success, error) -> Void in
+                if error == nil {
+                    print("unwindToProfile done, new profile data was saved")
+                } else{
+                    print("Error in unwindToProfile b/c of saving department \(error)")
+                }
+            }
+            
+            self.departmentLabel?.text = department
+            self.displayUserImg()
+
+        }
+    } // END of unwindToProfile
     
     
     //==========================================================================================================================

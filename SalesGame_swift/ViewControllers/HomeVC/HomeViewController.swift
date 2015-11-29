@@ -11,22 +11,27 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet var btnPlay : UIButton!
-    @IBOutlet var btnSetting : UIButton!
-    @IBOutlet weak var btnProfile: UIButton!
     @IBOutlet var btnScore : UIButton!
     @IBOutlet var btnLogout : UIButton!
-    @IBOutlet weak var helpBtn: UIButton!
     @IBOutlet weak var btnChallenge: UIButton!
     
     @IBOutlet weak var profilePic: UIImageView?
     
     var pic: AnyObject?
-    
+    var emailObj: AnyObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        //self.revealViewController().rearViewRevealWidth = 175
+
+        menuButton.target = self.revealViewController()
+        menuButton.action = Selector("revealToggle:")
+        
         UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 75)
         displayUserImg()
         navigationItem.title = "Home"
@@ -80,34 +85,37 @@ class HomeViewController: UIViewController {
         self.navigationController!.pushViewController(challengeVC!, animated: true)
     }
     
-    
-    @IBAction func btnProfile(sender: UIButton) {
-       let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
-        self.navigationController!.pushViewController(profileVC!, animated: true)
-    }
-    
-    @IBAction func btnSettings(sender: AnyObject) {
-        let settingVC = self.storyboard?.instantiateViewControllerWithIdentifier("SettingViewController") as? SettingViewController
-        self.navigationController!.pushViewController(settingVC!, animated: true)
-    }
-    
-    @IBAction func messagesButtonTap(sender: AnyObject) {
-        displayAlert("Messages", error: "Coming Soon!")
-    }
-    
-    
     @IBAction func btnLeader(sender: UIButton) {
        let highScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as? HighScoreViewController
         self.navigationController!.pushViewController(highScoreVC!, animated: true)
     }
     
-//    @IBAction func helpBtn(sender: UIButton) {
-//        let helpVC = self.storyboard?.instantiateViewControllerWithIdentifier("HelpViewController") as? HelpViewController
-//        self.navigationController!.pushViewController(helpVC!, animated: true)
-//    }
-    
     @IBAction func btnLogout(sender: UIButton) {
-        PFUser .logOutInBackground()
-        self.navigationController!.popToRootViewControllerAnimated(true)
+        PFUser.logOutInBackground()
+        self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    
+    @IBAction func unwindToHomeFromSettings(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? SettingViewController, email = sourceViewController.email {
+            //let user = PFUser.currentUser()
+            
+            // If email isn't empty, user wants to reset password
+            let queryEmails = PFUser.query()
+            queryEmails?.whereKey("email", equalTo: email)
+            queryEmails?.findObjectsInBackgroundWithBlock{
+                (emailObjects, error) -> Void in
+                if error == nil {
+                    self.emailObj = emailObjects
+                    let obj:PFObject = (self.emailObj as! Array)[0];
+                    
+                    PFUser.requestPasswordResetForEmailInBackground(obj.objectForKey("email") as! String)
+                }
+                else {
+                    print("Error in queryEmails: \(error)")
+                }
+            }
+        }
+    }
+
 }

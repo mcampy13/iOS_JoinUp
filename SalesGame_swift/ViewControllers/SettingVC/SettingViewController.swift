@@ -8,8 +8,10 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     @IBOutlet weak var switchTimed: UISwitch?
     @IBOutlet weak var switchSound: UISwitch?
     @IBOutlet weak var switchVibrate: UISwitch?
@@ -17,26 +19,21 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var resetButton: UIBarButtonItem!
 
     var emailObj: AnyObject?
-    
-    
-    
-    
-    func displayAlert(title: String, error: String){
-        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-//==========================================================================================================================
-
-// MARK: Life Cycle methods
-
-//==========================================================================================================================
-    
+    var email: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Handle user input through delegate
+        emailText.delegate = self
+        
+        // Enable reset button IFF text field has text
+        checkValidEmail()
+        
+        menuButton.target = self.revealViewController()
+        menuButton.action = Selector("revealToggle:")
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         switchTimed?.tag = 1
         switchSound?.tag = 2
         switchVibrate?.tag = 3
@@ -67,7 +64,6 @@ class SettingViewController: UIViewController {
             switchVibrate?.setOn(false, animated: false)
         }
 
-        // Do any additional setup after loading the view.
     }
 
     /*
@@ -98,8 +94,49 @@ class SettingViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().setValue("NO" , forKey: kVibrate)
             }
         }
+    }// END of stateChanged(switchState: UISwitch)
+    
+    
+    func displayAlert(title: String, error: String){
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    
+    //==========================================================================================================================
+    
+    // MARK: Navigation
+    
+    //==========================================================================================================================
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if resetButton === sender {
+            let email = self.emailText.text ?? ""
+            self.email = email
+        }
+    }
+    
+    
+    //==========================================================================================================================
+    
+    // MARK: UITextFieldDelegate
+    
+    //==========================================================================================================================
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        resetButton.enabled = false
+    }
+    
+    func checkValidEmail() {
+        let text = emailText.text ?? ""
+        resetButton.enabled = !text.isEmpty
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkValidEmail()
+    }
     
    //==========================================================================================================================
     
@@ -126,10 +163,6 @@ class SettingViewController: UIViewController {
         else {
             displayAlert("Invalid Email", error: "Please try again.")
         }
-    }
-    
-    @IBAction func doneButton(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
     }
     
 

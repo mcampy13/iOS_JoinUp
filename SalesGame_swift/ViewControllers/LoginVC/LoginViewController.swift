@@ -9,7 +9,7 @@
 import UIKit
 import LocalAuthentication
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassWord: UITextField!
@@ -33,6 +33,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        txtUserName.delegate = self
+        txtPassWord.delegate = self
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard")))
+        
         currentUser = PFUser.currentUser()
         if((currentUser) != nil) {
             
@@ -41,15 +46,24 @@ class LoginViewController: UIViewController {
             let strUsername = currentUser?.username
             NSUserDefaults.standardUserDefaults().setObject(strUsername, forKey: kLoggedInUserName)
             
-            self.isAdmin()
+            //self.isAdmin()
             
-            var homeVC : HomeViewController?
-            homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
-            self.navigationController!.pushViewController(homeVC!, animated: true)
+//            var homeVC : HomeViewController?
+//            homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+//            self.navigationController!.pushViewController(homeVC!, animated: true)
         }
         
-        
-        
+    }
+    
+    func dismissKeyboard() {
+        txtUserName.resignFirstResponder()
+        txtPassWord.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        txtUserName.resignFirstResponder()
+        txtPassWord.resignFirstResponder()
+        return true
     }
     
     func isAdmin() {
@@ -89,10 +103,6 @@ class LoginViewController: UIViewController {
 //        self.navigationController!.pushViewController(homeVC!, animated: true)
     }
     
-//    func showPasswordAlert(){
-//        
-//    }
-
  //==========================================================================================================================
  
  // MARK: buttons IBAction methods
@@ -139,14 +149,16 @@ class LoginViewController: UIViewController {
                     hideHud(self.view)
                     let str =  currentUser?.objectId
                     NSUserDefaults .standardUserDefaults().setObject(str, forKey: kLoggedInUserId)
-                    var homeVC : HomeViewController?
-                    homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+                    
+//                    var homeVC : HomeViewController?
+//                    homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+                    
                     let str11 =  currentUser?.objectId
                     NSUserDefaults .standardUserDefaults().setObject(str11, forKey: kLoggedInUserId)
                     let strUsername = currentUser?.username
                     NSUserDefaults.standardUserDefaults().setObject(strUsername, forKey: kLoggedInUserName)
 
-                    self.navigationController!.pushViewController(homeVC!, animated: true)
+                    //self.navigationController!.pushViewController(homeVC!, animated: true)
                 }
                 else {
                     let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController

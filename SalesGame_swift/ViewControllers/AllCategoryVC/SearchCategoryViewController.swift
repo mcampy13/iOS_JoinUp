@@ -122,7 +122,6 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     
-    
     //==========================================================================================================================
     
     // MARK: Progress hud display methods

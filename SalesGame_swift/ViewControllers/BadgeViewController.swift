@@ -10,6 +10,7 @@ import UIKit
 
 class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet weak var badgeTableView: UITableView!
     
@@ -21,6 +22,10 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuButton.target = self.revealViewController()
+        menuButton.action = Selector("revealToggle:")
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
         let query = PFQuery(className: "UserBadges")
@@ -120,9 +125,9 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //==========================================================================================================================
     
-    @IBAction func doneButton(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
+//    @IBAction func doneButton(sender: AnyObject) {
+//        self.navigationController?.popViewControllerAnimated(true)
+//    }
     
     @IBAction func searchButton(sender: AnyObject) {
         let totalBadgesVC = self.storyboard?.instantiateViewControllerWithIdentifier("TotalBadgesViewController") as? TotalBadgesViewController

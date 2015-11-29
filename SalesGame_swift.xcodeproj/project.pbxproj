@@ -11,8 +11,17 @@
 		9614CB361BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB351BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift */; };
 		9614CB381BF5B5A8003BB669 /* FaceOffQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */; };
 		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; };
+		964EF50A1C0984D700F2B07C /* SearchFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */; };
+		964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */; };
+		964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50D1C0A7FED00F2B07C /* Friend.swift */; };
 		9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC861BD760250068C72B /* ChallengeViewController.swift */; };
 		969A74521C01075300FCBD26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 969A74501C01075300FCBD26 /* Main.storyboard */; };
+		969A74551C02A3FF00FCBD26 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A74541C02A3FF00FCBD26 /* MenuViewController.swift */; };
+		969A74571C02A62300FCBD26 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A74561C02A62300FCBD26 /* MenuTableViewCell.swift */; };
+		969A7CA11C062A6000FCBD26 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CA01C062A6000FCBD26 /* SWRevealViewController.m */; };
+		969A7CA31C0630A500FCBD26 /* SliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CA21C0630A500FCBD26 /* SliderMenuViewController.swift */; };
+		969A7CA91C06643000FCBD26 /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CA81C06643000FCBD26 /* BackTableVC.swift */; };
+		969A7CAC1C070C9700FCBD26 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CAB1C070C9700FCBD26 /* MessageViewController.swift */; };
 		96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3F81BE341F80021E32C /* SummaryViewController.swift */; };
 		96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */; };
 		96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */; };
@@ -89,8 +98,18 @@
 		9614CB351BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceOffQuestionViewController.swift; sourceTree = "<group>"; };
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
+		964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewController.swift; sourceTree = "<group>"; };
+		964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewCell.swift; sourceTree = "<group>"; };
+		964EF50D1C0A7FED00F2B07C /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		9659FC861BD760250068C72B /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		969A74511C01075300FCBD26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		969A74541C02A3FF00FCBD26 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		969A74561C02A62300FCBD26 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		969A7C9F1C062A6000FCBD26 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		969A7CA01C062A6000FCBD26 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		969A7CA21C0630A500FCBD26 /* SliderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderMenuViewController.swift; sourceTree = "<group>"; };
+		969A7CA81C06643000FCBD26 /* BackTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableVC.swift; sourceTree = "<group>"; };
+		969A7CAB1C070C9700FCBD26 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		96A2A3F81BE341F80021E32C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -231,6 +250,23 @@
 			name = ChallengeVC;
 			sourceTree = "<group>";
 		};
+		969A74531C02A3E900FCBD26 /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				969A74541C02A3FF00FCBD26 /* MenuViewController.swift */,
+				969A74561C02A62300FCBD26 /* MenuTableViewCell.swift */,
+			);
+			name = MenuViewController;
+			sourceTree = "<group>";
+		};
+		969A7CAA1C070C5B00FCBD26 /* MessageVC */ = {
+			isa = PBXGroup;
+			children = (
+				969A7CAB1C070C9700FCBD26 /* MessageViewController.swift */,
+			);
+			name = MessageVC;
+			sourceTree = "<group>";
+		};
 		96A2A3F71BE341D70021E32C /* SummaryVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +279,9 @@
 			isa = PBXGroup;
 			children = (
 				96B0FA081BFABC5100371660 /* FriendViewController.swift */,
+				964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */,
+				964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */,
+				964EF50D1C0A7FED00F2B07C /* Friend.swift */,
 			);
 			name = FriendVC;
 			sourceTree = "<group>";
@@ -340,6 +379,8 @@
 			children = (
 				96DD46191BD658C0006B97F2 /* ProfileViewController.swift */,
 				96DD46221BD71402006B97F2 /* EditProfileViewController.swift */,
+				969A7CA21C0630A500FCBD26 /* SliderMenuViewController.swift */,
+				969A7CA81C06643000FCBD26 /* BackTableVC.swift */,
 			);
 			name = ProfileVC;
 			sourceTree = "<group>";
@@ -425,9 +466,7 @@
 		BAB91BA01BA271DB0033DCA6 /* SalesGame_swift */ = {
 			isa = PBXGroup;
 			children = (
-				BAEA6E381BA3417700558565 /* Category */,
 				BAEA6E391BA3417700558565 /* Library */,
-				BAEA6E3A1BA3417700558565 /* Recources */,
 				BAEA6E3B1BA3417700558565 /* UtilityClass */,
 				BAEA6E4D1BA3532300558565 /* GeneralClass.swift */,
 				BAEA6E3C1BA3417700558565 /* ViewControllers */,
@@ -443,6 +482,8 @@
 		BAB91BA11BA271DB0033DCA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				969A7C9F1C062A6000FCBD26 /* SWRevealViewController.h */,
+				969A7CA01C062A6000FCBD26 /* SWRevealViewController.m */,
 				BAB91BA21BA271DB0033DCA6 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -492,13 +533,6 @@
 			path = ../SalerGame/Frameworks;
 			sourceTree = "<group>";
 		};
-		BAEA6E381BA3417700558565 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
 		BAEA6E391BA3417700558565 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,13 +540,6 @@
 				BA512E631BA59E13008AE31B /* MBProgressHUD */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		BAEA6E3A1BA3417700558565 /* Recources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Recources;
 			sourceTree = "<group>";
 		};
 		BAEA6E3B1BA3417700558565 /* UtilityClass */ = {
@@ -528,6 +555,8 @@
 		BAEA6E3C1BA3417700558565 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				969A7CAA1C070C5B00FCBD26 /* MessageVC */,
+				969A74531C02A3E900FCBD26 /* MenuViewController */,
 				96B0FA0A1BFC78CE00371660 /* GameHistoryVC */,
 				96D71D481BFA772400675A15 /* TutorialVC */,
 				96C4F3D31BF45439009E73CD /* TotalBadgesVC */,
@@ -683,21 +712,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969A7CA11C062A6000FCBD26 /* SWRevealViewController.m in Sources */,
 				96D71D471BFA559100675A15 /* SearchCategoryViewController.swift in Sources */,
 				96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */,
 				BA512E811BA59E43008AE31B /* IQKeyboardManager.m in Sources */,
 				96DC25FE1BF1C8C200D3F0CC /* BadgeTableViewCell.swift in Sources */,
 				96D71D4A1BFA775900675A15 /* ViewController.swift in Sources */,
+				969A7CA91C06643000FCBD26 /* BackTableVC.swift in Sources */,
 				96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */,
 				9614CB341BF5724C003BB669 /* BadgeOverviewViewController.swift in Sources */,
+				969A74551C02A3FF00FCBD26 /* MenuViewController.swift in Sources */,
 				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
 				BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */,
 				96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */,
 				BA512E851BA59E43008AE31B /* IQTitleBarButtonItem.m in Sources */,
 				BA512E881BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				964EF50A1C0984D700F2B07C /* SearchFriendTableViewController.swift in Sources */,
 				96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */,
 				BAEA6E4A1BA34B8000558565 /* AllCategoryViewController.swift in Sources */,
 				BA512E5F1BA597DD008AE31B /* SettingViewController.swift in Sources */,
+				969A7CA31C0630A500FCBD26 /* SliderMenuViewController.swift in Sources */,
 				96B0FA0E1BFC79AC00371660 /* GameHistoryTableViewCell.swift in Sources */,
 				96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */,
 				BAEA6E4E1BA3532300558565 /* GeneralClass.swift in Sources */,
@@ -705,13 +739,16 @@
 				BAEA6E4C1BA3523B00558565 /* QuestionViewController.swift in Sources */,
 				BA512E841BA59E43008AE31B /* IQTextView.m in Sources */,
 				9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */,
+				964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */,
 				96C4F3CD1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift in Sources */,
 				BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */,
 				BAEA6E441BA3419800558565 /* LoginViewController.swift in Sources */,
 				BA512E821BA59E43008AE31B /* IQNSArray+Sort.m in Sources */,
 				BA512E621BA59D6F008AE31B /* UtilityClass.m in Sources */,
+				969A74571C02A62300FCBD26 /* MenuTableViewCell.swift in Sources */,
 				BA512E871BA59E43008AE31B /* IQUIView+Hierarchy.m in Sources */,
 				BA512E7F1BA59E43008AE31B /* IQBarButtonItem.m in Sources */,
+				964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */,
 				96C4F3C51BF33796009E73CD /* ChallengeTableViewCell.swift in Sources */,
 				96DC25FC1BF1C67500D3F0CC /* BadgeViewController.swift in Sources */,
 				BAB91BA41BA271DB0033DCA6 /* AppDelegate.swift in Sources */,
@@ -730,6 +767,7 @@
 				96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */,
 				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
 				96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */,
+				969A7CAC1C070C9700FCBD26 /* MessageViewController.swift in Sources */,
 				96B0FA091BFABC5100371660 /* FriendViewController.swift in Sources */,
 				96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */,
 				96C4F3D01BF34897009E73CD /* ChallengeFaceOffViewController.swift in Sources */,
@@ -864,6 +902,12 @@
 				INFOPLIST_FILE = SalesGame_swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/clang+llvm-3.7.0-x86_64-apple-darwin/lib",
+					"$(PROJECT_DIR)/clang+llvm-3.7.0-x86_64-apple-darwin/lib/clang/3.7.0/lib/darwin",
+					"$(PROJECT_DIR)/clang+llvm-3.7.0-x86_64-apple-darwin/lib/clang/3.7.0/lib/macho_embedded",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Akumadeveloper.Quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -889,6 +933,12 @@
 				INFOPLIST_FILE = SalesGame_swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/clang+llvm-3.7.0-x86_64-apple-darwin/lib",
+					"$(PROJECT_DIR)/clang+llvm-3.7.0-x86_64-apple-darwin/lib/clang/3.7.0/lib/darwin",
+					"$(PROJECT_DIR)/clang+llvm-3.7.0-x86_64-apple-darwin/lib/clang/3.7.0/lib/macho_embedded",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Akumadeveloper.Quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
