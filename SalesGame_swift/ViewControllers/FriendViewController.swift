@@ -15,6 +15,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     
     var friends: NSMutableArray = []
     var holder: AnyObject?
+    var images = [UIImage]()
     var filteredFriends = [String]()
     var resultSearchController = UISearchController()
 
@@ -30,9 +31,11 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         self.resultSearchController.searchBar.sizeToFit()
         
         self.tblView.tableHeaderView = self.resultSearchController.searchBar
+
         self.tblView.reloadData()
     
     }
+    
     
     func queryFriends(){
         let query = PFQuery(className: "Friend")
@@ -45,13 +48,30 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
                 for var i=0; i < self.holder!.count; i++ {
                     let obj: PFObject = (self.holder as! Array)[i]
                     self.friends.addObject(obj.valueForKey("to")!.valueForKey("username")!)
+                    
+                    let userObjQuery = PFQuery.getUserObjectWithId(obj.valueForKey("to")!.objectId!!)
+                    
+                    let file: PFFile = userObjQuery?.valueForKey("profilePic") as! PFFile
+                    file.getDataInBackgroundWithBlock({
+                        (picData, error) -> Void in
+                        if error == nil {
+                            let Image: UIImage = UIImage(data: picData!)!
+                            self.images.append(Image)
+                            print("images \(self.images)")
+                        } else{
+                            print("Error getting file \(error)")
+                        }
+                    })
                 }
                 print("friends: \(self.friends)")
             } else{
                 print("Error in query: \(error)")
             }
         }
-    }
+    } // END of queryFriends()
+    
+    
+    
     
     func displayAlert(title: String, error: String){
         let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
@@ -79,15 +99,17 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tblView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        
+        let cell = tblView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? testTableViewCell
+
         if self.resultSearchController.active {
-            cell.textLabel?.text = self.filteredFriends[indexPath.row]
+            cell!.usernameLabel?.text = self.filteredFriends[indexPath.row]
+            cell!.userImg.image = self.images[indexPath.row]
         } else{
-            cell.textLabel?.text = self.friends[indexPath.row] as? String
+            cell!.usernameLabel?.text = self.friends[indexPath.row] as? String
+            cell!.userImg.image = self.images[indexPath.row]
         }
         
-        return cell
+        return cell!
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -108,10 +130,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     
     //==========================================================================================================================
     
-    @IBAction func backButtonTap(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
+   
     
     //==========================================================================================================================
     

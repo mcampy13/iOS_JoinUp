@@ -20,6 +20,7 @@ class SearchFriendTableViewController: UITableViewController, UISearchResultsUpd
      */
 
     let fixed = ["Red Fish", "Blue Fish", "Green Fish", "Gold fish"]
+    var buddy = [Friend]()
 
     var friends: NSMutableArray = []
     var holder: AnyObject?
@@ -112,7 +113,7 @@ class SearchFriendTableViewController: UITableViewController, UISearchResultsUpd
             cell!.userImg?.image = self.images[indexPath.row]
         } else{
             cell!.usernameLabel?.text = self.friends[indexPath.row] as? String
-            cell!.userImg?.image = self.images[indexPath.row]
+            //cell!.userImg?.image = self.images[indexPath.row]
         }
         
         return cell!

@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        //self.revealViewController().rearViewRevealWidth = 175
+        self.revealViewController().rearViewRevealWidth = 200
 
         menuButton.target = self.revealViewController()
         menuButton.action = Selector("revealToggle:")

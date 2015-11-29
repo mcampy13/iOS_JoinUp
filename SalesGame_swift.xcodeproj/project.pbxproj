@@ -46,6 +46,7 @@
 		96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46131BD62088006B97F2 /* HelpViewController.swift */; };
 		96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46191BD658C0006B97F2 /* ProfileViewController.swift */; };
 		96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46221BD71402006B97F2 /* EditProfileViewController.swift */; };
+		96FAD63B1C0AA5E100C1221C /* testTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD63A1C0AA5E100C1221C /* testTableViewCell.swift */; };
 		BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */; };
 		BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */; };
 		BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */; };
@@ -134,6 +135,7 @@
 		96DD46131BD62088006B97F2 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		96DD46191BD658C0006B97F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		96DD46221BD71402006B97F2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		96FAD63A1C0AA5E100C1221C /* testTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testTableViewCell.swift; sourceTree = "<group>"; };
 		BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnScoreViewController.swift; sourceTree = "<group>"; };
 		BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */,
 				964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */,
 				964EF50D1C0A7FED00F2B07C /* Friend.swift */,
+				96FAD63A1C0AA5E100C1221C /* testTableViewCell.swift */,
 			);
 			name = FriendVC;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */,
 				BAEA6E441BA3419800558565 /* LoginViewController.swift in Sources */,
 				BA512E821BA59E43008AE31B /* IQNSArray+Sort.m in Sources */,
+				96FAD63B1C0AA5E100C1221C /* testTableViewCell.swift in Sources */,
 				BA512E621BA59D6F008AE31B /* UtilityClass.m in Sources */,
 				969A74571C02A62300FCBD26 /* MenuTableViewCell.swift in Sources */,
 				BA512E871BA59E43008AE31B /* IQUIView+Hierarchy.m in Sources */,
