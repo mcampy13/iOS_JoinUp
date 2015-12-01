@@ -15,6 +15,7 @@
 		964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */; };
 		964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50D1C0A7FED00F2B07C /* Friend.swift */; };
 		9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC861BD760250068C72B /* ChallengeViewController.swift */; };
+		9673969D1C0D943900F392E8 /* CategoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673969C1C0D943900F392E8 /* CategoryInfoViewController.swift */; };
 		969A74521C01075300FCBD26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 969A74501C01075300FCBD26 /* Main.storyboard */; };
 		969A7CA11C062A6000FCBD26 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CA01C062A6000FCBD26 /* SWRevealViewController.m */; };
 		969A7CA31C0630A500FCBD26 /* SliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CA21C0630A500FCBD26 /* SliderMenuViewController.swift */; };
@@ -101,6 +102,7 @@
 		964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewCell.swift; sourceTree = "<group>"; };
 		964EF50D1C0A7FED00F2B07C /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		9659FC861BD760250068C72B /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		9673969C1C0D943900F392E8 /* CategoryInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryInfoViewController.swift; sourceTree = "<group>"; };
 		969A74511C01075300FCBD26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		969A7C9F1C062A6000FCBD26 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		969A7CA01C062A6000FCBD26 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 			children = (
 				BAEA6E491BA34B8000558565 /* AllCategoryViewController.swift */,
 				96D71D461BFA559100675A15 /* SearchCategoryViewController.swift */,
+				9673969C1C0D943900F392E8 /* CategoryInfoViewController.swift */,
 			);
 			path = AllCategoryVC;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
 				BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */,
 				96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */,
+				9673969D1C0D943900F392E8 /* CategoryInfoViewController.swift in Sources */,
 				BA512E851BA59E43008AE31B /* IQTitleBarButtonItem.m in Sources */,
 				BA512E881BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				964EF50A1C0984D700F2B07C /* SearchFriendTableViewController.swift in Sources */,

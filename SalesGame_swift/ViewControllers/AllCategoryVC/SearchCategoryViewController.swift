@@ -21,6 +21,8 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
     var categories: NSMutableArray = []
     var holder: AnyObject?
     
+    var selectedString: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,11 +67,46 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
-    //==========================================================================================================================
     
-    // MARK: Table datasource and delegate methods
+//==========================================================================================================================
     
-    //==========================================================================================================================
+// MARK: Navigation
+    
+//==========================================================================================================================
+    
+    @IBAction func unwindFromAllCategory(sender: UIStoryboardSegue){
+        if let sourceViewController = sender.sourceViewController as? AllCategoryViewController, fromCategory = sourceViewController.PFCategoryArray as? [PFObject] {
+            
+            let indexPath = NSIndexPath(forRow: categories.count, inSection: 0)
+            for var i=0; i < fromCategory.count; i++ {
+                self.tblView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Bottom)
+//                searchCategoryCell.textLabel?.text = fromCategory[i].valueForKey("categoruName") as! String
+            }
+            
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gotoCategoryInfo" {
+            let categoryInfoDestinationVC = segue.destinationViewController as? CategoryInfoViewController
+            
+            if let selectedCategoryCell = sender as? UITableViewCell {
+                let indexPath = self.tblView.indexPathForCell(selectedCategoryCell)!
+                
+                let selectedCategory: PFObject = (self.holder as! Array)[indexPath.row]
+                self.selectedString = selectedCategory.valueForKey("categoryName") as! String
+                print("selectedCategory in prepareForSegue: \(selectedCategory)")
+                
+            }
+        }
+    }
+    
+    
+//==========================================================================================================================
+    
+// MARK: Table datasource and delegate methods
+    
+//==========================================================================================================================
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

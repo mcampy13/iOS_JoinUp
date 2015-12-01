@@ -19,6 +19,8 @@ class AllCategoryViewController: UIViewController {
     
     var strMainCategory: String?
     
+    var PFCategoryArray = [PFObject]()
+    
     var Game: PFObject!
 
 //==========================================================================================================================
@@ -49,6 +51,7 @@ class AllCategoryViewController: UIViewController {
                 
                 let obj:PFObject = (self.arrayCategory as! Array)[0];
                 self.array.addObject(obj)
+                self.PFCategoryArray.append(obj)
                 self.tblObj .reloadData()
                 hideHud(self.view)
             } else {
@@ -83,6 +86,13 @@ class AllCategoryViewController: UIViewController {
                 self.Game = game
                 subCategoryViewController?.game = game
             }
+        } else if segue.identifier == "gotoSearchCategory" {
+            if let selectedCategoryCell = sender as? UITableViewCell {
+                let indexPath = self.tblObj.indexPathForCell(selectedCategoryCell)!
+                let selectedCategory: PFObject = (self.arrayCategory as! Array)[indexPath.row]
+                print("segue id == gotoSearchCategory selectedCategory: \(selectedCategory)")
+                
+            }
         }
     }
     
@@ -106,20 +116,6 @@ class AllCategoryViewController: UIViewController {
         cell!.textLabel?.text = obj.objectForKey("categoryName") as? String
         return cell!
     }
-
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let subCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SubCategoryViewController") as? SubCategoryViewController
-//        let obj:PFObject = (self.arrayCategory as! Array)[indexPath.row];
-//        subCategoryVC?.strMainCategory = obj.objectId
-//        let game = PFObject(className: "Game")
-//        game["player"] = PFUser.currentUser()!
-//        game["category"] = obj
-//        subCategoryVC?.game = game
-//
-//        self.navigationController!.pushViewController(subCategoryVC!, animated:true)
-//    }
-    
-    
     
 //==========================================================================================================================
 
@@ -131,10 +127,10 @@ class AllCategoryViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func searchButton(sender: AnyObject) {
-        let searchCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SearchCategoryViewController") as! SearchCategoryViewController
-        self.navigationController?.pushViewController(searchCategoryVC, animated: true)
-    }
+//    @IBAction func searchButton(sender: AnyObject) {
+//        let searchCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SearchCategoryViewController") as! SearchCategoryViewController
+//        self.navigationController?.pushViewController(searchCategoryVC, animated: true)
+//    }
     
     
 //==========================================================================================================================
