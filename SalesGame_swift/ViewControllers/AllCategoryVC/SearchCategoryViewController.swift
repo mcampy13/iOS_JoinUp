@@ -24,6 +24,9 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         queryCategories()
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
@@ -116,10 +119,6 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: Actions
     
     //==========================================================================================================================
-
-    @IBAction func backButtonTap(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
     
     
     //==========================================================================================================================
