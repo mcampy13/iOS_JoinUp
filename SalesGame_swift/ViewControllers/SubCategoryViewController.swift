@@ -8,20 +8,31 @@
 
 import UIKit
 
-class SubCategoryViewController: UIViewController {
+class SubCategoryViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var subCategoryTableView: UITableView!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
+    
     var subCategories: AnyObject?
     var parent: AnyObject?
     var subArray: NSMutableArray = []
     
-    var strMainCategory : String!
+    var strMainCategory : String?
+    var stringSubCategory: String?
+    
+    var testValue: String?
     
     var game: PFObject!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("in SubCategoryVC strMainCateogyry: \(self.strMainCategory)")
+
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         self.querySubCategories()
     }
@@ -33,7 +44,7 @@ class SubCategoryViewController: UIViewController {
         
         let queryParent = PFQuery(className: "Category")
         queryParent.limit = 1000
-        queryParent.whereKey("objectId", equalTo: strMainCategory)
+        queryParent.whereKey("objectId", equalTo: strMainCategory!)
         queryParent.findObjectsInBackgroundWithBlock {  (parentObjs, error) -> Void in
             if error == nil {
                 self.parent = parentObjs
@@ -72,6 +83,42 @@ class SubCategoryViewController: UIViewController {
     
     //==========================================================================================================================
     
+    // MARK: Navigation
+    
+    //==========================================================================================================================
+    
+    @IBAction func cancelButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func unwindFromCategory(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? AllCategoryViewController, fromCategory = sourceViewController.strMainCategory {
+            self.strMainCategory = fromCategory
+            print("strMainCategory in unwindFromCategory \(self.strMainCategory)")
+            
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gotoGameStart" {
+            let gameStartConfirm = segue.destinationViewController as? SelectSubCategoryViewController
+            
+            if let selectedSubCategoryCell = sender as? UITableViewCell {
+                let indexPath = self.subCategoryTableView.indexPathForCell(selectedSubCategoryCell)!
+                let selectedSubCategory: PFObject = (self.subCategories as! Array)[indexPath.row]
+                print("selectedSubCategory in SubCategory prepareForSegue: \(selectedSubCategory)")
+                
+                self.stringSubCategory = selectedSubCategory.objectId
+                gameStartConfirm?.strMainCategory = self.strMainCategory
+                gameStartConfirm?.strSubCategory = selectedSubCategory.objectId
+                print("selectedSubCategory id in SubCategory prepareForSegue: \(selectedSubCategory.objectId)")
+            }
+        }
+    }
+    
+    
+    //==========================================================================================================================
+    
     // MARK: Table datasource and delegate methods
     
     //==========================================================================================================================
@@ -92,30 +139,30 @@ class SubCategoryViewController: UIViewController {
         return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
-        let selectSubCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SelectSubCategoryViewController") as? SelectSubCategoryViewController
-        let obj:PFObject = (self.parent as! Array)[indexPath.row]
-        
-        /* BUG: Regardless of Category, app crashes when you choose any other row except for the first row in
-         *  sub category table with error, 'NSArrayI objectAtIndex: index 1 beyond bounds [0 .. 0]'.  
-         *  I assume this is referencing that self.subCategories[indexPath.row] is somehow out of bounds, meaning
-         *  that it would have to be empty, or it literally only has index 0 ... Why would it only have index 0 of our 
-         *  row? 
-         *
-         * UPDATE: When even trying (self.subCategories as! Array)[0], I get the same error which must mean that 
-         *  it is referencing a different NSArray.
-         */
-        
-        let subPF: PFObject = (self.subCategories as! Array)[indexPath.row]
-        print("subPF in didSelectRow: \(subPF)")
-        
-        selectSubCategoryVC?.strMainCategory = obj.objectId
-        selectSubCategoryVC?.strSubCategory = subPF.objectId
-        game["subCategory"] = subPF
-        selectSubCategoryVC?.game = self.game
-        //selectSubCategoryVC?.PFSubCategory = subPF
-        self.navigationController!.pushViewController(selectSubCategoryVC!, animated:true)
-    }
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
+//        let selectSubCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SelectSubCategoryViewController") as? SelectSubCategoryViewController
+//        let obj:PFObject = (self.parent as! Array)[indexPath.row]
+//        
+//        /* BUG: Regardless of Category, app crashes when you choose any other row except for the first row in
+//         *  sub category table with error, 'NSArrayI objectAtIndex: index 1 beyond bounds [0 .. 0]'.  
+//         *  I assume this is referencing that self.subCategories[indexPath.row] is somehow out of bounds, meaning
+//         *  that it would have to be empty, or it literally only has index 0 ... Why would it only have index 0 of our 
+//         *  row? 
+//         *
+//         * UPDATE: When even trying (self.subCategories as! Array)[0], I get the same error which must mean that 
+//         *  it is referencing a different NSArray.
+//         */
+//        
+//        let subPF: PFObject = (self.subCategories as! Array)[indexPath.row]
+//        print("subPF in didSelectRow: \(subPF)")
+//        
+//        selectSubCategoryVC?.strMainCategory = obj.objectId
+//        selectSubCategoryVC?.strSubCategory = subPF.objectId
+//        game["subCategory"] = subPF
+//        selectSubCategoryVC?.game = self.game
+//        //selectSubCategoryVC?.PFSubCategory = subPF
+//        self.navigationController!.pushViewController(selectSubCategoryVC!, animated:true)
+//    }
     
     //==========================================================================================================================
     
@@ -123,11 +170,7 @@ class SubCategoryViewController: UIViewController {
     
     //==========================================================================================================================
     
-    @IBAction func backButton(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    @IBAction func searchButtonTap(sender: AnyObject) {
+    @IBAction func searchButtonTap(sender: UIBarButtonItem) {
         let searchSubCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SearchSubCategoryViewController") as! SearchSubCategoryViewController
         searchSubCategoryVC.strMainCategory = self.parent![0].objectId
         self.navigationController?.pushViewController(searchSubCategoryVC, animated: true)

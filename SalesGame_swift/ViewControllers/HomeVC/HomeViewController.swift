@@ -12,7 +12,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+    //
     @IBOutlet var btnPlay : UIButton!
     @IBOutlet var btnScore : UIButton!
     @IBOutlet var btnLogout : UIButton!
@@ -69,16 +69,30 @@ class HomeViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
+    
+//==========================================================================================================================
+    
+// MARK: Navigation
+    
+//==========================================================================================================================
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "newGame" {
+//            let categoryViewController = segue.destinationViewController as! AllCategoryViewController
+//            
+//        }
+//    }
+    
 //==========================================================================================================================
 
-// MARK: IBAction methods
+// MARK: Actions
 
 //==========================================================================================================================
 
-    @IBAction func btnPlay(sender: UIButton) {
-        let categoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("AllCategoryViewController") as? AllCategoryViewController
-        self.navigationController!.pushViewController(categoryVC!, animated: true)
-    }
+//    @IBAction func btnPlay(sender: UIButton) {
+//        let categoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("AllCategoryViewController") as? AllCategoryViewController
+//        self.navigationController!.pushViewController(categoryVC!, animated: true)
+//    }
     
     @IBAction func btnChallenge(sender: AnyObject) {
         let challengeVC = self.storyboard?.instantiateViewControllerWithIdentifier("ChallengeViewController") as? ChallengeViewController

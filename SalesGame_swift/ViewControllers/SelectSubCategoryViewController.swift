@@ -11,6 +11,8 @@ import UIKit
 class SelectSubCategoryViewController: UIViewController {
 
     
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
     @IBOutlet weak var labelCategoryTitle: UILabel!
     @IBOutlet weak var labelSubCategoryTitle: UILabel!
     @IBOutlet weak var labelQuestionCount: UILabel!
@@ -30,6 +32,9 @@ class SelectSubCategoryViewController: UIViewController {
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         queryCategory()
         querySubCategory()
         //questionCount()
@@ -43,7 +48,8 @@ class SelectSubCategoryViewController: UIViewController {
             if error == nil {
                 self.category = success
                 let obj: PFObject = (self.category as! Array)[0]
-                self.labelCategoryTitle?.text = obj.valueForKey("categoryName") as! String
+                self.labelCategoryTitle?.text = obj.valueForKey("categoryName") as? String
+                self.navigationItem.title = obj.valueForKey("categoryName") as? String
                 hideHud(self.view)
             } else {
                 print("Error querying for categoryTitle \(error)")
@@ -99,10 +105,32 @@ class SelectSubCategoryViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    //==========================================================================================================================
     
-    // MARK: Actions
-    //==========================================================================================================================
+//==========================================================================================================================
+
+// MARK: Navigation
+    
+//==========================================================================================================================
+    
+    @IBAction func cancelButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func unwindFromSubCategory(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? SubCategoryViewController, fromCategory = sourceViewController.strMainCategory {
+            self.strMainCategory = fromCategory
+        }
+    }
+    
+    
+    
+    
+    
+//==========================================================================================================================
+    
+// MARK: Actions
+    
+//==========================================================================================================================
     
     @IBAction func playButton(sender: AnyObject) {
         let questionVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionViewController") as? QuestionViewController

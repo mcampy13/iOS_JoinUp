@@ -2078,7 +2078,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnPlay:" destination="MrU-pY-R83" eventType="touchUpInside" id="FSN-un-A79"/>
+                                    <segue destination="dN3-IT-xKl" kind="modal" identifier="newGame" id="CI1-Ts-boC"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Picture-100" id="3dp-PC-1RX">
@@ -2145,7 +2145,6 @@
                     <connections>
                         <outlet property="btnChallenge" destination="46E-g4-99r" id="HXW-9k-das"/>
                         <outlet property="btnLogout" destination="cmS-ML-gsl" id="Qda-IC-RWp"/>
-                        <outlet property="btnPlay" destination="5A0-H6-1Jd" id="wdl-eA-SsX"/>
                         <outlet property="btnScore" destination="awN-56-so3" id="QON-gH-IHz"/>
                         <outlet property="menuButton" destination="mfT-9E-BY2" id="fOh-5Q-lVE"/>
                         <outlet property="profilePic" destination="3dp-PC-1RX" id="laC-t8-BtL"/>
@@ -2155,7 +2154,7 @@
             </objects>
             <point key="canvasLocation" x="962" y="845"/>
         </scene>
-        <!--All Category View Controller-->
+        <!--Categories-->
         <scene sceneID="OyJ-OQ-1EZ">
             <objects>
                 <viewController storyboardIdentifier="AllCategoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rJI-dw-gCr" customClass="AllCategoryViewController" customModule="SalesGame_swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -2178,17 +2177,20 @@
                                 <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="qbo-pF-FlE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="qbo-pF-FlE">
                                         <rect key="frame" x="0.0" y="22" width="280" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qbo-pF-FlE" id="GhN-eo-Tok">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="247" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="MW4-F6-Odk" kind="push" identifier="gotoSubCategory" id="T2r-AJ-X0s"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2201,25 +2203,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <barButtonItem title="Back" id="0mk-k1-XGF">
-                                        <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="backButton:" destination="rJI-dw-gCr" id="gWC-Ai-MVs"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BFo-bd-EVF"/>
-                                    <barButtonItem systemItem="search" id="X3b-mT-exN">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="searchButton:" destination="rJI-dw-gCr" id="Wch-BQ-OAe"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                                 <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="delegate" destination="rJI-dw-gCr" id="U1R-MB-U70"/>
+                                    <outlet property="delegate" destination="rJI-dw-gCr" id="gT9-Sx-JVg"/>
                                 </connections>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translucent="NO" id="gPV-sJ-s37">
@@ -2263,16 +2250,28 @@
                         <animations/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Categories" id="AhU-Q4-alA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AaW-Ml-Yo5">
+                            <connections>
+                                <action selector="cancelButton:" destination="rJI-dw-gCr" id="oxI-df-zeL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Nfn-vr-7jo">
+                            <connections>
+                                <action selector="searchButton:" destination="rJI-dw-gCr" id="6d7-50-1PR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="cancelButton" destination="AaW-Ml-Yo5" id="qyD-Cb-TA5"/>
+                        <outlet property="searchButton" destination="Nfn-vr-7jo" id="272-O1-PrQ"/>
                         <outlet property="tblObj" destination="JaT-ws-6cX" id="Xpy-Yx-YtH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8P-yz-8Ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="845"/>
+            <point key="canvasLocation" x="2011" y="845"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="NRg-39-mnz">
@@ -2531,7 +2530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAc-cP-ovf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3025" y="845"/>
+            <point key="canvasLocation" x="4621" y="845"/>
         </scene>
         <!--Messages-->
         <scene sceneID="KDc-kX-aC7">
@@ -2974,12 +2973,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <animations/>
                                 <items>
-                                    <barButtonItem image="Home-32" id="fEj-Ci-O9k">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="homeButton:" destination="nMI-bb-3du" id="cJ2-54-cuT"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sGN-Bl-3Oi"/>
                                     <barButtonItem image="Contacts Filled-32" id="naC-fu-XKj">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3057,8 +3050,18 @@
                         <animations/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="SE0-gz-G0O">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4vd-IE-dGa">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButton:" destination="nMI-bb-3du" id="yfW-Pk-6CM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cancelButton" destination="4vd-IE-dGa" id="97Y-Q6-N6v"/>
                         <outlet property="labelCategoryTitle" destination="ZEl-YA-wL7" id="VK0-4c-ats"/>
                         <outlet property="labelQuestionCount" destination="Y4G-EP-HyA" id="YG6-j6-XFj"/>
                         <outlet property="labelSubCategoryTitle" destination="b9Y-q0-QIR" id="oHn-jE-xJd"/>
@@ -3067,9 +3070,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAl-l4-fn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2358" y="845"/>
+            <point key="canvasLocation" x="3792" y="845"/>
         </scene>
-        <!--Sub Category View Controller-->
+        <!--Sub-Categories-->
         <scene sceneID="woC-z5-Mlg">
             <objects>
                 <viewController storyboardIdentifier="SubCategoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MW4-F6-Odk" customClass="SubCategoryViewController" customModule="SalesGame_swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -3092,11 +3095,11 @@
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="10" reuseIdentifier="cell" rowHeight="57" id="eAR-rH-kRu">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="1" indentationWidth="10" reuseIdentifier="cell" rowHeight="57" id="eAR-rH-kRu">
                                         <rect key="frame" x="0.0" y="22" width="280" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eAR-rH-kRu" id="3cu-Wg-snO">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="247" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -3106,6 +3109,9 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
+                                        <connections>
+                                            <segue destination="nMI-bb-3du" kind="push" identifier="gotoGameStart" id="X5d-3N-NR4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -3117,25 +3123,8 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <animations/>
-                                <items>
-                                    <barButtonItem title="Back" id="Se9-eL-aKz">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="backButton:" destination="MW4-F6-Odk" id="ryg-v7-gYC"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nix-7s-xRU"/>
-                                    <barButtonItem systemItem="search" id="6gT-WO-BAX">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="searchButtonTap:" destination="MW4-F6-Odk" id="BKb-fg-5Am"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                                 <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="MW4-F6-Odk" id="C8A-8a-OvV"/>
-                                </connections>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translucent="NO" id="KoP-Z5-aBD">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -3147,7 +3136,9 @@
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="2"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Sub-Categories" id="i5v-DY-yxk"/>
+                                    <navigationItem title="Sub-Categories" id="i5v-DY-yxk">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="jO4-OV-tlz"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" id="8Gm-5e-F9U">
@@ -3178,14 +3169,27 @@
                         <animations/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationItem key="navigationItem" title="Sub-Categories" id="KEv-Wc-SOh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4WK-7d-g4w">
+                            <connections>
+                                <action selector="cancelButton:" destination="MW4-F6-Odk" id="fjy-P1-emw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="lA2-03-BOu">
+                            <connections>
+                                <action selector="searchButtonTap:" destination="MW4-F6-Odk" id="nUY-hp-C3t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="4WK-7d-g4w" id="0pi-Np-s78"/>
+                        <outlet property="searchButton" destination="jO4-OV-tlz" id="sAu-26-Mr4"/>
                         <outlet property="subCategoryTableView" destination="bSb-cl-oYj" id="AzF-F8-7KF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZT-lb-50l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911" y="845"/>
+            <point key="canvasLocation" x="2895" y="845"/>
         </scene>
         <!--Own Score View Controller-->
         <scene sceneID="r6g-Wm-XPL">
@@ -3315,7 +3319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkp-ve-IAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3360" y="115"/>
+            <point key="canvasLocation" x="2920" y="-539"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="eWb-qW-aTd">
@@ -4034,7 +4038,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48X-1X-KgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3763" y="115"/>
+            <point key="canvasLocation" x="4121" y="-539"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="ker-4T-jmA">
@@ -4260,6 +4264,63 @@
             </objects>
             <point key="canvasLocation" x="962" y="2345"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1Um-Gi-22d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dN3-IT-xKl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nym-G9-1Eo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rJI-dw-gCr" kind="relationship" relationship="rootViewController" id="bEm-P3-fg9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AKW-zl-VBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1479" y="845"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q1D-v3-uRD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tef-a8-hfZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cCo-cT-YDQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MW4-F6-Odk" kind="relationship" relationship="rootViewController" id="RBu-Tf-awa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ils-MH-kgq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2459" y="543"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nEg-n0-oCt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J7a-jT-QDT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cAS-AZ-Mhf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nMI-bb-3du" kind="relationship" relationship="rootViewController" id="a5Q-LN-9bi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ApL-Di-Vmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3350" y="543"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Add Image Filled-64" width="64" height="64"/>
@@ -4297,7 +4358,9 @@
         <image name="vsBar" width="1559" height="330"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CWh-1V-Hbz"/>
+        <segue reference="ALk-OV-rYa"/>
+        <segue reference="RBu-Tf-awa"/>
+        <segue reference="X5d-3N-NR4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
