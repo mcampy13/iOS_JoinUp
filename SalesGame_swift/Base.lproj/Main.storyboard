@@ -2330,7 +2330,7 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnBackTap:" destination="ZOb-G0-Geo" eventType="touchUpInside" id="Oad-Tu-n6F"/>
+                                            <action selector="btnBackTap:" destination="ZOb-G0-Geo" eventType="touchUpInside" id="Vbv-JD-SFj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7e4-bv-hhJ">
@@ -2509,7 +2509,18 @@
                         <animations/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
+                    <navigationItem key="navigationItem" id="A0L-n3-gYh">
+                        <barButtonItem key="leftBarButtonItem" title="Quit" id="8QZ-te-Wc3">
+                            <connections>
+                                <action selector="quitButton:" destination="ZOb-G0-Geo" id="JFz-TB-qL2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sound" id="p7K-BV-tRB">
+                            <connections>
+                                <action selector="soundButton:" destination="ZOb-G0-Geo" id="Jda-Ja-eV9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="btnFiftyFifty" destination="pbc-XN-z9S" id="Rrg-1V-z7j"/>
@@ -2518,19 +2529,20 @@
                         <outlet property="btnOption3" destination="Pfl-bs-q0e" id="fVz-c6-RU7"/>
                         <outlet property="btnOption4" destination="pLM-aN-fJb" id="ylk-Jd-Hch"/>
                         <outlet property="btnSkip" destination="58c-aq-XfZ" id="D7c-mi-pZv"/>
-                        <outlet property="btnSound" destination="7e4-bv-hhJ" id="6zL-cg-nHU"/>
                         <outlet property="btnTimer" destination="gpr-qA-y2s" id="Z7R-JA-3ee"/>
                         <outlet property="currentScore" destination="ysx-4g-lT8" id="CVV-DK-1nu"/>
                         <outlet property="getHelpButton" destination="z1M-QQ-E9j" id="68S-XB-zDp"/>
                         <outlet property="lblOutof" destination="p06-2D-Y8w" id="q7x-RP-Zyz"/>
                         <outlet property="lblTimer" destination="PLd-fT-07p" id="5Y0-Qy-Zfi"/>
                         <outlet property="questionImage" destination="UfM-aA-WRk" id="W4n-EJ-KLW"/>
+                        <outlet property="quitButton" destination="8QZ-te-Wc3" id="Na5-Ab-PQB"/>
+                        <outlet property="soundButton" destination="p7K-BV-tRB" id="ntY-au-dCm"/>
                         <outlet property="txtQuestionView" destination="IYV-0Y-6X0" id="mUT-TU-NkE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAc-cP-ovf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4621" y="845"/>
+            <point key="canvasLocation" x="4643" y="845"/>
         </scene>
         <!--Messages-->
         <scene sceneID="KDc-kX-aC7">
@@ -3009,7 +3021,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playButton:" destination="nMI-bb-3du" eventType="touchUpInside" id="4sU-ob-Ir7"/>
+                                    <segue destination="ZOb-G0-Geo" kind="push" identifier="gotoQuestion" id="uap-gX-XgE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question Count:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y4G-EP-HyA">
@@ -3070,7 +3082,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAl-l4-fn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3792" y="845"/>
+            <point key="canvasLocation" x="3784" y="845"/>
         </scene>
         <!--Sub-Categories-->
         <scene sceneID="woC-z5-Mlg">
@@ -4321,6 +4333,26 @@
             </objects>
             <point key="canvasLocation" x="3350" y="543"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lav-AF-lcM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z0y-PR-icv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="6aC-Sm-WtC"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ud8-jp-kNN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZOb-G0-Geo" kind="relationship" relationship="rootViewController" id="LwS-Z3-gu7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QTc-px-qli" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4199" y="543"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Add Image Filled-64" width="64" height="64"/>
@@ -4361,6 +4393,7 @@
         <segue reference="ALk-OV-rYa"/>
         <segue reference="RBu-Tf-awa"/>
         <segue reference="X5d-3N-NR4"/>
+        <segue reference="uap-gX-XgE"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -14,7 +14,10 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var lblTimer: UILabel?
     @IBOutlet weak var lblOutof: UILabel?
-    @IBOutlet weak var btnSound: UIButton?
+    @IBOutlet weak var quitButton: UIBarButtonItem!
+    @IBOutlet weak var soundButton: UIBarButtonItem!
+
+    //@IBOutlet weak var btnSound: UIButton?
     @IBOutlet weak var txtQuestionView:UITextView?
     @IBOutlet weak var btnOption1:UIButton?
     @IBOutlet weak var btnOption2:UIButton?
@@ -53,7 +56,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     var totalQuestionCount:Int!
    
     var MainCategory: PFObject!
-    var PFsubCategory: PFObject?
+    var PFsubCategory: PFObject!
     
     var game: PFObject!
     
@@ -74,6 +77,10 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         UtilityClass.setMyViewBorder(txtQuestionView, withBorder: 0, radius: 5)
         UtilityClass.setMyViewBorder(btnOption1, withBorder: 0, radius: 10)
         UtilityClass.setMyViewBorder(btnOption2, withBorder: 0, radius: 10)
@@ -151,6 +158,23 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             self.nextQuestion(self.currQuestionCount)
         }
     }
+
+
+//==========================================================================================================================
+    
+// MARK: Navigation
+    
+//==========================================================================================================================
+
+    @IBAction func unwindFromGameStart(sender: UIStoryboardSegue){
+        if let sourceViewController = sender.sourceViewController as? SelectSubCategoryViewController, fromCategory = sourceViewController.PFcategory, fromSubCategory = sourceViewController.PFSubCategory, game = sourceViewController.game {
+            self.MainCategory = fromCategory
+            self.PFsubCategory = fromSubCategory
+            self.flagForWrongAnswerpush = false
+            self.game = game
+        }
+    }
+    
     
 //==========================================================================================================================
 
@@ -334,17 +358,27 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
 
 //==========================================================================================================================
     
-    
-    @IBAction func btnSoundTap(sender: UIButton) {
-        if(isSound) {
-            btnSound!.setTitle("Sound On", forState: .Normal)
-        }
-        else {
-            btnSound!.setTitle("Sound Off", forState: .Normal)
+    @IBAction func soundButton(sender: AnyObject) {
+        if isSound {
+            self.soundButton.title = "Sound On"
+            self.soundButton.titleTextAttributesForState(.Normal)
+        } else {
+            self.soundButton.title = "Sound Off"
+            self.soundButton.titleTextAttributesForState(.Normal)
         }
         isSound = !isSound
-        btnSound?.selected = !isSound
     }
+    
+//    @IBAction func btnSoundTap(sender: UIButton) {
+//        if(isSound) {
+//            btnSound!.setTitle("Sound On", forState: .Normal)
+//        }
+//        else {
+//            btnSound!.setTitle("Sound Off", forState: .Normal)
+//        }
+//        isSound = !isSound
+//        btnSound?.selected = !isSound
+//    }
     
     @IBAction func btnFiftyFiftyTap(sender: UIButton) {
         let fiftyFiftyLifeLine = "50-50"
@@ -654,14 +688,14 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
+
 //==========================================================================================================================
 
 // MARK: back button
 
 //==========================================================================================================================
-    
-    @IBAction func btnBackTap(sender: UIButton) {
-        let actionSheetController: UIAlertController = UIAlertController(title: "Alert", message: "Are you sure want to exit?", preferredStyle: .Alert)
+    @IBAction func quitButton(sender: AnyObject) {
+        let actionSheetController: UIAlertController = UIAlertController(title: "Quit", message: "Are you sure want to quit the game?", preferredStyle: .Alert)
         
         //Create and add the Cancel action
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
@@ -692,7 +726,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             //Create and an option action
             let nextAction1: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
                 //Do some other stuff
-               // DBFunction.insertData(self.playerName, score:String(format: "%d",self.playerScore))
+                // DBFunction.insertData(self.playerName, score:String(format: "%d",self.playerScore))
                 //{
                 let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
                 ownScoreVC.playerScore = self.playerScore
@@ -723,4 +757,68 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         self.presentViewController(actionSheetController, animated: true, completion: nil)
         
     }
+    
+//    @IBAction func btnBackTap(sender: UIButton) {
+//        let actionSheetController: UIAlertController = UIAlertController(title: "Alert", message: "Are you sure want to exit?", preferredStyle: .Alert)
+//
+//        //Create and add the Cancel action
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+//            //Do some stuff
+//        }
+//        actionSheetController.addAction(cancelAction)
+//        //Create and an option action
+//        let nextAction: UIAlertAction = UIAlertAction(title: "Yes", style: .Default) { action -> Void in
+//            //Do some other stuff
+//            
+//            //Create the AlertController
+//            let actionSheetController1: UIAlertController = UIAlertController(title: "Enter Name", message: "", preferredStyle: .Alert)
+//            
+//            //Create and add the Cancel action
+//            let cancelAction1: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+//                //Do some stuff
+//                //DBFunction.insertData(self.playerName, score: String(self.playerScore))
+//                let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
+//                ownScoreVC.playerScore = self.playerScore
+//                ownScoreVC.strName = self.playerName
+//                ownScoreVC.arrWrongQuestion = self.arrWrongAns
+//                ownScoreVC.arrOtherAns = self.arrHalfWrongAns
+//                ownScoreVC.game = self.game
+//                self.navigationController?.pushViewController(ownScoreVC, animated: true)
+//                
+//            }
+//            actionSheetController1.addAction(cancelAction1)
+//            //Create and an option action
+//            let nextAction1: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
+//                //Do some other stuff
+//               // DBFunction.insertData(self.playerName, score:String(format: "%d",self.playerScore))
+//                //{
+//                let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
+//                ownScoreVC.playerScore = self.playerScore
+//                ownScoreVC.strName = self.playerName
+//                ownScoreVC.arrWrongQuestion = self.arrWrongAns
+//                ownScoreVC.arrOtherAns = self.arrHalfWrongAns
+//                ownScoreVC.game = self.game
+//                self.navigationController?.pushViewController(ownScoreVC, animated: true)
+//                
+//            }
+//            actionSheetController1.addAction(nextAction1)
+//            //Add a text field
+//            actionSheetController1.addTextFieldWithConfigurationHandler { textField -> Void in
+//                //TextField configuration
+//                textField.textColor = UIColor.blackColor()
+//                textField.delegate = self
+//            }
+//            
+//            //Present the AlertController
+//            self.presentViewController(actionSheetController1, animated: true, completion: nil)
+//            if self.timer != nil {
+//                self.timer.invalidate()
+//            }
+//        }
+//        
+//        actionSheetController.addAction(nextAction)
+//        
+//        self.presentViewController(actionSheetController, animated: true, completion: nil)
+//        
+//    }
 }

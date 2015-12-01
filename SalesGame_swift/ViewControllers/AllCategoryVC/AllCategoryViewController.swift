@@ -18,6 +18,8 @@ class AllCategoryViewController: UIViewController {
     var array: NSMutableArray! = []
     
     var strMainCategory: String?
+    
+    var Game: PFObject!
 
 //==========================================================================================================================
 
@@ -78,6 +80,7 @@ class AllCategoryViewController: UIViewController {
                 print("game: \(game)")
                 game["player"] = PFUser.currentUser()!
                 game["category"] = selectedCategory
+                self.Game = game
                 subCategoryViewController?.game = game
             }
         }

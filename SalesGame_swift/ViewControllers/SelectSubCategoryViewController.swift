@@ -48,6 +48,7 @@ class SelectSubCategoryViewController: UIViewController {
             if error == nil {
                 self.category = success
                 let obj: PFObject = (self.category as! Array)[0]
+                //self.PFcategory = obj
                 self.labelCategoryTitle?.text = obj.valueForKey("categoryName") as? String
                 self.navigationItem.title = obj.valueForKey("categoryName") as? String
                 hideHud(self.view)
@@ -65,6 +66,7 @@ class SelectSubCategoryViewController: UIViewController {
             if error == nil {
                 self.subCategory = success
                 let obj: PFObject = (self.subCategory as! Array)[0]
+                self.PFSubCategory = obj
                 self.labelSubCategoryTitle?.text = obj.valueForKey("subCategoryName") as? String
                 let subCategoryFile = obj.objectForKey("subCategoryFile") as? PFFile
                 subCategoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
@@ -117,13 +119,25 @@ class SelectSubCategoryViewController: UIViewController {
     }
     
     @IBAction func unwindFromSubCategory(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? SubCategoryViewController, fromCategory = sourceViewController.strMainCategory {
+        if let sourceViewController = sender.sourceViewController as? SubCategoryViewController, fromCategory = sourceViewController.strMainCategory, fromSubCategory = sourceViewController.stringSubCategory, game = sourceViewController.game{
             self.strMainCategory = fromCategory
+            self.strSubCategory = fromSubCategory
+            self.game = game
         }
     }
     
-    
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gotoQuestion" {
+            let questionViewController = segue.destinationViewController as? QuestionViewController
+            let obj:PFObject = (self.subCategory as! Array)[0]
+            
+            questionViewController?.MainCategory = obj
+            questionViewController?.PFsubCategory = self.PFSubCategory
+            questionViewController?.flagForWrongAnswerpush = false
+            questionViewController?.game = self.game
+            
+        }
+    }
     
     
 //==========================================================================================================================
@@ -132,17 +146,6 @@ class SelectSubCategoryViewController: UIViewController {
     
 //==========================================================================================================================
     
-    @IBAction func playButton(sender: AnyObject) {
-        let questionVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionViewController") as? QuestionViewController
-        let obj:PFObject = (self.subCategory as! Array)[0];
-        questionVC?.MainCategory = obj
-        questionVC?.PFsubCategory = self.PFSubCategory
-        questionVC?.flagForWrongAnswerpush = false
-        questionVC?.game = self.game
-        self.navigationController!.pushViewController(questionVC!, animated:true)
-        
-    }
-    
     @IBAction func opponentButton(sender: AnyObject) {
         displayAlert("Challenge", error: "You must win!")
     }
@@ -150,13 +153,6 @@ class SelectSubCategoryViewController: UIViewController {
     @IBAction func leaderboardButton(sender: AnyObject) {
         
     }
-    
-    
-    @IBAction func homeButton(sender: AnyObject) {
-        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
-        self.navigationController?.pushViewController(homeVC!, animated: true)
-    }
-    
     
     @IBAction func profileButton(sender: AnyObject) {
         let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController

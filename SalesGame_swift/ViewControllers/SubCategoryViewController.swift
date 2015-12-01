@@ -25,6 +25,7 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
     
     var game: PFObject!
 
+    var PFSubCategory: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,8 +93,9 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
     }
     
     @IBAction func unwindFromCategory(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? AllCategoryViewController, fromCategory = sourceViewController.strMainCategory {
+        if let sourceViewController = sender.sourceViewController as? AllCategoryViewController, fromCategory = sourceViewController.strMainCategory, game = sourceViewController.Game {
             self.strMainCategory = fromCategory
+            self.game = game
             print("strMainCategory in unwindFromCategory \(self.strMainCategory)")
             
         }
@@ -111,6 +113,9 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
                 self.stringSubCategory = selectedSubCategory.objectId
                 gameStartConfirm?.strMainCategory = self.strMainCategory
                 gameStartConfirm?.strSubCategory = selectedSubCategory.objectId
+                
+                game["subCategory"] = selectedSubCategory
+                gameStartConfirm?.game = self.game
                 print("selectedSubCategory id in SubCategory prepareForSegue: \(selectedSubCategory.objectId)")
             }
         }
