@@ -21,6 +21,9 @@ class SelectSubCategoryViewController: UIViewController {
     var category: AnyObject!
     var subCategory: AnyObject!
     
+    var categoryArray: NSMutableArray = []
+    var subCategoryArray: NSMutableArray = []
+    
     var strMainCategory : String!
     var strSubCategory: String!
     var PFcategory: PFObject?
@@ -37,9 +40,8 @@ class SelectSubCategoryViewController: UIViewController {
         
         queryCategory()
         querySubCategory()
-        //questionCount()
+        
     }
-    
     
     func queryCategory() {
         let queryCategory = PFQuery(className: "Category")
@@ -47,8 +49,13 @@ class SelectSubCategoryViewController: UIViewController {
         queryCategory.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
             if error == nil {
                 self.category = success
+                for var i=0; i < self.category!.count; i++ {
+                    let PFobj: PFObject = (self.category as! Array)[i]
+                    self.categoryArray.addObject(PFobj)
+                }
                 let obj: PFObject = (self.category as! Array)[0]
                 //self.PFcategory = obj
+                
                 self.labelCategoryTitle?.text = obj.valueForKey("categoryName") as? String
                 self.navigationItem.title = obj.valueForKey("categoryName") as? String
                 hideHud(self.view)
@@ -58,15 +65,20 @@ class SelectSubCategoryViewController: UIViewController {
         }
     } // END of queryCategory()
     
-    
     func querySubCategory(){
         let query = PFQuery(className: "SubCategory")
         query.whereKey("objectId", equalTo: strSubCategory)
         query.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
                 self.subCategory = success
+                for var i=0; i < self.subCategory!.count; i++ {
+                    let obj: PFObject = (self.subCategory as! Array)[i]
+                    self.subCategoryArray.addObject(obj)
+                }
                 let obj: PFObject = (self.subCategory as! Array)[0]
                 self.PFSubCategory = obj
+                print("PFSubCategory in querySubCategory: \(self.PFSubCategory)")
+                self.questionCount()
                 self.labelSubCategoryTitle?.text = obj.valueForKey("subCategoryName") as? String
                 let subCategoryFile = obj.objectForKey("subCategoryFile") as? PFFile
                 subCategoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
@@ -88,17 +100,18 @@ class SelectSubCategoryViewController: UIViewController {
 
     func questionCount(){
         let queryQuestion = PFQuery(className: "Question")
-        queryQuestion.whereKey("parentSubCategory", equalTo: (self.PFSubCategory?.objectId)!)
+        print("PFSubCategory in questionCount: \(self.PFSubCategory)")
+        queryQuestion.whereKey("parentSubCategory", equalTo: self.PFSubCategory!)
         queryQuestion.countObjectsInBackgroundWithBlock { (count: Int32, error) -> Void in
             if error == nil {
-                self.labelQuestionCount.text = String(count)
+                self.labelQuestionCount?.text = String(format: "%d", count)
                 print("count \(count)")
                 hideHud(self.view)
             } else {
                 print("Error in queryQuestionCount \(error)")
             }
         }
-    }
+    }// END of questionCount()
     
     func displayAlert(title: String, error: String){
         let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
@@ -160,11 +173,11 @@ class SelectSubCategoryViewController: UIViewController {
     }
     
     
-    //==========================================================================================================================
+//==========================================================================================================================
     
-    // MARK: Progress hud display methods
+// MARK: Progress hud display methods
     
-    //==========================================================================================================================
+//==========================================================================================================================
     
     func showhud() {
         showHud(self.view)

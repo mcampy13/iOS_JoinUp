@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
         
         menuButton.target = self.revealViewController()
         menuButton.action = Selector("revealToggle:")
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         UtilityClass.setMyViewBorder(img, withBorder: 0, radius: 75)
         self.displayUserImg()
