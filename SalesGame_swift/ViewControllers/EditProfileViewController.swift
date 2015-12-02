@@ -130,7 +130,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkValidDepartmentName()
-        
     }
     
     //=======================================================================================================

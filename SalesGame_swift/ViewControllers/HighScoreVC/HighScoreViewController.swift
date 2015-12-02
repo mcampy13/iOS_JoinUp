@@ -21,7 +21,7 @@ class HighScoreViewController: UIViewController {
     var pic:AnyObject?
 
     @IBOutlet weak var tblobj: UITableView?
-    @IBOutlet weak var badgeButton: UIBarButtonItem!
+    @IBOutlet weak var badgeButton: UIButton!
     
     var dataArray:AnyObject?
     var finalArray : NSMutableArray = []
@@ -175,10 +175,6 @@ class HighScoreViewController: UIViewController {
 // MARK: IBAction Button methods
 
 //==========================================================================================================================
-    
-    @IBAction func doneButton(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
     
     @IBAction func badgeButton(sender: AnyObject) {
         //UtilityClass.showAlert("Let's check out your Badges!")

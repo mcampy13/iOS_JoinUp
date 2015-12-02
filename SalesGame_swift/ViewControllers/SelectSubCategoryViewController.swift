@@ -10,13 +10,15 @@ import UIKit
 
 class SelectSubCategoryViewController: UIViewController {
 
-    
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     @IBOutlet weak var labelCategoryTitle: UILabel!
     @IBOutlet weak var labelSubCategoryTitle: UILabel!
     @IBOutlet weak var labelQuestionCount: UILabel!
     @IBOutlet weak var subCategoryImageView: UIImageView?
+    
+    @IBOutlet weak var leaderboardBarButton: UIButton!
+    
     
     var category: AnyObject!
     var subCategory: AnyObject!
@@ -166,12 +168,6 @@ class SelectSubCategoryViewController: UIViewController {
     @IBAction func leaderboardButton(sender: AnyObject) {
         
     }
-    
-    @IBAction func profileButton(sender: AnyObject) {
-        let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
-        self.navigationController!.pushViewController(profileVC!, animated: true)
-    }
-    
     
 //==========================================================================================================================
     

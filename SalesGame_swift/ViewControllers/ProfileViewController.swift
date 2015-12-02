@@ -20,11 +20,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var labelTotalGamesAmount: UILabel!
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var homeButton: UIBarButtonItem!
-    @IBOutlet weak var gamesButton: UIBarButtonItem!
-    @IBOutlet weak var badgesButton: UIBarButtonItem!
-    @IBOutlet weak var friendButton: UIBarButtonItem!
-    @IBOutlet weak var logOutButton: UIBarButtonItem!
+    @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var gamesButton: UIButton!
+    @IBOutlet weak var badgesButton: UIButton!
+    @IBOutlet weak var friendButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
     
     var userLevel: Int?
     
@@ -37,6 +37,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
         menuButton.target = self.revealViewController()
         menuButton.action = Selector("revealToggle:")
         //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         
         UtilityClass.setMyViewBorder(img, withBorder: 0, radius: 75)
         self.displayUserImg()

@@ -23,6 +23,9 @@ class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         let query = PFQuery(className: "Badges")
         query.addAscendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock { (success, error) -> Void in

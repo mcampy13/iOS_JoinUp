@@ -21,7 +21,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
     var categories: NSMutableArray = []
     var holder: AnyObject?
     
-    var selectedString: String?
+    var selectedCategoryToPass: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,8 +94,11 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
                 let indexPath = self.tblView.indexPathForCell(selectedCategoryCell)!
                 
                 let selectedCategory: PFObject = (self.holder as! Array)[indexPath.row]
-                self.selectedString = selectedCategory.valueForKey("categoryName") as! String
-                print("selectedCategory in prepareForSegue: \(selectedCategory)")
+                self.selectedCategoryToPass = selectedCategory
+//                print("selectedCategory in prepareForSegue: \(selectedCategory)")
+//                print("selectedCategoryToPass in prepareForSegue: \(self.selectedCategoryToPass)")
+                
+                categoryInfoDestinationVC?.categoryPFObj = selectedCategory
                 
             }
         }

@@ -19,6 +19,8 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var achievementsPickerView: UIPickerView!
     @IBOutlet weak var badgePickerViewLabel: UILabel!
     
+    @IBOutlet weak var BadgeImg: UIImageView!
+    
     var questionArrayScore:NSArray!
     var badgeName: String!
 
@@ -32,7 +34,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var badges = [String]()
     var category: AnyObject?
     
-    
+
 //==========================================================================================================================
 
 // MARK: Life Cycle methods
@@ -43,6 +45,8 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         super.viewDidLoad()
         let score = self.playerScore
         let scoreObject = PFObject(className: "Score")
+        
+        UtilityClass.setMyViewBorder(BadgeImg, withBorder: 0, radius: 60)
         
         scoreObject["user"] = PFUser.currentUser()?.objectId
         scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")

@@ -8,11 +8,10 @@
 
 import UIKit
 
-class SearchSubCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating{
+class SearchSubCategoryViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating{
 
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var toolBar: UIToolbar!
-    @IBOutlet weak var backButton: UIBarButtonItem!
     
     var filteredSubCategories = [String]()
     var resultSearchController = UISearchController()
@@ -22,9 +21,13 @@ class SearchSubCategoryViewController: UIViewController, UITableViewDataSource, 
     var parent: AnyObject?
     
     var strMainCategory: String!
+    var subCategoryPFObj: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
         querySubCategories()
         
@@ -37,6 +40,29 @@ class SearchSubCategoryViewController: UIViewController, UITableViewDataSource, 
         self.tblView.reloadData()
         
     }
+    
+    
+    //==========================================================================================================================
+    
+    // MARK: Navigation
+    
+    //==========================================================================================================================
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gotoSubCategoryInfo" {
+            let subCategoryInfoDestinationVC = segue.destinationViewController as? SubCategoryInfoViewController
+            
+            if let selectedSubCategoryCell = sender as? UITableViewCell {
+                let indexPath = self.tblView.indexPathForCell(selectedSubCategoryCell)!
+                
+                let selectedSubCategory: PFObject = (self.holder as! Array)[indexPath.row]
+                self.subCategoryPFObj = selectedSubCategory
+                subCategoryInfoDestinationVC?.subCategoryPFObj = selectedSubCategory
+            }
+        }
+        
+    }
+    
 
     func querySubCategories(){
         let query = PFQuery(className: "SubCategory")
@@ -95,7 +121,7 @@ class SearchSubCategoryViewController: UIViewController, UITableViewDataSource, 
         if self.resultSearchController.active {
             cell!.textLabel?.text = self.filteredSubCategories[indexPath.row]
         } else {
-            cell!.textLabel?.text = self.subCategories[indexPath.row] as! String
+            cell!.textLabel?.text = self.subCategories[indexPath.row] as? String
         }
         
         return cell!
@@ -116,16 +142,12 @@ class SearchSubCategoryViewController: UIViewController, UITableViewDataSource, 
     }
     
     
-    
     //==========================================================================================================================
     
     // MARK: Actions
     
     //==========================================================================================================================
     
-    @IBAction func backButton(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
     
 
     //==========================================================================================================================

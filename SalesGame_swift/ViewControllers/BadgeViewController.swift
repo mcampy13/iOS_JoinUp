@@ -11,6 +11,7 @@ import UIKit
 class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
     
     @IBOutlet weak var badgeTableView: UITableView!
     
@@ -54,6 +55,20 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {action in
         }))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+    //==========================================================================================================================
+    
+    // MARK: Navigation
+    
+    //==========================================================================================================================
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gotoAllBadges" {
+            let allBadgesVC = segue.destinationViewController as? TotalBadgesViewController
+            
+        }
     }
     
     
@@ -121,20 +136,10 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //==========================================================================================================================
     
-    // MARK: IBAction Button methods
+    // MARK: Actions
     
     //==========================================================================================================================
     
-//    @IBAction func doneButton(sender: AnyObject) {
-//        self.navigationController?.popViewControllerAnimated(true)
-//    }
-    
-    @IBAction func searchButton(sender: AnyObject) {
-        let totalBadgesVC = self.storyboard?.instantiateViewControllerWithIdentifier("TotalBadgesViewController") as? TotalBadgesViewController
-        self.navigationController!.pushViewController(totalBadgesVC!, animated: true)
-//        let badgeOverVC = self.storyboard?.instantiateViewControllerWithIdentifier("BadgeOverviewViewController") as? BadgeOverviewViewController
-//        self.navigationController!.pushViewController(badgeOverVC!, animated: true)
-    }
     
     
     //==========================================================================================================================
