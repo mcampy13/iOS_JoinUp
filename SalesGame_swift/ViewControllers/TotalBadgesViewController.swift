@@ -9,15 +9,12 @@
 import UIKit
 
 class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
     
     @IBOutlet weak var tblBadges: UITableView!
     
     var dataArray:AnyObject?
     var finalArray : NSMutableArray = []
     
-    var badgeDataArray: AnyObject?
-    var badgeFinalArray: NSMutableArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +40,8 @@ class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITabl
             } else {
                 print("Error querying Badges \(error)")
             }
-        
         }
-        
     }
-    
     
     func displayAlert(title: String, error: String){
         let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
@@ -55,7 +49,6 @@ class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITabl
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
     
     //==========================================================================================================================
     
@@ -74,51 +67,30 @@ class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: TotalBadgesTableViewCell = tblBadges!.dequeueReusableCellWithIdentifier("Cell") as! TotalBadgesTableViewCell
         
-        //let badgeId = self.finalArray.objectAtIndex(indexPath.row).valueForKey("badge")?.valueForKey("objectId") as? String
+        let name = self.finalArray.objectAtIndex(indexPath.row).valueForKey("badgeName") as? String
+        cell.labelTitle?.text = name
         
-        let queryFinal = PFQuery(className: "Badges")
-        queryFinal.addAscendingOrder("createdAt")
-        queryFinal.findObjectsInBackgroundWithBlock { (success, error) -> Void in
-            if error == nil {
-                print("Badge Array \(success!)")
-                self.badgeDataArray = success
-                for var k=0; k<success!.count; k++ {
-                    let obj: PFObject = (self.badgeDataArray as! Array)[k]
-                    self.badgeFinalArray.addObject(obj)
-                }
-                print("Final Array \(self.badgeFinalArray as NSMutableArray)")
-                
-                let name = self.badgeFinalArray.objectAtIndex(indexPath.row).valueForKey("badgeName") as? String
-                cell.labelTitle?.text = name
-                
-                let description = self.badgeFinalArray.objectAtIndex(indexPath.row).valueForKey("badgeDescription") as? String
-                cell.labelDescription?.text = description
-                
-                let badgePFFile = self.badgeFinalArray.objectAtIndex(indexPath.row).valueForKey("badgeImg") as? PFFile
-                badgePFFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
-                    if error == nil{
-                        if let imageData = imageData {
-                            cell.badgeImage.image = UIImage(data: imageData)
-                            //self.badgeTableView!.reloadData()
-                            hideHud(self.view)
-                        }
-                    } else{
-                        print("Error in getDataInBackgroundWithBlock \(error)")
-                    }
-                }
+        let description = self.finalArray.objectAtIndex(indexPath.row).valueForKey("badgeDescription") as? String
+        cell.labelDescription?.text = description
 
-                
-            } else {
-                print("Error querying Badges \(error)")
+        let badgePFFile = self.finalArray.objectAtIndex(indexPath.row).valueForKey("badgeImg") as? PFFile
+        badgePFFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
+            if error == nil{
+                if let imageData = imageData {
+                    cell.badgeImage.image = UIImage(data: imageData)
+                    hideHud(self.view)
+                }
+            } else{
+                print("Error in getDataInBackgroundWithBlock \(error)")
             }
-            
         }
         
-        cell.backgroundColor = UIColor .clearColor()
         return cell
     }
     
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        displayAlert("\(self.finalArray.objectAtIndex(indexPath.row).valueForKey("badgeName")!)", error: "\(self.finalArray.objectAtIndex(indexPath.row).valueForKey("badgeDescription")!)")
+    }
     
     //==========================================================================================================================
     
@@ -145,7 +117,5 @@ class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITabl
     func showhud() {
         showHud(self.view)
     }
-
-    
     
 }

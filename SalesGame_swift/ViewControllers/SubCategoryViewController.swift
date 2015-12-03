@@ -26,6 +26,7 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
     var game: PFObject!
 
     var PFSubCategory: PFObject?
+    var PFCategory: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,8 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
         
         let queryParent = PFQuery(className: "Category")
         queryParent.limit = 1000
-        queryParent.whereKey("objectId", equalTo: strMainCategory!)
+//        queryParent.whereKey("objectId", equalTo: strMainCategory!)
+        queryParent.whereKey("objectId", equalTo: self.PFCategory!.objectId!)
         queryParent.findObjectsInBackgroundWithBlock {  (parentObjs, error) -> Void in
             if error == nil {
                 self.parent = parentObjs
@@ -92,15 +94,6 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func unwindFromCategory(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? AllCategoryViewController, fromCategory = sourceViewController.strMainCategory, game = sourceViewController.Game {
-            self.strMainCategory = fromCategory
-            self.game = game
-            print("strMainCategory in unwindFromCategory \(self.strMainCategory)")
-            
-        }
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "gotoGameStart" {
             let gameStartConfirm = segue.destinationViewController as? SelectSubCategoryViewController
@@ -118,6 +111,14 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
                 gameStartConfirm?.game = self.game
                 print("selectedSubCategory id in SubCategory prepareForSegue: \(selectedSubCategory.objectId)")
             }
+        } else if segue.identifier == "gotoSearchSubCategory" {
+            let searchSubCategoryVC = segue.destinationViewController as? SearchSubCategoryViewController
+                
+            searchSubCategoryVC?.strMainCategory = self.strMainCategory
+            searchSubCategoryVC?.mainCategoryPF = self.PFCategory
+            
+            print("segue id == gotoSearchSubCategory strMainCategory: \(self.strMainCategory)")
+            print("segue id == gotoSearchSubCategory PFCategory: \(self.PFCategory)")
         }
     }
     
@@ -169,18 +170,14 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
 //        self.navigationController!.pushViewController(selectSubCategoryVC!, animated:true)
 //    }
     
-    //==========================================================================================================================
-    
-    // MARK: Buttons IBAction
     
     //==========================================================================================================================
     
-    @IBAction func searchButtonTap(sender: UIBarButtonItem) {
-        let searchSubCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SearchSubCategoryViewController") as! SearchSubCategoryViewController
-        searchSubCategoryVC.strMainCategory = self.parent![0].objectId
-        self.navigationController?.pushViewController(searchSubCategoryVC, animated: true)
-    }
+    // MARK: Actions
     
+    //==========================================================================================================================
+    
+
     //==========================================================================================================================
     
     // MARK: Progress hud display methods

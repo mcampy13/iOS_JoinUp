@@ -18,6 +18,7 @@ class AllCategoryViewController: UIViewController {
     var array: NSMutableArray! = []
     
     var strMainCategory: String?
+    var PFMainCategory: PFObject?
     
     var PFCategoryArray = [PFObject]()
     
@@ -76,7 +77,10 @@ class AllCategoryViewController: UIViewController {
                 print("selectedCategory: \(selectedCategory)")
                 
                 self.strMainCategory = selectedCategory.objectId
+                self.PFMainCategory = selectedCategory
+                
                 subCategoryViewController?.strMainCategory = selectedCategory.objectId as String!
+                subCategoryViewController?.PFCategory = selectedCategory
                 print("selectedCategory id \(selectedCategory.objectId)")
                 
                 let game = PFObject(className: "Game")

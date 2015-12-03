@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9614CB341BF5724C003BB669 /* BadgeOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB331BF5724C003BB669 /* BadgeOverviewViewController.swift */; };
-		9614CB361BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB351BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift */; };
 		9614CB381BF5B5A8003BB669 /* FaceOffQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */; };
 		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; };
 		964EF50A1C0984D700F2B07C /* SearchFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */; };
@@ -98,8 +96,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9614CB331BF5724C003BB669 /* BadgeOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeOverviewViewController.swift; sourceTree = "<group>"; };
-		9614CB351BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceOffQuestionViewController.swift; sourceTree = "<group>"; };
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewController.swift; sourceTree = "<group>"; };
@@ -345,8 +341,6 @@
 			children = (
 				96C4F3D41BF45459009E73CD /* TotalBadgesViewController.swift */,
 				96C4F3D61BF45541009E73CD /* TotalBadgesTableViewCell.swift */,
-				9614CB331BF5724C003BB669 /* BadgeOverviewViewController.swift */,
-				9614CB351BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift */,
 			);
 			name = TotalBadgesVC;
 			sourceTree = "<group>";
@@ -733,7 +727,6 @@
 				969A7CA91C06643000FCBD26 /* BackTableVC.swift in Sources */,
 				967396A21C0EB42300F392E8 /* TopRatedViewController.swift in Sources */,
 				96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */,
-				9614CB341BF5724C003BB669 /* BadgeOverviewViewController.swift in Sources */,
 				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
 				BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */,
 				96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */,
@@ -773,7 +766,6 @@
 				96D71D4C1BFAAF3800675A15 /* SearchSubCategoryViewController.swift in Sources */,
 				BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */,
 				96C4F3D71BF45541009E73CD /* TotalBadgesTableViewCell.swift in Sources */,
-				9614CB361BF57562003BB669 /* BadgeOverviewCollectionViewCell.swift in Sources */,
 				9614CB381BF5B5A8003BB669 /* FaceOffQuestionViewController.swift in Sources */,
 				BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */,
 				96B0FA0C1BFC78E300371660 /* GameHistoryViewController.swift in Sources */,

@@ -28,7 +28,10 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
         let queryGames = PFQuery(className: "Game")
+        queryGames.limit = 20
         queryGames.whereKey("player", equalTo: PFUser.currentUser()!)
+        queryGames.includeKey("category")
+        queryGames.includeKey("subCategory")
         queryGames.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
                 self.anyObj = success
@@ -36,6 +39,7 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
                     let PFObj: PFObject = (self.anyObj as! Array)[i]
                     self.array.addObject(PFObj)
                 }
+                
                 //print("array: \(self.array)")
                 self.tblView!.reloadData()
                 hideHud(self.view)
@@ -44,7 +48,6 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
             }
         }
     }
-
     
     func displayAlert(title: String, error: String){
         let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
@@ -52,7 +55,6 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
-
     
     //==========================================================================================================================
     
@@ -70,47 +72,28 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: GameHistoryTableViewCell = tblView!.dequeueReusableCellWithIdentifier("cell") as! GameHistoryTableViewCell
+       
+        self.holder = self.array.objectAtIndex(indexPath.row).valueForKey("category")! as! PFObject
+        self.subHolder = self.array.objectAtIndex(indexPath.row).valueForKey("subCategory")! as! PFObject
+
+        cell.labelCategoryTitle?.text = self.holder.valueForKey("categoryName") as? String
+        cell.labelSubCategoryTitle?.text = self.subHolder.valueForKey("subCategoryName") as? String
         
-        let query = PFQuery(className: "Game")
-        query.addDescendingOrder("createdAt")
-        query.includeKey("category")
-        query.includeKey("subCategory")
-        query.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+        self.categoryString = self.holder.valueForKey("categoryName") as? String
+        self.subCategoryString = self.subHolder.valueForKey("subCategoryName") as? String
+        
+        let gameFile = self.array.objectAtIndex(indexPath.row).valueForKey("category")?.valueForKey("categoryFile") as? PFFile
+        gameFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
             if error == nil {
-                self.historyDataAnyObject = success
-                for var j=0; j < success!.count; j++ {
-                    let obj:PFObject = (self.historyDataAnyObject as! Array)[j]
-                    self.historyArray.addObject(obj)
-                }
-                //print("historyArray: \(self.historyArray as NSMutableArray)")
-                
-                //print("whole category: \(self.array.objectAtIndex(indexPath.row).valueForKey("category"))")
-                self.holder = self.array.objectAtIndex(indexPath.row).valueForKey("category")! as! PFObject
-                self.subHolder = self.array.objectAtIndex(indexPath.row).valueForKey("subCategory")! as! PFObject
-                
-                var categoryName = self.queryCategoryWithID()
-                cell.labelCategoryTitle?.text = self.categoryString
-                
-                var subCategoryName = self.querySubCategory()
-                cell.labelSubCategoryTitle?.text = self.subCategoryString
-//                let subCategory = self.array.objectAtIndex(indexPath.row).objectForKey("subCategory")?.valueForKey("subCategoryName") as? String
-//                cell.labelSubCategoryTitle?.text = subCategory
-                
-                let gameFile = self.array.objectAtIndex(indexPath.row).valueForKey("category")?.valueForKey("categoryFile") as? PFFile
-                gameFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
-                    if error == nil {
-                        if let imageData = imageData {
-                            cell.img.image = UIImage(data: imageData)
-                            hideHud(self.view)
-                        }
-                    } else{
-                        print("Error in gameFile: \(error)")
-                    }
+                if let imageData = imageData {
+                    cell.img.image = UIImage(data: imageData)
+                    hideHud(self.view)
                 }
             } else{
-                print("Error in query: \(error)")
+                print("Error in gameFile: \(error)")
             }
         }
+        
         cell.backgroundColor = UIColor.clearColor()
         return cell
     }
@@ -131,12 +114,10 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
                     self.categoryString = obj.valueForKey("categoryName")! as? String
                     //print("string: \(self.categoryString)")
                 }
-                
             } else{
                 print("Error in queryCategory: \(error)")
             }
         }
-        
     }
     
     func querySubCategory(){
@@ -151,15 +132,12 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
                     self.subCategoryString = obj.valueForKey("subCategoryName")! as? String
                     //print("string: \(self.categoryString)")
                 }
-                
             } else{
                 print("Error in querySubCategory: \(error)")
             }
         }
-        
     }
 
-    
     
     //==========================================================================================================================
     
@@ -171,7 +149,6 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
         let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(homeVC, animated: true)
     }
-    
     
     
     //==========================================================================================================================

@@ -21,24 +21,28 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     var parent: AnyObject?
     
     var strMainCategory: String!
+    var mainCategoryPF: PFObject?
     var subCategoryPFObj: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("SearchSubCategory viewDidLoad strMainCategory: \(self.strMainCategory)")
+        print("SearchSubCategory viewDidLoad mainCategoryPF: \(self.mainCategoryPF)")
+
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-
-        querySubCategories()
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
         self.resultSearchController.dimsBackgroundDuringPresentation = false
         self.resultSearchController.searchBar.sizeToFit()
         
+        querySubCategories()
+        
         self.tblView.tableHeaderView = self.resultSearchController.searchBar
         self.tblView.reloadData()
-        
+    
     }
     
     
@@ -60,15 +64,14 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
                 subCategoryInfoDestinationVC?.subCategoryPFObj = selectedSubCategory
             }
         }
-        
     }
     
-
     func querySubCategories(){
         let query = PFQuery(className: "SubCategory")
         let queryParent = PFQuery(className: "Category")
         queryParent.limit = 1000
         queryParent.whereKey("objectId", equalTo: strMainCategory)
+//        queryParent.whereKey("objectId", equalTo: self.mainCategoryPF!.objectId!)
         queryParent.findObjectsInBackgroundWithBlock{ (parentObjs, error) -> Void in
             if error == nil {
                 self.parent = parentObjs
@@ -138,7 +141,6 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
         self.filteredSubCategories = array as! [String]
         
         self.tblView.reloadData()
-        
     }
     
     
