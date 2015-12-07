@@ -161,9 +161,6 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     func showhud() {
         showHud(self.view)
     }
-
-    
-    
     
     
 }

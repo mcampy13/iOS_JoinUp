@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChallengeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ChallengeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -25,6 +25,9 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
 //        queryFriend()
         let query = PFUser.query()
         query?.findObjectsInBackgroundWithBlock { (success, error) -> Void in
@@ -40,26 +43,6 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
                 print("Error in querying for Users \(error)")
             }
         }
-
-//        let query = PFQuery(className: "Friend")
-//        query.whereKey("from", equalTo: PFUser.currentUser()!)
-//        query.includeKey("to")
-//        query.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
-//            if error == nil {
-//                self.friendArray = success
-//                print("friendArray: \(self.friendArray)")
-//                for var i=0; i < self.friendArray!.count; i++ {
-//                    let obj: PFObject = (self.friendArray as! Array)[i]
-//                    self.finalArray.addObject(obj.valueForKey("to")!.valueForKey("username")!)
-//                }
-//                print("finalArray: \(self.finalArray)")
-//                self.challengeTable.reloadData()
-//                hideHud(self.view)
-//
-//            } else{
-//                print("Error in query: \(error)")
-//            }
-//        }
         
     }
     

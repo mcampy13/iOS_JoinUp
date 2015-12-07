@@ -12,13 +12,18 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    //
+    
     @IBOutlet var btnPlay : UIButton!
     @IBOutlet var btnScore : UIButton!
     @IBOutlet var btnLogout : UIButton!
     @IBOutlet weak var btnChallenge: UIButton!
     
     @IBOutlet weak var profilePic: UIImageView?
+    
+    var categoryAnyObj: AnyObject?
+    
+    var cats: AnyObject?
+    var subs: AnyObject?
     
     var pic: AnyObject?
     var emailObj: AnyObject?
@@ -35,6 +40,53 @@ class HomeViewController: UIViewController {
         UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 75)
         displayUserImg()
         navigationItem.title = "Home"
+        
+        let query = PFQuery(className: "Category")
+        query.addAscendingOrder("createdAt")
+        query.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
+            if error == nil {
+                self.cats = success
+            } else {
+                print("Error in viewDidLoad query: \(error)")
+            }
+            for var i=0; i < self.cats?.count; i++ {
+                let obj: PFObject = (self.cats as! Array)[i]
+                obj.pinInBackground()
+            }
+        }
+        
+        let querySub = PFQuery(className: "SubCategory")
+        querySub.addAscendingOrder("createdAt")
+        querySub.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
+            if error == nil {
+                self.subs = success
+            } else {
+                print("Error in viewDidLoad query: \(error)")
+            }
+            for var j=0; j < self.subs?.count; j++ {
+                let obj: PFObject = (self.subs as! Array)[j]
+                obj.pinInBackground()
+            }
+        }
+       
+//        let queryCategoryFromLocal = PFQuery(className: "Category")
+//        queryCategoryFromLocal.fromLocalDatastore()
+//        queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (found, error) -> Void in
+//            if error == nil {
+//                print("found: \(found)")
+//            } else{
+//                print("Error in queryFromLocal: \(error)")
+//            }
+//        }
+        let querySubCategoryFromLocal = PFQuery(className: "SubCategory")
+        querySubCategoryFromLocal.fromLocalDatastore()
+        querySubCategoryFromLocal.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
+            if error == nil {
+            
+            } else {
+                print("Error in querySubCategoryFromLocal: \(error)")
+            }
+        }
     }
     
     
@@ -57,7 +109,6 @@ class HomeViewController: UIViewController {
                 print("Error \(error)")
             }
         })
-
         
     } // END of displayUserImg()
     
@@ -76,28 +127,52 @@ class HomeViewController: UIViewController {
     
 //==========================================================================================================================
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "newGame" {
-//            let categoryViewController = segue.destinationViewController as! AllCategoryViewController
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gotoCategoryCollection" {
+            let categoryCollectionViewController = segue.destinationViewController as! CategoryCollectionViewController
+            
+//            var PFCategories = [PFObject]()
 //            
-//        }
-//    }
+//            let query = PFQuery(className: "Category")
+//            query.limit = 1000;
+//            
+//            query.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
+//                if error == nil {
+//                    self.categoryAnyObj = objArray
+//                    
+//                    for var i=0; i < self.categoryAnyObj!.count; i++ {
+//                        let obj: PFObject = (self.categoryAnyObj as! Array)[i]
+//                        PFCategories.append(obj)
+//                        
+//                    }
+//                } else {
+//                    print("Error queryCategories: \(error)")
+//                }
+//                
+//                print("PFCategories : \(PFCategories)")
+//            }
+            let queryCategoryFromLocal = PFQuery(className: "Category")
+            queryCategoryFromLocal.fromLocalDatastore()
+            queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (found, error) -> Void in
+                if error == nil {
+                    print("found: \(found)")
+                    self.categoryAnyObj = found
+                    
+                    categoryCollectionViewController.PFCategoriesFromHome = self.categoryAnyObj
+
+                } else{
+                    print("Error in queryFromLocal: \(error)")
+                }
+            }            
+        }
+    }
     
 //==========================================================================================================================
 
 // MARK: Actions
 
 //==========================================================================================================================
-
-//    @IBAction func btnPlay(sender: UIButton) {
-//        let categoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("AllCategoryViewController") as? AllCategoryViewController
-//        self.navigationController!.pushViewController(categoryVC!, animated: true)
-//    }
     
-    @IBAction func btnChallenge(sender: AnyObject) {
-        let challengeVC = self.storyboard?.instantiateViewControllerWithIdentifier("ChallengeViewController") as? ChallengeViewController
-        self.navigationController!.pushViewController(challengeVC!, animated: true)
-    }
     
     @IBAction func btnLeader(sender: UIButton) {
        let highScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as? HighScoreViewController

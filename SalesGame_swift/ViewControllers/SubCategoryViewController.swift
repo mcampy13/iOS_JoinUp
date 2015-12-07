@@ -30,7 +30,7 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("in SubCategoryVC strMainCateogyry: \(self.strMainCategory)")
+        print("in SubCategoryVC strMainCateogry: \(self.strMainCategory)")
 
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -46,8 +46,8 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
         
         let queryParent = PFQuery(className: "Category")
         queryParent.limit = 1000
-//        queryParent.whereKey("objectId", equalTo: strMainCategory!)
-        queryParent.whereKey("objectId", equalTo: self.PFCategory!.objectId!)
+        queryParent.whereKey("objectId", equalTo: self.strMainCategory!)
+        //queryParent.whereKey("objectId", equalTo: self.PFCategory!.objectId!)
         queryParent.findObjectsInBackgroundWithBlock {  (parentObjs, error) -> Void in
             if error == nil {
                 self.parent = parentObjs

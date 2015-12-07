@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9614CB381BF5B5A8003BB669 /* FaceOffQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */; };
 		96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */; };
+		963D3D801C14ACA200486747 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D3D7F1C14ACA200486747 /* CategoryCollectionViewCell.swift */; };
+		963D3D821C14AD0200486747 /* ShowCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D3D811C14AD0200486747 /* ShowCategoryViewController.swift */; };
+		963D3D841C14AE5700486747 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D3D831C14AE5700486747 /* CategoryCollectionViewController.swift */; };
+		963D3D861C15039D00486747 /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D3D851C15039D00486747 /* SubCategoryCollectionViewCell.swift */; };
 		964EF50A1C0984D700F2B07C /* SearchFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */; };
 		964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */; };
 		964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50D1C0A7FED00F2B07C /* Friend.swift */; };
@@ -23,12 +27,11 @@
 		969A7CA91C06643000FCBD26 /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CA81C06643000FCBD26 /* BackTableVC.swift */; };
 		969A7CAC1C070C9700FCBD26 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CAB1C070C9700FCBD26 /* MessageViewController.swift */; };
 		96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3F81BE341F80021E32C /* SummaryViewController.swift */; };
-		96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */; };
-		96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */; };
 		96B0FA091BFABC5100371660 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA081BFABC5100371660 /* FriendViewController.swift */; };
 		96B0FA0C1BFC78E300371660 /* GameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA0B1BFC78E300371660 /* GameHistoryViewController.swift */; };
 		96B0FA0E1BFC79AC00371660 /* GameHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */; };
 		96B5765F1C0EB82F0020CB3A /* SubmitAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5765E1C0EB82F0020CB3A /* SubmitAnswersViewController.swift */; };
+		96BB82041C110B5B0030BBA6 /* IntroChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB82031C110B5B0030BBA6 /* IntroChallengeViewController.swift */; };
 		96C4F3C11BF2C422009E73CD /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */; };
 		96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */; };
 		96C4F3C51BF33796009E73CD /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C41BF33796009E73CD /* ChallengeTableViewCell.swift */; };
@@ -98,6 +101,10 @@
 /* Begin PBXFileReference section */
 		9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceOffQuestionViewController.swift; sourceTree = "<group>"; };
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
+		963D3D7F1C14ACA200486747 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		963D3D811C14AD0200486747 /* ShowCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCategoryViewController.swift; sourceTree = "<group>"; };
+		963D3D831C14AE5700486747 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
+		963D3D851C15039D00486747 /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewController.swift; sourceTree = "<group>"; };
 		964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewCell.swift; sourceTree = "<group>"; };
 		964EF50D1C0A7FED00F2B07C /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -113,12 +120,11 @@
 		969A7CA81C06643000FCBD26 /* BackTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableVC.swift; sourceTree = "<group>"; };
 		969A7CAB1C070C9700FCBD26 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		96A2A3F81BE341F80021E32C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
-		96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		96B0FA081BFABC5100371660 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		96B0FA0B1BFC78E300371660 /* GameHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryViewController.swift; sourceTree = "<group>"; };
 		96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		96B5765E1C0EB82F0020CB3A /* SubmitAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitAnswersViewController.swift; sourceTree = "<group>"; };
+		96BB82031C110B5B0030BBA6 /* IntroChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroChallengeViewController.swift; sourceTree = "<group>"; };
 		96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSubCategoryViewController.swift; sourceTree = "<group>"; };
 		96C4F3C41BF33796009E73CD /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 			children = (
 				9659FC861BD760250068C72B /* ChallengeViewController.swift */,
 				96C4F3C41BF33796009E73CD /* ChallengeTableViewCell.swift */,
+				96BB82031C110B5B0030BBA6 /* IntroChallengeViewController.swift */,
 			);
 			name = ChallengeVC;
 			sourceTree = "<group>";
@@ -291,15 +298,6 @@
 				96FAD63A1C0AA5E100C1221C /* testTableViewCell.swift */,
 			);
 			name = FriendVC;
-			sourceTree = "<group>";
-		};
-		96AE17C81BE6B52800D3E068 /* CategoryVC */ = {
-			isa = PBXGroup;
-			children = (
-				96AE17C91BE6B56400D3E068 /* CategoryViewController.swift */,
-				96AE17CB1BE6B66300D3E068 /* CategoryTableViewCell.swift */,
-			);
-			name = CategoryVC;
 			sourceTree = "<group>";
 		};
 		96B0FA0A1BFC78CE00371660 /* GameHistoryVC */ = {
@@ -569,7 +567,6 @@
 				96C4F3CB1BF34068009E73CD /* ChallengeSubCategoryVC */,
 				96C4F3C61BF33DC3009E73CD /* ChallengeCategoryVC */,
 				96DC25FA1BF1C65D00D3F0CC /* BadgeVC */,
-				96AE17C81BE6B52800D3E068 /* CategoryVC */,
 				96A2A3FA1BE400300021E32C /* FriendVC */,
 				96A2A3F71BE341D70021E32C /* SummaryVC */,
 				9659FC851BD7600E0068C72B /* ChallengeVC */,
@@ -594,6 +591,10 @@
 				BAEA6E491BA34B8000558565 /* AllCategoryViewController.swift */,
 				96D71D461BFA559100675A15 /* SearchCategoryViewController.swift */,
 				9673969C1C0D943900F392E8 /* CategoryInfoViewController.swift */,
+				963D3D7F1C14ACA200486747 /* CategoryCollectionViewCell.swift */,
+				963D3D811C14AD0200486747 /* ShowCategoryViewController.swift */,
+				963D3D831C14AE5700486747 /* CategoryCollectionViewController.swift */,
+				963D3D851C15039D00486747 /* SubCategoryCollectionViewCell.swift */,
 			);
 			path = AllCategoryVC;
 			sourceTree = "<group>";
@@ -718,6 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				963D3D801C14ACA200486747 /* CategoryCollectionViewCell.swift in Sources */,
 				969A7CA11C062A6000FCBD26 /* SWRevealViewController.m in Sources */,
 				96D71D471BFA559100675A15 /* SearchCategoryViewController.swift in Sources */,
 				96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */,
@@ -727,6 +729,7 @@
 				969A7CA91C06643000FCBD26 /* BackTableVC.swift in Sources */,
 				967396A21C0EB42300F392E8 /* TopRatedViewController.swift in Sources */,
 				96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */,
+				963D3D821C14AD0200486747 /* ShowCategoryViewController.swift in Sources */,
 				96212CF11BD5D2F10034EA4B /* SubCategoryViewController.swift in Sources */,
 				BA512E831BA59E43008AE31B /* IQSegmentedNextPrevious.m in Sources */,
 				96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */,
@@ -742,12 +745,14 @@
 				96B0FA0E1BFC79AC00371660 /* GameHistoryTableViewCell.swift in Sources */,
 				96DD46111BD60F01006B97F2 /* ResetPasswordViewController.swift in Sources */,
 				BAEA6E4E1BA3532300558565 /* GeneralClass.swift in Sources */,
+				963D3D841C14AE5700486747 /* CategoryCollectionViewController.swift in Sources */,
 				BAEA6E461BA3425400558565 /* SignUpViewController.swift in Sources */,
 				BAEA6E4C1BA3523B00558565 /* QuestionViewController.swift in Sources */,
 				BA512E841BA59E43008AE31B /* IQTextView.m in Sources */,
 				9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */,
 				964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */,
 				96C4F3CD1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift in Sources */,
+				96BB82041C110B5B0030BBA6 /* IntroChallengeViewController.swift in Sources */,
 				BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */,
 				BAEA6E441BA3419800558565 /* LoginViewController.swift in Sources */,
 				BA512E821BA59E43008AE31B /* IQNSArray+Sort.m in Sources */,
@@ -756,6 +761,7 @@
 				BA512E871BA59E43008AE31B /* IQUIView+Hierarchy.m in Sources */,
 				BA512E7F1BA59E43008AE31B /* IQBarButtonItem.m in Sources */,
 				964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */,
+				963D3D861C15039D00486747 /* SubCategoryCollectionViewCell.swift in Sources */,
 				96C4F3C51BF33796009E73CD /* ChallengeTableViewCell.swift in Sources */,
 				96DC25FC1BF1C67500D3F0CC /* BadgeViewController.swift in Sources */,
 				BAB91BA41BA271DB0033DCA6 /* AppDelegate.swift in Sources */,
@@ -771,9 +777,7 @@
 				96B0FA0C1BFC78E300371660 /* GameHistoryViewController.swift in Sources */,
 				96C4F3D21BF43BFC009E73CD /* NewUserProfileViewController.swift in Sources */,
 				96B5765F1C0EB82F0020CB3A /* SubmitAnswersViewController.swift in Sources */,
-				96AE17CA1BE6B56400D3E068 /* CategoryViewController.swift in Sources */,
 				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
-				96AE17CC1BE6B66300D3E068 /* CategoryTableViewCell.swift in Sources */,
 				967396A41C0EB44100F392E8 /* RecentViewController.swift in Sources */,
 				969A7CAC1C070C9700FCBD26 /* MessageViewController.swift in Sources */,
 				96B0FA091BFABC5100371660 /* FriendViewController.swift in Sources */,

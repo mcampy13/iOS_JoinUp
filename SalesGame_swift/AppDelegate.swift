@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigation : UINavigationController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Parse.enableLocalDatastore()
         Parse.setApplicationId("mg1qP8MFKOVjykmN3Aha6Q47L6XtuNQLIyVKFutU", clientKey:"mgY2o0pSQNhL5u7PWIj84ZzzPMXXRRsqeeuhnlma")
         var storyboard : UIStoryboard!
         if IS_iPad {
