@@ -119,7 +119,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     //==========================================================================================================================
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(textField: UITextField){
         saveButton.enabled = false
     }
     

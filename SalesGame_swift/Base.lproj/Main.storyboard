@@ -2063,21 +2063,6 @@
                                     <segue destination="KGv-W7-XLv" kind="modal" identifier="newChallenge" id="dar-Kg-Ss3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5A0-H6-1Jd">
-                                <rect key="frame" x="51" y="261" width="219" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="New Game">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="dN3-IT-xKl" kind="modal" identifier="newGame" id="GiO-74-Djx"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Picture-100" id="3dp-PC-1RX">
                                 <rect key="frame" x="85" y="73" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2143,11 +2128,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ikf-Bx-z66">
-                                <rect key="frame" x="137" y="518" width="46" height="30"/>
+                                <rect key="frame" x="51" y="261" width="219" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="New Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="X0f-F6-cQd" kind="push" identifier="gotoCategoryCollection" id="qyH-xf-Sil"/>
@@ -2561,6 +2550,7 @@
                         <outlet property="quitButton" destination="8QZ-te-Wc3" id="Na5-Ab-PQB"/>
                         <outlet property="soundButton" destination="p7K-BV-tRB" id="ntY-au-dCm"/>
                         <outlet property="txtQuestionView" destination="IYV-0Y-6X0" id="mUT-TU-NkE"/>
+                        <segue destination="kkF-Ux-gfn" kind="modal" identifier="segueOwnScore" id="Cxw-ri-ddT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAc-cP-ovf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2768,7 +2758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URU-Aw-3yS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3493" y="1621"/>
+            <point key="canvasLocation" x="2019" y="2331"/>
         </scene>
         <!--Category Info View Controller-->
         <scene sceneID="BH7-GQ-kwT">
@@ -2804,7 +2794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Rz-KV-CFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2961" y="2339"/>
+            <point key="canvasLocation" x="2019" y="3025"/>
         </scene>
         <!--Search Sub Category View Controller-->
         <scene sceneID="j8L-hQ-etM">
@@ -2880,7 +2870,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQa-lx-BD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4414" y="1621"/>
+            <point key="canvasLocation" x="2992" y="2331"/>
         </scene>
         <!--Sub Category Info View Controller-->
         <scene sceneID="rY7-Cr-AjN">
@@ -2916,7 +2906,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nd-cb-XeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3882" y="2339"/>
+            <point key="canvasLocation" x="2992" y="3031"/>
         </scene>
         <!--Select Sub Category View Controller-->
         <scene sceneID="RTo-yl-SGp">
@@ -2965,7 +2955,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ZOb-G0-Geo" kind="push" identifier="gotoQuestion" id="uap-gX-XgE"/>
+                                    <segue destination="ZOb-G0-Geo" kind="push" identifier="segueQuestion" id="uap-gX-XgE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mfj-mp-K2e">
@@ -3024,6 +3014,12 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yVi-ON-Q2E">
+                                <rect key="frame" x="132" y="443" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" title="Random"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
@@ -3043,6 +3039,7 @@
                         <outlet property="labelQuestionCount" destination="Y4G-EP-HyA" id="YG6-j6-XFj"/>
                         <outlet property="labelSubCategoryTitle" destination="b9Y-q0-QIR" id="oHn-jE-xJd"/>
                         <outlet property="leaderboardBarButton" destination="P5e-Uf-VIr" id="2SZ-B7-6Ob"/>
+                        <outlet property="randomButton" destination="yVi-ON-Q2E" id="ygJ-L7-XBO"/>
                         <outlet property="subCategoryImageView" destination="zeB-BX-vUp" id="O3r-X2-N8L"/>
                     </connections>
                 </viewController>
@@ -4074,7 +4071,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvD-Cq-pwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="-484"/>
+            <point key="canvasLocation" x="1455" y="-478"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="ker-4T-jmA">
@@ -4319,7 +4316,7 @@
             </objects>
             <point key="canvasLocation" x="1479" y="845"/>
         </scene>
-        <!--Category Collection-->
+        <!--Categories-->
         <scene sceneID="2Th-hF-mqy">
             <objects>
                 <viewController id="X0f-F6-cQd" customClass="CategoryCollectionViewController" customModule="SalesGame_swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -4379,7 +4376,13 @@
                         <animations/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Category Collection" id="wqp-fy-p6B"/>
+                    <navigationItem key="navigationItem" title="Categories" id="wqp-fy-p6B">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="3tA-CL-imk">
+                            <connections>
+                                <segue destination="T6T-B2-Zth" kind="push" identifier="gotoSearchCategory" id="nel-rq-8j5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ncZ-oq-RMj" id="Ehl-bR-Jyi"/>
                         <segue destination="8QB-aO-Ltd" kind="push" identifier="showCategory" id="UyY-ha-HqR"/>
@@ -4426,7 +4429,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v7G-9n-8kU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v7G-9n-8kU">
                                                     <rect key="frame" x="0.0" y="54" width="70" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -4454,16 +4457,23 @@
                         <animations/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0rh-Qk-jb4"/>
+                    <navigationItem key="navigationItem" id="0rh-Qk-jb4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="wow-nB-LOC">
+                            <connections>
+                                <segue destination="1EU-PR-pf1" kind="push" identifier="segueSearchSubCategory" id="t43-lT-bY4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="bX6-v2-MgC" id="Ijc-2o-dpD"/>
                         <outlet property="imageView" destination="dan-FD-OHy" id="gcz-3m-VtI"/>
+                        <outlet property="searchButton" destination="wow-nB-LOC" id="6r8-dr-82Z"/>
                         <segue destination="nMI-bb-3du" kind="push" identifier="gameStart" id="y0t-a5-tVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTR-eL-Z1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437" y="1558"/>
+            <point key="canvasLocation" x="2527" y="1558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q1D-v3-uRD">
@@ -4541,7 +4551,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAh-tK-l2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3075" y="1621"/>
+            <point key="canvasLocation" x="1479" y="2331"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e8V-AW-c8v">
@@ -4579,7 +4589,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YZ-xV-MB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3959" y="1621"/>
+            <point key="canvasLocation" x="2515" y="2331"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iUw-43-Tpd">
@@ -4699,11 +4709,11 @@
     <inferredMetricsTieBreakers>
         <segue reference="CWh-1V-Hbz"/>
         <segue reference="qyH-xf-Sil"/>
-        <segue reference="y0t-a5-tVB"/>
-        <segue reference="uap-gX-XgE"/>
         <segue reference="T2r-AJ-X0s"/>
         <segue reference="JCO-Hl-lq9"/>
+        <segue reference="494-n9-c7H"/>
         <segue reference="gAK-tQ-JQW"/>
+        <segue reference="uap-gX-XgE"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

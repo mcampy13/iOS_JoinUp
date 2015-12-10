@@ -28,8 +28,9 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         
         let queryGames = PFQuery(className: "Game")
-        queryGames.limit = 20
+        queryGames.limit = 100
         queryGames.whereKey("player", equalTo: PFUser.currentUser()!)
+        queryGames.addDescendingOrder("createdAt")
         queryGames.includeKey("category")
         queryGames.includeKey("subCategory")
         queryGames.findObjectsInBackgroundWithBlock { (success, error) -> Void in

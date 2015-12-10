@@ -43,35 +43,35 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let score = self.playerScore
-        let scoreObject = PFObject(className: "Score")
+        //let score = self.playerScore
+        //let scoreObject = PFObject(className: "Score")
         
         UtilityClass.setMyViewBorder(BadgeImg, withBorder: 0, radius: 60)
         
-        scoreObject["user"] = PFUser.currentUser()?.objectId
-        scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")
-        scoreObject["score"] = score
-        
-        scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
-            if error == nil {
-                print("Saved")
-                print("success for scoreObject saveInBackground \(success)")
-            } else {
-                print("Error: \(error)")
-            }
-        }
-        
+//        scoreObject["user"] = PFUser.currentUser()?.objectId
+//        scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")
+//        scoreObject["score"] = score
+//        
+//        scoreObject.saveInBackgroundWithBlock { (success, error) -> Void in
+//            if error == nil {
+//                print("Saved")
+//                print("success for scoreObject saveInBackground \(success)")
+//            } else {
+//                print("Error: \(error)")
+//            }
+//        }
+//        
         lblScore?.text = String(format: "%d", playerScore!)
         UtilityClass.setMyViewBorder(lblScore, withBorder: 0, radius: 50)
         
         checkHonorableMention()
+        checkLongHoursGuy()
+        
         if badges.count > 0 {
             self.badgePickerViewLabel.text = "Congratulations on WINNING Badges!"
         } else {
             self.badgePickerViewLabel.text = "Sorry, no new badges for you"
         }
-        
-        checkLongHoursGuy()
         
         
     }
@@ -92,8 +92,6 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        //return String(format: "%1.1f", achievements[row])
-        //return "achievement"
         return String(badges[row])
     }
     
@@ -111,7 +109,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             self.addBadge(self.badgeName)
             self.badges.append(self.badgeName)
         } else {
-            print("error")
+            print("Didn't earn checkLongHoursGuy")
         }
     }
     
@@ -124,7 +122,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             self.addBadge(self.badgeName)
             self.badges.append(self.badgeName)
         } else {
-            print("error")
+            print("Didn't earn checkHonorableMention")
         }
     }
     
@@ -132,7 +130,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         let UserBadge = PFObject(className: "UserBadges")
         let query = PFQuery(className: "Badges")
-        query.whereKey(badgeName, equalTo: "Honorable Mention")
+        //query.whereKey(badgeName, equalTo: "Honorable Mention")
         query.findObjectsInBackgroundWithBlock{ (badgeObjArray, error) -> Void in
             if error == nil{
                 print("badge found")
@@ -145,9 +143,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     } else{
                         print("Error saving badge \(error)")
                     }
-                
                 }
-                
             } else{
                 print("Error in addBadge \(error)")
             }
@@ -184,7 +180,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let score = playerScore
         let scoreObject = PFObject(className: "Score")
         
-        scoreObject["user"] = PFUser.currentUser()
+        scoreObject["user"] = PFUser.currentUser()!
         scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")
         scoreObject["score"] = score
         

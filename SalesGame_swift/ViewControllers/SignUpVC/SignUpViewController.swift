@@ -113,6 +113,8 @@ class SignUpViewController: UIViewController {
                                     
                                     let newUserProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewUserProfileViewController") as? NewUserProfileViewController
                                     self.navigationController!.pushViewController(newUserProfileVC!, animated:true)
+//                                    let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+//                                    self.navigationController!.pushViewController(homeVC!, animated: true)
                                 } else {
                                     UtilityClass .showAlert("Please try again.")
                                 }

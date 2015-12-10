@@ -92,9 +92,16 @@ class CategoryCollectionViewController: UIViewController, UICollectionViewDelega
             let vc = segue.destinationViewController as! ShowCategoryViewController
             
             let obj:PFObject = (self.categoriesFromLocal as! Array)[indexPath.row]
-
+            
+            let game = PFObject(className: "Game")
+            print("game: \(game)")
+            game["player"] = PFUser.currentUser()!
+            game["category"] = obj
+            self.Game = game
+            
             vc.title = obj.valueForKey("categoryName") as? String
             vc.strMainCategory = obj.objectId as String!
+            vc.game = game
             
             let categoryFile = obj.valueForKey("categoryFile") as? PFFile
             categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
@@ -107,7 +114,14 @@ class CategoryCollectionViewController: UIViewController, UICollectionViewDelega
                 }
             }
 
+        } else if segue.identifier == "gotoSearchCategory" {
+            if let selectedCategoryCell = sender as? UICollectionViewCell {
+                let indexPath = self.collectionView.indexPathForCell(selectedCategoryCell)!
+                let selectedCategory: PFObject = (self.categoryAnyObj as! Array)[indexPath.row]
+                print("segue id == gotoSearchCategory selectedCategory: \(selectedCategory)")
+            }
         }
+
 //         if segue.identifier == "gotoSubCategory" {
 //            let subCategoryViewController = segue.destinationViewController as? SubCategoryViewController
 //            

@@ -10,12 +10,16 @@ import UIKit
 
 class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate {
 
+    
+    @IBOutlet weak var searchButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     var strMainCategory: String?
     
     var subCategoriesFromLocal: AnyObject?
     var parent: AnyObject?
+    
+    var game: PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,22 +47,24 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
         
         let querySubCategoryFromLocal = PFQuery(className: "SubCategory")
         let queryParent = PFQuery(className: "Category")
+        
         queryParent.limit = 100
         queryParent.whereKey("objectId", equalTo: self.strMainCategory!)
         queryParent.findObjectsInBackgroundWithBlock {  (parentObjs, error) -> Void in
             if error == nil {
                 self.parent = parentObjs
-                let obj:PFObject = (self.parent as! Array)[0]
+                let parentObj: PFObject = (self.parent as! Array)[0]
             
                 querySubCategoryFromLocal.fromLocalDatastore()
-                querySubCategoryFromLocal.whereKey("parentCategory", equalTo: obj)
+                querySubCategoryFromLocal.whereKey("parentCategory", equalTo: parentObj)
+                
                 querySubCategoryFromLocal.findObjectsInBackgroundWithBlock{ (found, error) -> Void in
                     if error == nil {
                         self.subCategoriesFromLocal = found
-                        print("categoriesFromLocal: \(self.subCategoriesFromLocal)")
+                        print("subCategoriesFromLocal: \(self.subCategoriesFromLocal)")
                         
                         let obj:PFObject = (self.subCategoriesFromLocal as! Array)[indexPath.row]
-                        var labelText = obj.valueForKey("subCategoryName") ?? ""
+                        let labelText = obj.valueForKey("subCategoryName") ?? ""
                         cell!.subCategoryLabel?.text = labelText as? String
 //                        cell!.subCategoryLabel?.text = obj.valueForKey("subCategoryName") as? String
                         
@@ -72,7 +78,6 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
                                 print("Error in subCategoryFile: \(error)")
                             }
                         }
-                        
                     } else{
                         print("Error in querySubCategoryFromLocal: \(error)")
                     }
@@ -90,32 +95,46 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
         self.performSegueWithIdentifier("gameStart", sender: self)
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "gameStart" {
-//            
-//            let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
-//            let indexPath = indexPaths[0] as NSIndexPath
-//            
-//            let vc = segue.destinationViewController as! SelectSubCategoryViewController
-//            
-//            let obj:PFObject = (self.subCategoriesFromLocal as! Array)[indexPath.row]
-//            
-//            vc.title = obj.valueForKey("categoryName") as? String
-//            vc.strMainCategory = obj.objectId as String!
-//            
-//            let categoryFile = obj.valueForKey("categoryFile") as? PFFile
-//            categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
-//                if error == nil {
-//                    if let imageData = imageData {
-//                        vc.imageView?.image = UIImage(data: imageData)
-//                    }
-//                } else{
-//                    print("Error in prepareForSegue categoryFile: \(error)")
-//                }
-//            }
-//            
-//        }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gameStart" {
+            
+            let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
+            let indexPath = indexPaths[0] as NSIndexPath
+            
+            let vc = segue.destinationViewController as! SelectSubCategoryViewController
+            
+            let parentObj: PFObject = (self.parent as! Array)[indexPath.row]
+            let obj:PFObject = (self.subCategoriesFromLocal as! Array)[indexPath.row]
+            
+            game["subCategory"] = obj
+            
+            vc.title = obj.valueForKey("subCategoryName") as? String
+            vc.strMainCategory = parentObj.objectId as String!
+            vc.strSubCategory = obj.objectId as String!
+            vc.game = self.game
+            
+            let categoryFile = parentObj.valueForKey("categoryFile") as? PFFile
+            categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        vc.subCategoryImageView?.image = UIImage(data: imageData)
+                    }
+                } else{
+                    print("Error in prepareForSegue categoryFile: \(error)")
+                }
+            }
+            
+        } else if segue.identifier == "segueSearchSubCategory" {
+            /*
+             * Have to send searchSubCategory vc information, I believe 
+            */
+            if let selectedSubCategoryCell = sender as? UICollectionViewCell {
+                let indexPath = self.collectionView.indexPathForCell(selectedSubCategoryCell)!
+                let subCategoriesFromLocalObj: PFObject = (self.subCategoriesFromLocal as! Array)[indexPath.row]
+                print("segue id == segueSearchSubCategory subCategoriesFromLocalObj: \(subCategoriesFromLocalObj)")
+            }
+        }
+    }
     
 
 }

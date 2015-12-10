@@ -19,6 +19,7 @@ class SelectSubCategoryViewController: UIViewController {
     
     @IBOutlet weak var leaderboardBarButton: UIButton!
     
+    @IBOutlet weak var randomButton: UIButton!
     
     var category: AnyObject!
     var subCategory: AnyObject!
@@ -30,8 +31,8 @@ class SelectSubCategoryViewController: UIViewController {
     var strSubCategory: String!
     var PFcategory: PFObject?
     var PFSubCategory: PFObject?
-    
     var game: PFObject!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,16 +134,17 @@ class SelectSubCategoryViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func unwindFromSubCategory(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? SubCategoryViewController, fromCategory = sourceViewController.strMainCategory, fromSubCategory = sourceViewController.stringSubCategory, game = sourceViewController.game{
-            self.strMainCategory = fromCategory
-            self.strSubCategory = fromSubCategory
-            self.game = game
-        }
-    }
+//    
+//    @IBAction func unwindFromSubCategory(sender: UIStoryboardSegue) {
+//        if let sourceViewController = sender.sourceViewController as? SubCategoryViewController, fromCategory = sourceViewController.strMainCategory, fromSubCategory = sourceViewController.stringSubCategory, game = sourceViewController.game{
+//            self.strMainCategory = fromCategory
+//            self.strSubCategory = fromSubCategory
+//            self.game = game
+//        }
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "gotoQuestion" {
+        if segue.identifier == "segueQuestion" {
             let questionViewController = segue.destinationViewController as? QuestionViewController
             let obj:PFObject = (self.subCategory as! Array)[0]
             

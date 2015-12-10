@@ -175,31 +175,58 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueOwnScore" {
+            
+            let ownScoreVC = segue.destinationViewController as! OwnScoreViewController
+            
+            ownScoreVC.questionArrayScore = self.questionArray
+            ownScoreVC.playerScore = self.playerScore
+            ownScoreVC.category = self.MainCategory
+            ownScoreVC.strName = self.playerName
+            ownScoreVC.arrWrongQuestion = self.arrWrongAns
+            ownScoreVC.arrOtherAns = self.arrHalfWrongAns
+            ownScoreVC.game = self.game
+            
+            print("Went to OwnScore with arrWrongQuestion: \(self.arrWrongAns) and arrOtherAns: \(self.arrHalfWrongAns)")
+        }
+    }
+    
     
 //==========================================================================================================================
 
-// MARK: methods for Next question
+// MARK: methods for Next question & redirect if questions are completed
 
 //==========================================================================================================================
     
-    //This method is used for run next question.
     func nextQuestion(questionNo:Int) {
         currentScore?.text = String(playerScore)
         print("In nextQuestion, currentScore \(currentScore)")
-        //print("self.questionImage -> \(self.questionImage)")
-        //NSLog("%d %d",currQuestionCount,questionArray.count)
+
         if currQuestionCount > questionArray.count  {
-            let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
             
-                ownScoreVC.questionArrayScore = self.questionArray
-                ownScoreVC.playerScore = self.playerScore   // value sent to OwnScoreViewController
-                ownScoreVC.category = self.MainCategory
-                ownScoreVC.strName = self.playerName
-                ownScoreVC.arrWrongQuestion = self.arrWrongAns
-                ownScoreVC.arrOtherAns = self.arrHalfWrongAns
-                ownScoreVC.game = self.game
-                self.navigationController?.pushViewController(ownScoreVC, animated: true)
+            game["score"] = self.playerScore
             
+            self.game.saveInBackgroundWithBlock{ (gameSaveSuccess, error) -> Void in
+                if error == nil {
+                    print("Game updated & saved successfully")
+                    self.performSegueWithIdentifier("segueOwnScore", sender: self)
+                } else {
+                    print("Error in QuestionVC game saveInBackground: \(error)")
+                }
+            }
+            
+//            let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
+//            
+//            ownScoreVC.questionArrayScore = self.questionArray
+//            ownScoreVC.playerScore = self.playerScore   // value sent to OwnScoreViewController
+//            ownScoreVC.category = self.MainCategory
+//            ownScoreVC.strName = self.playerName
+//            ownScoreVC.arrWrongQuestion = self.arrWrongAns
+//            ownScoreVC.arrOtherAns = self.arrHalfWrongAns
+//            ownScoreVC.game = self.game
+//            self.navigationController?.pushViewController(ownScoreVC, animated: true)
+//            
             if timer != nil {
                 timer.invalidate()
             }
@@ -207,10 +234,10 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         else {
             obj = nil;
             obj = (self.questionArray as! Array)[currQuestionCount - 1];
-            //NSLog("%@", obj)
+
             if obj.objectForKey("questionFile") != nil {
-                let userImageFile = obj["questionFile"] as? PFFile
-                userImageFile!.getDataInBackgroundWithBlock {
+                let questionFile = obj["questionFile"] as? PFFile
+                questionFile!.getDataInBackgroundWithBlock {
                     (imageData, error) -> Void in
                     if error == nil {
                         if let imageData = imageData {
@@ -221,6 +248,7 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                     }
                 }
             }
+            
             wrongAns = obj.valueForKey("options")?.objectAtIndex(1) as! String
             txtQuestionView?.text = obj .valueForKey("questionText") as! String
             var ans:String = obj .valueForKey("answer") as! String
@@ -324,15 +352,17 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             currQuestionCount++
     
             NSLog("%d %d",currQuestionCount,questionArray.count)
-            if currQuestionCount >= questionArray.count {
-                //print("Game Over")
-                let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
-                    ownScoreVC.playerScore = self.playerScore
-                    ownScoreVC.strName = self.playerName
-                    ownScoreVC.arrWrongQuestion = self.arrWrongAns
-                    ownScoreVC.arrOtherAns = self.arrHalfWrongAns
-                    ownScoreVC.game = self.game
-                    self.navigationController?.pushViewController(ownScoreVC, animated: true)
+            if currQuestionCount > questionArray.count {
+                print("Game over, ran out of time")
+                self.performSegueWithIdentifier("segueOwnScore", sender: self)
+                
+//                let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
+//                ownScoreVC.playerScore = self.playerScore
+//                ownScoreVC.strName = self.playerName
+//                ownScoreVC.arrWrongQuestion = self.arrWrongAns
+//                ownScoreVC.arrOtherAns = self.arrHalfWrongAns
+//                ownScoreVC.game = self.game
+//                self.navigationController?.pushViewController(ownScoreVC, animated: true)
                 
                 if timer != nil {
                     timer.invalidate()
@@ -343,6 +373,11 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                 if timer != nil {
                     timer.invalidate()
                 }
+                game.addUniqueObject(obj, forKey: "wrongAnswers")
+                print("Added obj to wrongAnswers b/c time's up!")
+                
+                arrWrongAns.addObject(obj)
+
                 //questionTimer = kQuestionTime
                 self.nextQuestion(currQuestionCount)
             }
@@ -369,16 +404,6 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         isSound = !isSound
     }
     
-//    @IBAction func btnSoundTap(sender: UIButton) {
-//        if(isSound) {
-//            btnSound!.setTitle("Sound On", forState: .Normal)
-//        }
-//        else {
-//            btnSound!.setTitle("Sound Off", forState: .Normal)
-//        }
-//        isSound = !isSound
-//        btnSound?.selected = !isSound
-//    }
     
     @IBAction func btnFiftyFiftyTap(sender: UIButton) {
         let fiftyFiftyLifeLine = "50-50"
@@ -390,29 +415,22 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         NSUserDefaults.standardUserDefaults().setValue(ffString, forKey: kFiftyFiftyCount)
         btnFiftyFifty!.setTitle("50-50", forState: UIControlState.Normal)
         
-        //if ffInt >= 0
-        //{
-        if btnOption1?.tag == 1
-        {
+        if btnOption1?.tag == 1 {
             btnOption3?.hidden = true
             btnOption4?.hidden = true
         }
-        else if btnOption2?.tag == 1
-        {
+        else if btnOption2?.tag == 1 {
             btnOption1?.hidden = true
             btnOption3?.hidden = true
         }
-        else if btnOption3?.tag == 1
-        {
+        else if btnOption3?.tag == 1 {
             btnOption1?.hidden = true
             btnOption4?.hidden = true
         }
-        else if btnOption4?.tag == 1
-        {
+        else if btnOption4?.tag == 1 {
             btnOption1?.hidden = true
             btnOption2?.hidden = true
         }
-        //}
         
         btnFiftyFifty?.hidden = true
     }
@@ -426,19 +444,19 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         ffSkipInt?--
         let ffSkipString = String(format: "%d", ffSkipInt!)
         NSUserDefaults.standardUserDefaults().setValue(ffSkipString, forKey: kSkipCount)
-        //btnSkip?.setTitle(String(format: "SKIP : %@",NSUserDefaults.standardUserDefaults().valueForKey(kSkipCount)as! String), forState: UIControlState.Normal)
+        
         btnSkip!.setTitle("SKIP", forState: UIControlState.Normal)
-        //if ffSkipInt >= 0
-        //{
+        
         if timer != nil {
             timer.invalidate()
         }
         self.currQuestionCount++
         self.nextQuestion(self.currQuestionCount)
-        //}
         
         btnSkip?.hidden = true
-    }
+        
+    } // END of btnSkipTap
+    
     
     @IBAction func btnTimerTap(sender: UIButton) {
         let pauseLifeLine = "Pause"
@@ -449,27 +467,28 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
         ffTimeInt?--
         let ffSkipString = String(format: "%d", ffTimeInt!)
         NSUserDefaults.standardUserDefaults().setValue(ffSkipString, forKey: kTimerCount)
-        //btnTimer?.setTitle(String(format: "TIMER : %@",NSUserDefaults.standardUserDefaults().valueForKey(kTimerCount) as! String), forState: UIControlState.Normal)
+        
         btnTimer!.setTitle(" ", forState: UIControlState.Normal)
-        //if ffTimeInt >= 0
-        //{
+        
         if timer != nil {
             timer.invalidate()
         }
-        //self.startTimer()
-        //}
+        
         
         btnTimer?.hidden = true
-    }
+        
+    } // END of btnTimerTap
+    
     
     @IBAction func getHelpButtonTap(sender: AnyObject) {
         
-    }
+    } // END of getHelpButtonTap
+    
     
     
 //==========================================================================================================================
 
-// MARK: Buttons for options
+// MARK: Methods for selecting a specific option
 
 //==========================================================================================================================
     
@@ -483,27 +502,27 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             self.speechAction(true)
             sender.setBackgroundImage(UIImage(named: "green"), forState: UIControlState.Normal)
             if flagForWrongAnswerpush == false {
-               playerScore = playerScore + 10
-                self.game.addUniqueObject(obj, forKey: "correctAnswers")
+                playerScore = playerScore + 10
+                
+                //game.incrementKey("score", byAmount: 10)
+
+                game.addUniqueObject(obj, forKey: "correctAnswers")
+                
             } else {
                 playerScore = playerScore + 8
             }
         }
         else {
-            if sender.titleLabel?.text == wrongAns {
-                arrWrongAns.addObject(obj)
-                self.game.addUniqueObject(obj, forKey: "wrongAnswers")
-                self.speechAction(false)
-                sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
-                
-                if flagForWrongAnswerpush == false {
-                    playerScore = playerScore - 5
-                } else {
-                    playerScore = playerScore - 2
-                }
-            }
-            else {
-               // playerScore = playerScore + 5
+            game.addUniqueObject(obj, forKey: "wrongAnswers")
+            //print("added obj to wrongAnswers from btnOption1Tap")
+            
+            arrWrongAns.addObject(obj)
+            self.speechAction(false)
+            sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
+            
+            if flagForWrongAnswerpush == false {
+                playerScore = playerScore - 5
+            } else {
                 arrHalfWrongAns.addObject(obj)
             }
             
@@ -517,7 +536,9 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             self.currQuestionCount++
             self.nextQuestion(self.currQuestionCount)
         }
-    }
+        
+    } // END of option1Tap
+    
     
     @IBAction func btnOption2Tap(sender: UIButton) {
         if timer != nil {
@@ -528,26 +549,26 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             self.speechAction(true)
             sender.setBackgroundImage(UIImage(named: "green"), forState: UIControlState.Normal)
             if flagForWrongAnswerpush == false {
+                
                 playerScore = playerScore + 10
-                self.game.addUniqueObject(obj, forKey: "correctAnswers")
+                //game.incrementKey("score", byAmount: 10)
+                game.addUniqueObject(obj, forKey: "correctAnswers")
+                
             } else {
                 playerScore = playerScore + 8
             }
         }
         else {
-            if sender.titleLabel?.text == wrongAns {
-                arrWrongAns .addObject(obj)
-                self.game.addUniqueObject(obj, forKey: "wrongAnswers")
-                self.speechAction(false)
-                sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
-                if flagForWrongAnswerpush == false {
-                    playerScore = playerScore - 5
-                } else {
-                    playerScore = playerScore - 2
-                }
-            }
-            else {
-              // playerScore = playerScore + 5
+            game.addUniqueObject(obj, forKey: "wrongAnswers")
+            //print("added obj to wrongAnswers from btnOption2Tap")
+            
+            arrWrongAns.addObject(obj)
+            self.speechAction(false)
+            sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
+            
+            if flagForWrongAnswerpush == false {
+                playerScore = playerScore - 5
+            } else {
                 arrHalfWrongAns.addObject(obj)
             }
             
@@ -561,7 +582,8 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             self.currQuestionCount++
             self.nextQuestion(self.currQuestionCount)
         }
-    }
+    } // END of option2Tap
+    
     
     @IBAction func btnOption3Tap(sender: UIButton) {
         if timer != nil {
@@ -572,26 +594,26 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             self.speechAction(true)
             sender.setBackgroundImage(UIImage(named: "green"), forState: UIControlState.Normal)
             if flagForWrongAnswerpush == false {
+                
                 playerScore = playerScore + 10
-                self.game.addUniqueObject(obj, forKey: "correctAnswers")
+                //game.incrementKey("score", byAmount: 10)
+                game.addUniqueObject(obj, forKey: "correctAnswers")
+
             } else {
                 playerScore = playerScore + 8
             }
         }
         else {
-            if sender.titleLabel?.text == wrongAns {
-                arrWrongAns .addObject(obj)
-                self.game.addUniqueObject(obj, forKey: "wrongAnswers")
-                self.speechAction(false)
-                sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
-                if flagForWrongAnswerpush == false {
-                    playerScore = playerScore - 5
-                } else {
-                    playerScore = playerScore - 2
-                }
-            }
-            else {
-               // playerScore = playerScore + 5
+            game.addUniqueObject(obj, forKey: "wrongAnswers")
+            //print("added obj to wrongAnswers from btnOption3Tap")
+            
+            arrWrongAns.addObject(obj)
+            self.speechAction(false)
+            sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
+            
+            if flagForWrongAnswerpush == false {
+                playerScore = playerScore - 5
+            } else {
                 arrHalfWrongAns.addObject(obj)
             }
             
@@ -605,7 +627,8 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             self.currQuestionCount++
             self.nextQuestion(self.currQuestionCount)
         }
-    }
+    } // END of option3Tap
+    
     
     @IBAction func btnOption4Tap(sender: UIButton) {
         if timer != nil {
@@ -615,26 +638,26 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             self.speechAction(true)
             sender.setBackgroundImage(UIImage(named: "green"), forState: UIControlState.Normal)
             if flagForWrongAnswerpush == false {
+                
                 playerScore = playerScore + 10
-                self.game.addUniqueObject(obj, forKey: "correctAnswers")
+                //game.incrementKey("score", byAmount: 10)
+                game.addUniqueObject(obj, forKey: "correctAnswers")
+                
             } else {
                 playerScore = playerScore + 8
             }
         }
         else {
-            if sender.titleLabel?.text == wrongAns {
-                arrWrongAns .addObject(obj)
-                self.game.addUniqueObject(obj, forKey: "wrongAnswers")
-                self.speechAction(false)
-                sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
-                if flagForWrongAnswerpush == false {
-                    playerScore = playerScore - 5
-                } else {
-                    playerScore = playerScore - 2
-                }
-            }
-            else {
-                //playerScore = playerScore + 5
+            game.addUniqueObject(obj, forKey: "wrongAnswers")
+            //print("added obj to wrongAnswers from btnOption4Tap")
+            
+            arrWrongAns.addObject(obj)
+            self.speechAction(false)
+            sender.setBackgroundImage(UIImage(named: "red"), forState: UIControlState.Normal)
+            
+            if flagForWrongAnswerpush == false {
+                playerScore = playerScore - 5
+            } else {
                 arrHalfWrongAns.addObject(obj)
             }
             
@@ -649,21 +672,25 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
             self.currQuestionCount++
             self.nextQuestion(self.currQuestionCount)
         }
-    }
+        
+    } // END of option4Tap
+    
     
 //==========================================================================================================================
 
 // MARK: Text field delegate methods
 
 //==========================================================================================================================
+   
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         playerName = textField.text
         return true
     }
     
+    
 //==========================================================================================================================
 
-// MARK: method for speech recognize
+// MARK: Speech recognize
 
 //==========================================================================================================================
     
@@ -691,20 +718,21 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
 
 //==========================================================================================================================
 
-// MARK: back button
+// MARK: Quit button
 
 //==========================================================================================================================
+   
     @IBAction func quitButton(sender: AnyObject) {
-        let actionSheetController: UIAlertController = UIAlertController(title: "Quit", message: "Are you sure want to quit the game?", preferredStyle: .Alert)
+        let actionSheetController: UIAlertController = UIAlertController(title: "Quit", message: "Are you sure want to quit?", preferredStyle: .Alert)
         
         //Create and add the Cancel action
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            //Do some stuff
+
         }
         actionSheetController.addAction(cancelAction)
+        
         //Create and an option action
         let nextAction: UIAlertAction = UIAlertAction(title: "Yes", style: .Default) { action -> Void in
-            //Do some other stuff
             
             //Create the AlertController
             let actionSheetController1: UIAlertController = UIAlertController(title: "Enter Name", message: "", preferredStyle: .Alert)
@@ -723,21 +751,14 @@ class QuestionViewController: UIViewController,UITextFieldDelegate {
                 
             }
             actionSheetController1.addAction(cancelAction1)
-            //Create and an option action
+            
+            //Create and an option action in this case for our OK button
             let nextAction1: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
-                //Do some other stuff
-                // DBFunction.insertData(self.playerName, score:String(format: "%d",self.playerScore))
-                //{
-                let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
-                ownScoreVC.playerScore = self.playerScore
-                ownScoreVC.strName = self.playerName
-                ownScoreVC.arrWrongQuestion = self.arrWrongAns
-                ownScoreVC.arrOtherAns = self.arrHalfWrongAns
-                ownScoreVC.game = self.game
-                self.navigationController?.pushViewController(ownScoreVC, animated: true)
-                
+                let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+                self.navigationController?.pushViewController(homeVC, animated: true)
             }
             actionSheetController1.addAction(nextAction1)
+            
             //Add a text field
             actionSheetController1.addTextFieldWithConfigurationHandler { textField -> Void in
                 //TextField configuration
