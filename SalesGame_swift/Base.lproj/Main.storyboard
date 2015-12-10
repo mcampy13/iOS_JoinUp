@@ -483,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpA-eg-LIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1455" y="3699"/>
+            <point key="canvasLocation" x="1447" y="3945"/>
         </scene>
         <!--Challenge Category View Controller-->
         <scene sceneID="2Xh-TJ-9yH">
@@ -572,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieO-Iq-q72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527" y="3699"/>
+            <point key="canvasLocation" x="2543" y="3945"/>
         </scene>
         <!--Challenge Sub Category View Controller-->
         <scene sceneID="dzL-eg-mhE">
@@ -668,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41o-J2-bYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2992" y="3699"/>
+            <point key="canvasLocation" x="3068" y="3945"/>
         </scene>
         <!--Challenge Face Off View Controller-->
         <scene sceneID="zie-hM-eAm">
@@ -791,7 +791,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffh-aa-pMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3484" y="3699"/>
+            <point key="canvasLocation" x="3552" y="3945"/>
         </scene>
         <!--Face Off Question View Controller-->
         <scene sceneID="4kY-hU-k2w">
@@ -999,7 +999,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrJ-05-nr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3956" y="3699"/>
+            <point key="canvasLocation" x="3992" y="3945"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="iH2-dQ-rbM">
@@ -1089,7 +1089,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdA-7f-SQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2019" y="3699"/>
+            <point key="canvasLocation" x="2019" y="3945"/>
         </scene>
         <!--Search Friends-->
         <scene sceneID="l17-Ub-iE0">
@@ -1511,7 +1511,7 @@
                                         <animations/>
                                         <state key="normal" image="badges game app icon"/>
                                         <connections>
-                                            <action selector="badgesButton:" destination="4TY-ln-e7d" eventType="touchUpInside" id="Rek-5X-pJv"/>
+                                            <segue destination="XyL-9L-vQ4" kind="push" identifier="segueMyBadges" id="NnT-Vv-SEY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7hN-aK-0Dz">
@@ -1530,7 +1530,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="Controller Filled-64"/>
                                         <connections>
-                                            <action selector="gamesButton:" destination="4TY-ln-e7d" eventType="touchUpInside" id="FEz-iN-lnS"/>
+                                            <segue destination="AVF-ll-Vaw" kind="push" identifier="segueGameHistory" id="b5j-qc-Deg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7sY-uN-gPi">
@@ -1564,7 +1564,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="ALh-Rq-upa"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="auM-q5-cOk">
                             <connections>
-                                <segue destination="zl6-rW-f9l" kind="modal" identifier="SegueEditUserProfile" id="Y9Z-HE-bxF"/>
+                                <segue destination="zl6-rW-f9l" kind="modal" identifier="segueEditUserProfile" id="Y9Z-HE-bxF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1829,7 +1829,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="gOk-qK-5i6" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="79a-4o-mbV"/>
+                                    <segue destination="XyL-9L-vQ4" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="79a-4o-mbV"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Help" textLabel="ofi-Cu-ysa" imageView="nd0-pt-JnC" style="IBUITableViewCellStyleDefault" id="8AL-7T-2Q6">
@@ -1931,7 +1931,7 @@
             </objects>
             <point key="canvasLocation" x="962" y="-237"/>
         </scene>
-        <!--Game History View Controller-->
+        <!--Recent Games-->
         <scene sceneID="a44-4s-bXv">
             <objects>
                 <viewController storyboardIdentifier="GameHistoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AVF-ll-Vaw" customClass="GameHistoryViewController" customModule="SalesGame_swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -2031,14 +2031,14 @@
                         <animations/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0Tz-h9-7jR"/>
+                    <navigationItem key="navigationItem" title="Recent Games" id="0Tz-h9-7jR"/>
                     <connections>
                         <outlet property="tblView" destination="xd5-Wo-L9h" id="X1a-TK-zeI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pL-fH-Z7y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-646" y="1861"/>
+            <point key="canvasLocation" x="-582" y="2585"/>
         </scene>
         <!--Home-->
         <scene sceneID="eR2-N7-kgc">
@@ -2060,7 +2060,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KGv-W7-XLv" kind="modal" identifier="newChallenge" id="dar-Kg-Ss3"/>
+                                    <segue destination="KGv-W7-XLv" kind="modal" identifier="segueNewChallenge" id="dar-Kg-Ss3"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Picture-100" id="3dp-PC-1RX">
@@ -2281,7 +2281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8P-yz-8Ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2011" y="845"/>
+            <point key="canvasLocation" x="-2349" y="-237"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="NRg-39-mnz">
@@ -2554,7 +2554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAc-cP-ovf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4643" y="845"/>
+            <point key="canvasLocation" x="4403" y="845"/>
         </scene>
         <!--Messages-->
         <scene sceneID="KDc-kX-aC7">
@@ -2717,7 +2717,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <segue destination="fRd-U2-Ajl" kind="push" identifier="gotoCategoryInfo" id="s8o-aa-SIZ"/>
+                                            <segue destination="8QB-aO-Ltd" kind="push" identifier="segueSearchResultShowCategory" id="QYh-x9-lTN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2757,43 +2757,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URU-Aw-3yS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2019" y="2331"/>
-        </scene>
-        <!--Category Info View Controller-->
-        <scene sceneID="BH7-GQ-kwT">
-            <objects>
-                <viewController id="fRd-U2-Ajl" customClass="CategoryInfoViewController" customModule="SalesGame_swift" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Rnb-e3-XZ1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="EAg-ht-4lj">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <animations/>
-                                <items/>
-                                <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="fRd-U2-Ajl" id="7Zi-yK-0Xg"/>
-                                </connections>
-                            </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="c8E-xJ-OYK">
-                                <rect key="frame" x="60" y="110" width="200" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                            </imageView>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="PdI-gG-8Lm"/>
-                    <connections>
-                        <outlet property="categoryImg" destination="c8E-xJ-OYK" id="73Q-dg-gfu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Rz-KV-CFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2019" y="3025"/>
+            <point key="canvasLocation" x="1971" y="1699"/>
         </scene>
         <!--Search Sub Category View Controller-->
         <scene sceneID="j8L-hQ-etM">
@@ -2825,7 +2789,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <segue destination="YmV-ZI-C7y" kind="push" identifier="gotoSubCategoryInfo" id="3xi-b0-ITn"/>
+                                            <segue destination="YmV-ZI-C7y" kind="push" identifier="segueSubCategoryInfo" id="3xi-b0-ITn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2869,7 +2833,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQa-lx-BD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2992" y="2331"/>
+            <point key="canvasLocation" x="3115" y="1699"/>
         </scene>
         <!--Sub Category Info View Controller-->
         <scene sceneID="rY7-Cr-AjN">
@@ -2905,7 +2869,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nd-cb-XeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2992" y="3031"/>
+            <point key="canvasLocation" x="3115" y="2489"/>
         </scene>
         <!--Select Sub Category View Controller-->
         <scene sceneID="RTo-yl-SGp">
@@ -3044,7 +3008,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAl-l4-fn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3784" y="845"/>
+            <point key="canvasLocation" x="3552" y="845"/>
         </scene>
         <!--Sub-Categories-->
         <scene sceneID="woC-z5-Mlg">
@@ -3146,11 +3110,7 @@
                                 <action selector="cancelButton:" destination="MW4-F6-Odk" id="fjy-P1-emw"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="lA2-03-BOu">
-                            <connections>
-                                <segue destination="1EU-PR-pf1" kind="push" identifier="gotoSearchSubCategory" id="gAK-tQ-JQW"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="lA2-03-BOu"/>
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="4WK-7d-g4w" id="0pi-Np-s78"/>
@@ -3160,7 +3120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZT-lb-50l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2895" y="845"/>
+            <point key="canvasLocation" x="-1465" y="-237"/>
         </scene>
         <!--Own Score View Controller-->
         <scene sceneID="r6g-Wm-XPL">
@@ -3291,7 +3251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkp-ve-IAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5306" y="845"/>
+            <point key="canvasLocation" x="4982" y="845"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="eWb-qW-aTd">
@@ -3450,9 +3410,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYt-JG-8Ye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5782" y="845"/>
+            <point key="canvasLocation" x="5490" y="845"/>
         </scene>
-        <!--Badge View Controller-->
+        <!--My Badges-->
         <scene sceneID="aKQ-9Z-PcI">
             <objects>
                 <viewController storyboardIdentifier="BadgeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gOk-qK-5i6" customClass="BadgeViewController" customModule="SalesGame_swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -3516,7 +3476,7 @@
                                     <outlet property="delegate" destination="gOk-qK-5i6" id="drc-rP-PWZ"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the search glass to see badges you also haven't unlocked " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O8W-vZ-aLL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap more to see all the badges you can earn !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O8W-vZ-aLL">
                                 <rect key="frame" x="20" y="73" width="280" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
@@ -3536,11 +3496,7 @@
                                 <items>
                                     <navigationItem title="My Badges" id="ZtW-AX-fUf">
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="r6s-xb-Kkp"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="t0p-Xp-Owb">
-                                            <connections>
-                                                <segue destination="v3H-9c-2ed" kind="push" identifier="gotoAllBadges" id="mIt-K5-5Je"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="t0p-Xp-Owb"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -3554,6 +3510,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="My Badges" id="N4v-zU-Ncr"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="badgeTableView" destination="aSI-au-wTw" id="3kR-tC-LbO"/>
@@ -3563,9 +3520,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAx-Kv-h6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="-1803"/>
+            <point key="canvasLocation" x="2541" y="-2237"/>
         </scene>
-        <!--Total Badges View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="ydz-wP-EL3">
+            <objects>
+                <navigationController id="bPp-0b-W5T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" systemItem="more" id="mPQ-dz-gXa"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="24Q-lT-InQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="v3H-9c-2ed" kind="relationship" relationship="rootViewController" id="mNH-k3-aDp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKs-iU-MQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2009" y="-1546"/>
+        </scene>
+        <!--All Badges-->
         <scene sceneID="6Hz-Ch-DQT">
             <objects>
                 <viewController storyboardIdentifier="TotalBadgesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="v3H-9c-2ed" customClass="TotalBadgesViewController" customModule="SalesGame_swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -3670,7 +3645,7 @@
                         <animations/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tTd-ih-F4i"/>
+                    <navigationItem key="navigationItem" title="All Badges" id="tTd-ih-F4i"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="tblBadges" destination="4zt-wk-dXl" id="FMF-94-Vuu"/>
@@ -3678,7 +3653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVt-fQ-gG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2045" y="-1803"/>
+            <point key="canvasLocation" x="2551" y="-1546"/>
         </scene>
         <!--Leaderboard-->
         <scene sceneID="1Eb-Ws-3GM">
@@ -4317,7 +4292,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKW-zl-VBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="845"/>
+            <point key="canvasLocation" x="-2881" y="-237"/>
         </scene>
         <!--Categories-->
         <scene sceneID="2Th-hF-mqy">
@@ -4382,18 +4357,18 @@
                     <navigationItem key="navigationItem" title="Categories" id="wqp-fy-p6B">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="3tA-CL-imk">
                             <connections>
-                                <segue destination="T6T-B2-Zth" kind="push" identifier="gotoSearchCategory" id="nel-rq-8j5"/>
+                                <segue destination="T6T-B2-Zth" kind="push" identifier="segueSearchCategory" id="nel-rq-8j5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ncZ-oq-RMj" id="Ehl-bR-Jyi"/>
-                        <segue destination="8QB-aO-Ltd" kind="push" identifier="showCategory" id="UyY-ha-HqR"/>
+                        <segue destination="8QB-aO-Ltd" kind="push" identifier="segueShowCategory" id="UyY-ha-HqR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6f0-ZV-R4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2019" y="1558"/>
+            <point key="canvasLocation" x="1971" y="845"/>
         </scene>
         <!--Show Category View Controller-->
         <scene sceneID="nbf-u3-sDs">
@@ -4471,12 +4446,12 @@
                         <outlet property="collectionView" destination="bX6-v2-MgC" id="Ijc-2o-dpD"/>
                         <outlet property="imageView" destination="dan-FD-OHy" id="gcz-3m-VtI"/>
                         <outlet property="searchButton" destination="wow-nB-LOC" id="6r8-dr-82Z"/>
-                        <segue destination="nMI-bb-3du" kind="push" identifier="gameStart" id="y0t-a5-tVB"/>
+                        <segue destination="nMI-bb-3du" kind="push" identifier="segueGameStart" id="y0t-a5-tVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTR-eL-Z1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527" y="1558"/>
+            <point key="canvasLocation" x="2611" y="845"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q1D-v3-uRD">
@@ -4495,7 +4470,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ils-MH-kgq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2459" y="543"/>
+            <point key="canvasLocation" x="-1901" y="-539"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nEg-n0-oCt">
@@ -4514,7 +4489,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApL-Di-Vmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3350" y="543"/>
+            <point key="canvasLocation" x="3115" y="551"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lav-AF-lcM">
@@ -4534,7 +4509,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTc-px-qli" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4199" y="543"/>
+            <point key="canvasLocation" x="3967" y="551"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uQx-YD-eL5">
@@ -4554,7 +4529,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAh-tK-l2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="2331"/>
+            <point key="canvasLocation" x="1479" y="1951"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e8V-AW-c8v">
@@ -4592,13 +4567,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YZ-xV-MB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2515" y="2331"/>
+            <point key="canvasLocation" x="2611" y="1699"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iUw-43-Tpd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sgE-MT-zqx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="YH3-G6-EbI"/>
+                    <tabBarItem key="tabBarItem" systemItem="topRated" id="YH3-G6-EbI">
+                        <inset key="imageInsets" minX="-10" minY="6" maxX="0.0" maxY="-11"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UBh-hD-7cz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -4651,7 +4628,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Nn-Fc-pIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003" y="3585"/>
+            <point key="canvasLocation" x="962" y="3945"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QZS-8o-Dgc">
@@ -4671,7 +4648,49 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kx9-zJ-MCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="1558"/>
+            <point key="canvasLocation" x="1479" y="1249"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="y9w-DE-Bjp">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XyL-9L-vQ4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="47A-G6-zKm"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ROE-bn-SU5">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="PJg-Jy-LIh" kind="relationship" relationship="viewControllers" id="ojB-bd-MwD"/>
+                        <segue destination="bPp-0b-W5T" kind="relationship" relationship="viewControllers" id="III-MP-fmn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ywt-wD-JGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1479" y="-1803"/>
+        </scene>
+        <!--My Badges-->
+        <scene sceneID="aDf-86-hsR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PJg-Jy-LIh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Badges" image="badge-35 game app icon" id="qbf-C6-A9k">
+                        <inset key="imageInsets" minX="0.0" minY="2" maxX="0.0" maxY="-2"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k2f-0Y-6gf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gOk-qK-5i6" kind="relationship" relationship="rootViewController" id="oUl-Aj-yNE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ma-pC-Xbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2009" y="-2237"/>
         </scene>
     </scenes>
     <resources>
@@ -4687,6 +4706,7 @@
         <image name="Picture-100" width="100" height="100"/>
         <image name="Trophy Filled-100" width="100" height="100"/>
         <image name="background" width="320" height="568"/>
+        <image name="badge-35 game app icon" width="35" height="35"/>
         <image name="badges game app icon" width="267" height="267"/>
         <image name="chat game app icon" width="267" height="267"/>
         <image name="faq game app icon" width="267" height="267"/>
@@ -4710,12 +4730,14 @@
         <image name="vsBar" width="1559" height="330"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="79a-4o-mbV"/>
         <segue reference="CWh-1V-Hbz"/>
         <segue reference="qyH-xf-Sil"/>
         <segue reference="nel-rq-8j5"/>
+        <segue reference="QYh-x9-lTN"/>
+        <segue reference="t43-lT-bY4"/>
         <segue reference="y0t-a5-tVB"/>
         <segue reference="uap-gX-XgE"/>
-        <segue reference="gAK-tQ-JQW"/>
         <segue reference="T2r-AJ-X0s"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

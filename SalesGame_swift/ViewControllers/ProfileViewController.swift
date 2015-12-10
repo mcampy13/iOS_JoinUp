@@ -95,6 +95,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
     //==========================================================================================================================
     
     
+    
+    //==========================================================================================================================
+    
+    // MARK: Navigation
+    
+    //==========================================================================================================================
+    
 
 
     //==========================================================================================================================
@@ -108,22 +115,20 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
         self.navigationController?.pushViewController(homeVC!, animated: true)
     }
     
-    @IBAction func gamesButton(sender: AnyObject) {
-        let gameHistoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("GameHistoryViewController") as? GameHistoryViewController
-        self.navigationController?.pushViewController(gameHistoryVC!, animated: true)
-    }
     
-    @IBAction func badgesButton(sender: AnyObject) {
-        let myBadgesVC = self.storyboard?.instantiateViewControllerWithIdentifier("BadgeViewController") as! BadgeViewController
-        self.navigationController?.pushViewController(myBadgesVC, animated: true)
-    }
+//    @IBAction func badgesButton(sender: AnyObject) {
+////        let myBadgesVC = self.storyboard?.instantiateViewControllerWithIdentifier("BadgeViewController") as! BadgeViewController
+//        //self.navigationController?.pushViewController(myBadgesVC, animated: true)
+//        self.performSegueWithIdentifier("segueMyBadges", sender: self)
+//    }
+    
     
     @IBAction func logOutButton(sender: AnyObject) {
         PFUser.logOutInBackground()
         self.navigationController!.popToRootViewControllerAnimated(true)
     }
     
-    
+
     @IBAction func unwindToProfile(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EditProfileViewController, department = sourceViewController.newDept, profilePic = sourceViewController.newProfilePFImage {
             

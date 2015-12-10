@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameHistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class GameHistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var tblView: UITableView!
     
@@ -26,6 +26,9 @@ class GameHistoryViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         let queryGames = PFQuery(className: "Game")
         queryGames.limit = 100

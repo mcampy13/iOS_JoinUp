@@ -27,8 +27,8 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("SearchSubCategory viewDidLoad strMainCategory: \(self.strMainCategory)")
-        print("SearchSubCategory viewDidLoad mainCategoryPF: \(self.mainCategoryPF)")
+        //print("SearchSubCategory viewDidLoad strMainCategory: \(self.strMainCategory)")
+        //print("SearchSubCategory viewDidLoad mainCategoryPF: \(self.mainCategoryPF)")
 
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -53,7 +53,7 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     //==========================================================================================================================
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "gotoSubCategoryInfo" {
+        if segue.identifier == "segueSubCategoryInfo" {
             let subCategoryInfoDestinationVC = segue.destinationViewController as? SubCategoryInfoViewController
             
             if let selectedSubCategoryCell = sender as? UITableViewCell {
@@ -92,11 +92,11 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
                         print("Error in query: \(error)")
                     }
                 }
-            }
-            else {
+            } else {
                 print("Error in queryParent: \(error)")
             }
         }
+        
     } // END of querySubCategories()
     
     
@@ -119,15 +119,15 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tblView!.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? UITableViewCell
+        let cell = tblView!.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
         if self.resultSearchController.active {
-            cell!.textLabel?.text = self.filteredSubCategories[indexPath.row]
+            cell.textLabel?.text = self.filteredSubCategories[indexPath.row]
         } else {
-            cell!.textLabel?.text = self.subCategories[indexPath.row] as? String
+            cell.textLabel?.text = self.subCategories[indexPath.row] as? String
         }
         
-        return cell!
+        return cell
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {

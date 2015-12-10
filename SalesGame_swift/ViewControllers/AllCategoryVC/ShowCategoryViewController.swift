@@ -20,6 +20,7 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
     var parent: AnyObject?
     
     var game: PFObject!
+    var PFCategory: PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,7 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
             if error == nil {
                 self.parent = parentObjs
                 let parentObj: PFObject = (self.parent as! Array)[0]
-            
+                self.PFCategory = parentObj
                 querySubCategoryFromLocal.fromLocalDatastore()
                 querySubCategoryFromLocal.whereKey("parentCategory", equalTo: parentObj)
                 
@@ -92,32 +93,32 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("gameStart", sender: self)
+        self.performSegueWithIdentifier("segueGameStart", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "gameStart" {
+        if segue.identifier == "segueGameStart" {
             
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
             let indexPath = indexPaths[0] as NSIndexPath
             
-            let vc = segue.destinationViewController as! SelectSubCategoryViewController
+            let selectSubCategoryVC = segue.destinationViewController as! SelectSubCategoryViewController
             
             let parentObj: PFObject = (self.parent as! Array)[indexPath.row]
             let obj:PFObject = (self.subCategoriesFromLocal as! Array)[indexPath.row]
             
             game["subCategory"] = obj
             
-            vc.title = obj.valueForKey("subCategoryName") as? String
-            vc.strMainCategory = parentObj.objectId as String!
-            vc.strSubCategory = obj.objectId as String!
-            vc.game = self.game
+            selectSubCategoryVC.title = obj.valueForKey("subCategoryName") as? String
+            selectSubCategoryVC.strMainCategory = parentObj.objectId as String!
+            selectSubCategoryVC.strSubCategory = obj.objectId as String!
+            selectSubCategoryVC.game = self.game
             
             let categoryFile = parentObj.valueForKey("categoryFile") as? PFFile
             categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
                 if error == nil {
                     if let imageData = imageData {
-                        vc.subCategoryImageView?.image = UIImage(data: imageData)
+                        selectSubCategoryVC.subCategoryImageView?.image = UIImage(data: imageData)
                     }
                 } else{
                     print("Error in prepareForSegue categoryFile: \(error)")
@@ -125,16 +126,16 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
             }
             
         } else if segue.identifier == "segueSearchSubCategory" {
-            /*
-             * Have to send searchSubCategory vc information, I believe 
-            */
-            if let selectedSubCategoryCell = sender as? UICollectionViewCell {
-                let indexPath = self.collectionView.indexPathForCell(selectedSubCategoryCell)!
-                let subCategoriesFromLocalObj: PFObject = (self.subCategoriesFromLocal as! Array)[indexPath.row]
-                print("segue id == segueSearchSubCategory subCategoriesFromLocalObj: \(subCategoriesFromLocalObj)")
-            }
+            let searchSubCategoryVC = segue.destinationViewController as! SearchSubCategoryViewController
+            
+            searchSubCategoryVC.strMainCategory = self.strMainCategory
+            searchSubCategoryVC.mainCategoryPF = self.PFCategory
+            
+            //print("segue id == segueSearchSubCategory strMainCategory: \(self.strMainCategory)")
+            //print("segue id == segueSearchSubCategory PFCategory: \(self.PFCategory)")
         }
-    }
+        
+    } // END of prepareForSegue()
     
 
 }

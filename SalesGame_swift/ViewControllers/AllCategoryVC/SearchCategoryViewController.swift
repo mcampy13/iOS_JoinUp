@@ -23,6 +23,8 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
     
     var selectedCategoryToPass: PFObject?
     
+    var Game: PFObject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,8 +89,8 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "gotoCategoryInfo" {
-            let categoryInfoDestinationVC = segue.destinationViewController as? CategoryInfoViewController
+        if segue.identifier == "segueSearchResultShowCategory" {
+            let categoryInfoDestinationVC = segue.destinationViewController as! ShowCategoryViewController
             
             if let selectedCategoryCell = sender as? UITableViewCell {
                 let indexPath = self.tblView.indexPathForCell(selectedCategoryCell)!
@@ -98,11 +100,30 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
 //                print("selectedCategory in prepareForSegue: \(selectedCategory)")
 //                print("selectedCategoryToPass in prepareForSegue: \(self.selectedCategoryToPass)")
                 
-                categoryInfoDestinationVC?.categoryPFObj = selectedCategory
+                let game = PFObject(className: "Game")
+                print("game: \(game)")
+                game["player"] = PFUser.currentUser()!
+                game["category"] = selectedCategory
+                self.Game = game
                 
+                categoryInfoDestinationVC.title = selectedCategory.valueForKey("categoryName") as? String
+                categoryInfoDestinationVC.strMainCategory = selectedCategory.objectId as String!
+                categoryInfoDestinationVC.game = game
+                
+                let categoryFile = selectedCategory.valueForKey("categoryFile") as? PFFile
+                categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            categoryInfoDestinationVC.imageView?.image = UIImage(data: imageData)
+                        }
+                    } else{
+                        print("Error in prepareForSegue categoryFile: \(error)")
+                    }
+                }
             }
         }
-    }
+        
+    } // END of prepareForSegue()
     
     
 //==========================================================================================================================
@@ -146,7 +167,6 @@ class SearchCategoryViewController: UIViewController, UITableViewDataSource, UIT
         self.filteredCategories = array as! [String]
         
         self.tblView.reloadData()
-    
     }
     
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {

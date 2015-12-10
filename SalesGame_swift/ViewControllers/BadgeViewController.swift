@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var searchButton: UIBarButtonItem!
@@ -23,6 +23,10 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         menuButton.target = self.revealViewController()
         menuButton.action = Selector("revealToggle:")
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -64,12 +68,12 @@ class BadgeViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //==========================================================================================================================
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "gotoAllBadges" {
-            let allBadgesVC = segue.destinationViewController as? TotalBadgesViewController
-            
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "segueAllBadges" {
+//            let allBadgesVC = segue.destinationViewController as! TotalBadgesViewController
+//            
+//        }
+//    }
     
     
     //==========================================================================================================================

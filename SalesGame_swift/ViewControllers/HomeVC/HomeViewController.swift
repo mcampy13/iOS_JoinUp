@@ -28,11 +28,12 @@ class HomeViewController: UIViewController {
     var pic: AnyObject?
     var emailObj: AnyObject?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        //self.revealViewController().rearViewRevealWidth = 200
 
         menuButton.target = self.revealViewController()
         menuButton.action = Selector("revealToggle:")
@@ -87,7 +88,7 @@ class HomeViewController: UIViewController {
                 print("Error in querySubCategoryFromLocal: \(error)")
             }
         }
-    }
+    } // END of viewDidLoad()
     
     
     /*
@@ -128,45 +129,27 @@ class HomeViewController: UIViewController {
 //==========================================================================================================================
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "gotoCategoryCollection" {
+        if segue.identifier == "segueCategoryCollection" {
             let categoryCollectionViewController = segue.destinationViewController as! CategoryCollectionViewController
             
-//            var PFCategories = [PFObject]()
-//            
-//            let query = PFQuery(className: "Category")
-//            query.limit = 1000;
-//            
-//            query.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
-//                if error == nil {
-//                    self.categoryAnyObj = objArray
-//                    
-//                    for var i=0; i < self.categoryAnyObj!.count; i++ {
-//                        let obj: PFObject = (self.categoryAnyObj as! Array)[i]
-//                        PFCategories.append(obj)
-//                        
-//                    }
-//                } else {
-//                    print("Error queryCategories: \(error)")
-//                }
-//                
-//                print("PFCategories : \(PFCategories)")
-//            }
             let queryCategoryFromLocal = PFQuery(className: "Category")
             queryCategoryFromLocal.fromLocalDatastore()
+            
             queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (found, error) -> Void in
                 if error == nil {
                     print("found: \(found)")
                     self.categoryAnyObj = found
-                    
                     categoryCollectionViewController.PFCategoriesFromHome = self.categoryAnyObj
-
                 } else{
                     print("Error in queryFromLocal: \(error)")
                 }
             }            
         }
+        else if segue.identifier == "segueNewChallenge" {
+            
+        }
         
-    }
+    } // END of prepareForSegue()
     
     
     
@@ -176,11 +159,11 @@ class HomeViewController: UIViewController {
 
 //==========================================================================================================================
     
-    
     @IBAction func btnLeader(sender: UIButton) {
        let highScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as? HighScoreViewController
         self.navigationController!.pushViewController(highScoreVC!, animated: true)
     }
+    
     
     @IBAction func btnLogout(sender: UIButton) {
         PFUser.logOutInBackground()

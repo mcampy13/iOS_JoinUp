@@ -80,16 +80,16 @@ class CategoryCollectionViewController: UIViewController, UICollectionViewDelega
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("showCategory", sender: self)
+        self.performSegueWithIdentifier("segueShowCategory", sender: self)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showCategory" {
+        if segue.identifier == "segueShowCategory" {
             
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
             let indexPath = indexPaths[0] as NSIndexPath
             
-            let vc = segue.destinationViewController as! ShowCategoryViewController
+            let showCategoryVC = segue.destinationViewController as! ShowCategoryViewController
             
             let obj:PFObject = (self.categoriesFromLocal as! Array)[indexPath.row]
             
@@ -99,58 +99,30 @@ class CategoryCollectionViewController: UIViewController, UICollectionViewDelega
             game["category"] = obj
             self.Game = game
             
-            vc.title = obj.valueForKey("categoryName") as? String
-            vc.strMainCategory = obj.objectId as String!
-            vc.game = game
+            showCategoryVC.title = obj.valueForKey("categoryName") as? String
+            showCategoryVC.strMainCategory = obj.objectId as String!
+            showCategoryVC.game = game
             
             let categoryFile = obj.valueForKey("categoryFile") as? PFFile
             categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
                 if error == nil {
                     if let imageData = imageData {
-                        vc.imageView?.image = UIImage(data: imageData)
+                        showCategoryVC.imageView?.image = UIImage(data: imageData)
                     }
                 } else{
                     print("Error in prepareForSegue categoryFile: \(error)")
                 }
             }
 
-        } else if segue.identifier == "gotoSearchCategory" {
+        } else if segue.identifier == "segueSearchCategory" {
             if let selectedCategoryCell = sender as? UICollectionViewCell {
                 let indexPath = self.collectionView.indexPathForCell(selectedCategoryCell)!
                 let selectedCategory: PFObject = (self.categoryAnyObj as! Array)[indexPath.row]
-                print("segue id == gotoSearchCategory selectedCategory: \(selectedCategory)")
+                //print("segue id == segueSearchCategory selectedCategory: \(selectedCategory)")
             }
         }
-
-//         if segue.identifier == "gotoSubCategory" {
-//            let subCategoryViewController = segue.destinationViewController as? SubCategoryViewController
-//            
-//            if let selectedCategoryCell = sender as? CategoryCollectionViewCell {
-////                let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
-////                let indexPath = indexPaths[0] as NSIndexPath
-//                let indexPath = self.collectionView!.indexPathForCell(selectedCategoryCell)!
-//
-//                let selectedCategory:PFObject = (self.categoriesFromLocal as! Array)[indexPath.row]
-//                print("selectedCategory: \(selectedCategory)")
-//                
-//                self.strMainCategory = selectedCategory.objectId
-//                self.PFMainCategory = selectedCategory
-//                
-//                subCategoryViewController?.strMainCategory = self.strMainCategory
-//                subCategoryViewController?.PFCategory = selectedCategory
-//                self.PFMainCategory?.pinInBackground()
-//                print("selectedCategory id \(selectedCategory.objectId)")
-//                
-//                let game = PFObject(className: "Game")
-//                print("game: \(game)")
-//                game["player"] = PFUser.currentUser()!
-//                game["category"] = selectedCategory
-//                self.Game = game
-//                self.Game.pinInBackground()
-//                subCategoryViewController?.game = game
-//            }
-//        }
-    }
+        
+    } // END of prepareForSegue()
     
     
     
