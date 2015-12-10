@@ -17,10 +17,6 @@ class SelectSubCategoryViewController: UIViewController {
     @IBOutlet weak var labelQuestionCount: UILabel!
     @IBOutlet weak var subCategoryImageView: UIImageView?
     
-    @IBOutlet weak var leaderboardBarButton: UIButton!
-    
-    @IBOutlet weak var randomButton: UIButton!
-    
     var category: AnyObject!
     var subCategory: AnyObject!
     
@@ -145,16 +141,27 @@ class SelectSubCategoryViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueQuestion" {
-            let questionViewController = segue.destinationViewController as? QuestionViewController
+            let questionViewController = segue.destinationViewController as! QuestionViewController
             let obj:PFObject = (self.subCategory as! Array)[0]
             
-            questionViewController?.MainCategory = obj
-            questionViewController?.PFsubCategory = self.PFSubCategory
-            questionViewController?.flagForWrongAnswerpush = false
-            questionViewController?.game = self.game
-            
+            questionViewController.MainCategory = obj
+            questionViewController.PFsubCategory = self.PFSubCategory
+            questionViewController.flagForWrongAnswerpush = false
+            questionViewController.game = self.game
         }
-    }
+        else if segue.identifier == "segueRankings" {
+            let rankingsVC = segue.destinationViewController as! RankingsViewController
+            
+            navigationItem.title = "Back"
+            
+            let categoryPFObj: PFObject = (self.category as! Array)[0]
+            let subCategoryPFObj: PFObject = (self.subCategory as! Array)[0]
+            
+            rankingsVC.PFCategory = categoryPFObj
+            rankingsVC.PFSubCategory = subCategoryPFObj
+        }
+        
+    } // END of prepareForSegue()
     
     
 //==========================================================================================================================
@@ -166,10 +173,7 @@ class SelectSubCategoryViewController: UIViewController {
     @IBAction func opponentButton(sender: AnyObject) {
         displayAlert("Challenge", error: "You must win!")
     }
-    
-    @IBAction func leaderboardButton(sender: AnyObject) {
-        
-    }
+
     
 //==========================================================================================================================
     

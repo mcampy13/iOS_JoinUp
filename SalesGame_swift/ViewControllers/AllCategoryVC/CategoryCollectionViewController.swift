@@ -86,6 +86,8 @@ class CategoryCollectionViewController: UIViewController, UICollectionViewDelega
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueShowCategory" {
             
+            navigationItem.title = "Back"
+            
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
             let indexPath = indexPaths[0] as NSIndexPath
             
