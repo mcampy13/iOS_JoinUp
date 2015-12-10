@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import AudioToolbox
 
-class QuestionViewController: UIViewController,UITextFieldDelegate {
+class QuestionViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var lblTimer: UILabel?
     @IBOutlet weak var lblOutof: UILabel?

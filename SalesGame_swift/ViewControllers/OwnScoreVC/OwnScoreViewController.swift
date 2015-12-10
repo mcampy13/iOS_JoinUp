@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate {
 
     @IBOutlet weak var lblScore: UILabel?
     var playerScore:Int?
@@ -46,6 +46,9 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         //let score = self.playerScore
         //let scoreObject = PFObject(className: "Score")
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         UtilityClass.setMyViewBorder(BadgeImg, withBorder: 0, radius: 60)
         
 //        scoreObject["user"] = PFUser.currentUser()?.objectId
@@ -61,7 +64,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //            }
 //        }
 //        
-        lblScore?.text = String(format: "%d", playerScore!)
+        lblScore?.text = String(format: "%d/%d", playerScore!, self.questionArrayScore.count * 10)
         UtilityClass.setMyViewBorder(lblScore, withBorder: 0, radius: 50)
         
         checkHonorableMention()
@@ -150,22 +153,42 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         }
     }
-    
+ 
     
 //==========================================================================================================================
-
-// MARK: IBAction for Buttons
-
-//==========================================================================================================================
     
-    @IBAction func summaryButton(sender: AnyObject) {
-        let summaryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SummaryViewController") as! SummaryViewController
-        summaryVC.playerScore = self.playerScore
-        summaryVC.arrWrongQuestion = self.arrWrongQuestion
-        summaryVC.arrOtherAns = self.arrOtherAns
-        summaryVC.game = self.game
-        self.navigationController?.pushViewController(summaryVC, animated: true)
+// MARK: Navigation
+    
+//==========================================================================================================================
+ 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueGameSummary" {
+            let summaryVC = segue.destinationViewController as! SummaryViewController
+            
+            summaryVC.playerScore = self.playerScore
+            summaryVC.arrWrongQuestion = self.arrWrongQuestion
+            summaryVC.arrOtherAns = self.arrOtherAns
+            summaryVC.game = self.game
+            
+            navigationItem.title = "Back"
+        }
     }
+    
+    
+//==========================================================================================================================
+
+// MARK: Actions
+
+//==========================================================================================================================
+    
+//    @IBAction func summaryButton(sender: AnyObject) {
+//        let summaryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SummaryViewController") as! SummaryViewController
+//        summaryVC.playerScore = self.playerScore
+//        summaryVC.arrWrongQuestion = self.arrWrongQuestion
+//        summaryVC.arrOtherAns = self.arrOtherAns
+//        summaryVC.game = self.game
+//        self.navigationController?.pushViewController(summaryVC, animated: true)
+//    }
     
     
     @IBAction func leaderBoardButton(sender: AnyObject) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SummaryViewController: UIViewController {
+class SummaryViewController: UIViewController, UINavigationControllerDelegate {
 
     var playerScore:Int?
     var arrWrongQuestion : NSMutableArray = []
@@ -31,8 +31,11 @@ class SummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         self.labelUsername?.text = PFUser.currentUser()!.username
-        scoreLabel?.text = String(format: "%d", playerScore!)
+        scoreLabel?.text = String(format: "%d/%d", playerScore!, 10 * (self.arrOtherAns.count + self.arrWrongQuestion.count))
         UtilityClass.setMyViewBorder(playerImg, withBorder: 0, radius: 50)
         
         displayUserImg()
