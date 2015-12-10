@@ -483,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpA-eg-LIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1619" y="3585"/>
+            <point key="canvasLocation" x="1455" y="3699"/>
         </scene>
         <!--Challenge Category View Controller-->
         <scene sceneID="2Xh-TJ-9yH">
@@ -572,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieO-Iq-q72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2685" y="3585"/>
+            <point key="canvasLocation" x="2527" y="3699"/>
         </scene>
         <!--Challenge Sub Category View Controller-->
         <scene sceneID="dzL-eg-mhE">
@@ -668,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41o-J2-bYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3216" y="3585"/>
+            <point key="canvasLocation" x="2992" y="3699"/>
         </scene>
         <!--Challenge Face Off View Controller-->
         <scene sceneID="zie-hM-eAm">
@@ -791,7 +791,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffh-aa-pMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700" y="3585"/>
+            <point key="canvasLocation" x="3484" y="3699"/>
         </scene>
         <!--Face Off Question View Controller-->
         <scene sceneID="4kY-hU-k2w">
@@ -999,7 +999,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrJ-05-nr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4192" y="3585"/>
+            <point key="canvasLocation" x="3956" y="3699"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="iH2-dQ-rbM">
@@ -1089,7 +1089,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdA-7f-SQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2255" y="3585"/>
+            <point key="canvasLocation" x="2019" y="3699"/>
         </scene>
         <!--Search Friends-->
         <scene sceneID="l17-Ub-iE0">
@@ -2269,7 +2269,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Nfn-vr-7jo">
                             <connections>
                                 <action selector="searchButton:" destination="rJI-dw-gCr" id="6d7-50-1PR"/>
-                                <segue destination="T6T-B2-Zth" kind="push" identifier="gotoSearchCategory" id="JCO-Hl-lq9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3084,9 +3083,6 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
-                                        <connections>
-                                            <segue destination="nMI-bb-3du" kind="push" identifier="gotoGameStart" id="494-n9-c7H"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -3923,7 +3919,12 @@
                         <animations/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tzb-ha-oNH"/>
+                    <navigationItem key="navigationItem" id="tzb-ha-oNH">
+                        <barButtonItem key="leftBarButtonItem" image="menu-32 game app icon" id="KwY-cc-KAX"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="KwY-cc-KAX" id="5iD-NS-4wf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5K-oc-cfU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3976,6 +3977,7 @@
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Submit Your Own" id="JfR-aL-rey">
+                        <barButtonItem key="leftBarButtonItem" image="menu-32 game app icon" id="SMS-pp-gqL"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f46-jM-Er8">
                             <connections>
                                 <segue destination="NVS-Iy-hR4" kind="push" identifier="gotoSubmitAnswers" id="2KS-bp-MHT"/>
@@ -3984,6 +3986,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="f46-jM-Er8" id="Ygv-zY-guP"/>
+                        <outlet property="menuButton" destination="SMS-pp-gqL" id="gjg-U9-e8u"/>
                         <outlet property="questionTextField" destination="BWy-dN-gpR" id="ZSN-CA-HQd"/>
                         <outlet property="recentTable" destination="BSX-hD-WAD" id="78A-L1-hxc"/>
                     </connections>
@@ -4709,11 +4712,11 @@
     <inferredMetricsTieBreakers>
         <segue reference="CWh-1V-Hbz"/>
         <segue reference="qyH-xf-Sil"/>
-        <segue reference="T2r-AJ-X0s"/>
-        <segue reference="JCO-Hl-lq9"/>
-        <segue reference="494-n9-c7H"/>
-        <segue reference="gAK-tQ-JQW"/>
+        <segue reference="nel-rq-8j5"/>
+        <segue reference="y0t-a5-tVB"/>
         <segue reference="uap-gX-XgE"/>
+        <segue reference="gAK-tQ-JQW"/>
+        <segue reference="T2r-AJ-X0s"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

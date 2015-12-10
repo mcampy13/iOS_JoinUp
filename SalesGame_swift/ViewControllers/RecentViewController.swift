@@ -10,6 +10,7 @@ import UIKit
 
 class RecentViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
 
     @IBOutlet weak var questionTextField: UITextView!
@@ -27,6 +28,8 @@ class RecentViewController: UIViewController, UINavigationControllerDelegate, UI
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
+        menuButton.target = self.revealViewController()
+        menuButton.action = Selector("revealToggle:")
     }
     
     
