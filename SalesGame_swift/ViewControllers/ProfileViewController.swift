@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate {
 
@@ -17,7 +18,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var departmentLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     
+    @IBOutlet weak var pieChartView: PieChartView!
+    var months: [String]!
+    
     @IBOutlet weak var labelTotalGamesAmount: UILabel!
+    @IBOutlet weak var labelWinsAmount: UILabel!
+    @IBOutlet weak var labelLossesAmount: UILabel!
+    @IBOutlet weak var labelDrawsAmount: UILabel!
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var homeButton: UIButton!
@@ -51,12 +58,75 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
         levelLabel?.text = String(format: "%d", self.userLevel!)
         
         getTotalGamesPlayed()
-    }
+        
+        months = ["Wins", "Losses", "Draws"]
+        let unitsSold = [70.0, 20.0, 10.0]
+        
+        setChart(months, values: unitsSold)
+    
+    } // END of viewDidLoad()
+    
+    
+    func setChart(dataPoints: [String], values:[Double]) {
+        pieChartView.noDataText = "Must play a game before data can be displayed."
+        pieChartView.descriptionText = ""
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: nil)
+        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+        pieChartView.data = pieChartData
+        pieChartView.usePercentValuesEnabled = true
+        pieChartView.animate(xAxisDuration: 2.0, easingOption: .EaseInCirc)
+        pieChartView.backgroundColor = UIColor.lightGrayColor()
+        
+        /* percent value of pieChart hole; default is 0.5 (half of the chart) */
+        pieChartView.holeRadiusPercent = 0.2
+        pieChartView.transparentCircleRadiusPercent = 0.3
+
+        pieChartData.setValueTextColor(UIColor.whiteColor())
+        
+        var colors: [UIColor] = []
+        
+        for i in 0..<dataPoints.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        //pieChartDataSet.colors = colors
+        
+        /* Choices are: .liberty, .joyful, .colorful, .pastel, .vordiplom */
+        pieChartDataSet.colors = ChartColorTemplates.colorful()
+        
+        /* Properties for the graph's legend */
+        let legend = pieChartView.legend
+        legend.position = .RightOfChartCenter
+        legend.textColor = UIColor.whiteColor()
+        
+        let pFormatter = NSNumberFormatter()
+        pFormatter.numberStyle = .PercentStyle
+        pFormatter.percentSymbol = "%"
+        pFormatter.multiplier = 1
+        pieChartData.setValueFormatter(pFormatter)
+        
+        
+        
+    } // END of setChart()
+    
     
     /*
      * Retrieve user's profile pic and display it.  Allows user to change img
      */
-    func displayUserImg(){
+    func displayUserImg() {
         let query = PFQuery.getUserObjectWithId(PFUser.currentUser()!.objectId!)
         
         let file: PFFile = query?.valueForKey("profilePic") as! PFFile
@@ -86,14 +156,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
             }
         }
     }
-    
-    
-    //==========================================================================================================================
-    
-    // MARK: UITextFieldDelegate
-    
-    //==========================================================================================================================
-    
     
     
     //==========================================================================================================================

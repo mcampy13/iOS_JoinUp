@@ -49,7 +49,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        UtilityClass.setMyViewBorder(BadgeImg, withBorder: 0, radius: 60)
+        UtilityClass.setMyViewBorder(BadgeImg, withBorder: 0, radius: 70)
         
 //        scoreObject["user"] = PFUser.currentUser()?.objectId
 //        scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")

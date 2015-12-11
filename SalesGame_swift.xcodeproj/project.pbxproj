@@ -32,6 +32,8 @@
 		96B0FA0C1BFC78E300371660 /* GameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA0B1BFC78E300371660 /* GameHistoryViewController.swift */; };
 		96B0FA0E1BFC79AC00371660 /* GameHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */; };
 		96B5765F1C0EB82F0020CB3A /* SubmitAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5765E1C0EB82F0020CB3A /* SubmitAnswersViewController.swift */; };
+		96B9D7C01C19E0CD00B0CFA3 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B9D7BB1C19E03D00B0CFA3 /* Charts.framework */; };
+		96B9D7C11C19E0CD00B0CFA3 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96B9D7BB1C19E03D00B0CFA3 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96BB82041C110B5B0030BBA6 /* IntroChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB82031C110B5B0030BBA6 /* IntroChallengeViewController.swift */; };
 		96C4F3C11BF2C422009E73CD /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */; };
 		96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */; };
@@ -99,6 +101,51 @@
 		BAEA6E4E1BA3532300558565 /* GeneralClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA6E4D1BA3532300558565 /* GeneralClass.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		96B9D7BA1C19E03D00B0CFA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B9D7A91C19E03500B0CFA3 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		96B9D7BC1C19E03D00B0CFA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B9D7A91C19E03500B0CFA3 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		96B9D7BE1C19E03D00B0CFA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B9D7A91C19E03500B0CFA3 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		96B9D7C21C19E0CD00B0CFA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B9D7A91C19E03500B0CFA3 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		96B9D7C41C19E0CD00B0CFA3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				96B9D7C11C19E0CD00B0CFA3 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceOffQuestionViewController.swift; sourceTree = "<group>"; };
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +173,7 @@
 		96B0FA0B1BFC78E300371660 /* GameHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryViewController.swift; sourceTree = "<group>"; };
 		96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		96B5765E1C0EB82F0020CB3A /* SubmitAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitAnswersViewController.swift; sourceTree = "<group>"; };
+		96B9D7A91C19E03500B0CFA3 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Downloads/ios-charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		96BB82031C110B5B0030BBA6 /* IntroChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroChallengeViewController.swift; sourceTree = "<group>"; };
 		96C4F3C01BF2C422009E73CD /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		96C4F3C21BF304CE009E73CD /* SelectSubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSubCategoryViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +283,7 @@
 				BAB91BDF1BA2732B0033DCA6 /* StoreKit.framework in Frameworks */,
 				BAB91BDD1BA273200033DCA6 /* SystemConfiguration.framework in Frameworks */,
 				BAB91BDB1BA2730C0033DCA6 /* UIKit.framework in Frameworks */,
+				96B9D7C01C19E0CD00B0CFA3 /* Charts.framework in Frameworks */,
 				BAB91BD91BA273010033DCA6 /* Parse.framework in Frameworks */,
 				BAB91BD81BA273010033DCA6 /* Bolts.framework in Frameworks */,
 			);
@@ -318,6 +367,16 @@
 				96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */,
 			);
 			name = GameHistoryVC;
+			sourceTree = "<group>";
+		};
+		96B9D7B51C19E03D00B0CFA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96B9D7BB1C19E03D00B0CFA3 /* Charts.framework */,
+				96B9D7BD1C19E03D00B0CFA3 /* Charts.framework */,
+				96B9D7BF1C19E03D00B0CFA3 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		96C4F3C61BF33DC3009E73CD /* ChallengeCategoryVC */ = {
@@ -463,6 +522,7 @@
 				BA512E8A1BA5C054008AE31B /* Default-568h@2x.png */,
 				BAB91BD51BA273010033DCA6 /* Frameworks */,
 				BAB91BA01BA271DB0033DCA6 /* SalesGame_swift */,
+				96B9D7A91C19E03500B0CFA3 /* Charts.xcodeproj */,
 				BAB91BB61BA271DB0033DCA6 /* SalesGame_swiftTests */,
 				BAB91B9F1BA271DB0033DCA6 /* Products */,
 				BAB91BFA1BA273B20033DCA6 /* SalesGame_swift-Bridging-Header.h */,
@@ -660,10 +720,12 @@
 				BAB91B9A1BA271DB0033DCA6 /* Sources */,
 				BAB91B9B1BA271DB0033DCA6 /* Frameworks */,
 				BAB91B9C1BA271DB0033DCA6 /* Resources */,
+				96B9D7C41C19E0CD00B0CFA3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				96B9D7C31C19E0CD00B0CFA3 /* PBXTargetDependency */,
 			);
 			name = SalesGame_swift;
 			productName = SalesGame_swift;
@@ -703,12 +765,42 @@
 			mainGroup = BAB91B951BA271DB0033DCA6;
 			productRefGroup = BAB91B9F1BA271DB0033DCA6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 96B9D7B51C19E03D00B0CFA3 /* Products */;
+					ProjectRef = 96B9D7A91C19E03500B0CFA3 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BAB91B9D1BA271DB0033DCA6 /* SalesGame_swift */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		96B9D7BB1C19E03D00B0CFA3 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 96B9D7BA1C19E03D00B0CFA3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		96B9D7BD1C19E03D00B0CFA3 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 96B9D7BC1C19E03D00B0CFA3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		96B9D7BF1C19E03D00B0CFA3 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 96B9D7BE1C19E03D00B0CFA3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BAB91B9C1BA271DB0033DCA6 /* Resources */ = {
@@ -800,6 +892,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		96B9D7C31C19E0CD00B0CFA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 96B9D7C21C19E0CD00B0CFA3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		969A74501C01075300FCBD26 /* Main.storyboard */ = {
@@ -917,6 +1017,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -948,6 +1049,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
