@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VvW-hH-AWq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VvW-hH-AWq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -1173,7 +1173,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="cFZ-2D-O7v" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wy0-L8-N1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43" y="-904"/>
+            <point key="canvasLocation" x="31" y="-904"/>
         </scene>
         <!--New User Profile View Controller-->
         <scene sceneID="NVl-mo-ybk">
@@ -1371,7 +1371,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="21w-tW-za1">
                                         <rect key="frame" x="143" y="6" width="35" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="badges game app icon"/>
+                                        <state key="normal" image="white badges game app icon"/>
                                         <connections>
                                             <segue destination="XyL-9L-vQ4" kind="push" identifier="segueMyBadges" id="NnT-Vv-SEY"/>
                                         </connections>
@@ -2030,7 +2030,7 @@
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="JaT-ws-6cX">
-                                <rect key="frame" x="20" y="153" width="280" height="371"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="432"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
@@ -2038,17 +2038,14 @@
                                 <color key="sectionIndexBackgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="qbo-pF-FlE">
-                                        <rect key="frame" x="0.0" y="22" width="280" height="60"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qbo-pF-FlE" id="GhN-eo-Tok">
-                                            <rect key="frame" x="0.0" y="0.0" width="247" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="MW4-F6-Odk" kind="push" identifier="gotoSubCategory" id="T2r-AJ-X0s"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2056,54 +2053,44 @@
                                     <outlet property="delegate" destination="rJI-dw-gCr" id="796-SW-kvf"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="gMP-dS-FDr">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <items/>
-                                <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="rJI-dw-gCr" id="gT9-Sx-JVg"/>
-                                </connections>
-                            </toolbar>
                             <navigationBar contentMode="scaleToFill" translucent="NO" id="gPV-sJ-s37">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="2"/>
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Categories" id="E9s-eQ-9vd"/>
+                                    <navigationItem id="E9s-eQ-9vd"/>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" id="gVx-yM-Z5L">
                                 <rect key="frame" x="0.0" y="64" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start a new game by selecting a category!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zGw-Gb-SKm">
-                                        <rect key="frame" x="8" y="8" width="304" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Names" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cI3-eV-0dc">
-                                <rect key="frame" x="35" y="124" width="139" height="21"/>
+                            <view contentMode="scaleToFill" id="qFg-fE-dVI">
+                                <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YFs-Tw-lac">
+                                        <rect key="frame" x="143" y="5" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                        <state key="normal" image="yellow overview game app icon"/>
+                                        <connections>
+                                            <action selector="categoryCollectionViewButtonTap:" destination="rJI-dw-gCr" eventType="touchUpInside" id="vxY-zp-PMh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Categories" id="AhU-Q4-alA">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AaW-Ml-Yo5">
+                        <barButtonItem key="leftBarButtonItem" id="AaW-Ml-Yo5">
                             <connections>
                                 <action selector="cancelButton:" destination="rJI-dw-gCr" id="oxI-df-zeL"/>
                             </connections>
@@ -2117,13 +2104,14 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="cancelButton" destination="AaW-Ml-Yo5" id="qyD-Cb-TA5"/>
+                        <outlet property="categoryCollectionViewButton" destination="YFs-Tw-lac" id="yUv-4S-45d"/>
                         <outlet property="searchButton" destination="Nfn-vr-7jo" id="272-O1-PrQ"/>
                         <outlet property="tblObj" destination="JaT-ws-6cX" id="Xpy-Yx-YtH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8P-yz-8Ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2349" y="-237"/>
+            <point key="canvasLocation" x="1479" y="1915"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="NRg-39-mnz">
@@ -2371,7 +2359,7 @@
                         <outlet property="quitButton" destination="8QZ-te-Wc3" id="Na5-Ab-PQB"/>
                         <outlet property="soundButton" destination="p7K-BV-tRB" id="ntY-au-dCm"/>
                         <outlet property="txtQuestionView" destination="IYV-0Y-6X0" id="mUT-TU-NkE"/>
-                        <segue destination="kkF-Ux-gfn" kind="modal" identifier="segueOwnScore" id="1sY-K9-x9H"/>
+                        <segue destination="kkF-Ux-gfn" kind="push" identifier="segueOwnScore" id="rNc-10-6AZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAc-cP-ovf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2563,7 +2551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URU-Aw-3yS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1971" y="1699"/>
+            <point key="canvasLocation" x="2221" y="1699"/>
         </scene>
         <!--Search Sub Category View Controller-->
         <scene sceneID="j8L-hQ-etM">
@@ -2983,7 +2971,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZT-lb-50l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1465" y="-237"/>
+            <point key="canvasLocation" x="-1417" y="19"/>
         </scene>
         <!--Results-->
         <scene sceneID="r6g-Wm-XPL">
@@ -2998,13 +2986,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brilliant Score!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Dg-8N-vfU">
-                                <rect key="frame" x="0.0" y="73" width="320" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="reV-lI-k9T">
                                 <rect key="frame" x="43" y="422" width="236" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3028,30 +3009,6 @@
                                     <outlet property="delegate" destination="kkF-Ux-gfn" id="4hG-5O-TYy"/>
                                 </connections>
                             </pickerView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Uww-ez-9Mi">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem image="white leaderboard game app icon" id="d3k-pt-ixU">
-                                        <inset key="imageInsets" minX="11" minY="10" maxX="41" maxY="7"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="leaderBoardButton:" destination="kkF-Ux-gfn" id="j9a-8C-xtj"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="TUp-DG-w5g"/>
-                                    <barButtonItem systemItem="save" id="Ear-bY-oUQ">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="saveButton:" destination="kkF-Ux-gfn" id="MbZ-kr-TU7"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kkF-Ux-gfn" id="8kh-p3-stm"/>
-                                </connections>
-                            </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gkw-OP-rrZ">
                                 <rect key="frame" x="0.0" y="246" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3068,11 +3025,10 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nzy-WI-say">
                                 <rect key="frame" x="160" y="127" width="140" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.15182349170000001" green="0.69879807689999995" blue="0.1107038486" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="33"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.15182349170000001" green="0.69879807689999995" blue="0.1107038486" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.45232371794871784" blue="0.071218587765100441" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="-1"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" translucent="NO" id="Kc4-Cj-Kdb">
@@ -3081,30 +3037,57 @@
                                 <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="2"/>
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Results" id="M1y-Mz-cg7"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score &amp; Awards" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Dg-8N-vfU">
+                                <rect key="frame" x="20" y="73" width="299" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="mlu-pK-zBI">
+                                <rect key="frame" x="0.0" y="523" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LAm-th-aMS">
+                                        <rect key="frame" x="8" y="5" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="white leaderboard game app icon"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Results" id="hWb-IQ-hvF"/>
+                    <navigationItem key="navigationItem" title="Results" id="hWb-IQ-hvF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="5J7-fy-03K">
+                            <connections>
+                                <action selector="unwindToHome:" destination="kkF-Ux-gfn" id="Ikj-wx-RuM"/>
+                                <segue destination="Vna-1P-F5z" kind="unwind" unwindAction="unwindHomeFromOwnScore:" id="8Co-k3-Yru"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="BadgeImg" destination="Qq9-Tv-KJT" id="oR3-ht-ySL"/>
                         <outlet property="achievementsPickerView" destination="vxy-3r-niH" id="kVR-JX-rZf"/>
                         <outlet property="badgePickerViewLabel" destination="gkw-OP-rrZ" id="QaW-Fy-9rC"/>
+                        <outlet property="doneButton" destination="5J7-fy-03K" id="O2L-RK-i8Q"/>
                         <outlet property="lblScore" destination="Nzy-WI-say" id="0z2-3X-m15"/>
-                        <outlet property="leaderBoardButton" destination="d3k-pt-ixU" id="nvR-i7-nt0"/>
-                        <outlet property="saveButton" destination="Ear-bY-oUQ" id="Y98-1p-tj8"/>
+                        <outlet property="leaderboardButton" destination="LAm-th-aMS" id="KRY-wH-wXI"/>
                         <outlet property="summaryButton" destination="reV-lI-k9T" id="5WH-C3-7Cu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkp-ve-IAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Vna-1P-F5z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5514" y="845"/>
+            <point key="canvasLocation" x="4992" y="845"/>
         </scene>
         <!--Game Summary-->
         <scene sceneID="eWb-qW-aTd">
@@ -3249,7 +3232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYt-JG-8Ye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6022" y="845"/>
+            <point key="canvasLocation" x="5508" y="845"/>
         </scene>
         <!--My Badges-->
         <scene sceneID="aKQ-9Z-PcI">
@@ -4030,24 +4013,6 @@
             </objects>
             <point key="canvasLocation" x="-795" y="3329"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="1Um-Gi-22d">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dN3-IT-xKl" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nym-G9-1Eo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="rJI-dw-gCr" kind="relationship" relationship="rootViewController" id="bEm-P3-fg9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AKW-zl-VBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2881" y="-237"/>
-        </scene>
         <!--Categories-->
         <scene sceneID="2Th-hF-mqy">
             <objects>
@@ -4102,6 +4067,16 @@
                             <view contentMode="scaleToFill" id="cVw-qs-fqE">
                                 <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2je-2f-9LP">
+                                        <rect key="frame" x="143" y="2" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="List"/>
+                                        <connections>
+                                            <segue destination="rJI-dw-gCr" kind="modal" identifier="segueAllCategory" id="Cu5-Wd-hDZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -4116,6 +4091,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ncZ-oq-RMj" id="Ehl-bR-Jyi"/>
+                        <outlet property="listButton" destination="2je-2f-9LP" id="LUM-fN-duV"/>
                         <segue destination="8QB-aO-Ltd" kind="push" identifier="segueShowCategory" id="UyY-ha-HqR"/>
                     </connections>
                 </viewController>
@@ -4220,7 +4196,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ils-MH-kgq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1901" y="-539"/>
+            <point key="canvasLocation" x="-1069" y="-691"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nEg-n0-oCt">
@@ -4276,7 +4252,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAh-tK-l2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="1951"/>
+            <point key="canvasLocation" x="1831" y="1699"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e8V-AW-c8v">
@@ -4431,24 +4407,6 @@
             </objects>
             <point key="canvasLocation" x="2009" y="-2237"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="w7I-vx-VB4">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kn0-le-Tro" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wBb-ae-i3V">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kkF-Ux-gfn" kind="relationship" relationship="rootViewController" id="RHb-nh-G3t"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="epd-Fv-U7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4942" y="495"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Add Image Filled-64" width="64" height="64"/>
@@ -4480,6 +4438,7 @@
         <image name="teal home game app icon" width="133" height="133"/>
         <image name="the vetern" width="750" height="750"/>
         <image name="vsBar" width="1559" height="330"/>
+        <image name="white badges game app icon" width="133" height="133"/>
         <image name="white chat game app icon" width="133" height="133"/>
         <image name="white fiftyfifty game app icon" width="133" height="133"/>
         <image name="white friends game app icon" width="133" height="133"/>
@@ -4488,19 +4447,18 @@
         <image name="white pause game app icon" width="133" height="133"/>
         <image name="white skip game app icon" width="133" height="133"/>
         <image name="white stopwatch game app icon" width="133" height="133"/>
+        <image name="yellow overview game app icon" width="133" height="133"/>
         <image name="yellow submitQ game app icon" width="133" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NnT-Vv-SEY"/>
-        <segue reference="CWh-1V-Hbz"/>
-        <segue reference="qyH-xf-Sil"/>
-        <segue reference="nel-rq-8j5"/>
-        <segue reference="UyY-ha-HqR"/>
-        <segue reference="y0t-a5-tVB"/>
-        <segue reference="t43-lT-bY4"/>
         <segue reference="uap-gX-XgE"/>
-        <segue reference="1sY-K9-x9H"/>
-        <segue reference="T2r-AJ-X0s"/>
+        <segue reference="y0t-a5-tVB"/>
+        <segue reference="UyY-ha-HqR"/>
+        <segue reference="qyH-xf-Sil"/>
+        <segue reference="CWh-1V-Hbz"/>
+        <segue reference="NnT-Vv-SEY"/>
+        <segue reference="nel-rq-8j5"/>
+        <segue reference="t43-lT-bY4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
