@@ -178,15 +178,15 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UINavigatio
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueOwnScore" {
             
-            let ownScoreVC = segue.destinationViewController as! OwnScoreViewController
+            let ownScoreVC = segue.destinationViewController as? OwnScoreViewController
             
-            ownScoreVC.questionArrayScore = self.questionArray
-            ownScoreVC.playerScore = self.playerScore
-            ownScoreVC.category = self.MainCategory
-            ownScoreVC.strName = self.playerName
-            ownScoreVC.arrWrongQuestion = self.arrWrongAns
-            ownScoreVC.arrOtherAns = self.arrHalfWrongAns
-            ownScoreVC.game = self.game
+            ownScoreVC?.questionArrayScore = self.questionArray
+            ownScoreVC?.playerScore = self.playerScore
+            ownScoreVC?.category = self.MainCategory
+            ownScoreVC?.strName = self.playerName
+            ownScoreVC?.arrWrongQuestion = self.arrWrongAns
+            ownScoreVC?.arrOtherAns = self.arrHalfWrongAns
+            ownScoreVC?.game = self.game
             
             print("Went to OwnScore with arrWrongQuestion: \(self.arrWrongAns) and arrOtherAns: \(self.arrHalfWrongAns)")
         }
@@ -354,6 +354,7 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UINavigatio
             NSLog("%d %d",currQuestionCount,questionArray.count)
             if currQuestionCount > questionArray.count {
                 print("Game over, ran out of time")
+               
                 self.performSegueWithIdentifier("segueOwnScore", sender: self)
                 
 //                let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController

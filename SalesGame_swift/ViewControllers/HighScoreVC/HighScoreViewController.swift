@@ -52,9 +52,9 @@ class HighScoreViewController: UIViewController {
                     let PFobj: PFObject = (success as! Array)[i]
                     self.finalArray.addObject(PFobj)
                     
-                    self.labelFirstPlace!.text = success![0].objectForKey("name") as! String
-                    self.labelSecondPlace!.text = success![1].objectForKey("name") as! String
-                    self.labelThirdPlace!.text = success![2].objectForKey("name") as! String
+                    self.labelFirstPlace!.text = success![0].objectForKey("name") as? String
+                    self.labelSecondPlace!.text = success![1].objectForKey("name") as? String
+                    self.labelThirdPlace!.text = success![2].objectForKey("name") as? String
                     
                 }
                 print("final Array", self.finalArray as NSMutableArray)

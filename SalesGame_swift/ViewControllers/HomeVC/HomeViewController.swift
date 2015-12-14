@@ -22,78 +22,89 @@ class HomeViewController: UIViewController {
     
     var categoryAnyObj: AnyObject?
     
-    var cats: AnyObject?
     var subs: AnyObject?
     
     var pic: AnyObject?
     var emailObj: AnyObject?
     
+    var categories: NSMutableArray = NSMutableArray()
+    var subCategories: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-
+        navigationItem.title = "Home"
+        
         menuButton.target = self.revealViewController()
         menuButton.action = Selector("revealToggle:")
         
         UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 75)
         displayUserImg()
-        navigationItem.title = "Home"
         
         let query = PFQuery(className: "Category")
         query.addAscendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
             if error == nil {
-                self.cats = success
+                
+                let temp: NSArray = success! as NSArray
+                
+                for var i=0; i < temp.count; i++ {
+                    let obj: PFObject = temp.objectAtIndex(i) as! PFObject
+                    obj.pinInBackground()
+                    self.categories.addObject(obj)
+                }
             } else {
                 print("Error in viewDidLoad query: \(error)")
             }
-            for var i=0; i < self.cats?.count; i++ {
-                let obj: PFObject = (self.cats as! Array)[i]
-                obj.pinInBackground()
-            }
+            print("Home categories: \(self.categories)")
         }
         
         let querySub = PFQuery(className: "SubCategory")
         querySub.addAscendingOrder("createdAt")
         querySub.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
             if error == nil {
-                self.subs = success
+                let temp: NSArray = success! as NSArray
+                
+                for var j=0; j < temp.count; j++ {
+                    let obj: PFObject = temp.objectAtIndex(j) as! PFObject
+                    obj.pinInBackground()
+                    self.subCategories.addObject(obj)
+                }
             } else {
                 print("Error in viewDidLoad query: \(error)")
             }
-            for var j=0; j < self.subs?.count; j++ {
-                let obj: PFObject = (self.subs as! Array)[j]
-                obj.pinInBackground()
-            }
+            //print("Home subCategories: \(self.subCategories)")
         }
+        
        
 //        let queryCategoryFromLocal = PFQuery(className: "Category")
 //        queryCategoryFromLocal.fromLocalDatastore()
 //        queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (found, error) -> Void in
 //            if error == nil {
-//                print("found: \(found)")
+//                //print("found: \(found)")
 //            } else{
 //                print("Error in queryFromLocal: \(error)")
 //            }
 //        }
-        let querySubCategoryFromLocal = PFQuery(className: "SubCategory")
-        querySubCategoryFromLocal.fromLocalDatastore()
-        querySubCategoryFromLocal.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
-            if error == nil {
-            
-            } else {
-                print("Error in querySubCategoryFromLocal: \(error)")
-            }
-        }
+//
+//        let querySubCategoryFromLocal = PFQuery(className: "SubCategory")
+//        querySubCategoryFromLocal.fromLocalDatastore()
+//        querySubCategoryFromLocal.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
+//            if error == nil {
+//            
+//            } else {
+//                print("Error in querySubCategoryFromLocal: \(error)")
+//            }
+//        }
+        
     } // END of viewDidLoad()
     
     
     /*
-    * Retrieve user's profile pic and display it.  Allows user to change img
-    */
+     *  Retrieve user's profile pic and display it
+     */
     func displayUserImg(){
         let query = PFQuery.getUserObjectWithId(PFUser.currentUser()!.objectId!)
         
@@ -103,7 +114,7 @@ class HomeViewController: UIViewController {
             (imageData, error) -> Void in
             if error == nil {
                 let Image: UIImage = UIImage(data: imageData!)!
-                print("Image \(Image)")
+                //print("Image \(Image)")
                 self.profilePic!.image = Image
                 hideHud(self.view)
             } else {
@@ -128,28 +139,28 @@ class HomeViewController: UIViewController {
     
 //==========================================================================================================================
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueCategoryCollection" {
-            let categoryCollectionViewController = segue.destinationViewController as! CategoryCollectionViewController
-            
-            let queryCategoryFromLocal = PFQuery(className: "Category")
-            queryCategoryFromLocal.fromLocalDatastore()
-            
-            queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (found, error) -> Void in
-                if error == nil {
-                    print("found: \(found)")
-                    self.categoryAnyObj = found
-                    categoryCollectionViewController.PFCategoriesFromHome = self.categoryAnyObj
-                } else{
-                    print("Error in queryFromLocal: \(error)")
-                }
-            }            
-        }
-        else if segue.identifier == "segueNewChallenge" {
-            
-        }
-        
-    } // END of prepareForSegue()
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "segueCategoryCollection" {
+//            let categoryCollectionViewController = segue.destinationViewController as! CategoryCollectionViewController
+//            
+//            let queryCategoryFromLocal = PFQuery(className: "Category")
+//            queryCategoryFromLocal.fromLocalDatastore()
+//            
+//            queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (found, error) -> Void in
+//                if error == nil {
+//                    print("found: \(found)")
+//                    self.categoryAnyObj = found
+////                    categoryCollectionViewController.PFCategoriesFromHome = self.categoryAnyObj
+//                } else{
+//                    print("Error in queryFromLocal: \(error)")
+//                }
+//            }            
+//        }
+//        else if segue.identifier == "segueNewChallenge" {
+//            
+//        }
+//        
+   // } // END of prepareForSegue()
     
     
     
@@ -190,6 +201,12 @@ class HomeViewController: UIViewController {
                     print("Error in queryEmails: \(error)")
                 }
             }
+        }
+    }
+    
+    @IBAction func unwindHomeFromOwnScore(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? OwnScoreViewController {
+            print("Going to \(sourceViewController)")
         }
     }
 

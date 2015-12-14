@@ -13,6 +13,7 @@ class AllCategoryViewController: UIViewController {
     @IBOutlet weak var tblObj : UITableView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var searchButton: UIBarButtonItem!
+    @IBOutlet weak var categoryCollectionViewButton: UIButton!
     
     var arrayCategory:AnyObject?
     var array: NSMutableArray! = []
@@ -34,7 +35,8 @@ class AllCategoryViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-
+        self.navigationItem.title = "Categories"
+        
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
         self.queryCategories()
         
@@ -60,6 +62,7 @@ class AllCategoryViewController: UIViewController {
             }
         }
     } //END of queryForTable()
+    
     
 //==========================================================================================================================
     
@@ -127,14 +130,9 @@ class AllCategoryViewController: UIViewController {
 
 //==========================================================================================================================
     
-    @IBAction func cancelButton(sender: UIBarButtonItem) {
+    @IBAction func categoryCollectionViewButtonTap(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-//    @IBAction func searchButton(sender: AnyObject) {
-//        let searchCategoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("SearchCategoryViewController") as! SearchCategoryViewController
-//        self.navigationController?.pushViewController(searchCategoryVC, animated: true)
-//    }
     
     
 //==========================================================================================================================

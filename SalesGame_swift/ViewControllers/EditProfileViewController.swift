@@ -141,6 +141,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func imgUploadFromSource(sender: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
+        imagePicker.sourceType = .Camera
+        imagePicker.allowsEditing = true
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     

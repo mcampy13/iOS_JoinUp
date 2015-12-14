@@ -18,6 +18,7 @@
 		964EF50A1C0984D700F2B07C /* SearchFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */; };
 		964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */; };
 		964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50D1C0A7FED00F2B07C /* Friend.swift */; };
+		9651094F1C1E364B002B2B10 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9651094E1C1E364B002B2B10 /* Category.swift */; };
 		9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC861BD760250068C72B /* ChallengeViewController.swift */; };
 		9673969F1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */; };
 		967396A21C0EB42300F392E8 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967396A11C0EB42300F392E8 /* TopRatedViewController.swift */; };
@@ -158,6 +159,7 @@
 		964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewController.swift; sourceTree = "<group>"; };
 		964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewCell.swift; sourceTree = "<group>"; };
 		964EF50D1C0A7FED00F2B07C /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		9651094E1C1E364B002B2B10 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9659FC861BD760250068C72B /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryInfoViewController.swift; sourceTree = "<group>"; };
 		967396A11C0EB42300F392E8 /* TopRatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				963D3D811C14AD0200486747 /* ShowCategoryViewController.swift */,
 				963D3D831C14AE5700486747 /* CategoryCollectionViewController.swift */,
 				963D3D851C15039D00486747 /* SubCategoryCollectionViewCell.swift */,
+				9651094E1C1E364B002B2B10 /* Category.swift */,
 			);
 			path = AllCategoryVC;
 			sourceTree = "<group>";
@@ -863,6 +866,7 @@
 				BA512E621BA59D6F008AE31B /* UtilityClass.m in Sources */,
 				BA512E871BA59E43008AE31B /* IQUIView+Hierarchy.m in Sources */,
 				BA512E7F1BA59E43008AE31B /* IQBarButtonItem.m in Sources */,
+				9651094F1C1E364B002B2B10 /* Category.swift in Sources */,
 				964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */,
 				963D3D861C15039D00486747 /* SubCategoryCollectionViewCell.swift in Sources */,
 				96C4F3C51BF33796009E73CD /* ChallengeTableViewCell.swift in Sources */,

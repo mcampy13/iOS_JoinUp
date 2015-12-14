@@ -4,6 +4,7 @@
 
 #import <Parse/Parse.h>
 #import <Bolts/Bolts.h>
+#import <Parse/PFObject+Subclass.h>
 #import "UtilityClass.h"
 #import "MBProgressHUD.h"
 #import "IQKeyboardManager.h"

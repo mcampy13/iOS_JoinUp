@@ -16,7 +16,7 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
     
     var subCategories: AnyObject?
     var parent: AnyObject?
-    var subArray: NSMutableArray = []
+    var subCategoryArray: NSMutableArray = NSMutableArray()
     
     var strMainCategory : String?
     var stringSubCategory: String?
@@ -30,12 +30,13 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("in SubCategoryVC strMainCateogry: \(self.strMainCategory)")
+        //print("in SubCategoryVC strMainCateogry: \(self.strMainCategory)")
 
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
         NSThread .detachNewThreadSelector("showhud", toTarget: self, withObject: nil)
+        
         self.querySubCategories()
     }
 
@@ -51,6 +52,7 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
         queryParent.findObjectsInBackgroundWithBlock {  (parentObjs, error) -> Void in
             if error == nil {
                 self.parent = parentObjs
+                
                 let obj:PFObject = (self.parent as! Array)[0]
                 
                 query.whereKey("parentCategory", equalTo: obj)
@@ -60,16 +62,14 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
                     if error == nil {
                         self.subCategories = objArray
                         
-//                        let subObj:PFObject = (self.subCategories as! Array)[0]
-//                        self.subArray.addObject(subObj)
-                        
                         for var i=0; i < self.subCategories!.count; i++ {
                             let subObj:PFObject = (self.subCategories as! Array)[i]
-                            self.subArray.addObject(subObj)
-                            print("subObj in query: \(subObj)")
+                            self.subCategoryArray.addObject(subObj)
+                            //print("subObj in query: \(subObj)")
                         }
-                        print("subCategories: \(self.subCategories)")
-                        print("subArray: \(self.subArray)")
+                        //print("subCategories: \(self.subCategories)")
+                        //print("subArray: \(self.subCategoryArray)")
+                        
                         self.subCategoryTableView.reloadData()
                         hideHud(self.view)
                     } else {
@@ -101,7 +101,7 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
             if let selectedSubCategoryCell = sender as? UITableViewCell {
                 let indexPath = self.subCategoryTableView.indexPathForCell(selectedSubCategoryCell)!
                 let selectedSubCategory: PFObject = (self.subCategories as! Array)[indexPath.row]
-                print("selectedSubCategory in SubCategory prepareForSegue: \(selectedSubCategory)")
+//                print("selectedSubCategory in SubCategory prepareForSegue: \(selectedSubCategory)")
                 
                 self.stringSubCategory = selectedSubCategory.objectId
                 gameStartConfirm?.strMainCategory = self.strMainCategory
@@ -109,7 +109,7 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
                 
                 game["subCategory"] = selectedSubCategory
                 gameStartConfirm?.game = self.game
-                print("selectedSubCategory id in SubCategory prepareForSegue: \(selectedSubCategory.objectId)")
+//                print("selectedSubCategory id in SubCategory prepareForSegue: \(selectedSubCategory.objectId)")
             }
         } else if segue.identifier == "gotoSearchSubCategory" {
             let searchSubCategoryVC = segue.destinationViewController as? SearchSubCategoryViewController
@@ -117,8 +117,8 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
             searchSubCategoryVC?.strMainCategory = self.strMainCategory
             searchSubCategoryVC?.mainCategoryPF = self.PFCategory
             
-            print("segue id == gotoSearchSubCategory strMainCategory: \(self.strMainCategory)")
-            print("segue id == gotoSearchSubCategory PFCategory: \(self.PFCategory)")
+//            print("segue id == gotoSearchSubCategory strMainCategory: \(self.strMainCategory)")
+//            print("segue id == gotoSearchSubCategory PFCategory: \(self.PFCategory)")
         }
     }
     

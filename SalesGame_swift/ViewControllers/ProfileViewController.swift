@@ -178,13 +178,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     
-//    @IBAction func badgesButton(sender: AnyObject) {
-////        let myBadgesVC = self.storyboard?.instantiateViewControllerWithIdentifier("BadgeViewController") as! BadgeViewController
-//        //self.navigationController?.pushViewController(myBadgesVC, animated: true)
-//        self.performSegueWithIdentifier("segueMyBadges", sender: self)
-//    }
-    
-    
     @IBAction func logOutButton(sender: AnyObject) {
         PFUser.logOutInBackground()
         self.navigationController!.popToRootViewControllerAnimated(true)

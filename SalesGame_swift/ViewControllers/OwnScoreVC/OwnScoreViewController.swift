@@ -13,8 +13,9 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var lblScore: UILabel?
     var playerScore:Int?
     var strName : String?
-    @IBOutlet weak var leaderBoardButton: UIBarButtonItem!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var leaderboardButton: UIButton!
     @IBOutlet weak var summaryButton: UIButton!
     @IBOutlet weak var achievementsPickerView: UIPickerView!
     @IBOutlet weak var badgePickerViewLabel: UILabel!
@@ -49,7 +50,9 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        UtilityClass.setMyViewBorder(BadgeImg, withBorder: 0, radius: 70)
+        
+        
+//        UtilityClass.setMyViewBorder(BadgeImg, withBorder: 0, radius: 60)
         
 //        scoreObject["user"] = PFUser.currentUser()?.objectId
 //        scoreObject["name"] = PFUser.currentUser()?.objectForKey("username")
@@ -65,7 +68,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //        }
 //        
         lblScore?.text = String(format: "%d/%d", playerScore!, self.questionArrayScore.count * 10)
-        UtilityClass.setMyViewBorder(lblScore, withBorder: 0, radius: 50)
+        //UtilityClass.setMyViewBorder(lblScore, withBorder: 0, radius: 60)
         
         checkHonorableMention()
         checkLongHoursGuy()
@@ -172,6 +175,9 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             navigationItem.title = "Back"
         }
+        else if doneButton === sender {
+            print("Going to HomeViewController from OwnScore prepareForSegue")
+        }
     }
     
     
@@ -190,8 +196,8 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //        self.navigationController?.pushViewController(summaryVC, animated: true)
 //    }
     
-    
-    @IBAction func leaderBoardButton(sender: AnyObject) {
+
+    @IBAction func leaderboardButton(sender: AnyObject) {
         kTimeForWrongTime = 0
         let highscoreViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as! HighScoreViewController
         self.navigationController?.pushViewController(highscoreViewController, animated: true)

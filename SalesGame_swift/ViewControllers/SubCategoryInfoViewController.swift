@@ -40,13 +40,7 @@ class SubCategoryInfoViewController: UIViewController, UINavigationControllerDel
     // MARK: Navigation
     
     //==========================================================================================================================
-    
-//    @IBAction func unwindFromSearchSubCategory(sender: UIStoryboardSegue) {
-//        if let sourceViewController = sender.sourceViewController as? SearchSubCategoryViewController, fromSubCategory = sourceViewController.subCategoryPFObj {
-//            
-//            self.subCategoryPFObj = fromSubCategory
-//        }
-//    }
+
     
     
 }
