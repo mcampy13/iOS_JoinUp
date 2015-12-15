@@ -83,7 +83,7 @@ class HomeViewController: UIViewController {
 //        queryCategoryFromLocal.fromLocalDatastore()
 //        queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (found, error) -> Void in
 //            if error == nil {
-//                //print("found: \(found)")
+//                print("found: \(found)")
 //            } else{
 //                print("Error in queryFromLocal: \(error)")
 //            }

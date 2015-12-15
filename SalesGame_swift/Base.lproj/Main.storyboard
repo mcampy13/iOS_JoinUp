@@ -1005,7 +1005,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="50" id="BcM-Tz-XQA" customClass="SearchFriendTableViewCell" customModule="SalesGame_swift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BcM-Tz-XQA" id="Bpr-xE-Nj2">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
