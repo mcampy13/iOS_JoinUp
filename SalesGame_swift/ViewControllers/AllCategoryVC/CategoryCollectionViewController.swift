@@ -33,8 +33,8 @@ class CategoryCollectionViewController: UIViewController, UICollectionViewDelega
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        //self.fetchAllObjectFromLocalDatastore()
-        //self.fetchAllObjects()
+        self.fetchAllObjectFromLocalDatastore()
+        self.fetchAllObjects()
     }
     
     func fetchAllObjectFromLocalDatastore() {
@@ -42,7 +42,8 @@ class CategoryCollectionViewController: UIViewController, UICollectionViewDelega
         queryCategoryFromLocal.fromLocalDatastore()
         queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (objects, error) -> Void in
             if error == nil {
-                let temp: NSArray = objects! as NSArray
+                var temp: NSArray = objects! as NSArray
+
                 self.categoryArray = temp.mutableCopy() as! NSMutableArray
                 self.collectionView.reloadData()
                 
@@ -50,18 +51,25 @@ class CategoryCollectionViewController: UIViewController, UICollectionViewDelega
                 print("Error CategoryCollection; in fetchAllObjectsFromLocalDatastore() : \(error)")
             }
         }
-        print("fetched all objects: \(self.categoryArray)")
+        print("fetchAllObjectFromLocalDatastore() objects: \(self.categoryArray)")
     }
     
     func fetchAllObjects() {
-        PFObject.unpinAllObjectsInBackgroundWithBlock(nil)
+        //PFObject.unpinAllObjectsInBackgroundWithBlock(nil)
         
         let query = PFQuery(className: "Category")
         query.addAscendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
                 PFObject.pinAllInBackground(objects, block: nil)
-                
+//                var temp: NSArray = objects! as NSArray
+//                
+//                for var i=0; i < temp.count; i++ {
+//                    let obj: PFObject = temp.objectAtIndex(i) as! PFObject
+//                    obj.pinInBackground()
+//                    self.categoryArray.addObject(obj)
+//                }
+
                 self.fetchAllObjectFromLocalDatastore()
                 
             } else {
@@ -78,55 +86,56 @@ class CategoryCollectionViewController: UIViewController, UICollectionViewDelega
     //==========================================================================================================================
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return self.categoryArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as?CategoryCollectionViewCell
         
-//        let obj: PFObject = self.categoryArray.objectAtIndex(indexPath.row) as! PFObject
-//        
-//        cell!.categoryTitleCell?.text = obj["categoryName"] as? String
-//        
-//        let categoryFile = obj["categoryFile"] as? PFFile
-//        categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
-//            if error == nil {
-//                if let imageData = imageData {
-//                    cell!.categoryImageCell.image = UIImage(data: imageData)
-//                }
-//            } else{
-//                print("Error in gameFile: \(error)")
-//            }
-//        }
-//        return cell!
-//    }
-    
-        let queryCategoryFromLocal = PFQuery(className: "Category")
-        queryCategoryFromLocal.fromLocalDatastore()
-        queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (objects, error) -> Void in
+        let obj: PFObject = self.categoryArray.objectAtIndex(indexPath.row) as! PFObject
+        
+        cell!.categoryTitleCell?.text = obj["categoryName"] as? String
+        
+        let categoryFile = obj["categoryFile"] as? PFFile
+        categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
             if error == nil {
-                let temp: NSArray = objects! as NSArray
-                self.categoryArray = temp.mutableCopy() as! NSMutableArray
-                
-                let obj:PFObject = self.categoryArray.objectAtIndex(indexPath.row) as! PFObject
-                cell!.categoryTitleCell?.text = obj["categoryName"] as? String
-                
-                let categoryFile = obj["categoryFile"] as? PFFile
-                categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
-                    if error == nil {
-                        if let imageData = imageData {
-                            cell?.categoryImageCell.image = UIImage(data: imageData)
-                        }
-                    } else{
-                        print("Error in gameFile: \(error)")
-                    }
+                if let imageData = imageData {
+                    cell!.categoryImageCell.image = UIImage(data: imageData)
                 }
             } else{
-                print("Error in queryFromLocal: \(error)")
+                print("Error in gameFile: \(error)")
             }
         }
         return cell!
     }
+    
+//        let queryCategoryFromLocal = PFQuery(className: "Category")
+//        queryCategoryFromLocal.fromLocalDatastore()
+//        queryCategoryFromLocal.findObjectsInBackgroundWithBlock{ (objects, error) -> Void in
+//            if error == nil {
+//                //print("queryFromLocal objects in CategoryCollection cellForItemAt: \(objects)")
+//                var temp: NSArray = objects! as NSArray
+//                self.categoryArray = temp.mutableCopy() as! NSMutableArray
+//                
+//                let obj:PFObject = self.categoryArray.objectAtIndex(indexPath.row) as! PFObject
+//                cell!.categoryTitleCell?.text = obj["categoryName"] as? String
+//                
+//                let categoryFile = obj["categoryFile"] as? PFFile
+//                categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
+//                    if error == nil {
+//                        if let imageData = imageData {
+//                            cell?.categoryImageCell.image = UIImage(data: imageData)
+//                        }
+//                    } else{
+//                        print("Error in gameFile: \(error)")
+//                    }
+//                }
+//            } else{
+//                print("Error in queryFromLocal: \(error)")
+//            }
+//        }
+//        return cell!
+//    }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("segueShowCategory", sender: self)

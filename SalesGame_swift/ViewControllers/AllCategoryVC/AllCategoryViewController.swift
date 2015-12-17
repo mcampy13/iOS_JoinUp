@@ -71,34 +71,52 @@ class AllCategoryViewController: UIViewController {
 //==========================================================================================================================
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "gotoSubCategory" {
-            let subCategoryViewController = segue.destinationViewController as? SubCategoryViewController
+        if segue.identifier == "segueShowCategory" {
+            
+            //let indexPaths = self.tblObj!.indexPathsForSelectedItems()!
+            //let indexPath = indexPaths[0] as NSIndexPath
+            
+            let showCategoryVC = segue.destinationViewController as! ShowCategoryViewController
+            
+//            if let selectedSubCategoryCell = sender as? UITableViewCell {
+//                let indexPath = self.tblView.indexPathForCell(selectedSubCategoryCell)!
+//                
+//                let selectedSubCategory: PFObject = (self.holder as! Array)[indexPath.row]
+//                self.subCategoryPFObj = selectedSubCategory
+//                subCategoryInfoDestinationVC?.subCategoryPFObj = selectedSubCategory
+//            }
             
             if let selectedCategoryCell = sender as? UITableViewCell {
                 let indexPath = self.tblObj.indexPathForCell(selectedCategoryCell)!
-                let selectedCategory:PFObject = (self.arrayCategory as! Array)[indexPath.row]
-                print("selectedCategory: \(selectedCategory)")
-                
-                self.strMainCategory = selectedCategory.objectId
-                self.PFMainCategory = selectedCategory
-                
-                subCategoryViewController?.strMainCategory = selectedCategory.objectId as String!
-                subCategoryViewController?.PFCategory = selectedCategory
-                print("selectedCategory id \(selectedCategory.objectId)")
+                let obj:PFObject = self.array.objectAtIndex(indexPath.row) as! PFObject
                 
                 let game = PFObject(className: "Game")
                 print("game: \(game)")
                 game["player"] = PFUser.currentUser()!
-                game["category"] = selectedCategory
+                game["category"] = obj
                 self.Game = game
-                subCategoryViewController?.game = game
-            }
-        } else if segue.identifier == "gotoSearchCategory" {
-            if let selectedCategoryCell = sender as? UITableViewCell {
-                let indexPath = self.tblObj.indexPathForCell(selectedCategoryCell)!
-                let selectedCategory: PFObject = (self.arrayCategory as! Array)[indexPath.row]
-                print("segue id == gotoSearchCategory selectedCategory: \(selectedCategory)")
                 
+                showCategoryVC.title = obj.valueForKey("categoryName") as? String
+                showCategoryVC.strMainCategory = obj.objectId as String!
+                showCategoryVC.game = game
+                
+                let categoryFile = obj.valueForKey("categoryFile") as? PFFile
+                categoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            showCategoryVC.imageView?.image = UIImage(data: imageData)
+                        }
+                    } else{
+                        print("Error in prepareForSegue categoryFile: \(error)")
+                    }
+                }
+                
+            } else if segue.identifier == "segueSearchCategory" {
+                if let selectedCategoryCell = sender as? UITableViewCell {
+                    let indexPath = self.tblObj.indexPathForCell(selectedCategoryCell)!
+                    let selectedCategory: PFObject = (self.arrayCategory as! Array)[indexPath.row]
+                    print("segue id == segueSearchCategory selectedCategory: \(selectedCategory)")
+                }
             }
         }
     }

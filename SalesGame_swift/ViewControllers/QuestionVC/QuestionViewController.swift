@@ -49,6 +49,7 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UINavigatio
     
     var questionImg: PFFile!
     var questionArray:NSArray!
+    var passingScore: Int!
     var timer:NSTimer!
     var questionTimer:Int = kQuestionTime
     var stringQuestionTimer: String?
@@ -111,6 +112,10 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UINavigatio
             queryQuestion.whereKey("parentSubCategory", equalTo: MainCategory)
             queryQuestion.findObjectsInBackgroundWithBlock { (objArray, error) -> Void in
                 if error == nil {
+                    
+                    self.passingScore = self.MainCategory["minPassingScore"] as! Int
+                    print("passingScore : \(self.passingScore)")
+                    
                     for var i=0; i < objArray!.count; i++ {
                         print("objArray questionFile: \(objArray![i].objectForKey("questionFile"))")
                         files = objArray!
@@ -195,7 +200,7 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UINavigatio
     
 //==========================================================================================================================
 
-// MARK: methods for Next question & redirect if questions are completed
+// MARK: Next question & redirect if questions are completed
 
 //==========================================================================================================================
     
@@ -204,6 +209,15 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UINavigatio
         print("In nextQuestion, currentScore \(currentScore)")
 
         if currQuestionCount > questionArray.count  {
+            
+            let scoreAsDouble: Double = Double(self.passingScore)
+            let playerScoreDouble: Double = Double(self.playerScore)
+            
+            if (playerScoreDouble / Double(self.questionArray.count * 10)) >= (scoreAsDouble * 0.01)  {
+                game["WLD"] = "W"
+            } else {
+                game["WLD"] = "L"
+            }
             
             game["score"] = self.playerScore
             
@@ -216,17 +230,6 @@ class QuestionViewController: UIViewController, UITextFieldDelegate, UINavigatio
                 }
             }
             
-//            let ownScoreVC = self.storyboard?.instantiateViewControllerWithIdentifier("OwnScoreViewController") as! OwnScoreViewController
-//            
-//            ownScoreVC.questionArrayScore = self.questionArray
-//            ownScoreVC.playerScore = self.playerScore   // value sent to OwnScoreViewController
-//            ownScoreVC.category = self.MainCategory
-//            ownScoreVC.strName = self.playerName
-//            ownScoreVC.arrWrongQuestion = self.arrWrongAns
-//            ownScoreVC.arrOtherAns = self.arrHalfWrongAns
-//            ownScoreVC.game = self.game
-//            self.navigationController?.pushViewController(ownScoreVC, animated: true)
-//            
             if timer != nil {
                 timer.invalidate()
             }

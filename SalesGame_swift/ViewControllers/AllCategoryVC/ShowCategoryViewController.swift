@@ -35,11 +35,6 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
     //==========================================================================================================================
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if self.subCategoriesFromLocal == nil {
-//            return 0
-//        } else {
-//            return self.subCategoriesFromLocal!.count
-//        }
         return 8
     }
     
@@ -62,12 +57,16 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
                 querySubCategoryFromLocal.findObjectsInBackgroundWithBlock{ (found, error) -> Void in
                     if error == nil {
                         self.subCategoriesFromLocal = found
-                        print("subCategoriesFromLocal: \(self.subCategoriesFromLocal)")
+                        //print("subCategoriesFromLocal: \(self.subCategoriesFromLocal)")
+                        
+//                        var temp: NSArray = found as! NSArray
+//                        self.subCategoriesFromLocal = temp.mutableCopy() as! NSMutableArray
+//                        let obj:PFObject = self.subCategoriesFromLocal!.objectAtIndex(indexPath.row) as! PFObject
                         
                         let obj:PFObject = (self.subCategoriesFromLocal as! Array)[indexPath.row]
                         let labelText = obj.valueForKey("subCategoryName") ?? ""
                         cell!.subCategoryLabel?.text = labelText as? String
-//                        cell!.subCategoryLabel?.text = obj.valueForKey("subCategoryName") as? String
+                        cell!.subCategoryLabel?.text = obj["subCategoryName"] as? String
                         
                         let subCategoryFile = obj.valueForKey("subCategoryFile") as? PFFile
                         subCategoryFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
@@ -102,7 +101,8 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
             let indexPath = indexPaths[0] as NSIndexPath
             
-            let selectSubCategoryVC = segue.destinationViewController as! SelectSubCategoryViewController
+            let navSelectSubCategoryVC = segue.destinationViewController as! UINavigationController
+            let selectSubCategoryVC = storyboard?.instantiateViewControllerWithIdentifier("SelectSubCategoryViewController") as! SelectSubCategoryViewController
             
             let parentObj: PFObject = (self.parent as! Array)[indexPath.row]
             let obj:PFObject = (self.subCategoriesFromLocal as! Array)[indexPath.row]
@@ -124,6 +124,7 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
                     print("Error in prepareForSegue categoryFile: \(error)")
                 }
             }
+            navSelectSubCategoryVC.pushViewController(selectSubCategoryVC, animated: true)
             
         } else if segue.identifier == "segueSearchSubCategory" {
             let searchSubCategoryVC = segue.destinationViewController as! SearchSubCategoryViewController

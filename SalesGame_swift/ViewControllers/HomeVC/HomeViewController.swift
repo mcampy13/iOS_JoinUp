@@ -43,23 +43,23 @@ class HomeViewController: UIViewController {
         UtilityClass.setMyViewBorder(profilePic, withBorder: 0, radius: 75)
         displayUserImg()
         
-        let query = PFQuery(className: "Category")
-        query.addAscendingOrder("createdAt")
-        query.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
-            if error == nil {
-                
-                let temp: NSArray = success! as NSArray
-                
-                for var i=0; i < temp.count; i++ {
-                    let obj: PFObject = temp.objectAtIndex(i) as! PFObject
-                    obj.pinInBackground()
-                    self.categories.addObject(obj)
-                }
-            } else {
-                print("Error in viewDidLoad query: \(error)")
-            }
-            print("Home categories: \(self.categories)")
-        }
+//        let query = PFQuery(className: "Category")
+//        query.addAscendingOrder("createdAt")
+//        query.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
+//            if error == nil {
+//                
+//                let temp: NSArray = success! as NSArray
+//                
+//                for var i=0; i < temp.count; i++ {
+//                    let obj: PFObject = temp.objectAtIndex(i) as! PFObject
+//                    obj.pinInBackground()
+//                    self.categories.addObject(obj)
+//                }
+//            } else {
+//                print("Error in viewDidLoad query: \(error)")
+//            }
+//            print("Home categories: \(self.categories)")
+//        }
         
         let querySub = PFQuery(className: "SubCategory")
         querySub.addAscendingOrder("createdAt")

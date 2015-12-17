@@ -1005,7 +1005,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="50" id="BcM-Tz-XQA" customClass="SearchFriendTableViewCell" customModule="SalesGame_swift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BcM-Tz-XQA" id="Bpr-xE-Nj2">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
@@ -1384,15 +1384,6 @@
                                             <segue destination="jrx-6Y-PQd" kind="push" id="QdK-hn-8qE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AEc-d7-bzE">
-                                        <rect key="frame" x="79" y="6" width="32" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="Controller Filled-64"/>
-                                        <connections>
-                                            <segue destination="AVF-ll-Vaw" kind="push" identifier="segueGameHistory" id="b5j-qc-Deg"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7sY-uN-gPi">
                                         <rect key="frame" x="269" y="0.0" width="43" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1409,13 +1400,22 @@
                                             <action selector="homeButton:" destination="4TY-ln-e7d" eventType="touchUpInside" id="GIv-xk-Vkc"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AEc-d7-bzE">
+                                        <rect key="frame" x="79" y="7" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="white controller game app icon"/>
+                                        <connections>
+                                            <segue destination="AVF-ll-Vaw" kind="push" identifier="segueGameHistory" id="b5j-qc-Deg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="cRg-Au-kZb" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="326" width="320" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C8Q-fa-tgu">
                                 <rect key="frame" x="128" y="266" width="42" height="21"/>
@@ -2030,7 +2030,7 @@
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="JaT-ws-6cX">
-                                <rect key="frame" x="0.0" y="92" width="320" height="432"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
@@ -2046,6 +2046,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="8QB-aO-Ltd" kind="push" identifier="segueShowCategory" id="A2W-o6-CIE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2065,11 +2068,6 @@
                                     <navigationItem id="E9s-eQ-9vd"/>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" id="gVx-yM-Z5L">
-                                <rect key="frame" x="0.0" y="64" width="320" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" id="qFg-fE-dVI">
                                 <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2078,7 +2076,7 @@
                                         <rect key="frame" x="143" y="5" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
-                                        <state key="normal" image="yellow overview game app icon"/>
+                                        <state key="normal" image="overview white game app icon"/>
                                         <connections>
                                             <action selector="categoryCollectionViewButtonTap:" destination="rJI-dw-gCr" eventType="touchUpInside" id="vxY-zp-PMh"/>
                                         </connections>
@@ -2098,6 +2096,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Nfn-vr-7jo">
                             <connections>
                                 <action selector="searchButton:" destination="rJI-dw-gCr" id="6d7-50-1PR"/>
+                                <segue destination="T6T-B2-Zth" kind="push" identifier="segueSearchCategory" id="bNZ-HZ-ZTh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2111,7 +2110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8P-yz-8Ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="1915"/>
+            <point key="canvasLocation" x="2019" y="1645"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="NRg-39-mnz">
@@ -2364,7 +2363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAc-cP-ovf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4403" y="845"/>
+            <point key="canvasLocation" x="4935" y="845"/>
         </scene>
         <!--Messages-->
         <scene sceneID="KDc-kX-aC7">
@@ -2551,7 +2550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URU-Aw-3yS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2221" y="1699"/>
+            <point key="canvasLocation" x="2371" y="551"/>
         </scene>
         <!--Search Sub Category View Controller-->
         <scene sceneID="j8L-hQ-etM">
@@ -2620,7 +2619,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQa-lx-BD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3115" y="1699"/>
+            <point key="canvasLocation" x="3647" y="1699"/>
         </scene>
         <!--Rankings-->
         <scene sceneID="loS-qR-6lm">
@@ -2724,7 +2723,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvK-F4-oMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3552" y="1544"/>
+            <point key="canvasLocation" x="4616" y="1578"/>
         </scene>
         <!--Sub Category Info View Controller-->
         <scene sceneID="rY7-Cr-AjN">
@@ -2855,7 +2854,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4vd-IE-dGa">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="cancelButton:" destination="nMI-bb-3du" id="yfW-Pk-6CM"/>
+                                <action selector="cancelButton:" destination="nMI-bb-3du" id="iqC-yE-SWo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2869,7 +2868,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAl-l4-fn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3552" y="845"/>
+            <point key="canvasLocation" x="4084" y="845"/>
         </scene>
         <!--Sub-Categories-->
         <scene sceneID="woC-z5-Mlg">
@@ -3087,7 +3086,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkp-ve-IAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Vna-1P-F5z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4992" y="845"/>
+            <point key="canvasLocation" x="5524" y="845"/>
         </scene>
         <!--Game Summary-->
         <scene sceneID="eWb-qW-aTd">
@@ -3232,7 +3231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYt-JG-8Ye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5508" y="845"/>
+            <point key="canvasLocation" x="6040" y="845"/>
         </scene>
         <!--My Badges-->
         <scene sceneID="aKQ-9Z-PcI">
@@ -3248,7 +3247,7 @@
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="aSI-au-wTw">
-                                <rect key="frame" x="0.0" y="119" width="320" height="405"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -3291,13 +3290,6 @@
                                     <outlet property="delegate" destination="gOk-qK-5i6" id="drc-rP-PWZ"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap more to see all the badges you can earn !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O8W-vZ-aLL">
-                                <rect key="frame" x="20" y="73" width="280" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" translucent="NO" id="sOu-5q-YrA">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -3625,7 +3617,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="B05-po-GU5">
                                         <rect key="frame" x="143" y="5" width="35" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="badges game app icon"/>
+                                        <state key="normal" image="white badges game app icon"/>
                                         <connections>
                                             <action selector="badgeButton:" destination="OZ7-bL-8nq" eventType="touchUpInside" id="R9d-iD-N2e"/>
                                         </connections>
@@ -4069,11 +4061,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2je-2f-9LP">
-                                        <rect key="frame" x="143" y="2" width="35" height="35"/>
+                                        <rect key="frame" x="143" y="5" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="List"/>
+                                        <state key="normal" image="list white game app icon"/>
                                         <connections>
-                                            <segue destination="rJI-dw-gCr" kind="modal" identifier="segueAllCategory" id="Cu5-Wd-hDZ"/>
+                                            <segue destination="vew-Tm-Br1" kind="modal" identifier="segueAllCategory" id="Cu5-Wd-hDZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -4097,7 +4089,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6f0-ZV-R4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1971" y="845"/>
+            <point key="canvasLocation" x="1627" y="845"/>
         </scene>
         <!--Show Category View Controller-->
         <scene sceneID="nbf-u3-sDs">
@@ -4173,12 +4165,12 @@
                         <outlet property="collectionView" destination="bX6-v2-MgC" id="Ijc-2o-dpD"/>
                         <outlet property="imageView" destination="dan-FD-OHy" id="gcz-3m-VtI"/>
                         <outlet property="searchButton" destination="wow-nB-LOC" id="6r8-dr-82Z"/>
-                        <segue destination="nMI-bb-3du" kind="push" identifier="segueGameStart" id="y0t-a5-tVB"/>
+                        <segue destination="3hT-Bp-lbn" kind="modal" identifier="segueGameStart" id="y0t-a5-tVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTR-eL-Z1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2611" y="845"/>
+            <point key="canvasLocation" x="3047" y="845"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q1D-v3-uRD">
@@ -4199,24 +4191,6 @@
             <point key="canvasLocation" x="-1069" y="-691"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="nEg-n0-oCt">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J7a-jT-QDT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cAS-AZ-Mhf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="nMI-bb-3du" kind="relationship" relationship="rootViewController" id="a5Q-LN-9bi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ApL-Di-Vmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3115" y="551"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="lav-AF-lcM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z0y-PR-icv" sceneMemberID="viewController">
@@ -4233,26 +4207,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTc-px-qli" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3967" y="551"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="uQx-YD-eL5">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aw7-zy-ZO0" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="js1-ur-yKm"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jVR-gq-9Hr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="T6T-B2-Zth" kind="relationship" relationship="rootViewController" id="lkw-TA-4rM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sAh-tK-l2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1831" y="1699"/>
+            <point key="canvasLocation" x="4499" y="551"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e8V-AW-c8v">
@@ -4288,7 +4243,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YZ-xV-MB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2611" y="1699"/>
+            <point key="canvasLocation" x="3143" y="1699"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iUw-43-Tpd">
@@ -4348,25 +4303,6 @@
             </objects>
             <point key="canvasLocation" x="962" y="3945"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="QZS-8o-Dgc">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="09I-Wv-gEE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="DU3-bp-q5t"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P1z-A6-kgl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="X0f-F6-cQd" kind="relationship" relationship="rootViewController" id="WYD-gy-cJl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kx9-zJ-MCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1479" y="1249"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="y9w-DE-Bjp">
             <objects>
@@ -4390,7 +4326,7 @@
         <scene sceneID="aDf-86-hsR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PJg-Jy-LIh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Badges" image="light green badges game app icon" id="qbf-C6-A9k">
+                    <tabBarItem key="tabBarItem" title="My Badges" image="badge-35 game app icon" id="qbf-C6-A9k">
                         <inset key="imageInsets" minX="22" minY="30" maxX="22" maxY="24"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -4407,6 +4343,43 @@
             </objects>
             <point key="canvasLocation" x="2009" y="-2237"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kL0-cs-TIn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3hT-Bp-lbn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="tAw-RG-mvM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ja6-j9-Wp6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nMI-bb-3du" kind="relationship" relationship="rootViewController" id="52B-H9-yDO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84z-Xf-IYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3552" y="845"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hJm-YY-34n">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vew-Tm-Br1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fSt-1h-S44">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rJI-dw-gCr" kind="relationship" relationship="rootViewController" id="qbO-kk-dRN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aGO-lS-an3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1627" y="1645"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Add Image Filled-64" width="64" height="64"/>
@@ -4414,13 +4387,12 @@
         <image name="Answers Filled-64" width="64" height="64"/>
         <image name="Bullish Filled-100" width="100" height="100"/>
         <image name="Checked Checkbox 2 Filled-64" width="64" height="64"/>
-        <image name="Controller Filled-64" width="64" height="64"/>
         <image name="Down Right-100" width="100" height="100"/>
         <image name="Fingerprint Scan-100" width="100" height="100"/>
         <image name="Home-32" width="32" height="32"/>
         <image name="Picture-100" width="100" height="100"/>
         <image name="background" width="320" height="568"/>
-        <image name="badges game app icon" width="267" height="267"/>
+        <image name="badge-35 game app icon" width="35" height="35"/>
         <image name="blue trophy game app icon" width="133" height="133"/>
         <image name="brown leaderboard game app icon" width="133" height="133"/>
         <image name="friends game app icon" width="267" height="267"/>
@@ -4431,7 +4403,9 @@
         <image name="leaderLineLeft" width="219" height="159"/>
         <image name="leaderboard-35 game app icon" width="35" height="35"/>
         <image name="light green badges game app icon" width="133" height="133"/>
+        <image name="list white game app icon" width="133" height="133"/>
         <image name="menu-32 game app icon" width="32" height="32"/>
+        <image name="overview white game app icon" width="267" height="267"/>
         <image name="pink messages game app icon" width="133" height="133"/>
         <image name="purple help game app icon" width="133" height="133"/>
         <image name="red logout game app icon" width="133" height="133"/>
@@ -4440,6 +4414,7 @@
         <image name="vsBar" width="1559" height="330"/>
         <image name="white badges game app icon" width="133" height="133"/>
         <image name="white chat game app icon" width="133" height="133"/>
+        <image name="white controller game app icon" width="267" height="267"/>
         <image name="white fiftyfifty game app icon" width="133" height="133"/>
         <image name="white friends game app icon" width="133" height="133"/>
         <image name="white home game app icon" width="133" height="133"/>
@@ -4447,18 +4422,15 @@
         <image name="white pause game app icon" width="133" height="133"/>
         <image name="white skip game app icon" width="133" height="133"/>
         <image name="white stopwatch game app icon" width="133" height="133"/>
-        <image name="yellow overview game app icon" width="133" height="133"/>
         <image name="yellow submitQ game app icon" width="133" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uap-gX-XgE"/>
-        <segue reference="y0t-a5-tVB"/>
-        <segue reference="UyY-ha-HqR"/>
-        <segue reference="qyH-xf-Sil"/>
-        <segue reference="CWh-1V-Hbz"/>
         <segue reference="NnT-Vv-SEY"/>
+        <segue reference="CWh-1V-Hbz"/>
         <segue reference="nel-rq-8j5"/>
-        <segue reference="t43-lT-bY4"/>
+        <segue reference="QYh-x9-lTN"/>
+        <segue reference="Fhy-HH-t9v"/>
+        <segue reference="LwS-Z3-gu7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

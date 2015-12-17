@@ -20,6 +20,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var pieChartView: PieChartView!
     var months: [String]!
+    var wld: [String]!
+    
+    var playerGames: NSMutableArray = NSMutableArray()
     
     @IBOutlet weak var labelTotalGamesAmount: UILabel!
     @IBOutlet weak var labelWinsAmount: UILabel!
@@ -36,6 +39,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
     var userLevel: Int?
     
     var pic:AnyObject?
+    var wins: Int = 0
+    var losses: Int = 0
+    var noStatus: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +65,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
         
         getTotalGamesPlayed()
         
-        months = ["Wins", "Losses", "Draws"]
-        let unitsSold = [70.0, 20.0, 10.0]
+//        let unitsSold = [70.0, 20.0, 10.0]
         
-        setChart(months, values: unitsSold)
+//        wld = ["Wins", "Losses", "Draws"]
+//        let stats = [self.wins, self.losses, self.noStatus]
+//        print("stats: \(stats)")
+//        
+//        setChart(wld, values: unitsSold)
     
     } // END of viewDidLoad()
     
@@ -83,8 +92,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
         pieChartView.data = pieChartData
         pieChartView.usePercentValuesEnabled = true
         pieChartView.animate(xAxisDuration: 2.0, easingOption: .EaseInCirc)
-        pieChartView.backgroundColor = UIColor.lightGrayColor()
-        
+        //pieChartView.backgroundColor = UIColor.lightGrayColor()
+                
         /* percent value of pieChart hole; default is 0.5 (half of the chart) */
         pieChartView.holeRadiusPercent = 0.2
         pieChartView.transparentCircleRadiusPercent = 0.3
@@ -93,7 +102,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
         
         var colors: [UIColor] = []
         
-        for i in 0..<dataPoints.count {
+        for j in 0..<dataPoints.count {
             let red = Double(arc4random_uniform(256))
             let green = Double(arc4random_uniform(256))
             let blue = Double(arc4random_uniform(256))
@@ -110,7 +119,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
         /* Properties for the graph's legend */
         let legend = pieChartView.legend
         legend.position = .RightOfChartCenter
-        legend.textColor = UIColor.whiteColor()
+        legend.textColor = UIColor.darkGrayColor()
         
         let pFormatter = NSNumberFormatter()
         pFormatter.numberStyle = .PercentStyle
@@ -151,10 +160,41 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate {
         queryGame.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
                 self.labelTotalGamesAmount?.text = String(success!.count)
+                
+                let temp: NSArray = success! as NSArray
+                
+                self.playerGames = temp.mutableCopy() as! NSMutableArray
+                self.getWLD()
             } else{
                 print("Error in getTotalGamesPlayed: \(error)")
             }
         }
+    }
+    
+    func getWLD() {
+        
+        for var i=0; i < self.playerGames.count; i++ {
+            if self.playerGames.objectAtIndex(i).valueForKey("WLD") as? String == "W" {
+                wins++
+            } else if self.playerGames.objectAtIndex(i).valueForKey("WLD") as? String == "L" {
+                losses++
+            } else {
+                noStatus++
+            }
+        }
+        
+        wld = ["Wins", "Losses", "Draws"]
+        let stats = [Double(self.wins), Double(self.losses), Double(self.noStatus)]
+        print("stats: \(stats)")
+        
+        self.setChart(wld, values: stats)
+        
+        print("You won \(wins) games.")
+        print("You lost \(losses) games.")
+        print("You don't have any status for \(noStatus) games.")
+        
+        self.labelWinsAmount?.text = String(wins)
+        self.labelLossesAmount?.text = String(losses)
     }
     
     

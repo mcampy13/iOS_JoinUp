@@ -152,7 +152,7 @@ class SelectSubCategoryViewController: UIViewController {
         else if segue.identifier == "segueRankings" {
             let rankingsVC = segue.destinationViewController as! RankingsViewController
             
-            navigationItem.title = "Back"
+            //navigationItem.title = "Back"
             
             let categoryPFObj: PFObject = (self.category as! Array)[0]
             let subCategoryPFObj: PFObject = (self.subCategory as! Array)[0]
