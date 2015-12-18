@@ -13,19 +13,24 @@ class ChallengeProfileViewController: UIViewController, UINavigationControllerDe
 
     @IBOutlet weak var lineChartView: LineChartView!
     
+    var playerGames: NSMutableArray = NSMutableArray()
+    var recentScores: NSMutableArray = NSMutableArray()
+    var games: [String]!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        let games = ["Game 1", "Game 2", "Game 3", "Game 4", "Game 5"]
-        let scores = [40.0, 60.0, 70.0, 80.0, 50.0]
+        getTotalGamesPlayed()
         
-        setChart(games, values: scores)
-    
     }
 
+    /*
+     * setChart will provide all initializers & settings for the graph, including the legend
+     */
     func setChart(dataPoints: [String], values: [Double]) {
         self.lineChartView.noDataText = "You have no recent games."
         
@@ -41,11 +46,52 @@ class ChallengeProfileViewController: UIViewController, UINavigationControllerDe
         lineChartView.data = lineChartData
         lineChartView.rightAxis.labelCount = 0
         
-        lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .EaseInBounce)
-        
-        
+        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 2.0, easingOption: .EaseInBounce)
     
-    }
+    } // END of setChart([String], [Double])
+    
+    
+    /*
+     * getTotalGamesPlayed queries Parse for the current user's 5 most recent games with
+     *  index[0] being the most recent.
+     */
+    func getTotalGamesPlayed(){
+        let queryGame = PFQuery(className: "Game")
+        queryGame.whereKey("player", equalTo: PFUser.currentUser()!)
+        queryGame.limit = 5
+        queryGame.findObjectsInBackgroundWithBlock { (success, error) -> Void in
+            if error == nil {                
+                let temp: NSArray = success! as NSArray
+                
+                self.playerGames = temp.mutableCopy() as! NSMutableArray
+                self.getScores()
+            } else{
+                print("Error in getTotalGamesPlayed: \(error)")
+            }
+        }
+    } // END of getTotalGamesPlayed()
+    
+    
+    /*
+     * getScores will retrieve the score values from the prior Game Objects queried for in getTotalGamesPlayed()
+     */
+    func getScores() {
+        for var i=0; i < self.playerGames.count; i++ {
+            if self.playerGames.objectAtIndex(i).valueForKey("score") != nil {
+                let rs: Double = Double(self.playerGames[i].valueForKey("score")! as! NSNumber)
+                self.recentScores.addObject(rs)
+            }
+        }
+        
+        games = ["G1", "G2", "G3", "G4", "G5"]
+        let scores = [self.recentScores[0], self.recentScores[1], self.recentScores[2], self.recentScores[3], self.recentScores[4]]
+        print("recentScores: \(self.recentScores)")
+        
+        /* Call setChart w/ newly acquired values */
+        self.setChart(games, values: scores as! [Double])
+        
+    } // END of getScores()
+
 
     
 }

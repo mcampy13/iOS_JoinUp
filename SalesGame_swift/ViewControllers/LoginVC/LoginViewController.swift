@@ -99,15 +99,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func loadData(){
         print("data is loading")
-//        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
-//        self.navigationController!.pushViewController(homeVC!, animated: true)
+        
     }
+    
+    
+//==========================================================================================================================
+    
+// MARK: Navigation
+    
+//==========================================================================================================================
+    
+    
     
  //==========================================================================================================================
  
- // MARK: buttons IBAction methods
+ // MARK: Actions
  
  //==========================================================================================================================
+   
     @IBAction func beginTouchIDAuthCheck(sender: AnyObject) {
         let authContext:LAContext = LAContext()
         var error:NSError?
@@ -120,6 +129,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if(successful) {
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                         self.loadData()
+//                        let homeVC = self.storyboard!.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+//                        self.navigationController!.pushViewController(homeVC, animated: true)
+
                     })
                 } else {
                     //There are a few reasons why it can fail, we'll write them out to the user in the label
@@ -132,7 +144,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.writeOutAuthResult(error)
         }
     }
-
 
     @IBAction func btnSignUp(sender: UIButton) {
         let signUpVC = self.storyboard?.instantiateViewControllerWithIdentifier("SignUpViewController") as! SignUpViewController

@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             storyboard = UIStoryboard(name: "Main", bundle: nil)
         }
-
+        
+        IQKeyboardManager.sharedManager().enable = true
+        
         navigation = storyboard.instantiateViewControllerWithIdentifier("MainNavigation") as! UINavigationController
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.makeKeyAndVisible()
