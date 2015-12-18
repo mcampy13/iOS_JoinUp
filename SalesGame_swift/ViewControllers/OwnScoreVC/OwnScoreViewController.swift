@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate {
 
@@ -19,8 +20,8 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var summaryButton: UIButton!
     @IBOutlet weak var achievementsPickerView: UIPickerView!
     @IBOutlet weak var badgePickerViewLabel: UILabel!
+    @IBOutlet weak var horizontalBarChartView: HorizontalBarChartView!
     
-    @IBOutlet weak var BadgeImg: UIImageView!
     
     var questionArrayScore:NSArray!
     var badgeName: String!
@@ -50,7 +51,10 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        let rows = ["Correct", "Incorrect"]
+        let answered = [2.0, 1.0]
         
+        setChart(rows, values: answered)
         
 //        UtilityClass.setMyViewBorder(BadgeImg, withBorder: 0, radius: 60)
         
@@ -80,6 +84,24 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         
         
+    }
+    
+    func setChart(dataPoints: [String], values: [Double]) {
+        self.horizontalBarChartView.noDataText = "Did you play the game ... ?"
+        
+        var dataEntries: [BarChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        let horizontalChartDataSet = BarChartDataSet(yVals: dataEntries, label: nil)
+        let horizontalChartData = BarChartData(xVals: dataPoints, dataSet: horizontalChartDataSet)
+        
+        horizontalBarChartView.data = horizontalChartData
+        horizontalBarChartView.descriptionText = ""
+        horizontalChartDataSet.colors = ChartColorTemplates.pastel()
     }
     
     

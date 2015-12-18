@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SalesGame_swift/ViewControllers/OwnScoreVC/OwnScoreViewController.swift"
-            timestampString = "471510650.001131"
+            timestampString = "472110917.936943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "OwnScoreViewController"
             landmarkType = "3">
          </BreakpointContent>

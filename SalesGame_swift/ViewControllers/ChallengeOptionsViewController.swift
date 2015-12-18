@@ -13,6 +13,7 @@ class ChallengeOptionsViewController: UIViewController, UINavigationControllerDe
     @IBOutlet weak var challengeFriendButton: UIButton!
     @IBOutlet weak var challengeRandomButton: UIButton!
     @IBOutlet weak var challengeStatsButton: UIButton!
+    @IBOutlet weak var homeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,14 @@ class ChallengeOptionsViewController: UIViewController, UINavigationControllerDe
 
     }
 
+    
+    // MARK: Actions
+    
+    @IBAction func homeButtonTap(sender: AnyObject) {
+        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+        self.navigationController?.pushViewController(homeVC, animated: true)
+    }
+    
    
     
 
