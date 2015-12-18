@@ -19,6 +19,10 @@
 		964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */; };
 		964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50D1C0A7FED00F2B07C /* Friend.swift */; };
 		9651094F1C1E364B002B2B10 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9651094E1C1E364B002B2B10 /* Category.swift */; };
+		965109531C235317002B2B10 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965109521C235317002B2B10 /* Launch Screen.storyboard */; };
+		965109551C23C3B4002B2B10 /* ChallengeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965109541C23C3B4002B2B10 /* ChallengeOptionsViewController.swift */; };
+		965109571C23C730002B2B10 /* ChallengeRandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965109561C23C730002B2B10 /* ChallengeRandomViewController.swift */; };
+		965109591C23C827002B2B10 /* ChallengeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965109581C23C827002B2B10 /* ChallengeProfileViewController.swift */; };
 		9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659FC861BD760250068C72B /* ChallengeViewController.swift */; };
 		9673969F1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */; };
 		967396A21C0EB42300F392E8 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967396A11C0EB42300F392E8 /* TopRatedViewController.swift */; };
@@ -160,6 +164,10 @@
 		964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewCell.swift; sourceTree = "<group>"; };
 		964EF50D1C0A7FED00F2B07C /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		9651094E1C1E364B002B2B10 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		965109521C235317002B2B10 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		965109541C23C3B4002B2B10 /* ChallengeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeOptionsViewController.swift; sourceTree = "<group>"; };
+		965109561C23C730002B2B10 /* ChallengeRandomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeRandomViewController.swift; sourceTree = "<group>"; };
+		965109581C23C827002B2B10 /* ChallengeProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeProfileViewController.swift; sourceTree = "<group>"; };
 		9659FC861BD760250068C72B /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryInfoViewController.swift; sourceTree = "<group>"; };
 		967396A11C0EB42300F392E8 /* TopRatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +328,9 @@
 				9659FC861BD760250068C72B /* ChallengeViewController.swift */,
 				96C4F3C41BF33796009E73CD /* ChallengeTableViewCell.swift */,
 				96BB82031C110B5B0030BBA6 /* IntroChallengeViewController.swift */,
+				965109541C23C3B4002B2B10 /* ChallengeOptionsViewController.swift */,
+				965109561C23C730002B2B10 /* ChallengeRandomViewController.swift */,
+				965109581C23C827002B2B10 /* ChallengeProfileViewController.swift */,
 			);
 			name = ChallengeVC;
 			sourceTree = "<group>";
@@ -521,6 +532,7 @@
 		BAB91B951BA271DB0033DCA6 = {
 			isa = PBXGroup;
 			children = (
+				965109521C235317002B2B10 /* Launch Screen.storyboard */,
 				BA512E8A1BA5C054008AE31B /* Default-568h@2x.png */,
 				BAB91BD51BA273010033DCA6 /* Frameworks */,
 				BAB91BA01BA271DB0033DCA6 /* SalesGame_swift */,
@@ -810,6 +822,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965109531C235317002B2B10 /* Launch Screen.storyboard in Resources */,
 				BA512E911BA5EA23008AE31B /* Main_ipad.storyboard in Resources */,
 				969A74521C01075300FCBD26 /* Main.storyboard in Resources */,
 				BA512E8B1BA5C054008AE31B /* Default-568h@2x.png in Resources */,
@@ -831,6 +844,7 @@
 				96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */,
 				BA512E811BA59E43008AE31B /* IQKeyboardManager.m in Sources */,
 				96DC25FE1BF1C8C200D3F0CC /* BadgeTableViewCell.swift in Sources */,
+				965109591C23C827002B2B10 /* ChallengeProfileViewController.swift in Sources */,
 				96D71D4A1BFA775900675A15 /* ViewController.swift in Sources */,
 				969A7CA91C06643000FCBD26 /* BackTableVC.swift in Sources */,
 				967396A21C0EB42300F392E8 /* TopRatedViewController.swift in Sources */,
@@ -854,6 +868,7 @@
 				963D3D841C14AE5700486747 /* CategoryCollectionViewController.swift in Sources */,
 				BAEA6E461BA3425400558565 /* SignUpViewController.swift in Sources */,
 				BAEA6E4C1BA3523B00558565 /* QuestionViewController.swift in Sources */,
+				965109551C23C3B4002B2B10 /* ChallengeOptionsViewController.swift in Sources */,
 				BA512E841BA59E43008AE31B /* IQTextView.m in Sources */,
 				9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */,
 				964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */,
@@ -890,6 +905,7 @@
 				969A7CAC1C070C9700FCBD26 /* MessageViewController.swift in Sources */,
 				96B0FA091BFABC5100371660 /* FriendViewController.swift in Sources */,
 				96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */,
+				965109571C23C730002B2B10 /* ChallengeRandomViewController.swift in Sources */,
 				96C4F3D01BF34897009E73CD /* ChallengeFaceOffViewController.swift in Sources */,
 				96C4F3D51BF45459009E73CD /* TotalBadgesViewController.swift in Sources */,
 			);

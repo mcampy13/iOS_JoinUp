@@ -10,6 +10,7 @@ import UIKit
 
 class IntroChallengeViewController: UIViewController, UINavigationControllerDelegate {
 
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,18 @@ class IntroChallengeViewController: UIViewController, UINavigationControllerDele
         
         
     }
-
+    
+    
+    // MARK: Navigation
+    
+    
+    
+    // MARK: Actions
+    
+    @IBAction func cancelButtonTap(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     
 }

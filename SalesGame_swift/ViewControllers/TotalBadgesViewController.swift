@@ -11,6 +11,7 @@ import UIKit
 class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tblBadges: UITableView!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var dataArray:AnyObject?
     var finalArray : NSMutableArray = []
@@ -22,6 +23,10 @@ class TotalBadgesViewController: UIViewController, UITableViewDataSource, UITabl
         
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        menuButton.target = self.revealViewController()
+        menuButton.action = Selector("revealToggle:")
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         let query = PFQuery(className: "Badges")
         query.addAscendingOrder("createdAt")
