@@ -12,7 +12,9 @@ class SubCategoryInfoViewController: UIViewController, UINavigationControllerDel
 
     @IBOutlet weak var subCategoryImg: UIImageView!
     
+    var categoryPFObj: PFObject?
     var subCategoryPFObj: PFObject?
+    var game: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,30 @@ class SubCategoryInfoViewController: UIViewController, UINavigationControllerDel
     
     //==========================================================================================================================
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "seguePlay" {
+         
+            let navSelectSubCategoryVC = segue.destinationViewController as! UINavigationController
+            let selectSubCategoryVC = storyboard?.instantiateViewControllerWithIdentifier("SelectSubCategoryViewController") as! SelectSubCategoryViewController
+         
+            let categoryObj: PFObject = self.categoryPFObj!
+            let subObj: PFObject = self.subCategoryPFObj!
+            
+            selectSubCategoryVC.title = subObj["subCategoryName"] as? String
+            selectSubCategoryVC.categoryPFObj = categoryObj
+            selectSubCategoryVC.subCategoryPFObj = subObj
+            
+            game!["subCategory"] = subObj
+            
+            selectSubCategoryVC.game = self.game
+            
+            print("categoryObj: \(categoryObj)")
+            print("subObj: \(subObj)")
+            
+            navSelectSubCategoryVC.pushViewController(selectSubCategoryVC, animated: true)
+            
+        }
+    }
     
     
 }

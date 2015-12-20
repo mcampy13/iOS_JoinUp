@@ -1069,7 +1069,7 @@
                                 <rect key="frame" x="100" y="462" width="120" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Stats"/>
+                                <state key="normal" title="Quick Stats"/>
                                 <connections>
                                     <segue destination="vNl-Ik-0qd" kind="push" identifier="segueChallengeProfile" id="fbg-KP-ko2"/>
                                 </connections>
@@ -1088,7 +1088,7 @@
                                 <color key="textColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check out your challenge stats like your awards, history and recent oponents here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yTa-GN-qq0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a glimpse at your challenge stats with Quick Stats.  See your awards, history and recent oponents" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yTa-GN-qq0">
                                 <rect key="frame" x="20" y="376" width="280" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1110,7 +1110,7 @@
             </objects>
             <point key="canvasLocation" x="1903" y="3945"/>
         </scene>
-        <!--Challenge Profile View Controller-->
+        <!--Quick Stats-->
         <scene sceneID="EUD-Nh-mrs">
             <objects>
                 <viewController id="vNl-Ik-0qd" customClass="ChallengeProfileViewController" customModule="SalesGame_swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -1124,14 +1124,28 @@
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="y8w-fa-MX9" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="103" width="320" height="200"/>
+                                <rect key="frame" x="0.0" y="117" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last 5 Game Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mO3-Wu-Z6N">
+                                <rect key="frame" x="20" y="69" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponents" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WJC-cN-iKt">
+                                <rect key="frame" x="20" y="325" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GdY-Wu-lXz"/>
+                    <navigationItem key="navigationItem" title="Quick Stats" id="GdY-Wu-lXz"/>
                     <connections>
                         <outlet property="lineChartView" destination="y8w-fa-MX9" id="A4j-M6-XVz"/>
                     </connections>
@@ -1172,7 +1186,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="50" id="BcM-Tz-XQA" customClass="SearchFriendTableViewCell" customModule="SalesGame_swift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BcM-Tz-XQA" id="Bpr-xE-Nj2">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
@@ -2786,7 +2800,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQa-lx-BD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3647" y="1699"/>
+            <point key="canvasLocation" x="3047" y="1645"/>
         </scene>
         <!--Rankings-->
         <scene sceneID="loS-qR-6lm">
@@ -2890,7 +2904,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvK-F4-oMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4616" y="1578"/>
+            <point key="canvasLocation" x="4084" y="1645"/>
         </scene>
         <!--Sub Category Info View Controller-->
         <scene sceneID="rY7-Cr-AjN">
@@ -2910,9 +2924,22 @@
                                 </connections>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8ts-QT-VYN">
-                                <rect key="frame" x="60" y="110" width="200" height="150"/>
+                                <rect key="frame" x="60" y="87" width="200" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NA8-nv-CSb">
+                                <rect key="frame" x="51" y="317" width="219" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3hT-Bp-lbn" kind="modal" identifier="seguePlay" id="Xrc-xe-47y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -2923,7 +2950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nd-cb-XeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3115" y="2489"/>
+            <point key="canvasLocation" x="3552" y="1645"/>
         </scene>
         <!--Select Sub Category View Controller-->
         <scene sceneID="RTo-yl-SGp">
@@ -3974,7 +4001,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvD-Cq-pwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1455" y="-478"/>
+            <point key="canvasLocation" x="1479" y="-476"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="ker-4T-jmA">
@@ -4198,7 +4225,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="fr5-q6-nGf" customClass="CategoryCollectionViewCell" customModule="SalesGame_swift" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="74" width="70" height="75"/>
+                                        <rect key="frame" x="5" y="10" width="70" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="70" height="75"/>
@@ -4401,24 +4428,6 @@
             <point key="canvasLocation" x="427" y="1861"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="kts-yN-F7e">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cdD-YE-lgs" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NFf-9J-G9A">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1EU-PR-pf1" kind="relationship" relationship="rootViewController" id="Fhy-HH-t9v"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1YZ-xV-MB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3143" y="1699"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="iUw-43-Tpd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sgE-MT-zqx" sceneMemberID="viewController">
@@ -4595,12 +4604,12 @@
         <image name="yellow submitQ game app icon" width="133" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NnT-Vv-SEY"/>
         <segue reference="CWh-1V-Hbz"/>
+        <segue reference="NnT-Vv-SEY"/>
         <segue reference="nel-rq-8j5"/>
         <segue reference="QYh-x9-lTN"/>
+        <segue reference="Xrc-xe-47y"/>
         <segue reference="uap-gX-XgE"/>
-        <segue reference="Fhy-HH-t9v"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

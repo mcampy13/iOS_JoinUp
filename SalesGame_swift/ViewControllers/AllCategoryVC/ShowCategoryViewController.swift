@@ -26,7 +26,6 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
 
     }
-
     
     //==========================================================================================================================
     
@@ -112,6 +111,8 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
             selectSubCategoryVC.title = obj.valueForKey("subCategoryName") as? String
             selectSubCategoryVC.strMainCategory = parentObj.objectId as String!
             selectSubCategoryVC.strSubCategory = obj.objectId as String!
+            selectSubCategoryVC.categoryPFObj = parentObj
+            selectSubCategoryVC.subCategoryPFObj = obj
             selectSubCategoryVC.game = self.game
             
             let categoryFile = parentObj.valueForKey("categoryFile") as? PFFile
@@ -131,6 +132,7 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
             
             searchSubCategoryVC.strMainCategory = self.strMainCategory
             searchSubCategoryVC.mainCategoryPF = self.PFCategory
+            searchSubCategoryVC.game = self.game
             
             //print("segue id == segueSearchSubCategory strMainCategory: \(self.strMainCategory)")
             //print("segue id == segueSearchSubCategory PFCategory: \(self.PFCategory)")

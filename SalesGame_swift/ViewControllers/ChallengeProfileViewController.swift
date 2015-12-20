@@ -16,6 +16,7 @@ class ChallengeProfileViewController: UIViewController, UINavigationControllerDe
     var playerGames: NSMutableArray = NSMutableArray()
     var recentScores: NSMutableArray = NSMutableArray()
     var games: [String]!
+    var opponents: NSMutableArray = NSMutableArray()
     
     
     override func viewDidLoad() {
@@ -25,7 +26,7 @@ class ChallengeProfileViewController: UIViewController, UINavigationControllerDe
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         getTotalGamesPlayed()
-        
+        getOpponents()
     }
 
     /*
@@ -91,7 +92,49 @@ class ChallengeProfileViewController: UIViewController, UINavigationControllerDe
         self.setChart(games, values: scores as! [Double])
         
     } // END of getScores()
-
-
+    
+    
+    func getOpponents() {
+        let query = PFQuery(className: "Challenge")
+        query.whereKey("challenger", equalTo: PFUser.currentUser()!)
+        query.limit = 10
+        query.findObjectsInBackgroundWithBlock { (challenges, error) -> Void in
+            if error == nil {
+                let temp: NSArray = challenges! as NSArray
+                
+                self.opponents = temp.mutableCopy() as! NSMutableArray
+                
+            } else {
+                print("Error in queryObjectsInBackground for Challenge: \(error)")
+            }
+        }
+    }
+    
+    
+    //==========================================================================================================================
+    
+    // MARK: TableDatasource & Delegate
+    
+    //==========================================================================================================================
+    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = self.opponentTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+//        
+//        let obj: PFObject = self.opponents.objectAtIndex(indexPath.row) as! PFObject
+//        cell.textLabel?.text = "opponent"
+//        //cell.username?.text = obj["opponent"]?.valueForKey("username") as? String
+//        
+//        let opponentFile = obj["profilePic"] as? PFFile
+//        opponentFile?.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
+//            if error == nil {
+//                if let imageData = imageData {
+//                    cell.opponentImage.image = UIImage(data: imageData)
+//                }
+//            } else{
+//                print("Error in opponentFile: \(error)")
+//            }
+//        }
+//        return cell
+//    }
     
 }

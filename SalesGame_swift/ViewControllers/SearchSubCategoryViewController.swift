@@ -23,6 +23,7 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     var strMainCategory: String!
     var mainCategoryPF: PFObject?
     var subCategoryPFObj: PFObject?
+    var game: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +61,12 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
                 let indexPath = self.tblView.indexPathForCell(selectedSubCategoryCell)!
                 
                 let selectedSubCategory: PFObject = (self.holder as! Array)[indexPath.row]
+                let selectedCategory: PFObject = (self.parent as! Array)[indexPath.row]
+                
                 self.subCategoryPFObj = selectedSubCategory
                 subCategoryInfoDestinationVC?.subCategoryPFObj = selectedSubCategory
+                subCategoryInfoDestinationVC?.categoryPFObj = selectedCategory
+                subCategoryInfoDestinationVC?.game = self.game
             }
         }
     }

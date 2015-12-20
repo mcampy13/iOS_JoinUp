@@ -29,6 +29,8 @@ class SelectSubCategoryViewController: UIViewController {
     var PFSubCategory: PFObject?
     var game: PFObject!
     
+    var subCategoryPFObj: PFObject!
+    var categoryPFObj: PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,8 @@ class SelectSubCategoryViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        //print("categoryPFObj: \(self.categoryPFObj)")
+        //print("subCategoryPFObj: \(self.subCategoryPFObj)")
         queryCategory()
         querySubCategory()
         
@@ -44,7 +48,7 @@ class SelectSubCategoryViewController: UIViewController {
     
     func queryCategory() {
         let queryCategory = PFQuery(className: "Category")
-        queryCategory.whereKey("objectId", equalTo: strMainCategory)
+        queryCategory.whereKey("objectId", equalTo: self.categoryPFObj!.objectId!)
         queryCategory.findObjectsInBackgroundWithBlock{ (success, error) -> Void in
             if error == nil {
                 self.category = success
@@ -66,7 +70,7 @@ class SelectSubCategoryViewController: UIViewController {
     
     func querySubCategory(){
         let query = PFQuery(className: "SubCategory")
-        query.whereKey("objectId", equalTo: strSubCategory)
+        query.whereKey("objectId", equalTo: self.subCategoryPFObj!.objectId!)
         query.findObjectsInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
                 self.subCategory = success
@@ -130,14 +134,6 @@ class SelectSubCategoryViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-  
-//    @IBAction func unwindFromSubCategory(sender: UIStoryboardSegue) {
-//        if let sourceViewController = sender.sourceViewController as? SubCategoryViewController, fromCategory = sourceViewController.strMainCategory, fromSubCategory = sourceViewController.stringSubCategory, game = sourceViewController.game{
-//            self.strMainCategory = fromCategory
-//            self.strSubCategory = fromSubCategory
-//            self.game = game
-//        }
-//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueQuestion" {
