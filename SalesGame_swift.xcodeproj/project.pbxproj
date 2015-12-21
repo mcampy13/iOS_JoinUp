@@ -43,6 +43,7 @@
 		9673969F1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */; };
 		967396A21C0EB42300F392E8 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967396A11C0EB42300F392E8 /* TopRatedViewController.swift */; };
 		967396A41C0EB44100F392E8 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967396A31C0EB44100F392E8 /* RecentViewController.swift */; };
+		9676C74B1C279D8700E41CF8 /* CheckAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676C74A1C279D8700E41CF8 /* CheckAnswersViewController.swift */; };
 		969A74521C01075300FCBD26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 969A74501C01075300FCBD26 /* Main.storyboard */; };
 		969A7CA11C062A6000FCBD26 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CA01C062A6000FCBD26 /* SWRevealViewController.m */; };
 		969A7CA31C0630A500FCBD26 /* SliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CA21C0630A500FCBD26 /* SliderMenuViewController.swift */; };
@@ -204,6 +205,7 @@
 		9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryInfoViewController.swift; sourceTree = "<group>"; };
 		967396A11C0EB42300F392E8 /* TopRatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		967396A31C0EB44100F392E8 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
+		9676C74A1C279D8700E41CF8 /* CheckAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckAnswersViewController.swift; sourceTree = "<group>"; };
 		969A74511C01075300FCBD26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		969A7C9F1C062A6000FCBD26 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		969A7CA01C062A6000FCBD26 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				96A2A3F81BE341F80021E32C /* SummaryViewController.swift */,
+				9676C74A1C279D8700E41CF8 /* CheckAnswersViewController.swift */,
 			);
 			name = SummaryVC;
 			sourceTree = "<group>";
@@ -950,6 +953,7 @@
 				966D66A41C24603F00BC58CB /* IQUIViewController+Additions.swift in Sources */,
 				969A7CA91C06643000FCBD26 /* BackTableVC.swift in Sources */,
 				967396A21C0EB42300F392E8 /* TopRatedViewController.swift in Sources */,
+				9676C74B1C279D8700E41CF8 /* CheckAnswersViewController.swift in Sources */,
 				96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */,
 				963D3D8E1C19418A00486747 /* RankingsTableViewCell.swift in Sources */,
 				963D3D821C14AD0200486747 /* ShowCategoryViewController.swift in Sources */,

@@ -114,7 +114,6 @@ class SubCategoryViewController: UIViewController, UINavigationControllerDelegat
         } else if segue.identifier == "gotoSearchSubCategory" {
             let searchSubCategoryVC = segue.destinationViewController as? SearchSubCategoryViewController
                 
-            searchSubCategoryVC?.strMainCategory = self.strMainCategory
             searchSubCategoryVC?.mainCategoryPF = self.PFCategory
             
 //            print("segue id == gotoSearchSubCategory strMainCategory: \(self.strMainCategory)")

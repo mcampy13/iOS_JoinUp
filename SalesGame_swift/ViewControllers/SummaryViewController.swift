@@ -15,11 +15,6 @@ class SummaryViewController: UIViewController, UINavigationControllerDelegate {
     var arrOtherAns : NSMutableArray = []
     
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var leaderBoardButton: UIBarButtonItem!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
-    @IBOutlet weak var reviewCorrectButton: UIButton!
-    @IBOutlet weak var reviewIncorrectButton: UIButton!
     
     @IBOutlet weak var playerImg: UIImageView!
     @IBOutlet weak var labelUsername: UILabel!
@@ -88,23 +83,27 @@ class SummaryViewController: UIViewController, UINavigationControllerDelegate {
     } // END of displayUserImg()
 
     
+    //==========================================================================================================================
+    
+    // MARK: Navigation
+    
+    //==========================================================================================================================
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueCheckAnswers" {
+            let checkAnswersVC = segue.destinationViewController as! CheckAnswersViewController
+            checkAnswersVC.wrongAnswers = self.arrWrongQuestion
+            checkAnswersVC.correctAnswers = self.arrOtherAns
+        }
+        
+    }
+    
 
     //==========================================================================================================================
     
     // MARK: Actions
     
     //==========================================================================================================================
-    
-    @IBAction func backButton(sender: AnyObject) {
-        self.navigationController!.popViewControllerAnimated(true)
-    }
-    
-    
-    @IBAction func leaderBoardButton(sender: AnyObject) {
-        let highscoreViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HighScoreViewController") as! HighScoreViewController
-        self.navigationController?.pushViewController(highscoreViewController, animated: true)
-    }
-    
     
     @IBAction func doneButton(sender: AnyObject) {
         let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController

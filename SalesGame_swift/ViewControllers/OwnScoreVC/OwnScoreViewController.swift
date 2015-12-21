@@ -195,7 +195,7 @@ class OwnScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             summaryVC.arrOtherAns = self.arrOtherAns
             summaryVC.game = self.game
             
-            navigationItem.title = "Back"
+            //navigationItem.title = "Back"
         }
         else if doneButton === sender {
             print("Going to HomeViewController from OwnScore prepareForSegue")

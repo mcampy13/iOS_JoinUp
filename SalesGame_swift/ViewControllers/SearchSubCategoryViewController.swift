@@ -20,7 +20,6 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     var holder: AnyObject?
     var parent: AnyObject?
     
-    var strMainCategory: String!
     var mainCategoryPF: PFObject?
     var subCategoryPFObj: PFObject?
     var game: PFObject?
@@ -28,9 +27,6 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //print("SearchSubCategory viewDidLoad strMainCategory: \(self.strMainCategory)")
-        //print("SearchSubCategory viewDidLoad mainCategoryPF: \(self.mainCategoryPF)")
-
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         

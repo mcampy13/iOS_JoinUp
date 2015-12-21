@@ -130,7 +130,6 @@ class ShowCategoryViewController: UIViewController, UICollectionViewDelegate, UI
         } else if segue.identifier == "segueSearchSubCategory" {
             let searchSubCategoryVC = segue.destinationViewController as! SearchSubCategoryViewController
             
-            searchSubCategoryVC.strMainCategory = self.strMainCategory
             searchSubCategoryVC.mainCategoryPF = self.PFCategory
             searchSubCategoryVC.game = self.game
             
