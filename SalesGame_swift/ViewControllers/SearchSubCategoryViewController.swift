@@ -75,8 +75,7 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
         let query = PFQuery(className: "SubCategory")
         let queryParent = PFQuery(className: "Category")
         queryParent.limit = 1000
-        queryParent.whereKey("objectId", equalTo: strMainCategory)
-//        queryParent.whereKey("objectId", equalTo: self.mainCategoryPF!.objectId!)
+        queryParent.whereKey("objectId", equalTo: self.mainCategoryPF!.objectId!)
         queryParent.findObjectsInBackgroundWithBlock{ (parentObjs, error) -> Void in
             if error == nil {
                 self.parent = parentObjs
