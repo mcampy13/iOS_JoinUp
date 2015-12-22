@@ -494,29 +494,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Zv0-2D-0Cb">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem image="Home-32" id="q6E-hQ-qp0">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="homeButton:" destination="Enz-H4-I7g" id="O8k-tZ-j3k"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wje-ko-dcL"/>
-                                    <barButtonItem title="Back" id="yJ5-a5-TGY">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="backButton:" destination="Enz-H4-I7g" id="5Cr-Ys-TBu"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Enz-H4-I7g" id="5pP-Ua-VUm"/>
-                                </connections>
-                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" id="n3I-Tb-bUh">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -571,29 +548,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8tD-f8-VsE">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem image="Home-32" id="Vrd-hB-iD9">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="homeButton:" destination="8Oj-BT-hqR" id="FK7-6O-7Zj"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cqZ-mG-2k3"/>
-                                    <barButtonItem title="Back" id="YZ1-Id-IaD">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="backButton:" destination="8Oj-BT-hqR" id="d2I-12-pkv"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="8Oj-BT-hqR" id="mYs-bJ-bxi"/>
-                                </connections>
-                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" id="DZP-xw-CZy">
                                 <rect key="frame" x="0.0" y="102" width="320" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1186,7 +1140,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="50" id="BcM-Tz-XQA" customClass="SearchFriendTableViewCell" customModule="SalesGame_swift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BcM-Tz-XQA" id="Bpr-xE-Nj2">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
@@ -2544,7 +2498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAc-cP-ovf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4935" y="845"/>
+            <point key="canvasLocation" x="5381" y="845"/>
         </scene>
         <!--Messages-->
         <scene sceneID="KDc-kX-aC7">
@@ -2759,7 +2713,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="YmV-ZI-C7y" kind="push" identifier="segueSubCategoryInfo" id="3xi-b0-ITn"/>
+                                            <segue destination="3hT-Bp-lbn" kind="modal" identifier="segueStartGame" id="D96-G3-6je"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2904,53 +2858,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvK-F4-oMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4084" y="1645"/>
-        </scene>
-        <!--Sub Category Info View Controller-->
-        <scene sceneID="rY7-Cr-AjN">
-            <objects>
-                <viewController id="YmV-ZI-C7y" customClass="SubCategoryInfoViewController" customModule="SalesGame_swift" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cba-Pu-PnD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="J34-JO-x3W">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items/>
-                                <color key="barTintColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="YmV-ZI-C7y" id="Ckc-XV-eQl"/>
-                                </connections>
-                            </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8ts-QT-VYN">
-                                <rect key="frame" x="60" y="87" width="200" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NA8-nv-CSb">
-                                <rect key="frame" x="51" y="317" width="219" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="3hT-Bp-lbn" kind="modal" identifier="seguePlay" id="Xrc-xe-47y"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="c9c-rl-pOM"/>
-                    <connections>
-                        <outlet property="subCategoryImg" destination="8ts-QT-VYN" id="mvD-qX-iOB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nd-cb-XeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3552" y="1645"/>
+            <point key="canvasLocation" x="4414" y="1639"/>
         </scene>
         <!--Select Sub Category View Controller-->
         <scene sceneID="RTo-yl-SGp">
@@ -3062,7 +2970,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAl-l4-fn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4084" y="845"/>
+            <point key="canvasLocation" x="4414" y="845"/>
         </scene>
         <!--Sub-Categories-->
         <scene sceneID="woC-z5-Mlg">
@@ -3281,7 +3189,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkp-ve-IAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Vna-1P-F5z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5524" y="845"/>
+            <point key="canvasLocation" x="5966" y="845"/>
         </scene>
         <!--Game Summary-->
         <scene sceneID="eWb-qW-aTd">
@@ -3383,7 +3291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYt-JG-8Ye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6040" y="845"/>
+            <point key="canvasLocation" x="6546" y="845"/>
         </scene>
         <!--Check Answers View Controller-->
         <scene sceneID="pmW-bS-ZDj">
@@ -3435,7 +3343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFd-Sc-t4Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6556" y="845"/>
+            <point key="canvasLocation" x="7062" y="845"/>
         </scene>
         <!--My Badges-->
         <scene sceneID="aKQ-9Z-PcI">
@@ -3894,7 +3802,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="zKS-Jw-vgB">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zKS-Jw-vgB" id="KCL-E5-qrd">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
@@ -4234,7 +4142,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="fr5-q6-nGf" customClass="CategoryCollectionViewCell" customModule="SalesGame_swift" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="10" width="70" height="75"/>
+                                        <rect key="frame" x="5" y="74" width="70" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="70" height="75"/>
@@ -4416,7 +4324,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTc-px-qli" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4499" y="551"/>
+            <point key="canvasLocation" x="4919" y="551"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e8V-AW-c8v">
@@ -4549,7 +4457,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84z-Xf-IYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3552" y="845"/>
+            <point key="canvasLocation" x="3760" y="845"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hJm-YY-34n">
@@ -4610,12 +4518,12 @@
         <image name="yellow submitQ game app icon" width="133" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CWh-1V-Hbz"/>
         <segue reference="NnT-Vv-SEY"/>
+        <segue reference="CWh-1V-Hbz"/>
         <segue reference="nel-rq-8j5"/>
         <segue reference="QYh-x9-lTN"/>
-        <segue reference="Xrc-xe-47y"/>
-        <segue reference="uap-gX-XgE"/>
+        <segue reference="D96-G3-6je"/>
+        <segue reference="LwS-Z3-gu7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

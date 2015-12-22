@@ -40,7 +40,6 @@
 		966D66AE1C24603F00BC58CB /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D669D1C24603F00BC58CB /* IQUIView+IQKeyboardToolbar.swift */; };
 		966D66AF1C24603F00BC58CB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 966D669F1C24603F00BC58CB /* Info.plist */; };
 		966D66B01C24603F00BC58CB /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 966D66A01C24603F00BC58CB /* IQKeyboardManager.bundle */; };
-		9673969F1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */; };
 		967396A21C0EB42300F392E8 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967396A11C0EB42300F392E8 /* TopRatedViewController.swift */; };
 		967396A41C0EB44100F392E8 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967396A31C0EB44100F392E8 /* RecentViewController.swift */; };
 		9676C74B1C279D8700E41CF8 /* CheckAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676C74A1C279D8700E41CF8 /* CheckAnswersViewController.swift */; };
@@ -192,7 +191,6 @@
 		966D669D1C24603F00BC58CB /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		966D669F1C24603F00BC58CB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966D66A01C24603F00BC58CB /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
-		9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryInfoViewController.swift; sourceTree = "<group>"; };
 		967396A11C0EB42300F392E8 /* TopRatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		967396A31C0EB44100F392E8 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		9676C74A1C279D8700E41CF8 /* CheckAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckAnswersViewController.swift; sourceTree = "<group>"; };
@@ -330,7 +328,6 @@
 			children = (
 				96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */,
 				96D71D4B1BFAAF3800675A15 /* SearchSubCategoryViewController.swift */,
-				9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */,
 			);
 			name = SubCategoryVC;
 			sourceTree = "<group>";
@@ -952,7 +949,6 @@
 				96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */,
 				BA512E851BA59E43008AE31B /* IQTitleBarButtonItem.m in Sources */,
 				BA512E881BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m in Sources */,
-				9673969F1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift in Sources */,
 				964EF50A1C0984D700F2B07C /* SearchFriendTableViewController.swift in Sources */,
 				96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */,
 				BAEA6E4A1BA34B8000558565 /* AllCategoryViewController.swift in Sources */,
