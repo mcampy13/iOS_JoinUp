@@ -8,10 +8,12 @@
 
 import UIKit
 
-class CheckAnswersViewController: UIViewController, UINavigationControllerDelegate {
+class CheckAnswersViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var homeButton: UIButton!
+    
+    
     
     var gameArray: NSMutableArray = NSMutableArray()
     var wrongAnswers: NSMutableArray = NSMutableArray()
@@ -32,7 +34,7 @@ class CheckAnswersViewController: UIViewController, UINavigationControllerDelega
     func fetchAllObjectFromLocalDatastore() {
         let queryGameFromLocal = PFQuery(className: "Game")
         queryGameFromLocal.fromLocalDatastore()
-        queryGameFromLocal.whereKey("player", equalTo: PFUser.currentUser()!.objectId!)
+        queryGameFromLocal.whereKey("player", equalTo: PFUser.currentUser()!)
         queryGameFromLocal.addAscendingOrder("createdAt")
         queryGameFromLocal.findObjectsInBackgroundWithBlock{ (objects, error) -> Void in
             if error == nil {
@@ -51,10 +53,12 @@ class CheckAnswersViewController: UIViewController, UINavigationControllerDelega
         //PFObject.unpinAllObjectsInBackgroundWithBlock(nil)
         
         let query = PFQuery(className: "Game")
-        query.whereKey("player", equalTo: PFUser.currentUser()!.objectId!)
+        query.whereKey("player", equalTo: PFUser.currentUser()!)
         query.addAscendingOrder("createdAt")
+        query.limit = 5
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
+                print("fetchAll objects: \(objects)")
                 PFObject.pinAllInBackground(objects, block: nil)
                 
                 self.fetchAllObjectFromLocalDatastore()
@@ -73,8 +77,33 @@ class CheckAnswersViewController: UIViewController, UINavigationControllerDelega
     
     //==========================================================================================================================
   
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.gameArray.count == 0 {
+            return 0
+        } else {
+            return self.gameArray.count
+        }
+    }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tblView.dequeueReusableCellWithIdentifier("cell") as? ReviewTableViewCell
+        
+        let obj: PFObject = self.gameArray.objectAtIndex(indexPath.row) as! PFObject
+                
+        return cell!
+        
+    }
     
+    //==========================================================================================================================
+    
+    // MARK: Actions
+    
+    //==========================================================================================================================
+
+    @IBAction func homeButtonTapped(sender: AnyObject) {
+        let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as? HomeViewController
+        self.navigationController?.pushViewController(homeVC!, animated: true)
+    }
 
     
 

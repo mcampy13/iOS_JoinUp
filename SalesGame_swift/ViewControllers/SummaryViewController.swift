@@ -20,6 +20,7 @@ class SummaryViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var labelUsername: UILabel!
     @IBOutlet weak var labelMessageToUser: UILabel!
     
+    @IBOutlet weak var homeButton: UIButton!
     
     var game: PFObject!
     
@@ -105,11 +106,10 @@ class SummaryViewController: UIViewController, UINavigationControllerDelegate {
     
     //==========================================================================================================================
     
-    @IBAction func doneButton(sender: AnyObject) {
+    @IBAction func homeButtonTapped(sender: AnyObject) {
         let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(homeVC, animated: true)
     }
-    
     
     @IBAction func reviewCorrectButton(sender: AnyObject) {
         kTimeForWrongTime = kTimeForWrongTime + 1

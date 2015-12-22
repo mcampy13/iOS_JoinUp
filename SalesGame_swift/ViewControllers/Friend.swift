@@ -2,34 +2,16 @@
 //  Friend.swift
 //  SalesGame_swift
 //
-//  Created by Robert Rock on 11/28/15.
+//  Created by Robert Rock on 12/21/15.
 //  Copyright © 2015 Akshay. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class Friend {
-    
-    // MARK - Properties
-    
     var name: String
-    var username: String
-    var level: Int
-    var photo: UIImage?
     
-    
-    // MARK - Initialization
-    
-    init?(name: String, username: String, level: Int, photo: UIImage){
+    init(name: String) {
         self.name = name
-        self.username = username
-        self.level = level
-        self.photo = photo
-        
-        if name.isEmpty || username.isEmpty || level < 0 {
-            return nil
-        }
-        
     }
-    
 }

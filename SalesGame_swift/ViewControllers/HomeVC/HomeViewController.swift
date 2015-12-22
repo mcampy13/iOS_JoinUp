@@ -181,6 +181,10 @@ class HomeViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBAction func reviewButtonTapped(sender: AnyObject) {
+        let checkAnswersVC = self.storyboard?.instantiateViewControllerWithIdentifier("CheckAnswersViewController") as? CheckAnswersViewController
+        self.navigationController?.pushViewController(checkAnswersVC!, animated: true)
+    }
     
     @IBAction func unwindToHomeFromSettings(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? SettingViewController, email = sourceViewController.email {
@@ -204,10 +208,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindHomeFromOwnScore(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? OwnScoreViewController {
-            print("Going to \(sourceViewController)")
-        }
-    }
+    
 
 }

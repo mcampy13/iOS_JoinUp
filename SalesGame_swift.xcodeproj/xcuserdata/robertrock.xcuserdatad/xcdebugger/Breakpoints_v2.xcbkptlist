@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SalesGame_swift/ViewControllers/SearchSubCategoryViewController.swift"
-            timestampString = "472441910.491277"
+            timestampString = "472442709.257686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "querySubCategories()"
             landmarkType = "5">
          </BreakpointContent>
