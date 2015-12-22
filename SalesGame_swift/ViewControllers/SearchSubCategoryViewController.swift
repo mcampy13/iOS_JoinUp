@@ -50,6 +50,7 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     //==========================================================================================================================
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+<<<<<<< HEAD
         if segue.identifier == "segueSubCategoryInfo" {
             let subCategoryInfoDestinationVC = segue.destinationViewController as? SubCategoryInfoViewController
             
@@ -68,6 +69,44 @@ class SearchSubCategoryViewController: UIViewController, UINavigationControllerD
     }
     
     func querySubCategories(){
+=======
+        if segue.identifier == "segueStartGame" {
+            if let selectedSubCategoryCell = sender as? UITableViewCell {
+                let indexPath = self.tblView.indexPathForCell(selectedSubCategoryCell)!
+                
+                let navSelectSubCategoryVC = segue.destinationViewController as! UINavigationController
+                let selectSubCategoryVC = storyboard?.instantiateViewControllerWithIdentifier("SelectSubCategoryViewController") as! SelectSubCategoryViewController
+                
+                
+                let selectedSubCategory: PFObject = (self.holder as! Array)[indexPath.row]
+                let selectedCategory: PFObject = (self.parent as! Array)[indexPath.row]
+                
+                game!["subCategory"] = selectedSubCategory
+                
+                selectSubCategoryVC.title = selectedSubCategory["subCategoryName"] as? String
+                selectSubCategoryVC.categoryPFObj = selectedCategory
+                selectSubCategoryVC.subCategoryPFObj = selectedSubCategory
+                selectSubCategoryVC.game = self.game
+                
+                let categoryFile = selectedCategory["categoryFile"] as? PFFile
+                categoryFile?.getDataInBackgroundWithBlock { (imageData, error) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            selectSubCategoryVC.subCategoryImageView?.image = UIImage(data: imageData)
+                        }
+                    } else {
+                        print("Error in categoryFile getDataInBackground: \(error)")
+                    }
+                }
+                navSelectSubCategoryVC.pushViewController(selectSubCategoryVC, animated: true)
+            }
+        }
+        
+    } // END of prepareForSegue()
+    
+    
+    func querySubCategories() {
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
         let query = PFQuery(className: "SubCategory")
         let queryParent = PFQuery(className: "Category")
         queryParent.limit = 1000

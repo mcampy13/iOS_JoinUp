@@ -2,11 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
+<<<<<<< HEAD
       "filename" : "white home game app icon.png",
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+<<<<<<< HEAD
+=======
+      "filename" : "white home game app icon.png",
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
       "scale" : "2x"
     },
     {

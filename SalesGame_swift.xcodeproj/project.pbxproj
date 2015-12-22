@@ -15,9 +15,12 @@
 		963D3D861C15039D00486747 /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D3D851C15039D00486747 /* SubCategoryCollectionViewCell.swift */; };
 		963D3D8C1C193DB600486747 /* RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D3D8B1C193DB600486747 /* RankingsViewController.swift */; };
 		963D3D8E1C19418A00486747 /* RankingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D3D8D1C19418A00486747 /* RankingsTableViewCell.swift */; };
+<<<<<<< HEAD
 		964EF50A1C0984D700F2B07C /* SearchFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */; };
 		964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */; };
 		964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EF50D1C0A7FED00F2B07C /* Friend.swift */; };
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		9651094F1C1E364B002B2B10 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9651094E1C1E364B002B2B10 /* Category.swift */; };
 		965109531C235317002B2B10 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965109521C235317002B2B10 /* Launch Screen.storyboard */; };
 		965109551C23C3B4002B2B10 /* ChallengeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965109541C23C3B4002B2B10 /* ChallengeOptionsViewController.swift */; };
@@ -40,7 +43,10 @@
 		966D66AE1C24603F00BC58CB /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D669D1C24603F00BC58CB /* IQUIView+IQKeyboardToolbar.swift */; };
 		966D66AF1C24603F00BC58CB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 966D669F1C24603F00BC58CB /* Info.plist */; };
 		966D66B01C24603F00BC58CB /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 966D66A01C24603F00BC58CB /* IQKeyboardManager.bundle */; };
+<<<<<<< HEAD
 		9673969F1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */; };
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		967396A21C0EB42300F392E8 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967396A11C0EB42300F392E8 /* TopRatedViewController.swift */; };
 		967396A41C0EB44100F392E8 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967396A31C0EB44100F392E8 /* RecentViewController.swift */; };
 		9676C74B1C279D8700E41CF8 /* CheckAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676C74A1C279D8700E41CF8 /* CheckAnswersViewController.swift */; };
@@ -50,7 +56,10 @@
 		969A7CA91C06643000FCBD26 /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CA81C06643000FCBD26 /* BackTableVC.swift */; };
 		969A7CAC1C070C9700FCBD26 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A7CAB1C070C9700FCBD26 /* MessageViewController.swift */; };
 		96A2A3F91BE341F80021E32C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A3F81BE341F80021E32C /* SummaryViewController.swift */; };
+<<<<<<< HEAD
 		96B0FA091BFABC5100371660 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA081BFABC5100371660 /* FriendViewController.swift */; };
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		96B0FA0C1BFC78E300371660 /* GameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA0B1BFC78E300371660 /* GameHistoryViewController.swift */; };
 		96B0FA0E1BFC79AC00371660 /* GameHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */; };
 		96B5765F1C0EB82F0020CB3A /* SubmitAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5765E1C0EB82F0020CB3A /* SubmitAnswersViewController.swift */; };
@@ -73,7 +82,14 @@
 		96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46131BD62088006B97F2 /* HelpViewController.swift */; };
 		96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46191BD658C0006B97F2 /* ProfileViewController.swift */; };
 		96DD46231BD71402006B97F2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD46221BD71402006B97F2 /* EditProfileViewController.swift */; };
+<<<<<<< HEAD
 		96FAD63B1C0AA5E100C1221C /* testTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD63A1C0AA5E100C1221C /* testTableViewCell.swift */; };
+=======
+		96FBA8B21C28ED6E00B3D6F2 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA8B11C28ED6E00B3D6F2 /* ReviewTableViewCell.swift */; };
+		96FBA8B71C2903CA00B3D6F2 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA8B61C2903CA00B3D6F2 /* FriendsTableViewController.swift */; };
+		96FBA8B91C29048C00B3D6F2 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA8B81C29048C00B3D6F2 /* Friend.swift */; };
+		96FBA8BB1C2909A900B3D6F2 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA8BA1C2909A900B3D6F2 /* UserProfileViewController.swift */; };
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		BA1DA1E81BA5337000AF7A62 /* OwnScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */; };
 		BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */; };
 		BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */; };
@@ -122,23 +138,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+<<<<<<< HEAD
 		6AD2016E1C29AFB90063CEE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6AD201681C29AFB80063CEE1 /* Charts.xcodeproj */;
+=======
+		96FBA8AA1C2896E800B3D6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96FBA8A41C2896E700B3D6F2 /* Charts.xcodeproj */;
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 			proxyType = 2;
 			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
 			remoteInfo = "Charts-iOS";
 		};
+<<<<<<< HEAD
 		6AD201701C29AFB90063CEE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6AD201681C29AFB80063CEE1 /* Charts.xcodeproj */;
+=======
+		96FBA8AC1C2896E800B3D6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96FBA8A41C2896E700B3D6F2 /* Charts.xcodeproj */;
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 			proxyType = 2;
 			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
 			remoteInfo = "Charts-TV";
 		};
+<<<<<<< HEAD
 		6AD201721C29AFB90063CEE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6AD201681C29AFB80063CEE1 /* Charts.xcodeproj */;
+=======
+		96FBA8AE1C2896E800B3D6F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96FBA8A41C2896E700B3D6F2 /* Charts.xcodeproj */;
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 			proxyType = 2;
 			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
 			remoteInfo = ChartsTests;
@@ -159,7 +193,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		6AD201681C29AFB80063CEE1 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/ios-charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		9614CB371BF5B5A8003BB669 /* FaceOffQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceOffQuestionViewController.swift; sourceTree = "<group>"; };
 		96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		963D3D7F1C14ACA200486747 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -168,9 +205,12 @@
 		963D3D851C15039D00486747 /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		963D3D8B1C193DB600486747 /* RankingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingsViewController.swift; sourceTree = "<group>"; };
 		963D3D8D1C19418A00486747 /* RankingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingsTableViewCell.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		964EF5091C0984D700F2B07C /* SearchFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewController.swift; sourceTree = "<group>"; };
 		964EF50B1C098FE800F2B07C /* SearchFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendTableViewCell.swift; sourceTree = "<group>"; };
 		964EF50D1C0A7FED00F2B07C /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		9651094E1C1E364B002B2B10 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		965109521C235317002B2B10 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		965109541C23C3B4002B2B10 /* ChallengeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeOptionsViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +233,10 @@
 		966D669D1C24603F00BC58CB /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		966D669F1C24603F00BC58CB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966D66A01C24603F00BC58CB /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryInfoViewController.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		967396A11C0EB42300F392E8 /* TopRatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		967396A31C0EB44100F392E8 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		9676C74A1C279D8700E41CF8 /* CheckAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckAnswersViewController.swift; sourceTree = "<group>"; };
@@ -204,7 +247,10 @@
 		969A7CA81C06643000FCBD26 /* BackTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableVC.swift; sourceTree = "<group>"; };
 		969A7CAB1C070C9700FCBD26 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		96A2A3F81BE341F80021E32C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		96B0FA081BFABC5100371660 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		96B0FA0B1BFC78E300371660 /* GameHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryViewController.swift; sourceTree = "<group>"; };
 		96B0FA0D1BFC79AC00371660 /* GameHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		96B5765E1C0EB82F0020CB3A /* SubmitAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitAnswersViewController.swift; sourceTree = "<group>"; };
@@ -227,7 +273,15 @@
 		96DD46131BD62088006B97F2 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		96DD46191BD658C0006B97F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		96DD46221BD71402006B97F2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		96FAD63A1C0AA5E100C1221C /* testTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testTableViewCell.swift; sourceTree = "<group>"; };
+=======
+		96FBA8A41C2896E700B3D6F2 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/ios-charts-master 2/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		96FBA8B11C28ED6E00B3D6F2 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		96FBA8B61C2903CA00B3D6F2 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		96FBA8B81C29048C00B3D6F2 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		96FBA8BA1C2909A900B3D6F2 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		BA1DA1E71BA5337000AF7A62 /* OwnScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnScoreViewController.swift; sourceTree = "<group>"; };
 		BA1DA1EA1BA5344800AF7A62 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		BA1DA1EC1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -325,6 +379,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		6AD201691C29AFB80063CEE1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,12 +390,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		96212CEF1BD5D2C60034EA4B /* SubCategoryVC */ = {
 			isa = PBXGroup;
 			children = (
 				96212CF01BD5D2F10034EA4B /* SubCategoryViewController.swift */,
 				96D71D4B1BFAAF3800675A15 /* SearchSubCategoryViewController.swift */,
+<<<<<<< HEAD
 				9673969E1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift */,
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 			);
 			name = SubCategoryVC;
 			sourceTree = "<group>";
@@ -455,10 +515,15 @@
 			children = (
 				96A2A3F81BE341F80021E32C /* SummaryViewController.swift */,
 				9676C74A1C279D8700E41CF8 /* CheckAnswersViewController.swift */,
+<<<<<<< HEAD
+=======
+				96FBA8B11C28ED6E00B3D6F2 /* ReviewTableViewCell.swift */,
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 			);
 			name = SummaryVC;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		96A2A3FA1BE400300021E32C /* FriendVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +536,8 @@
 			name = FriendVC;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		96B0FA0A1BFC78CE00371660 /* GameHistoryVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +626,29 @@
 			name = ProfileVC;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		96FBA8A51C2896E700B3D6F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96FBA8AB1C2896E800B3D6F2 /* Charts.framework */,
+				96FBA8AD1C2896E800B3D6F2 /* Charts.framework */,
+				96FBA8AF1C2896E800B3D6F2 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96FBA8B31C29035B00B3D6F2 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				96FBA8B61C2903CA00B3D6F2 /* FriendsTableViewController.swift */,
+				96FBA8B81C29048C00B3D6F2 /* Friend.swift */,
+				96FBA8BA1C2909A900B3D6F2 /* UserProfileViewController.swift */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 		BA1DA1E61BA5335B00AF7A62 /* OwnScoreVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,7 +739,11 @@
 				BA512E8F1BA5EA23008AE31B /* Main_ipad.storyboard */,
 				965109521C235317002B2B10 /* Launch Screen.storyboard */,
 				BAB91BAA1BA271DB0033DCA6 /* Images.xcassets */,
+<<<<<<< HEAD
 				6AD201681C29AFB80063CEE1 /* Charts.xcodeproj */,
+=======
+				96FBA8A41C2896E700B3D6F2 /* Charts.xcodeproj */,
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				BAB91BA11BA271DB0033DCA6 /* Supporting Files */,
 			);
 			path = SalesGame_swift;
@@ -732,6 +826,10 @@
 		BAEA6E3C1BA3417700558565 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				96FBA8B31C29035B00B3D6F2 /* Friends */,
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				967396A01C0EB3F300F392E8 /* SubmitQuestionVC */,
 				969A7CAA1C070C5B00FCBD26 /* MessageVC */,
 				96B0FA0A1BFC78CE00371660 /* GameHistoryVC */,
@@ -741,7 +839,10 @@
 				96C4F3CB1BF34068009E73CD /* ChallengeSubCategoryVC */,
 				96C4F3C61BF33DC3009E73CD /* ChallengeCategoryVC */,
 				96DC25FA1BF1C65D00D3F0CC /* BadgeVC */,
+<<<<<<< HEAD
 				96A2A3FA1BE400300021E32C /* FriendVC */,
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				96A2A3F71BE341D70021E32C /* SummaryVC */,
 				BA1DA1E91BA5343200AF7A62 /* HighScoreVC */,
 				9659FC851BD7600E0068C72B /* ChallengeVC */,
@@ -870,8 +971,13 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+<<<<<<< HEAD
 					ProductGroup = 6AD201691C29AFB80063CEE1 /* Products */;
 					ProjectRef = 6AD201681C29AFB80063CEE1 /* Charts.xcodeproj */;
+=======
+					ProductGroup = 96FBA8A51C2896E700B3D6F2 /* Products */;
+					ProjectRef = 96FBA8A41C2896E700B3D6F2 /* Charts.xcodeproj */;
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				},
 			);
 			projectRoot = "";
@@ -882,6 +988,7 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+<<<<<<< HEAD
 		6AD2016F1C29AFB90063CEE1 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -901,6 +1008,27 @@
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
 			remoteRef = 6AD201721C29AFB90063CEE1 /* PBXContainerItemProxy */;
+=======
+		96FBA8AB1C2896E800B3D6F2 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 96FBA8AA1C2896E800B3D6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		96FBA8AD1C2896E800B3D6F2 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 96FBA8AC1C2896E800B3D6F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		96FBA8AF1C2896E800B3D6F2 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 96FBA8AE1C2896E800B3D6F2 /* PBXContainerItemProxy */;
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -952,9 +1080,14 @@
 				96DD46141BD62088006B97F2 /* HelpViewController.swift in Sources */,
 				BA512E851BA59E43008AE31B /* IQTitleBarButtonItem.m in Sources */,
 				BA512E881BA59E43008AE31B /* IQUIView+IQKeyboardToolbar.m in Sources */,
+<<<<<<< HEAD
 				9673969F1C0E6B4D00F392E8 /* SubCategoryInfoViewController.swift in Sources */,
 				964EF50A1C0984D700F2B07C /* SearchFriendTableViewController.swift in Sources */,
 				96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */,
+=======
+				96DD461A1BD658C0006B97F2 /* ProfileViewController.swift in Sources */,
+				96FBA8B91C29048C00B3D6F2 /* Friend.swift in Sources */,
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				BAEA6E4A1BA34B8000558565 /* AllCategoryViewController.swift in Sources */,
 				BA512E5F1BA597DD008AE31B /* SettingViewController.swift in Sources */,
 				969A7CA31C0630A500FCBD26 /* SliderMenuViewController.swift in Sources */,
@@ -970,7 +1103,10 @@
 				BA512E841BA59E43008AE31B /* IQTextView.m in Sources */,
 				966D66A71C24603F00BC58CB /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				9659FC871BD760250068C72B /* ChallengeViewController.swift in Sources */,
+<<<<<<< HEAD
 				964EF50E1C0A7FED00F2B07C /* Friend.swift in Sources */,
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				966D66AE1C24603F00BC58CB /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				96C4F3CD1BF3409B009E73CD /* ChallengeSubCategoryViewController.swift in Sources */,
 				966D66A91C24603F00BC58CB /* IQKeyboardReturnKeyHandler.swift in Sources */,
@@ -978,12 +1114,19 @@
 				BA1DA1ED1BA54DBB00AF7A62 /* HighScoreTableViewCell.swift in Sources */,
 				BAEA6E441BA3419800558565 /* LoginViewController.swift in Sources */,
 				BA512E821BA59E43008AE31B /* IQNSArray+Sort.m in Sources */,
+<<<<<<< HEAD
 				96FAD63B1C0AA5E100C1221C /* testTableViewCell.swift in Sources */,
+=======
+				96FBA8B71C2903CA00B3D6F2 /* FriendsTableViewController.swift in Sources */,
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				BA512E621BA59D6F008AE31B /* UtilityClass.m in Sources */,
 				BA512E871BA59E43008AE31B /* IQUIView+Hierarchy.m in Sources */,
 				BA512E7F1BA59E43008AE31B /* IQBarButtonItem.m in Sources */,
 				9651094F1C1E364B002B2B10 /* Category.swift in Sources */,
+<<<<<<< HEAD
 				964EF50C1C098FE800F2B07C /* SearchFriendTableViewCell.swift in Sources */,
+=======
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				963D3D861C15039D00486747 /* SubCategoryCollectionViewCell.swift in Sources */,
 				96C4F3C51BF33796009E73CD /* ChallengeTableViewCell.swift in Sources */,
 				96DC25FC1BF1C67500D3F0CC /* BadgeViewController.swift in Sources */,
@@ -999,6 +1142,10 @@
 				96C4F3D71BF45541009E73CD /* TotalBadgesTableViewCell.swift in Sources */,
 				9614CB381BF5B5A8003BB669 /* FaceOffQuestionViewController.swift in Sources */,
 				BAEA6E481BA347EB00558565 /* HomeViewController.swift in Sources */,
+<<<<<<< HEAD
+=======
+				96FBA8BB1C2909A900B3D6F2 /* UserProfileViewController.swift in Sources */,
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				96B0FA0C1BFC78E300371660 /* GameHistoryViewController.swift in Sources */,
 				966D66A11C24603F00BC58CB /* IQNSArray+Sort.swift in Sources */,
 				96C4F3D21BF43BFC009E73CD /* NewUserProfileViewController.swift in Sources */,
@@ -1007,10 +1154,17 @@
 				BA1DA1EB1BA5344800AF7A62 /* HighScoreViewController.swift in Sources */,
 				967396A41C0EB44100F392E8 /* RecentViewController.swift in Sources */,
 				969A7CAC1C070C9700FCBD26 /* MessageViewController.swift in Sources */,
+<<<<<<< HEAD
 				96B0FA091BFABC5100371660 /* FriendViewController.swift in Sources */,
 				96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */,
 				965109571C23C730002B2B10 /* ChallengeRandomViewController.swift in Sources */,
 				96C4F3D01BF34897009E73CD /* ChallengeFaceOffViewController.swift in Sources */,
+=======
+				96C4F3C31BF304CE009E73CD /* SelectSubCategoryViewController.swift in Sources */,
+				965109571C23C730002B2B10 /* ChallengeRandomViewController.swift in Sources */,
+				96C4F3D01BF34897009E73CD /* ChallengeFaceOffViewController.swift in Sources */,
+				96FBA8B21C28ED6E00B3D6F2 /* ReviewTableViewCell.swift in Sources */,
+>>>>>>> d6e906b4510cf39f9ffcbdd178848ad1fce0298e
 				966D66A31C24603F00BC58CB /* IQUIView+Hierarchy.swift in Sources */,
 				96C4F3D51BF45459009E73CD /* TotalBadgesViewController.swift in Sources */,
 			);
